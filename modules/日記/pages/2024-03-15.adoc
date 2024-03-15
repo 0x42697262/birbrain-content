@@ -17,6 +17,7 @@ I could maybe take inspirate from https://github.com/jamstack/jamstack.org[Jamst
 
 Another pain point with AsciiDoc is that I don't know how to link to another notes in my system and there are no https://github.com/vimwiki/vimwiki[vimwiki]-like movements.
 Very annoying acts to always repeat:
+
 * Journaling
 * Adding new notes
 * No backlinks
