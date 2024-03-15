@@ -1,0 +1,27 @@
+= March 15, 2024
+
+I spent 12 hours just trying to make https://github.com/jackyzha0/quartz[Quartz] work and it did!
+I even copied https://www.mara-li.fr[Owlly Lab]'s code just to make Quartz nicer to look at.
+It was all working well locally however the Github Actions workflow was annoying to use.
+Skill Issue, I was not able to figure it out.
+I was thinking of putting at least two submodules for the `content` directory but it keeps failing to find it, and I don't know why.
+Hence, I moved back again to https://docs.antora.org[Antora]... cue the xref:2024-03-14.adoc[previous day].
+
+I was able to figure out how to change the UI and publish it with Github Actions.
+It was far simpler to implement than Quartz.
+
+My only main issue with this next is the theme.
+I don't know yet how to change it to dark theme.
+Light theme is meh, bad for my eyes.
+I could maybe take inspirate from https://github.com/jamstack/jamstack.org[Jamstack]'s color theme switcher.
+
+Another pain point with AsciiDoc is that I don't know how to link to another notes in my system and there are no https://github.com/vimwiki/vimwiki[vimwiki]-like movements.
+Very annoying acts to always repeat:
+* Journaling
+* Adding new notes
+* No backlinks
+* Cannot move around backlinks
+* Node graph view of the notes
+* No tagging
+
+Maybe next time then.

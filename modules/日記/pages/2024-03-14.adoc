@@ -1,0 +1,49 @@
+
+= March 14, 2024
+
+== Personal Wiki
+
+I moved away from https://obsidian.md/[Obsidian.md] in favor of https://github.com/vimwiki/vimwiki[vimwiki] because my https://github.com/0x42697262/obsidian_files[Obsidian notes] got clunky and messy.
+I wanted something that can easily be maintained.
+
+I found out about https://github.com/jackyzha0/quartz[Quartz] and made me stick to using Markdown for my plaintext notes.
+I checked Asciidoc and it has more features than Markdown and support for built-in syntax that Markdown does not have.
+It was interesting but it falls short on vimwiki-like tool and https://docs.antora.org[Antora] does not have backlinks, file preview, and local graph.
+
+
+*vimwiki + quartz*
+
+Pros:
+
+* wikilinks
+* graph view
+* plugins
+* previews
+* backlinks
+
+Cons:
+
+* it's not asciidoc
+
+*asciidoctor + antora*
+
+Pros:
+
+* asciidoc itself
+* got lots of features that i haven't tested yet
+
+Cons:
+
+* no wikilinks
+* no vimwiki
+* no previews
+* no backlinks
+* no graph view
+* annoying to setup
+
+
+I found an interesting Quartz setup on https://www.mara-li.fr/, I'll be taking that as inspiration.
+
+I tried using AsciiDoc and Antora at first but I did not like the idea of having to configure the navigation menus and bars, and other parts of the UI as well.
+Thus I gave up on using it.
+It was annoying and wasted my time.
