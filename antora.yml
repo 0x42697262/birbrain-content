@@ -1,0 +1,6 @@
+name: 知識
+title: 知識
+version: ~
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/知識/nav.adoc
