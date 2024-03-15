@@ -1,0 +1,35 @@
+= Setup
+// :note-caption: 🗒️ Info
+:icons: info-circle
+
+xref:index.adoc[birbrain] uses https://docs.antora.org[Antora] to generate my https://asciidoc.org[AsciiDoc] contents.
+
+== Starting from scratch
+
+Follow this https://docs.antora.org/antora/latest/install-and-run-quickstart[guide].
+
+[NOTE]
+====
+Make sure to commit the git repository otherwise the site won't be generated.
+This error will occur:
+
+----
+(@antora/content-classifier): Start page specified for site not found: 知識::index.adoc
+----
+====
+
+== Changes
+
+I currently use the https://gitlab.com/antora/antora-ui-default[default antora ui] because I have no idea how to create my own user interface from scratch.
+I think it is recommended to bundle your own UI instead of modifying it by parts.
+
+*supplementary_ui/partials* changes:
+
+* edit-this-page.hbs
+* footer-content.hbs
+* header-content.hbs
+
+== Extensions
+
+* https://gitlab.com/antora/antora-lunr-extension[antora/lunr]
+
