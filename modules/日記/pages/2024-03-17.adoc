@@ -1,0 +1,22 @@
+= 2024年3月17日
+
+== xref macro
+
+Using ``xref`` as a way to relatively link other notes in xref:Antora[Antora] can be done through this pattern:
+
+----
+component:module:file.adoc[file]
+----
+
+As an example, this links to the index of xref:幻想:index.adoc[幻想].
+
+Source: https://docs.antora.org/antora/latest/page/xref[xref macro]
+
+== page aliases
+
+I can also use ``:page-aliases:`` to refer to a note that might keep moving like xref:幻想:幻想.adoc[this].
+
+The only issue is that i have to follow the ``component:module:file`` or ``module:file`` format.
+This will reduce its usefulness when a note is from another componenet, but that should not be an issue because I will be setting up the components with different purposes.
+
+Source: https://docs.antora.org/antora/latest/page/page-aliases/[page aliases]

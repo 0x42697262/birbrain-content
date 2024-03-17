@@ -1,4 +1,5 @@
 = 日記
+:page-aliases: 日記
 
 
 daily journal logs can be found here
