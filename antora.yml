@@ -4,3 +4,4 @@ version: ~
 nav:
   - modules/ROOT/nav.adoc
   - modules/日記/nav.adoc
+  - modules/幻想/nav.adoc
