@@ -1,5 +1,5 @@
 = 幻想
-:page-aliases: 幻想, fuck
+:page-aliases: 幻想
 
 
 [NOTE]
