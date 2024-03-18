@@ -1,0 +1,32 @@
+name: Update Antora
+on:
+  workflow_dispatch:
+    inputs:
+      birbrain:
+        description: "birbrain Antora"
+        required: true
+        default: "birbrain"
+
+      birbrain_github_account:
+        description: "0x42697262"
+        required: true
+        default: ":userName"
+
+      birbrain_repo_github:
+        description: "birbrain"
+        required: true
+        default: ":repoName"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Test
+        run: |
+          curl -X POST https://api.github.com/repos/:userName/:repoName/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACTIONS_KEY }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+      - uses: actions/checkout@v3
