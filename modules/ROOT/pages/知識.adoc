@@ -1,13 +1,11 @@
 = 知識
 :page-aliases: root, home
 
-I no longer use https://obsidian[Obsidian] for taking notes.
+I no longer use https://obsidian.md[Obsidian] for taking notes.
 Everything will be stored here including other stuffs that I do.
 I didn't like my setup in https://github.com/KrulYuno/obsidian_files[Obsidian Notes] and was annoying to keep track of the files.
 
 This xref:setup.adoc[setup] feels much easier to track although it has a few features that I miss from Obsidian (like backlinks, wikilinks, and graphs).
-
-
 
 
 .*TODO*

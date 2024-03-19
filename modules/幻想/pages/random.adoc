@@ -1,5 +1,31 @@
 = random
 
+== xref:avviki.adoc[avviki]
+
+making my own antora vim wiki plugin thingy
+
+== job salary expectations when listed in job posting
+
+when asked these questions:
+
+[qanda]
+What are your salary expectations for this role?::
+Mention the salary range in the job description.
+Ask if it's still the case.
+
+Yes, does that align with your expectations?::
+Mention what you want.
+If you want a higher salary, mention that a higher end aligns with your expectations.
+
+We'd love to offer you a job. Do you accept?::
+Don't answer on the spot.
+Don't ask for the pay.
+Don't negotiate.
+First thank them for the job offer, second be grateful to join the team, third ask them for the offer letter in email so that you can review the specifications.
+
+Last thing to do is to be grateful again.
+Then push for higher end of the salary if it's not enough.
+
 
 == life lessons maybe?
 

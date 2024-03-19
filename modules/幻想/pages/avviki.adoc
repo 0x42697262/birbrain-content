@@ -1,0 +1,22 @@
+= Avviki
+
+a https://github.com/ratfactor/vviki[vviki] inspired antora wiki plugin for neovim
+
+
+== Configuration
+
+avviki_root:: ``antora.yml`` file
+avviki_journal:: module name for the journal
+avviki_list:: wiki with configurable default values <<_avviki_list>>
+
+=== avviki_list
+
+journal_name:: index filename for the journal module
+
+== Commands
+
+AvvikiIndex:: Opens or creates ``antora.yml`` file
+AvvikiJournal:: Opens or creates a journal module
+AvvikiPages:: Select from list of all pages
+
+== Process
