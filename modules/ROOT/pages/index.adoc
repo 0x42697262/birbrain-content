@@ -1,4 +1,0 @@
-= 知識
-:page-aliases: home, 知識
-
-My personal something is sotred here.

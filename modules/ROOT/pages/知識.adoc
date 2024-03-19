@@ -1,0 +1,112 @@
+= 知識
+:page-aliases: root, home
+
+I no longer use https://obsidian[Obsidian] for taking notes.
+Everything will be stored here including other stuffs that I do.
+I didn't like my setup in https://github.com/KrulYuno/obsidian_files[Obsidian Notes] and was annoying to keep track of the files.
+
+This xref:setup.adoc[setup] feels much easier to track although it has a few features that I miss from Obsidian (like backlinks, wikilinks, and graphs).
+
+
+
+
+*TODO*
+
+[%interactive]
+* Rewrite my obsidian notes here
+[%interactive]
+** 001 Linux
+[%interactive]
+*** [ ] GNU Compiler Collection
+*** [ ] GNU Debugger
+*** [ ] iwconfig
+*** [ ] QEMU
+*** [ ] readelf
+*** [ ] syst-analyze — blame
+*** [ ] syst
+*** [ ] Vim — Tricks
+*** [ ] xxd
+*** [ ]  GNU Debugger — hook-stop GNU Debugger — set
+*** [ ] NixOS
+*** [ ] readelf — commands
+*** [ ] rtl88x2bu
+*** [ ] syst-analyze
+*** [ ] Vim
+*** [ ] Wayland
+** 002 Certificates
+[%interactive]
+*** [ ] Certificates
+*** [ ] Certified Information Systems Security Professional
+*** [ ] CompTIA Security+
+** [ ] Communication and Network Security
+** [ ] Encipherment
+** [ ] Plain Text
+** [ ] Spear Phishing
+** [ ] Computer Networking
+** [ ] Encryption
+** [ ] Punycode
+** [ ] sqlite3
+** [ ] Adversarial Machine Learning
+** [ ] Computer Security
+** [ ] Firefox
+** [ ] Rust
+** [ ] Static Analysis
+** [ ] Asset Security
+** [ ] Cryptanalysis
+** [ ] Firewall
+** [ ] Security and Risk Management
+** [ ] Substitution Cipher
+** [ ] Base64
+** [ ] Cryptographic Attack
+** [ ] Identity and Access Management
+** [ ] Security Architecture and Engineering
+** [ ] Supply Chain Attack
+** [ ] Birthday Attack
+** [ ] Cryptographic Systems
+** [ ] Information Security
+** [ ] Security Assessment and Testing
+** [ ] Symmetric Key Cryptography
+** [ ] BT Snoop File Format
+** [ ] Cryptography
+** [ ] Information Technology Security
+** [ ] Security Control
+** [ ] Symmetric Key Encryption
+** [ ] Business Email Compromise
+** [ ] Cryptosystem
+** [ ] Information Theory
+** [ ] Security Domains (CISSP)
+** [ ] TELNET
+** [ ] CEO Fraud
+** [ ] Cyberattack
+** [ ] Memory Layout — C
+** [ ] Security Framework
+** [ ] Threat Actor
+** [ ] CIA Triad
+** [ ] Cyber Physical Attack
+** [ ] Memory Layout
+** [ ] Security Lifeycle
+** [ ] Transposition Cipher
+** [ ] Cipher
+** [ ] Cybersecurity
+** [ ] Networking System
+** [ ] Security Operations
+** [ ] USB Baiting
+** [ ] Cipher Text
+** [ ] Cyber Threat
+** [ ] Network Security
+** [ ] Smishing
+** [ ] Vishing
+** [ ] CodeIgniter
+** [ ] Digital Security
+** [ ] Obsidian
+** [ ] Social Engineering
+** [ ] Watering Hole Attack
+** [ ] Collision Attack
+** [ ] Downgrade Attack
+** [ ] Phishing
+** [ ] Software Development Security
+** [ ] Whaling
+* [ ] Writeups as separate component (separate git repo)
+
+
+

@@ -2,7 +2,7 @@
 // :note-caption: 🗒️ Info
 :icons: info-circle
 
-xref:index.adoc[birbrain] uses https://docs.antora.org[Antora] to generate my https://asciidoc.org[AsciiDoc] contents.
+xref:知識.adoc[birbrain] uses https://docs.antora.org[Antora] to generate my https://asciidoc.org[AsciiDoc] contents.
 
 == Starting from scratch
 

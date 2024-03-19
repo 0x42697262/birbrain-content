@@ -1,2 +1,2 @@
-* xref:index.adoc[]
+* xref:知識.adoc[]
 ** xref:setup.adoc[]

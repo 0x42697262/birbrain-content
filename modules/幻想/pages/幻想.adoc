@@ -1,6 +1,14 @@
 = 幻想
-:page-aliases: 幻想
 
+== xref:Vim:vim.adoc[vim movements]
+
+----
+:%s/\s\s+/^M/g
+----
+
+To type ``^M``, hit kbd:[CTRL + V] then kbd:[CTRL + M]
+
+== life lessons maybe?
 
 [NOTE]
 .*Here’s 32 things I’ve learned that I hope help you in your journey*:
