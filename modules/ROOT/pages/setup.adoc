@@ -18,6 +18,46 @@ This error will occur:
 ----
 ====
 
+== Automated Site Building on xref:Git:github-pages.adoc[Github Pages]
+
+The structure of this notebook is to have a repository for xref:AsciiDoc:antora.adoc[Antora] and multiple different repositories for the components.
+
+The process is straightforward: push to the repository of components. This action triggers a workflow, which in turn initiates another workflow that will deploy the Antora document to Github Pages.
+[ditaa]
+....
+
++-----------+     +-----------+    +-----------+           +-----------+
+|           |     |           |    |           |           |           |
+| Component |     | Component |    | Component |           | Component |
+|     A     |     |     B     |    |     C     |    ...    |     N     |
+|           |     |           |    |           |           |           |
++-----+-----+     +-----+-----+    +-----+-----+           +------+----+
+      |                 |                |                        |    
+      +-----------------+-------+--------+------------------------+      
+                                |                                   
+                                | Push Request
+                                |
+                                v                                  
+                   +-------------------------+                             
+                   |                         |                             
+                   |  Call Antora Repository |                             
+                   |  Build Workflow Action  |                             
+                   |                         |                             
+                   +------------+------------+                             
+                                |
+                                |
+                                v
+                       +-------------------+
+                       |                   |
+                       | Deploy to Github  |
+                       |       Pages       |
+                       |                   |
+                       +-------------------+
+....
+
+See xref:Git:github-actions.adoc[].
+
+
 == Changes
 
 I currently use the https://gitlab.com/antora/antora-ui-default[default antora ui] because I have no idea how to create my own user interface from scratch.
@@ -32,4 +72,5 @@ I think it is recommended to bundle your own UI instead of modifying it by parts
 == Extensions
 
 * https://gitlab.com/antora/antora-lunr-extension[antora/lunr]
+* https://github.com/asciidoctor/asciidoctor-kroki[asciidoctor-kroki]
 

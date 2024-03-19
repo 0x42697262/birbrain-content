@@ -1,0 +1,6 @@
+* xref:index.adoc[]
+** xref:github.adoc[]
+*** xref:github-actions.adoc[]
+*** xref:github-pages.adoc[]
+*** xref:github-personal-access-tokens.adoc[]
+

@@ -1,0 +1,21 @@
+= 2024年3月18日
+
+Why not try writing in 日本語?
+
+== xref:Git:github-actions.adoc[Github Actions]
+
+[line-through]#Nevermind I can't write in 日本語 yet.#
+
+Trying to figure out how I can automate xref:AsciiDoc:antora.adoc[Antora] to automatically build the xref:Git:github-pages.adoc[Github Pages] when a source content is being pushed.
+I used these sites as my main sources:
+
+. https://medium.com/hostspaceng/triggering-workflows-in-another-repository-with-github-actions-4f581f8e0ceb[] The only one that worked the best
+. https://dev.to/moaaz_adel/github-actions-a-simple-way-to-trigger-workflow-from-another-workflow-1b55[] I read this first, but it didn't work. I did use its second workflow file though
+. https://medium.com/@husnainsiddique581/trigger-github-action-from-another-repo-using-trigger-workflow-and-wait-api-f2e572cb22b7[] I'm not sure if I even read this.
+
+
+== stuffs to take note for the next days
+
+. Kaplan Meier Curve
+. https://github.com/jMonkeyEngine/wiki-ui/blob/master/src/js/06-darkmode.js[dark mode ui]
+

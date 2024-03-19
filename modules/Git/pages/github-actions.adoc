@@ -1,0 +1,76 @@
+= Github Actions
+
+== Triggering Workflow from Another Repository Workflow
+
+=== Requirements
+
+[%interactive]
+* [ ] xref:Git:github-personal-access-tokens.adoc[Personal Access Tokens]
+* [ ] source trigger repository
+* [ ] target repository
+
+=== How?
+
+Get a *Personal Access Token* (PAT) at https://github.com/settings/tokens[Tokens (classic)] or https://github.com/settings/tokens?type=beta[Fine-grain tokens] (menu:Settings[Developer settings > Personal access tokens]).
+
+Set the desired permissions and repository access.
+I set mine to only allow repositories that needs the token access.
+
+Add *PAT* to the source trigger repository.
+
+Create a workflow file for the target repository.
+
+[source, yaml]
+----
+name: Automatic Updates from Contents <1>
+on: [repository_dispatch]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps: <2>
+      - run: echo "Will run 'Publish to GitHub Pages with Extensions' workflow"
+      - name: Checkout
+        uses: actions/checkout@v2
+----
+<1> Name can be anything
+<2> This step can either call another workflow (chaining) or execute jobs
+
+This will automatically run whenever a repository workflow dispatches the target repository.
+
+Create another workflow file for the triggering repository.
+
+[, yaml]
+----
+name: Update birbrain <1>
+on: <2>
+  push:
+    branches: [main]
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update birbrain Antora Repository <3>
+        run: |
+          # Set the required variables
+          repo_owner="0x42697262" <4>
+          repo_name="birbrain"  <5>
+          event_type="trigger-workflow" 
+
+          # Dispatch the event with the payload
+          curl -L \ <6>
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.ACTIONS_KEY }}" \ <7>
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
+            -d "{\"event_type\": \"$event_type\", \"client_payload\": {\"unit\": false, \"integration\": true}}"
+----
+<1> Can be any name
+<2> ``workflow_dispatch`` can be used for manual dispatch
+<3> Any name
+<4> Github username
+<5> Github target repository
+<6> The required step to dispatch the target repository workflows
+<7> The *PAT* token created earlier
+
+And that "should" work.
