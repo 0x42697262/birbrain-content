@@ -1,0 +1,35 @@
+= vim
+
+I don't use vim.
+I use xref:vim:neovim.adoc[the better vim].
+
+
+== Movements
+
+=== Converting bunch of spaces into new line
+
+----
+:%s/\s\s+/^M/g <1>
+----
+<1> To type ``^M``, hit kbd:[CTRL + V] then kbd:[CTRL + M].
+
+This will turn the example below
+
+----
+NixOS      Arch Linux        Debian              Mint        
+Ubuntu       ParrotOS              Tumbleweed
+Gentoo        
+----
+
+into
+
+----
+NixOS
+Arch Linux
+Debian
+Mint
+Ubuntu
+ParrotOS
+Tumbleweed
+Gentoo        
+----

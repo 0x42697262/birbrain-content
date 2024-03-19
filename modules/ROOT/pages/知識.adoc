@@ -10,8 +10,8 @@ This xref:setup.adoc[setup] feels much easier to track although it has a few fea
 
 
 
-*TODO*
-
+.*TODO*
+****
 [%interactive]
 * Rewrite my obsidian notes here
 [%interactive]
@@ -107,6 +107,5 @@ This xref:setup.adoc[setup] feels much easier to track although it has a few fea
 ** [ ] Software Development Security
 ** [ ] Whaling
 * [ ] Writeups as separate component (separate git repo)
-
-
-
+* [ ] Journals
+****

@@ -5,4 +5,7 @@ nav:
   - modules/ROOT/nav.adoc
   - modules/幻想/nav.adoc
   - modules/日記/nav.adoc
+
   - modules/Git/nav.adoc
+  - modules/information-security/nav.adoc
+  - modules/vim/nav.adoc
