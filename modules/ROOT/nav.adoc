@@ -1,19 +1,22 @@
-[]
+[ROOT]
 * xref:index.adoc[]
 ** xref:setup.adoc[]
 
-[]
+[Journal]
 * xref:日記:index.adoc[]
 ** xref:日記:2024-03-14.adoc[]
 ** xref:日記:2024-03-15.adoc[]
 ** xref:日記:2024-03-17.adoc[]
 ** xref:日記:2024-03-18.adoc[]
+** xref:日記:2024-03-19.adoc[]
+** xref:日記:2024-03-20.adoc[]
 
-[]
+[Temporary]
 * xref:幻想:index.adoc[]
 ** xref:幻想:random.adoc[]
 
 
+[Github]
 .Github
 * xref:github-actions.adoc[]
 

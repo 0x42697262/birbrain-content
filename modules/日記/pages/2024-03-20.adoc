@@ -1,0 +1,4 @@
+= 2024年3月20日
+
+I just realized it's much easier to put all of the notes under xref:ROOT:知識.adoc[ROOT] then use ``nav.adoc`` to list them.
+This somehow makes life a bit easier.
