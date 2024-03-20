@@ -2,21 +2,63 @@
 
 a https://github.com/ratfactor/vviki[vviki] inspired antora wiki plugin for neovim
 
+This should handle antora sources directly.
+By default, it creates this file structure:
+
+[listing]
+----
+📒 repository
+  📄 antora.yml <.>
+  📂 modules <.>
+    📂 ROOT <.>
+      📂 pages <.>
+        📄 wiki.adoc <.>
+      📄 nav.adoc <.>
+----
+<.> Antora required component file, cannot be changed.
+<.> Required modules directory.
+<.> Optional module.
+<.> Directory that is consistent to all modules.
+<.> Filename of the source without the extension.
+<.> Automatically generated navigation file.
 
 == Configuration
 
-avviki_root:: ``antora.yml`` file
-avviki_journal:: module name for the journal
-avviki_list:: wiki with configurable default values <<_avviki_list>>
+avviki_sources:: List of sources with its <<_avviki_sources, configurations>>.
 
-=== avviki_list
+=== avviki_sources
 
-journal_name:: index filename for the journal module
+source:: Directory path of ``antora.yml``.
+name:: Filename of root module. An empty name is optional.
+journal_name:: Module name of the journal.
 
 == Commands
 
-AvvikiIndex:: Opens or creates ``antora.yml`` file
-AvvikiJournal:: Opens or creates a journal module
-AvvikiPages:: Select from list of all pages
+AvvikiIndex:: Opens or creates ``antora.yml`` file.
+AvvikiJournal:: Opens or creates a journal module.
+AvvikiPages:: Select from list of all pages.
+AvvikiPasteImage:: Pastes Image from clipboard.
 
 == Process
+
+[graphviz]
+----
+
+digraph AvvikiProcess {
+    start                 [shape=ellipse, label="Start"]
+    end                   [shape=ellipse, label="End"]
+
+    loaded_avviki         [shape=diamond, label="Avviki loaded?\n(Yes/No)"]
+    run                   [shape=box, label="Run Avviki"]
+    exit                  [shape=box, label="Exit Avviki"]
+
+    avviki_sources        [shape=diamond, label="avviki_sources directories exists?\n(Yes/No)"]
+
+
+    start             -> loaded_avviki
+    loaded_avviki     -> run              [label="Yes"]
+    loaded_avviki     -> exit             [label="No"]
+    run               -> avviki_sources
+    avviki_sources    -> end
+}
+----
