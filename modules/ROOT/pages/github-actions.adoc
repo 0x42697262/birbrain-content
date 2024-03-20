@@ -5,7 +5,7 @@
 === Requirements
 
 [%interactive]
-* [ ] xref:Git:github-personal-access-tokens.adoc[Personal Access Tokens]
+* [ ] xref:github-personal-access-tokens.adoc[Personal Access Tokens]
 * [ ] source trigger repository
 * [ ] target repository
 

@@ -1,2 +1,0 @@
-* xref:幻想.adoc[]
-** xref:random.adoc[]

@@ -1,5 +1,5 @@
 = 知識
-:page-aliases: root, home
+:page-aliases: root, home, 知識
 
 I no longer use https://obsidian.md[Obsidian] for taking notes.
 Everything will be stored here including other stuffs that I do.

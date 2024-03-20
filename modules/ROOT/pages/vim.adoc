@@ -1,7 +1,7 @@
 = vim
 
 I don't use vim.
-I use xref:vim:neovim.adoc[the better vim].
+I use xref:neovim.adoc[the better vim].
 
 
 == Movements

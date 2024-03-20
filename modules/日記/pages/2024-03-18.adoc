@@ -2,11 +2,11 @@
 
 Why not try writing in 日本語?
 
-== xref:Git:github-actions.adoc[Github Actions]
+== xref:ROOT:github-actions.adoc[Github Actions]
 
 [line-through]#Nevermind I can't write in 日本語 yet.#
 
-Trying to figure out how I can automate xref:AsciiDoc:antora.adoc[Antora] to automatically build the xref:Git:github-pages.adoc[Github Pages] when a source content is being pushed.
+Trying to figure out how I can automate xref:ROOT:antora.adoc[Antora] to automatically build the xref:ROOT:github-pages.adoc[Github Pages] when a source content is being pushed.
 I used these sites as my main sources:
 
 . https://medium.com/hostspaceng/triggering-workflows-in-another-repository-with-github-actions-4f581f8e0ceb[] The only one that worked the best

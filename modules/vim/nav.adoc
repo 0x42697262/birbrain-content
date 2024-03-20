@@ -1,2 +1,0 @@
-* xref:vim.adoc[]
-** xref:neovim.adoc[]

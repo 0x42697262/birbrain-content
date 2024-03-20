@@ -8,7 +8,7 @@ Using ``xref`` as a way to relatively link other notes in xref:Antora[Antora] ca
 component:module:file.adoc[file]
 ----
 
-As an example, this links to the index of xref:幻想:幻想.adoc[幻想].
+As an example, this links to the index of xref:幻想:index.adoc[幻想].
 
 Source: https://docs.antora.org/antora/latest/page/xref[xref macro]
 

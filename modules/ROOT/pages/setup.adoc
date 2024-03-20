@@ -2,7 +2,7 @@
 // :note-caption: 🗒️ Info
 :icons: info-circle
 
-xref:知識.adoc[birbrain] uses https://docs.antora.org[Antora] to generate my https://asciidoc.org[AsciiDoc] contents.
+xref:index.adoc[birbrain] uses https://docs.antora.org[Antora] to generate my https://asciidoc.org[AsciiDoc] contents.
 
 == Starting from scratch
 
@@ -18,9 +18,9 @@ This error will occur:
 ----
 ====
 
-== Automated Site Building on xref:Git:github-pages.adoc[Github Pages]
+== Automated Site Building on xref:github-pages.adoc[Github Pages]
 
-The structure of this notebook is to have a repository for xref:AsciiDoc:antora.adoc[Antora] and multiple different repositories for the components.
+The structure of this notebook is to have a repository for xref:antora.adoc[Antora] and multiple different repositories for the components.
 
 The process is straightforward: push to the repository of components. This action triggers a workflow, which in turn initiates another workflow that will deploy the Antora document to Github Pages.
 [ditaa]
@@ -55,7 +55,7 @@ The process is straightforward: push to the repository of components. This actio
                        +-------------------+
 ....
 
-See xref:Git:github-actions.adoc[].
+See xref:github-actions.adoc[].
 
 
 == Changes
