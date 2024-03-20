@@ -4,6 +4,7 @@
 
 [Journal]
 * xref:日記:index.adoc[]
+** xref:日記:2024-03-07.adoc[]
 ** xref:日記:2024-03-14.adoc[]
 ** xref:日記:2024-03-15.adoc[]
 ** xref:日記:2024-03-17.adoc[]
@@ -25,3 +26,6 @@
 
 .Information Security
 * xref:security-domains.adoc[]
+
+[]
+* xref:asciidoc.adoc[]

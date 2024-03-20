@@ -1,0 +1,9 @@
+= 2024年3月7日
+
+
+I Did These...
+
+* applied for some jobstreet
+* separated personal and work email
+* did complete deep learning machine problem 1
+* started reading about cryptography (surface knowledge)

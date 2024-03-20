@@ -1,0 +1,43 @@
+= AsciiDoc
+
+== Code Block
+
+.Python
+....
+[source, python] <.>
+----
+def main():
+  print('test')
+----
+....
+<.> You can remove ``source,`` and leave just the language, it still works.
+
+That will render it below.
+
+[source, python]
+----
+def main():
+  print('test')
+----
+
+== Comparisons between +++****+++, ----, ====, and ....
+
+This uses +++****+++
+****
+test
+****
+
+.This uses +++----+++
+----
+test
+----
+
+.This uses +++====+++
+====
+test
+====
+
+.This uses +++....+++
+....
+test
+....

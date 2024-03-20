@@ -105,5 +105,5 @@ This xref:setup.adoc[setup] feels much easier to track although it has a few fea
 ** [ ] Software Development Security
 ** [ ] Whaling
 * [ ] Writeups as separate component (separate git repo)
-* [ ] Journals
+* [x] Journals (all stashed to xref:幻想:random.adoc[])
 ****

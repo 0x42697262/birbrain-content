@@ -23,6 +23,7 @@ This error will occur:
 The structure of this notebook is to have a repository for xref:antora.adoc[Antora] and multiple different repositories for the components.
 
 The process is straightforward: push to the repository of components. This action triggers a workflow, which in turn initiates another workflow that will deploy the Antora document to Github Pages.
+
 [ditaa]
 ....
 
@@ -73,4 +74,4 @@ I think it is recommended to bundle your own UI instead of modifying it by parts
 
 * https://gitlab.com/antora/antora-lunr-extension[antora/lunr]
 * https://github.com/asciidoctor/asciidoctor-kroki[asciidoctor-kroki]
-
+* https://gitlab.com/djencks/asciidoctor-mathjax.js[djencks/asciidoctor-mathjax]
