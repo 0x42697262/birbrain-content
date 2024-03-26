@@ -1,11 +1,12 @@
 = links
 
-* https://dl.acm.org/doi/pdf/10.1145/3576915.3623066
-* https://fccid.io/
-* https://github.com/francozappa/bluffs
-* https://guyinatuxedo.github.io/
-* https://knobattack.com/
-* https://malwareunicorn.org/workshops/re101.html
-* https://oxasploits.com/posts/simple-buffer-overflow-exploitation-walkthrough-gdb/
-* https://pwn.college/
-* https://github.com/iced-rs/iced
+* https://dl.acm.org/doi/pdf/10.1145/3576915.3623066[]
+* https://fccid.io/[]
+* https://github.com/francozappa/bluffs[]
+* https://guyinatuxedo.github.io/[]
+* https://knobattack.com/[]
+* https://malwareunicorn.org/workshops/re101.html[]
+* https://oxasploits.com/posts/simple-buffer-overflow-exploitation-walkthrough-gdb/[]
+* https://pwn.college/[]
+* https://github.com/iced-rs/iced[]
+* https://resumeworded.com/cyber-security-resume-examples#all-templates[]

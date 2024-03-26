@@ -5,6 +5,83 @@
 
 making my own antora vim wiki plugin thingy
 
+== xref:information-security.adoc[Information Security]
+
+encompasses:
+
+* cybersecurity
+* privacy
+* physical security
+* contingency planning and disaster recovery
+* operational security
+* personnel security
+
+not sure if it's exactly the right words or if limited to that only.
+i think it encompasses a lot more than the list above.
+
+=== xref:security-frameworks.adoc[Security Frameworks]
+
+=== xref:security-standards.adoc[Security Standards]
+
+=== xref:security-models.adoc[Security Models]
+
+=== xref:cia-triad.adoc[CIA Triad]
+
+[qanda]
+What is it for?::
+no idea
+
+How is it used?::
+no idea
+
+Why is it used?::
+still no idea
+
+How does it work?::
+no idea
+
+What are the components of the CIA Triad?::
+confidentiality, integrity, and availability. i think?
+
+What examples each components has in action?::
+wew
+
+How do organizations implement measures to achieve confidentiality, integrity, and availability?::
+no idea
+
+What are the potential risks or threats to each component?::
+no idea
+
+How do the components of the CIA Triad interact with each other?::
+im not sure
+
+In what scenarios might organizations prioritize one component over the others?::
+i dunno
+
+What other frameworks or models in information security related to cia triad?::
+. Parkerian Hexad
+. Information Security Triad
+. AAA Triad
+. CIA Triad of Information Assurance
+. Six Trust Services Principles
+. ISO/IEC 27001
+. NIST Cybersecurity Framework
+. Defense in Depth
+. Zero Trust Security Model
+. CIS Controls
+. Data Classification
+. Threat Modeling
+
+
+
+=== NICE Framework
+
+maybe i should pay attention to this https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center[]
+
+this means national institute for cybersecurity education.
+i think it's focused for learners that wants to learn cybersecurity.
+thus, it's broken down into task, knowledge, and skills where the tasks is the cybersecurity work that needs to be done while knowledge and skills are what learners needs to know to accomplish the task.
+
 == job salary expectations when listed in job posting
 
 when asked these questions:
@@ -26,6 +103,14 @@ First thank them for the job offer, second be grateful to join the team, third a
 
 Last thing to do is to be grateful again.
 Then push for higher end of the salary if it's not enough.
+
+== firejail
+
+if i want to program to use specific folder, do.
+
+----
+firejail --private=~/some_directory ...
+----
 
 == life lessons maybe?
 
@@ -222,7 +307,11 @@ exploit     = SHELLCODE2 + NOP*5 + EIP
 sys.stdout.buffer.write(exploit)
 ----
 
-== nixos
+== xref:nixos.adoc[NixOS]
+
+== updating
+
+``nixos-rebuild switch --upgrade``
 
 === partitioning the drive
 

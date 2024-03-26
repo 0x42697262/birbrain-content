@@ -1,0 +1,34 @@
+= QEMU
+
+== Converting An Image
+
+You can convert an image to other formats using ``qemu-img convert``.
+Since I use QEMU as my main virtualization software, I'll convert them to ``.qcow2`` image.
+
+=== .ova Image
+
+
+Unpack the .ova image format.
+
+[sh]
+****
+$ tar -xvf __input__.ova
+****
+
+That should give extract two files: ``.vmdk`` and ``.ovf``.
+
+``.vmdk`` needs to be converted into `.qcow2` image format.
+
+
+[sh]
+****
+$ qemu-img convert -f vmdk -O qcow2 __input__.vmdk __output__.qcow2
+****
+
+NOTE: There are more necessary steps involved to make the images work like networking.
+
+Explanations for the parameters.
+-f:: first image format
+-O:: output image format
+
+See ``man qemu-img`` for more info.

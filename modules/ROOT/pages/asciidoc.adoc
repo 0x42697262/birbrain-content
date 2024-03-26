@@ -41,3 +41,42 @@ test
 ....
 test
 ....
+
+== Admonitions
+
+
+----
+NOTE: This command can be used as ... <.>
+----
+<.> Refer to https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions[AsciiDoc Documentation]. 
+
+This should render as.
+NOTE: This command can be used as ...
+
+For multiple lines, use this
+
+----
+[NOTE]
+====
+Some text here
+
+ANd here
+====
+----
+
+[NOTE]
+====
+Some text here
+
+ANd here
+====
+
+Types of admonitions:
+
+* NOTE
+* TIP
+* IMPORTANT
+* CAUTION
+* WARNING
+
+

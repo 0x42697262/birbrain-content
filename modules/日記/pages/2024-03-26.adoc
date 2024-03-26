@@ -1,0 +1,12 @@
+= 2024年3月26日
+
+
+When there's an instruction saying to follow something, follow it.
+Don't fricking skip it.
+
+I just fixed my VMWare install after trying to uninstall and reinstall it a bunch of times.
+Because I deleted ``/etc/vmware`` and it finally installed properly.
+
+Got it running.
+
+I also got dev key thanks to someone.

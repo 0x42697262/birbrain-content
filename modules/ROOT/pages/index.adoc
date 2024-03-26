@@ -18,7 +18,6 @@ This xref:setup.adoc[setup] feels much easier to track although it has a few fea
 *** [ ] GNU Compiler Collection
 *** [ ] GNU Debugger
 *** [ ] iwconfig
-*** [ ] QEMU
 *** [ ] readelf
 *** [ ] syst-analyze — blame
 *** [ ] syst
@@ -31,6 +30,7 @@ This xref:setup.adoc[setup] feels much easier to track although it has a few fea
 *** [ ] syst-analyze
 *** [ ] Vim
 *** [ ] Wayland
+*** [x] QEMU
 ** 002 Certificates
 [%interactive]
 *** [ ] Certificates

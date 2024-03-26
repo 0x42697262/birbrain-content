@@ -1,7 +1,7 @@
 = Security Domains
 
 Sort of like a framework or guidelines for making sure that someone is proficient in Information Security.
-Usually refers to xref:cissp.adoc[Certified Information System Security Professional] (CISSP).
+The domains are part of xref:cissp.adoc[Certified Information System Security Professional] (CISSP) which is administered by xref:isc2.adoc[Information System Security Certification Consortium] (ISC2) organization.
 
 .8 Security Domains
 ****

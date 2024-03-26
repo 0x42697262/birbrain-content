@@ -75,3 +75,10 @@ I think it is recommended to bundle your own UI instead of modifying it by parts
 * https://gitlab.com/antora/antora-lunr-extension[antora/lunr]
 * https://github.com/asciidoctor/asciidoctor-kroki[asciidoctor-kroki]
 * https://gitlab.com/djencks/asciidoctor-mathjax.js[djencks/asciidoctor-mathjax]
+
+== Wants
+
+This would require a UI rewrite from scratch meaning I have to learn frontend development?!?!?
+
+* Backlinks
+* Note previews
