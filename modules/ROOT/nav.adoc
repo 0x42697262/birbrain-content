@@ -37,3 +37,6 @@
 
 []
 * xref:qemu.adoc[]
+
+[]
+* xref:vmware.adoc[]

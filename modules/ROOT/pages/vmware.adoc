@@ -1,0 +1,21 @@
+= VMWare
+
+== Workstation Pro License Keys
+
+[cols="1,2,1", options="header", frame="all"]
+|===
+| Number  | Keys 
+| 1       | `MC60H-DWHD5-H80U9-6V85M-8280D` 
+| 2       | `4A4RR-813DK-M81A9-4U35H-06KND` 
+| 3       | `NZ4RR-FTK5H-H81C1-Q30QH-1V2LA` 
+| 4       | `JU090-6039P-08409-8J0QH-2YR7F` 
+| 5       | `4Y09U-AJK97-089Z0-A3054-83KLA` 
+| 6       | `4C21U-2KK9Q-M8130-4V2QH-CF810` 
+| 7       | `HY45K-8KK96-MJ8E0-0UCQ4-0UH72` 
+| 8       | `JC0D8-F93E4-HJ9Q9-088N6-96A7F` 
+| 9       | `NG0RK-2DK9L-HJDF8-1LAXP-1ARQ0` 
+| 10      | `0U2J0-2E19P-HJEX1-132Q2-8AKK6`
+|===
+
+This was taken from https://github.com/hegdepavankumar/VMware-Workstation-Pro-17-Licence-Keys/blob/main/README.md[Github].
+
