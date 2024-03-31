@@ -1,5 +1,48 @@
 = AsciiDoc
 
+== Tables
+
+I still find it confusing to work so here's a TL;DR of tables.
+
+.Basic Table from Markdown
+....
+[cols="1,2", options="header", frame="all"] <.>
+|===
+| HEADER  | 2nd HEADER 
+| 1       | stuffs 1 
+| 2       | stuffs 2
+| 3       | stuffs 3
+| 4       | stuffs 4
+| 5       | stuffs 5
+| 6       | stuffs 6
+| 7       | stuffs 7
+| 8       | stuffs 8
+| 9       | stuffs 9
+| 10      | stuffs 10
+|===
+....
+<.> The ``cols`` is probably the length.
+
+If I want to have more columns, just add more items to columns.
+``1,1,1,1`` would be 4 columns.
+
+This should render as.
+
+[cols="1,2", options="header", frame="all"]
+|===
+| HEADER  | 2nd HEADER 
+| 1       | stuffs 1 
+| 2       | stuffs 2
+| 3       | stuffs 3
+| 4       | stuffs 4
+| 5       | stuffs 5
+| 6       | stuffs 6
+| 7       | stuffs 7
+| 8       | stuffs 8
+| 9       | stuffs 9
+| 10      | stuffs 10
+|===
+
 == Code Block
 
 .Python
