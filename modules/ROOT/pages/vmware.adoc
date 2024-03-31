@@ -1,8 +1,8 @@
 = VMWare
 
-== Workstation Pro License Keys
+== Workstation Pro 17 License Keys
 
-[cols="1,2,1", options="header", frame="all"]
+[cols="1,2", options="header", frame="all"]
 |===
 | Number  | Keys 
 | 1       | `MC60H-DWHD5-H80U9-6V85M-8280D` 
