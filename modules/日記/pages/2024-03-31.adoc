@@ -1,0 +1,68 @@
+= 2024年3月31日
+
+== xref:ROOT:nixos.adoc[NixOS]
+
+
+If I want to install xref:ROOT:vmware.adoc[VMWare], I just have to enable it like this.
+
+[nix]
+----
+  virtualisation.vmware.host = {
+    enable = true;
+  };
+
+  security.polkit.enable = true;
+
+  systemd.services = {
+    vmware-networks.wantedBy = lib.mkForce [ ];
+  }
+----
+
+Enabling xref:ROOT:polkit.adoc[Polkit] can be done this way.
+
+[nix]
+----
+  security.polkit.enable = true;
+
+  systemd.services = {
+    vmware-networks.wantedBy = lib.mkForce [ ];
+  }
+----
+
+Note that when you want to disable a service or stop it from loading from start up, just do this.
+
+[nix]
+----
+  systemd.services = {
+    vmware-networks.wantedBy = lib.mkForce [ ];
+  }
+----
+
+Not this like this.
+
+[nix]
+----
+  systemd.services = {
+    vmware-networks.enable = false;
+  }
+----
+
+Because this will mask the service and make it impossible to enable it.
+
+
+If I want to see the output of something.
+
+[bash]
+----
+nix eval .\#nixosConfigurations.AtomicBird.config.boot.kernelModule <.>
+----
+<.> ``AtomicBird`` is my hostname, change it to your hostname
+
+As of today, this would output
+
+[nix]
+----
+[ "kvm-amd" "vmw_pvscsi" "vmw_vmci" "vmmon" "vmnet" "fuse" "bridge" "macvlan" "tap" "tun" "loop" "
+atkbd" "ctr" ]
+----
+

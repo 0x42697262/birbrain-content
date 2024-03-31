@@ -28,6 +28,7 @@ $ qemu-img convert -f vmdk -O qcow2 __input__.vmdk __output__.qcow2
 NOTE: There are more necessary steps involved to make the images work like networking.
 
 Explanations for the parameters.
+
 -f:: first image format
 -O:: output image format
 
