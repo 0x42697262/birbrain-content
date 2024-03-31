@@ -65,3 +65,29 @@ As of today, this would output
 == xref:ROOT:vmware.adoc[VMWare] Keys
 
 Oh, lmao, I could've just googled the developer keys... I guess I just didn't bother since VMWare wasn't that much of a use for me unlike QEMU/KVM.
+
+== xref:ROOT:grep.adoc[grep] and xref:ROOT:sed.adoc[sed]
+
+I can delete a line of text that contains a string in a file by doing
+
+[,bash]
+----
+grep -v "string" input.txt > output.txt <.>
+----
+<.> ``-v`` means invert the match
+
+I can also do this by using ``sed``
+
+
+[,bash]
+----
+sed -i '/string/d' input.txt
+----
+
+This would leave an empty line after it is removed.
+To clean empty lines, simply do
+
+[,bash]
+----
+sed -i '/^\s*$/d' input.txt
+----
