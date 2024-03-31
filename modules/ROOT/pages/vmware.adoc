@@ -1,5 +1,8 @@
 = VMWare
 
+I think I will only use VMWare for Windows installs.
+If I want to use Linux, I can just spin up xref:ROOT:qemu.adoc[QEMU]/KVM or VirtualBox.
+
 == Workstation Pro 17 License Keys
 
 [cols="1,2", options="header", frame="all"]
@@ -18,4 +21,4 @@
 |===
 
 This was taken from https://github.com/hegdepavankumar/VMware-Workstation-Pro-17-Licence-Keys/blob/main/README.md[Github].
-
+Or maybe the original is from https://gist.github.com/PurpleVibe32/30a802c3c8ec902e1487024cdea26251.
