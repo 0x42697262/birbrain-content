@@ -10,6 +10,15 @@ Accessed,Name,URL,Description
 |===
 
 
+== Privacy
+
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2022-03-05,Fawkes,https://sandlab.cs.uchicago.edu/fawkes[],"Image "Cloaking" for Personal Privacy"
+|===
+
 
 
 == Writeups / Discoveries / CVEs / Resources
@@ -28,7 +37,6 @@ Accessed,Name,URL,Description
 
 
 
-
 == xref:ROOT:reverse-engineering.adoc[Reverse Engineering]
 
 [%header, format=csv]
@@ -39,13 +47,22 @@ Accessed,Name,URL,Description
 2024-02-11,Reverse Engineering 101,https://malwareunicorn.org/workshops/re101.html[],A workshop that provides the fundamentals of reversing engineering (RE) Windows malware using a hands-on experience with RE tools and techniques.
 2024-02-11,Simple x86_64 buffer overflow in gdb,https://oxasploits.com/posts/simple-buffer-overflow-exploitation-walkthrough-gdb[],"Debugging a C buffer overflow in gdb to attain higher privileges."
 2024-02-11,Practical Binary Analysis,https://practicalbinaryanalysis.com[],"Practical Binary Analysis covers all major binary analysis topics in an accessible way, from binary formats, disassembly, and basic analysis to advanced techniques like binary instrumentation, taint analysis, and symbolic execution."
+2024-01-19,Awesome Malware Analysis,https://github.com/rshipp/awesome-malware-analysis[],"A curated list of awesome malware analysis tools and resources."
 |===
 
 
 == Cryptography
 
 
-* [Cryptohack](https://cryptohack.org/) *A fun, free platform for learning modern cryptography*
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2021-09-11,AES Proposal: Rijndael,https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf[],"Something along the lines of cryptography."
+2024-02-11,Cryptohack,https://cryptohack.org[],"A fun, free platform for learning modern cryptography"
+|===
+
+
+
 
 == Packet Sniffing
 [%header, format=csv]
@@ -53,6 +70,8 @@ Accessed,Name,URL,Description
 Accessed,Name,URL,Description
 2024-01-9,QCSuper,https://github.com/P1sec/QCSuper[]," QCSuper is a tool communicating with Qualcomm-based phones and modems, allowing to capture raw 2G/3G/4G radio frames, among other things. "
 |===
+
+
 
 == Capture The Flags / Wargames
 
@@ -96,6 +115,7 @@ Accessed,Name,URL,Description
 
 [%header, format=csv]
 |===
+Accessed,Name,URL,Description
 2022-08-24,Guide for GPU Passthrough on laptop with Optimus Manager,https://github.com/mysteryx93/GPU-Passthrough-with-Optimus-Manager-Guide[],"Guide for VFIO GPU Passthrough on laptop with Optimus Manager"
 |===
 
@@ -140,6 +160,17 @@ Accessed,Name,URL,Description
 |===
 
 
+== Material Collections
+
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2022-05-18,Ripped,https://ripped.guide[],"This is a collection of sites and tools that are trusted by the community."
+2023-11-02,Open Source Cybersecurity Projects,https://nicoleenesse.notion.site/Open-Source-Cybersecurity-Projects-04419423bb6d43b8a93c8d9b9c19d5d4[],"Top cybersecurity projects to create."
+2024-01-02,Anna's Archive,https://annas-archive.org[],"📚 The largest truly open library in human history. ⭐️ We mirror Sci-Hub and LibGen. We scrape and open-source Z-Lib, Internet Archive Lending Library, DuXiu, and more."
+2024-02-11,Assembly Language / Reversing / Malware Analysis / Game Hacking,https://gist.github.com/muff-in/ff678b1fda17e6188aa0462a99626121[],"Lots of links pointing to various resources."
+|===
 
 
 == Obsidian
@@ -156,19 +187,16 @@ Accessed,Name,URL,Description
 
 [%header, format=csv]
 |===
+Accessed,Name,URL,Description
 2023-02-21,XToolBox,https://github.com/xemulat/XToolbox[],"A collection of 150+ Windows 10/11 optimization and tweaking apps!"
 |===
+
+
+
 
 == Haven't Checked
 
 
-* Articles
-** [AES Proposal: Rijndael](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf)
-* [Fawkes](https://sandlab.cs.uchicago.edu/fawkes/) *Image "Cloaking" for Personal Privacy*
-* Resources
-** [Anna's Archive](https://annas-archive.org/)
-** [Ripped](https://ripped.guide/) *This is a collection of sites and tools that are trusted by the community.*
-** [Assembly Language / Reversing / Malware Analysis / Game Hacking](https://gist.github.com/muff-in/ff678b1fda17e6188aa0462a99626121)
 * Tutorials
 ** [Coding Interview University](https://github.com/jwasham/coding-interview-university)
 ** [Project Based Learning](https://github.com/practical-tutorials/project-based-learning)
@@ -176,7 +204,8 @@ Accessed,Name,URL,Description
 ** [Summary of 'Clean code'](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29)
 * https://www.reddit.com/r/linux4noobs/comments/18pfvsb/comment/kep1mwp/?context=3
 * https://gist.github.com/lewixlabs/e6b59b742ecb072f5747a908e14f412c
-* https://nicoleenesse.notion.site/Open-Source-Cybersecurity-Projects-04419423bb6d43b8a93c8d9b9c19d5d4
+
+
 '''
 
 === Computer Science
@@ -204,6 +233,3 @@ Accessed,Name,URL,Description
 * https://github.com/vavkamil/awesome-vulnerable-apps
 
 
-=== Awesomes
-
-* [awesome-malware-analysys](https://github.com/rshipp/awesome-malware-analysis#Resources)
