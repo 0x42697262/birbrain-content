@@ -3,17 +3,34 @@
 
 == Cybersecurity
 
+=== Writeups / Discoveries / CVEs
+
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
 2023-11-10,KNOB Attack,https://knobattack.com[],Key Negotiation of Bluetooth Attack that affects all devices that "speak Bluetooth".
 2024-01-07,Bluetooth Forward and Future Secrecy Attacks and Defenses (CVE 2023-24023),https://github.com/francozappa/bluffs[],"Bluetooth BR/EDR devices with Secure Simple Pairing and Secure Connections pairing in Bluetooth Core Specification 4.2 through 5.4 allow certain man-in-the-middle attacks that force a short key length, and might lead to discovery of the encryption key and live injection, aka BLUFFS."
-2024-02-11,Nightmare,https://guyinatuxedo.github.io[],Nightmare is an intro to binary exploitation / reverse engineering course based around ctf challenges.
-2024-02-11,Reverse Engineering 101,https://malwareunicorn.org/workshops/re101.html[],A workshop that provides the fundamentals of reversing engineering (RE) Windows malware using a hands-on experience with RE tools and techniques.
-2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
 |===
 
-== Projects
+=== Learning Resource
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
+2023-05-24,Skull Security Wiki,https://wiki.skullsecurity.org[],"Someone's wiki about what they found."
+|===
+
+=== Reverse Engineering
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-02-11,Nightmare,https://guyinatuxedo.github.io[],Nightmare is an intro to binary exploitation / reverse engineering course based around ctf challenges.
+2024-02-11,Reverse Engineering 101,https://malwareunicorn.org/workshops/re101.html[],A workshop that provides the fundamentals of reversing engineering (RE) Windows malware using a hands-on experience with RE tools and techniques.
+|===
+
+== Rust
 
 [%header, format=csv]
 |===
@@ -26,6 +43,7 @@ Accessed,Name,URL,Description
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
+2022-09-11,Lenovo RGB Keyboard Light Controller,https://github.com/InstinctEx/lenovo-ideapad-legion-keyboard-led[],"LED backlight keyboard controller written in python for your Lenovo Ideapad Gaming 3/Legion 5 Pro 2021 laptop."
 2024-01-04,FCC ID Database,https://fccid.io[],The information resource for all wireless device applications filed with the FCC.
 |===
 
@@ -48,6 +66,7 @@ Accessed,Name,URL,Description
 2022-11-05,Doujinshi Spotify List,https://www.thspotify.moe[],"Find the Touhou doujin music artists you are looking for easily on Spotify with Touhou Spotify Music!"
 2023-11-21,Game Tools and Modification,https://en.touhouwiki.net/wiki/Game_Tools_and_Modifications[],"List of tools and resources for Touhou series."
 2024-01-02,Touhou Things,http://151.80.40.155[],"Online player where you can directly play or download music from TLMC. Although the music collection is incomplete."
+2024-03-25,Map,https://map.thwiki.cc[],"A Touhou map."
 |===
 
 
@@ -64,12 +83,10 @@ Accessed,Name,URL,Description
 * [Fawkes](https://sandlab.cs.uchicago.edu/fawkes/) *Image "Cloaking" for Personal Privacy*
 * Github
 ** [Anime Girls Holding Programming Books](https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books "https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books")
-** [Lenovo Ideapad Gaming 3 2021 Linux RGB Keyboard Light Controller](https://github.com/InstinctEx/lenovo-ideapad-legion-keyboard-led)
 ** [Text to Handwriting](https://saurabhdaware.github.io/text-to-handwriting/)
 * Resources
 ** [Anna's Archive](https://annas-archive.org/)
 ** [Ripped](https://ripped.guide/) *This is a collection of sites and tools that are trusted by the community.*
-** [Skull Security Wiki](https://wiki.skullsecurity.org/index.php/Main_Page)
 ** [Assembly Language / Reversing / Malware Analysis / Game Hacking](https://gist.github.com/muff-in/ff678b1fda17e6188aa0462a99626121)
 * Tutorials
 ** [Coding Interview University](https://github.com/jwasham/coding-interview-university)
