@@ -67,6 +67,7 @@ Accessed,Name,URL,Description
 
 == Computer Networking
 
+[%header, format=csv]
 |===
 Accessed,Name,URL,Description
 2023-11-05,Customizing ICMP Payload in Ping Command,https://gursimarsm.medium.com/customizing-icmp-payload-in-ping-command-7c4486f4a1be[],"Something related to ICMP echo requests."
