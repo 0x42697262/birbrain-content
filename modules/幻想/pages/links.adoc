@@ -7,7 +7,9 @@
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
+2023-01-15,baton drop: Secure Boot Security Feature Bypass Vulnerability (CVE-2022-21894),https://github.com/Wack0/CVE-2022-21894[],"Windows Boot Applications allow the truncatememory setting to remove blocks of memory containing "persistent" ranges of serialised data from the memory map, leading to Secure Boot bypass."
 2023-05-24,Skull Security Wiki,https://wiki.skullsecurity.org[],"Someone's wiki about what they found."
+2023-07-28,A Compression Resistant Steganography Based on Differential Manchester Code,https://www.mdpi.com/2073-8994/13/2/165[],"Steganography research about resisting image compression from Facebook, Twitter, and WeChat."
 2023-11-10,KNOB Attack,https://knobattack.com[],Key Negotiation of Bluetooth Attack that affects all devices that "speak Bluetooth".
 2024-01-07,Bluetooth Forward and Future Secrecy Attacks and Defenses (CVE 2023-24023),https://github.com/francozappa/bluffs[],"Bluetooth BR/EDR devices with Secure Simple Pairing and Secure Connections pairing in Bluetooth Core Specification 4.2 through 5.4 allow certain man-in-the-middle attacks that force a short key length, and might lead to discovery of the encryption key and live injection, aka BLUFFS."
 2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
@@ -19,9 +21,11 @@ Accessed,Name,URL,Description
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
+2024-02-11,Modern Binary Exploitation — CSCI 4968,https://github.com/RPISEC/MBE[],"This repository contains the materials as developed and used by RPISEC to teach Modern Binary Exploitation at Rensselaer Polytechnic Institute in Spring 2015. This was a university course developed and run solely by students to teach skills in vulnerability research, reverse engineering, and binary exploitation."
 2024-02-11,Nightmare,https://guyinatuxedo.github.io[],Nightmare is an intro to binary exploitation / reverse engineering course based around ctf challenges.
 2024-02-11,Reverse Engineering 101,https://malwareunicorn.org/workshops/re101.html[],A workshop that provides the fundamentals of reversing engineering (RE) Windows malware using a hands-on experience with RE tools and techniques.
-2024-02-11,Modern Binary Exploitation — CSCI 4968,https://github.com/RPISEC/MBE[],"This repository contains the materials as developed and used by RPISEC to teach Modern Binary Exploitation at Rensselaer Polytechnic Institute in Spring 2015. This was a university course developed and run solely by students to teach skills in vulnerability research, reverse engineering, and binary exploitation."
+2024-02-11,Simple x86_64 buffer overflow in gdb,https://oxasploits.com/posts/simple-buffer-overflow-exploitation-walkthrough-gdb[],"Debugging a C buffer overflow in gdb to attain higher privileges."
+2024-02-11,Practical Binary Analysis,https://practicalbinaryanalysis.com[],"Practical Binary Analysis covers all major binary analysis topics in an accessible way, from binary formats, disassembly, and basic analysis to advanced techniques like binary instrumentation, taint analysis, and symbolic execution."
 |===
 
 == Packet Sniffing
@@ -36,7 +40,16 @@ Accessed,Name,URL,Description
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
+2023-11-21,Root-Me.org,https://www.root-me.org[],"The fast, easy, and affordable way to train your hacking skills."
+2024-02-11,W3Challs,https://w3challs.com[],"Offers security challenges to learn and practice hacking."
 2024-03-24,HackMyVM,https://hackmyvm.eu[],"VMs are made by the users for the users. We want to learn and to share knowledge while playing and sharing our passion. But we cannot guarantee that all VMs are safe so we strongly recommend to protect your network isolating your VM from the internal network. Keep in mind that the VMs has vulnerabilities and we dont know what made the author on the VM so take care!"
+|===
+
+== Computer Networking
+
+|===
+Accessed,Name,URL,Description
+2023-11-05,Customizing ICMP Payload in Ping Command,https://gursimarsm.medium.com/customizing-icmp-payload-in-ping-command-7c4486f4a1be[],"Something related to ICMP echo requests."
 |===
 
 
@@ -64,7 +77,9 @@ Accessed,Name,URL,Description
 Accessed,Name,URL,Description
 2023-04-28,Resume Making,https://www.careercup.com/resume[],"This Is What A GOOD Resume Should Look Like."
 2024-02-27,Resume Worded,https://resumeworded.com[],"Improve your resume and LinkedIn profile."
+2022-12-01,Text to Handwriting,https://github.com/saurabhdaware/text-to-handwriting[],"So your teacher asked you to upload written assignments? Hate writing assigments? This tool will help you convert your text to handwriting xD "
 |===
+
 
 == 東方 Project
 
@@ -94,15 +109,12 @@ Accessed,Name,URL,Description
 
 
 * Articles
-** [A Compression Resistant Steganography Based on Differential Manchester Code](https://www.mdpi.com/2073-8994/13/2/165)
 ** [AES Proposal: Rijndael](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf)
 * [Cryptohack](https://cryptohack.org/) *A fun, free platform for learning modern cryptography*
 * CVEs
-** [(CVE-2022-21894) baton drop: Secure Boot Security Feature Bypass Vulnerability](https://github.com/Wack0/CVE-2022-21894)
 * [Fawkes](https://sandlab.cs.uchicago.edu/fawkes/) *Image "Cloaking" for Personal Privacy*
 * Github
 ** [Anime Girls Holding Programming Books](https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books "https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books")
-** [Text to Handwriting](https://saurabhdaware.github.io/text-to-handwriting/)
 * Resources
 ** [Anna's Archive](https://annas-archive.org/)
 ** [Ripped](https://ripped.guide/) *This is a collection of sites and tools that are trusted by the community.*
@@ -114,7 +126,7 @@ Accessed,Name,URL,Description
 ** [Security Study Plan](https://github.com/jassics/security-study-plan)
 ** [Summary of 'Clean code'](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29)
 * [XToolBox](https://github.com/xemulat/XToolbox) *A collection of 150+ Windows 10/11 optimization and tweaking apps! *
-
+* https://www.reddit.com/r/linux4noobs/comments/18pfvsb/comment/kep1mwp/?context=3
 '''
 
 === Computer Science
