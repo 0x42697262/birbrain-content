@@ -1,0 +1,66 @@
+= 2024年4月1日
+
+Why can't I just figure out that xref:ROOT:qemu.adoc[QEMU] just doesn't work in xref:ROOT:nixos.adoc[NixOS]????
+
+I keep receiving these two errors.
+
+----
+Error starting installation: constructor returned NULL
+
+Traceback (most recent call last):
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/createvm.py", line 1881, in _finish_clicked
+    self._start_install(guest, installer)
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/createvm.py", line 1978, in _start_install
+    progWin.run()
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/asyncjob.py", line 270, in run
+    Gdk.Cursor.new_from_name(gdk_window.get_display(), "progress"))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: constructor returned NULL
+----
+
+And this error.
+
+----
+Error launching details: 'NoneType' object has no attribute 'conn'
+
+Traceback (most recent call last):
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/vmwindow.py", line 36, in get_instance
+    key = "%s+%s" % (vm.conn.get_uri(), vm.get_uuid())
+                     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'conn'
+----
+
+I tried fixing it by setting the user groups to ``libvirtd`` and ``qemu-libvirtd``, but that still did not work.
+
+Someone (I forgot where I got it actually) mentioned that I should run xref:ROOT:virt-man.adoc[Virtual Manager] with xref:xwayland.adoc[XWayland] backend.
+
+----
+GDK_BACKEND=x11 virt-manager
+----
+
+Because apparently the issue is with the cursor???
+Yet, it gives this new error.
+
+----
+Unable to complete install: 'Cannot access storage file '/home/[redacted]/VMs/QEMU/image.qcow2' (as uid:301, gid:301): Permission denied'
+
+Traceback (most recent call last):
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/asyncjob.py", line 72, in cb_wrapper
+    callback(asyncjob, *args, **kwargs)
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/createvm.py", line 2008, in _do_async_install
+    installer.start_install(guest, meter=meter)
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtinst/install/installer.py", line 695, in start_install
+    domain = self._create_guest(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtinst/install/installer.py", line 637, in _create_guest
+    domain = self.conn.createXML(initial_xml or final_xml, 0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8bxq9gk9mpsl62my6nd141cjnn9p08qq-python3.11-libvirt-10.0.0/lib/python3.11/site-packages/libvirt.py", line 4529, in createXML
+    raise libvirtError('virDomainCreateXML() failed')
+libvirt.libvirtError: Cannot access storage file '/home/[redacted]/VMs/QEMU/image.qcow2' (as uid:301, gid:301): Permission denied
+
+----
+
+This is why I have set xref:ROOT:libvirtd.adoc[libvirtd] to my user's groups.
+I'm stuck.
+If I can't use QEMU, then might as well not have a decent virtual machine.

@@ -3,3 +3,9 @@
 
 This is where I store my temporary notes to which I still haven't made any progress or a deeper understanding of the topic or concept.
 
+Basically, this place is an _illusion of knowledge_ (heh).
+I have xref:links.adoc[websites] that I store here too which would probably be a permanent note residence here.
+I mean that makes sense, right?
+Linking websites doesn't mean I deeply understood the contents in there.
+So basically a bookmark...
+
