@@ -1,12 +1,22 @@
-= links
+= Interesting Websites I Found
+
+
+== Checked
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2023-11-10,KNOB Attack,https://knobattack.com[],Key Negotiation of Bluetooth Attack that affects all devices that "speak Bluetooth".
+2024-01-04,FCC ID Database,https://fccid.io[],The information resource for all wireless device applications filed with the FCC.
+2024-02-11,Nightmare,https://guyinatuxedo.github.io[],Nightmare is an intro to binary exploitation / reverse engineering course based around ctf challenges.
+2024-02-11,Reverse Engineering 101,https://malwareunicorn.org/workshops/re101.html[],A workshop that provides the fundamentals of reversing engineering (RE) Windows malware using a hands-on experience with RE tools and techniques.
+2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
+2023-07-21,Iced,https://github.com/iced-rs/iced[],"A cross-platform GUI library for Rust, inspired by Elm."
+2024-02-27,Resume Worded,https://resumeworded.com[],"Improve your resume and LinkedIn profile."
+|===
+
+== Haven't Checked
 
 * https://dl.acm.org/doi/pdf/10.1145/3576915.3623066[]
-* https://fccid.io/[]
 * https://github.com/francozappa/bluffs[]
-* https://guyinatuxedo.github.io/[]
-* https://knobattack.com/[]
-* https://malwareunicorn.org/workshops/re101.html[]
 * https://oxasploits.com/posts/simple-buffer-overflow-exploitation-walkthrough-gdb/[]
-* https://pwn.college/[]
-* https://github.com/iced-rs/iced[]
-* https://resumeworded.com/cyber-security-resume-examples#all-templates[]
