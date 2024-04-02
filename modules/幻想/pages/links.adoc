@@ -1,6 +1,16 @@
 = Just a bunch of websites I scavenged
 
 
+== Cybersecurity
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-03-26,CLARK,https://clark.center[],"CLARK is the largest platform that provides FREE cybersecurity curriculum. It is home to high-value, high-impact cyber curriculum created by top educators and reviewed for relevance and quality."
+|===
+
+
+
 
 == Writeups / Discoveries / CVEs / Resources
 
@@ -12,8 +22,11 @@ Accessed,Name,URL,Description
 2023-07-28,A Compression Resistant Steganography Based on Differential Manchester Code,https://www.mdpi.com/2073-8994/13/2/165[],"Steganography research about resisting image compression from Facebook, Twitter, and WeChat."
 2023-11-10,KNOB Attack,https://knobattack.com[],Key Negotiation of Bluetooth Attack that affects all devices that "speak Bluetooth".
 2024-01-07,Bluetooth Forward and Future Secrecy Attacks and Defenses (CVE 2023-24023),https://github.com/francozappa/bluffs[],"Bluetooth BR/EDR devices with Secure Simple Pairing and Secure Connections pairing in Bluetooth Core Specification 4.2 through 5.4 allow certain man-in-the-middle attacks that force a short key length, and might lead to discovery of the encryption key and live injection, aka BLUFFS."
-2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
+2024-02-09,SSH ProxyCommand == unexpected code execution (CVE-2023-51385),https://vin01.github.io/piptagole/ssh/security/openssh/libssh/remote-code-execution/2023/12/20/openssh-proxycommand-libssh-rce.html[],"SSH’s ProxyCommand is a feature quite widely used to proxy ssh connections by allowing to specify custom commands to be used to connect to the server. Arguments to this directive may contain tokens like %h, %u which refer to hostname and username respectively."
 |===
+
+
+
 
 
 == xref:ROOT:reverse-engineering.adoc[Reverse Engineering]
@@ -28,6 +41,12 @@ Accessed,Name,URL,Description
 2024-02-11,Practical Binary Analysis,https://practicalbinaryanalysis.com[],"Practical Binary Analysis covers all major binary analysis topics in an accessible way, from binary formats, disassembly, and basic analysis to advanced techniques like binary instrumentation, taint analysis, and symbolic execution."
 |===
 
+
+== Cryptography
+
+
+* [Cryptohack](https://cryptohack.org/) *A fun, free platform for learning modern cryptography*
+
 == Packet Sniffing
 [%header, format=csv]
 |===
@@ -35,12 +54,13 @@ Accessed,Name,URL,Description
 2024-01-9,QCSuper,https://github.com/P1sec/QCSuper[]," QCSuper is a tool communicating with Qualcomm-based phones and modems, allowing to capture raw 2G/3G/4G radio frames, among other things. "
 |===
 
-== Capture The Flags
+== Capture The Flags / Wargames
 
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
 2023-11-21,Root-Me.org,https://www.root-me.org[],"The fast, easy, and affordable way to train your hacking skills."
+2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
 2024-02-11,W3Challs,https://w3challs.com[],"Offers security challenges to learn and practice hacking."
 2024-03-24,HackMyVM,https://hackmyvm.eu[],"VMs are made by the users for the users. We want to learn and to share knowledge while playing and sharing our passion. But we cannot guarantee that all VMs are safe so we strongly recommend to protect your network isolating your VM from the internal network. Keep in mind that the VMs has vulnerabilities and we dont know what made the author on the VM so take care!"
 |===
@@ -70,16 +90,31 @@ Accessed,Name,URL,Description
 2024-01-04,FCC ID Database,https://fccid.io[],The information resource for all wireless device applications filed with the FCC.
 |===
 
+== Virtualization
+
+
+[%header, format=csv]
+|===
+2022-08-24,Guide for GPU Passthrough on laptop with Optimus Manager,https://github.com/mysteryx93/GPU-Passthrough-with-Optimus-Manager-Guide[],"Guide for VFIO GPU Passthrough on laptop with Optimus Manager"
+|===
+
 == Document Assistance
 
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
-2023-04-28,Resume Making,https://www.careercup.com/resume[],"This Is What A GOOD Resume Should Look Like."
-2024-02-27,Resume Worded,https://resumeworded.com[],"Improve your resume and LinkedIn profile."
 2022-12-01,Text to Handwriting,https://github.com/saurabhdaware/text-to-handwriting[],"So your teacher asked you to upload written assignments? Hate writing assigments? This tool will help you convert your text to handwriting xD "
+2023-04-28,Resume Making,https://www.careercup.com/resume[],"This Is What A GOOD Resume Should Look Like."
+2024-01-03,Academic Phrasebank – The Largest Collection of Academic Phrases,https://www.ref-n-write.com[],"Helps you write academic papers such as short phrases or context."
+2024-02-27,Resume Worded,https://resumeworded.com[],"Improve your resume and LinkedIn profile."
 |===
 
+== 日本語
+
+[%header, format=csv]
+|===
+2024-03-02,さくら多読ラボ,https://jgrpg-sakura.com[],"You can read easy Japanese books here. Japanese Graded Reader SAKURA is a library with a range of books from beginner to upper intermediate. Please enjoy reading without using a dictionary. Please read as much as possible."
+|===
 
 == 東方 Project
 
@@ -94,6 +129,17 @@ Accessed,Name,URL,Description
 2024-03-25,Map,https://map.thwiki.cc[],"A Touhou map."
 |===
 
+== Anime
+
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2023-04-11,Anime Girls Holding Programming Books,https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books[],"Images of anime girls holding programming books. Literally."
+|===
+
+
+
 
 == Obsidian
 
@@ -104,29 +150,32 @@ Accessed,Name,URL,Description
 |===
 
 
+== Windows
+
+
+[%header, format=csv]
+|===
+2023-02-21,XToolBox,https://github.com/xemulat/XToolbox[],"A collection of 150+ Windows 10/11 optimization and tweaking apps!"
+|===
 
 == Haven't Checked
 
 
 * Articles
 ** [AES Proposal: Rijndael](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf)
-* [Cryptohack](https://cryptohack.org/) *A fun, free platform for learning modern cryptography*
-* CVEs
 * [Fawkes](https://sandlab.cs.uchicago.edu/fawkes/) *Image "Cloaking" for Personal Privacy*
-* Github
-** [Anime Girls Holding Programming Books](https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books "https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books")
 * Resources
 ** [Anna's Archive](https://annas-archive.org/)
 ** [Ripped](https://ripped.guide/) *This is a collection of sites and tools that are trusted by the community.*
 ** [Assembly Language / Reversing / Malware Analysis / Game Hacking](https://gist.github.com/muff-in/ff678b1fda17e6188aa0462a99626121)
 * Tutorials
 ** [Coding Interview University](https://github.com/jwasham/coding-interview-university)
-** [Guide for GPU Passthrough on laptop with Optimus Manager](https://github.com/mysteryx93/GPU-Passthrough-with-Optimus-Manager-Guide)
 ** [Project Based Learning](https://github.com/practical-tutorials/project-based-learning)
 ** [Security Study Plan](https://github.com/jassics/security-study-plan)
 ** [Summary of 'Clean code'](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29)
-* [XToolBox](https://github.com/xemulat/XToolbox) *A collection of 150+ Windows 10/11 optimization and tweaking apps! *
 * https://www.reddit.com/r/linux4noobs/comments/18pfvsb/comment/kep1mwp/?context=3
+* https://gist.github.com/lewixlabs/e6b59b742ecb072f5747a908e14f412c
+* https://nicoleenesse.notion.site/Open-Source-Cybersecurity-Projects-04419423bb6d43b8a93c8d9b9c19d5d4
 '''
 
 === Computer Science
