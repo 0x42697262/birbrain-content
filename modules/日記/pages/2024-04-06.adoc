@@ -1,0 +1,5 @@
+= 2024年4月1日
+
+== xref:ROOT:rust.adoc[Rust]
+
+I took my xref:ROOT:github-actions.adoc[] in https://github.com/swc-project/rustdoc/actions[] and the release build workflow from https://github.com/marketplace/actions/build-and-upload-rust-binary-to-github-releases#example-workflow-basic-usage-multiple-platforms[]

@@ -108,7 +108,18 @@ Accessed,Name,URL,Description
 |===
 Accessed,Name,URL,Description
 2023-07-21,Iced,https://github.com/iced-rs/iced[],"A cross-platform GUI library for Rust, inspired by Elm."
+2024-04-05,rustaceanvim,https://github.com/mrcjkb/rustaceanvim[],"Supercharge your Rust experience in Neovim! A heavily modified fork of rust-tools.nvim"
 |===
+
+== C
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-04-04,The Underhanded C Contest,http://www.underhanded-c.org/_m_200910.html[],"An annual contest to write innocent-looking C code implementing malicious behavior. In this contest you must write C code that is as readable, clear, innocent and straightforward as possible, and yet it must fail to perform at its apparent function. To be more specific, it should perform some specific underhanded task that will not be detected by examining the source code."
+|===
+
+
 
 == Hardware
 
