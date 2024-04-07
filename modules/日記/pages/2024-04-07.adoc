@@ -1,0 +1,56 @@
+= 2024年4月7日
+
+== xref:ROOT:qemu.adoc[QEMU]
+
+Soooooooooooooooo, I got xref:ROOT:virt-manager.adoc[Virt-Manager] working from the issue I have on xref:2024-04-01.adoc[this day].
+
+Turns out, if you use `virtualisation.libvirtd.qemu.runAsRoot = false;`, xref:libvirtd.adoc[libvirtd] will use `qemu-libvirtd` as a group.
+Hence, it's required to add a group for it.
+
+Then fix the file permission path.
+
+[,bash]
+----
+setfacl -m u:qemu-libvirtd:rx ~
+----
+
+This was the previous permissions.
+
+....
+$ getfacl -e ~
+# file: .
+# owner: birb
+# group: users
+user::rwx
+user:qemu-libvirtd:--x		#effective:---
+group::---			          #effective:---
+mask::---
+other::---
+....
+
+With the permission fix, it becomes this.
+
+
+....
+# file: .
+# owner: birb
+# group: users
+user::rwx
+user:qemu-libvirtd:r-x		#effective:r-x
+group::---			          #effective:---
+mask::r-x
+other::---
+
+I will try removing the `qemu-libvirtd` group in my configuration.
+....
+
+
+Update:
+
+Removing the group doesn't affect the permissions so it's not needed.
+What's important is, however, is to keep setting the permissions with `setfacl` when rebuild switch happens.
+
+Meddlesome, but it's not something that NixOS can't do.
+
+Someone https://github.com/NixOS/nixpkgs/issues/97844#issuecomment-1003650187[here] pointed out that everytime a rebuild switch is made, it removes the permissions to read and write.
+

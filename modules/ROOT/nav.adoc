@@ -16,6 +16,7 @@
 ** xref:日記:2024-03-31.adoc[]
 ** xref:日記:2024-04-01.adoc[]
 ** xref:日記:2024-04-06.adoc[]
+** xref:日記:2024-04-07.adoc[]
 
 []
 * xref:幻想:index.adoc[]
