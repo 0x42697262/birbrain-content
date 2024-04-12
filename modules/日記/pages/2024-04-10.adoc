@@ -1,0 +1,15 @@
+= 2024年4月10日
+
+
+I noticed that I kept changing user groups and it's quite annoying having to relogin just to apply the changes for the user.
+There is a method (or command?) allowing me to use the new group without relogging in, it's ``newgrp``.
+Neat handy tool.
+
+Although make sure to run it with escalated privileges otherwise it would take effect.
+To know if the user has logged in with the new group, check it with ``id``.
+
+
+
+* https://github.com/cxiao/rust-malware-gallery[]
+* https://wiki.c2.com/?PdfSucks[]
+* https://github.com/taielab/awesome-hacking-lists/blob/master/README.md[]

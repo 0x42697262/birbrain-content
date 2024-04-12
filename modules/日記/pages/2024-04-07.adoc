@@ -54,3 +54,6 @@ Meddlesome, but it's not something that NixOS can't do.
 
 Someone https://github.com/NixOS/nixpkgs/issues/97844#issuecomment-1003650187[here] pointed out that everytime a rebuild switch is made, it removes the permissions to read and write.
 
+
+However, the issue with cursor gdk fonts can only be solved by exporting `GDK_BACKEND=x11` when running virt-manager.
+

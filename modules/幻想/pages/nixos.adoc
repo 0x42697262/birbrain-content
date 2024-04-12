@@ -82,3 +82,8 @@ You can disable this by adding.
     vmware-networks.wantedBy = lib.mkForce [ ];
   };
 ----
+
+== /tmp as tmpfs
+
+By default, NixOS does not mount ``tmpfs`` on ``/tmp`` thus ``/tmp`` will persists across reboot.
+Use ``boot.tmp.useTmpfs = true;`` to mount ``/tmp`` as tmpfs.

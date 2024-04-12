@@ -64,6 +64,7 @@ Accessed,Name,URL,Description
 |===
 Accessed,Name,URL,Description
 2021-09-11,AES Proposal: Rijndael,https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf[],"Something along the lines of cryptography."
+2023-06-05,the cryptopals crypto challenges,https://www.cryptopals.com[],"A collection of exercises that demonstrate attacks on real-world crypto."
 2024-02-11,Cryptohack,https://cryptohack.org[],"A fun, free platform for learning modern cryptography"
 |===
 
@@ -211,6 +212,7 @@ Accessed,Name,URL,Description
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
+2020-11-04,Adguard,https://files.rg-adguard.net[],"List of files by Microsoft®"
 2023-02-21,XToolBox,https://github.com/xemulat/XToolbox[],"A collection of 150+ Windows 10/11 optimization and tweaking apps!"
 |===
 
