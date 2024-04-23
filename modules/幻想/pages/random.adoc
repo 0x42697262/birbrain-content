@@ -5,82 +5,9 @@
 
 making my own antora vim wiki plugin thingy
 
-== xref:information-security.adoc[Information Security]
+== information security
 
-encompasses:
-
-* cybersecurity
-* privacy
-* physical security
-* contingency planning and disaster recovery
-* operational security
-* personnel security
-
-not sure if it's exactly the right words or if limited to that only.
-i think it encompasses a lot more than the list above.
-
-=== xref:security-frameworks.adoc[Security Frameworks]
-
-=== xref:security-standards.adoc[Security Standards]
-
-=== xref:security-models.adoc[Security Models]
-
-=== xref:cia-triad.adoc[CIA Triad]
-
-[qanda]
-What is it for?::
-no idea
-
-How is it used?::
-no idea
-
-Why is it used?::
-still no idea
-
-How does it work?::
-no idea
-
-What are the components of the CIA Triad?::
-confidentiality, integrity, and availability. i think?
-
-What examples each components has in action?::
-wew
-
-How do organizations implement measures to achieve confidentiality, integrity, and availability?::
-no idea
-
-What are the potential risks or threats to each component?::
-no idea
-
-How do the components of the CIA Triad interact with each other?::
-im not sure
-
-In what scenarios might organizations prioritize one component over the others?::
-i dunno
-
-What other frameworks or models in information security related to cia triad?::
-. Parkerian Hexad
-. Information Security Triad
-. AAA Triad
-. CIA Triad of Information Assurance
-. Six Trust Services Principles
-. ISO/IEC 27001
-. NIST Cybersecurity Framework
-. Defense in Depth
-. Zero Trust Security Model
-. CIS Controls
-. Data Classification
-. Threat Modeling
-
-
-
-=== NICE Framework
-
-maybe i should pay attention to this https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center[]
-
-this means national institute for cybersecurity education.
-i think it's focused for learners that wants to learn cybersecurity.
-thus, it's broken down into task, knowledge, and skills where the tasks is the cybersecurity work that needs to be done while knowledge and skills are what learners needs to know to accomplish the task.
+xref:information-security.adoc[Information Security]
 
 == job salary expectations when listed in job posting
 
@@ -661,6 +588,7 @@ Relating magical classifications to digital technology and computer science can 
 *Teleporter*:: Comparable to network engineers who design and manage systems for data transmission and communication, enabling instant connectivity and information exchange across vast distances.
 *Warder*:: Similar to system administrators or DevOps engineers who establish security measures and protocols to protect digital assets and ensure the stability and reliability of IT infrastructure.
 
+
 In the context of the relationship between magic and computer science, the analogy often draws parallels between the principles of magic and the concepts of computer science. Here's how some aspects of magic can be related to computer science:
 
 *Spells as Algorithms*:: In magic, spells are sequences of actions or incantations that produce a desired effect. Similarly, algorithms in computer science are step-by-step procedures designed to solve specific problems or achieve tasks.
@@ -674,3 +602,17 @@ In the context of the relationship between magic and computer science, the analo
 == malware analysis
 
 indicator of compromise:: (ioc) artifacts left behind by malwares
+
+
+== Archiving and compression
+
+=== tar
+
+Flags
+
+J:: Uses `xz`
+z:: Uses `gzip`
+v:: verbose
+c:: compress
+x:: extract
+

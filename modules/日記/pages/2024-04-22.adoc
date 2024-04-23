@@ -1,0 +1,3 @@
+= 2024年4月22日
+
+Might need to check on Gradient Descent related to Deep Learning.

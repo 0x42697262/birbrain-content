@@ -6,7 +6,10 @@
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
+2023-01-05,OpenSecurityTraining,https://opensecuritytraining.info[],"OpenSecurityTraining2's mission is to provide the world's deepest and best cybersecurity training. That our classes are free is just a bonus!"
 2023-11-11,Security Study Plan,https://github.com/jassics/security-study-plan[],"Complete Practical Study Plan to become a successful cybersecurity engineer based on roles like Pentest, AppSec, Cloud Security, DevSecOps and so on..."
+2024-02-21,arcX,https://arcx.io[],"Globally accredited cyber security training courses on the arcX platform"
+2024-03-19,ISC2 Certified in Cybersecurity Entry-Level Certification,https://www.isc2.org/certifications/cc[],"FREE Cybersecurity Training and Exam! Now for a Limited Time"
 2024-03-26,CLARK,https://clark.center[],"CLARK is the largest platform that provides FREE cybersecurity curriculum. It is home to high-value, high-impact cyber curriculum created by top educators and reviewed for relevance and quality."
 |===
 
@@ -256,5 +259,5 @@ Accessed,Name,URL,Description
 * https://github.com/hmaverickadams/Beginner-Network-Pentesting
 * https://github.com/cider-security-research/cicd-goat
 * https://github.com/vavkamil/awesome-vulnerable-apps
-
+* https://github.com/PanXProject/awesome-certificates
 
