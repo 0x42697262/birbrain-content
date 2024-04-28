@@ -73,7 +73,13 @@ Accessed,Name,URL,Description
 |===
 
 
+== Web Security
 
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-04-28,bWAPP Files,https://sourceforge.net/projects/bwapp/files/bee-box[],"bWAPP, or a buggy web application, is a free and open source deliberately insecure web application."
+|===
 
 == Packet Sniffing
 [%header, format=csv]
