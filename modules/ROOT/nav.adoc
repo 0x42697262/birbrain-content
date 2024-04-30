@@ -47,3 +47,6 @@
 .Virtualization
 ** xref:qemu.adoc[]
 ** xref:vmware.adoc[]
+
+[]
+* xref:日本語.adoc[]
