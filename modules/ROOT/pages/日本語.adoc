@@ -46,23 +46,23 @@
 お休みなさい,Good night,おやすみなさい
 さようなら,Good bye,さようなら
 でわ、また,See you later,でわ、また
-（では）お元気で,Stay healthy / A way of saying good bye,（では）おげんきで
+(では) お元気で,Stay healthy / A way of saying good bye,（では）おげんきで
 お願いします,Please (do this for me),おねがいします
 有難うございます,Thank you (polite),ありがとうございます
 どうも有難うございます,Thank you very much,どうもありがとうございます
 済みません,Excuse me ,すみません
 すみません,I am sorry,すみません
-,"Literally: “I will commit a rudeness / I committed a rudeness”. It is most often used when asking someone to make space or when you really want to apologize for something.",しつれいします
+失礼します / 失礼しました,"Literally: “I will commit a rudeness / I committed a rudeness”. It is most often used when asking someone to make space or when you really want to apologize for something.",しつれいします / しつれいしました
 いいえ,No / Not at all,いいえ
-どういたしましって,It’s my pleasure,
-,I will go and come back,
-,Please go and come back,
+どう致しましって,It’s my pleasure,どういたしましって
+行ってきます,I will go and come back,いってきます
+行ってらっしゃい,Please go and come back,いってらっしゃい
 只今,I am home,ただいま
 お帰りなさい,Welcome home,おかえりなさい
-,Welcome (to our shop),
+いらっしゃいませ,Welcome (to our shop),いらっしゃいませ
 頂きます,Thank you for the meal (before eating),いただきます
 ご馳走様でした,Thank you for the meal (after eating),ごちそうさまでした
 初めまして,""How do you do?" / First meeting",はじめまして
-どうぞよろしく,Pleased to meet you,どうぞよろしく
+どうぞ宜しく,Pleased to meet you,どうぞよろしく
 こちらこそ,It is I who should say so,こちらこそ
 |===
