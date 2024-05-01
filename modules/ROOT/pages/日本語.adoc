@@ -45,16 +45,16 @@
 今晩は,Good evening,こんばんは
 お休みなさい,Good night,おやすみなさい
 さようなら,Good bye,さようなら
-,See you later,
-,Stay healthy / A way of saying good bye,
-,Please (do this for me),
+でわ、また,See you later,でわ、また
+（では）お元気で,Stay healthy / A way of saying good bye,（では）おげんきで
+お願いします,Please (do this for me),おねがいします
 有難うございます,Thank you (polite),ありがとうございます
-,Thank you very much,
+どうも有難うございます,Thank you very much,どうもありがとうございます
 済みません,Excuse me ,すみません
 すみません,I am sorry,すみません
-,"Literally: “I will commit a rudeness / I committed a rudeness”. It is most often used when asking someone to make space or when you really want to apologize for something.",
+,"Literally: “I will commit a rudeness / I committed a rudeness”. It is most often used when asking someone to make space or when you really want to apologize for something.",しつれいします
 いいえ,No / Not at all,いいえ
-,It’s my pleasure,
+どういたしましって,It’s my pleasure,
 ,I will go and come back,
 ,Please go and come back,
 只今,I am home,ただいま
@@ -63,6 +63,6 @@
 頂きます,Thank you for the meal (before eating),いただきます
 ご馳走様でした,Thank you for the meal (after eating),ごちそうさまでした
 初めまして,""How do you do?" / First meeting",はじめまして
-,Pleased to meet you,
-,It is I who should say so,
+どうぞよろしく,Pleased to meet you,どうぞよろしく
+こちらこそ,It is I who should say so,こちらこそ
 |===
