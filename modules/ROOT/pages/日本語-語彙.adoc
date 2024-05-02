@@ -1,0 +1,20 @@
+= 語彙
+
+
+[%header, format=csv]
+|===
+漢字,英語,ふりがな
+海,Sea/Ocean,うみ
+難し,Hard,むずかし
+天気,Weather,てんき
+泳ぐ,Swim,およぐ
+|===
+
+== 時間
+
+
+[%header, format=csv]
+|===
+漢字,英語,ふりがな
+明日,Tomorrow,あした
+|===

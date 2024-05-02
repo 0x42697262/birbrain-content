@@ -40,7 +40,7 @@
 [%header, format=csv]
 |===
 漢字,英語,ふりがな
-お早う御座います,Good morning (polite),おはようございます
+お早うございます,Good morning (polite),おはようございます
 今日は,Hello / Good afternoon,こんにちは
 今晩は,Good evening,こんばんは
 お休みなさい,Good night,おやすみなさい
