@@ -16,6 +16,8 @@ Get a *Personal Access Token* (PAT) at https://github.com/settings/tokens[Tokens
 Set the desired permissions and repository access.
 I set mine to only allow repositories that needs the token access.
 
+==== Source Trigger Repository
+
 Add *PAT* to the source trigger repository.
 
 Create a workflow file for the target repository.
@@ -36,6 +38,13 @@ jobs:
 <2> This step can either call another workflow (chaining) or execute jobs
 
 This will automatically run whenever a repository workflow dispatches the target repository.
+
+[NOTE]
+====
+This is where the Antora Playbook is located at.
+====
+
+==== Target Trigger Repository
 
 Create another workflow file for the triggering repository.
 
@@ -74,3 +83,14 @@ jobs:
 <7> The *PAT* token created earlier
 
 And that "should" work.
+
+[NOTE]
+====
+The target repo are your "antora modules" which triggers the Antora Playbook.
+====
+
+=== Conclusion
+
+There is no need to update the Antora Playbook repository, what you need to update are the antora modules.
+
+Each of them have their own secret keys, which you may need to update one by one if you plan to add new repos in the future and reuse the same key.
