@@ -43,6 +43,12 @@ Accessed,Name,URL,Description
 |===
 
 
+== Malware Development
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-02-21,Shellcodes database for study cases,https://shell-storm.org/shellcode/index.html[],"List of shell codes"
+|===
 
 
 == xref:ROOT:reverse-engineering.adoc[Reverse Engineering]
