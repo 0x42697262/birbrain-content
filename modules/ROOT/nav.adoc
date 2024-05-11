@@ -23,31 +23,30 @@
 ** xref:日記:2024-04-17.adoc[]
 ** xref:日記:2024-04-22.adoc[]
 
-[]
+[幻想]
 * xref:幻想:index.adoc[]
 ** xref:幻想:random.adoc[]
 ** xref:幻想:links.adoc[]
 
+[AsciiDoc]
+* xref:asciidoc.adoc[]
 
-[]
+[Github]
 * xref:github.adoc[]
 ** xref:github-actions.adoc[]
 
-[]
-* xref:vim.adoc[]
-
-[]
+[Information Security]
 * xref:information-security.adoc[]
 ** xref:security-domains.adoc[]
 
-[]
-* xref:asciidoc.adoc[]
+[Vim]
+* xref:vim.adoc[]
 
-[]
-.Virtualization
+[Virtualization]
+* Virtualization
 ** xref:qemu.adoc[]
 ** xref:vmware.adoc[]
 
-[]
+[日本語]
 * xref:日本語.adoc[]
 ** xref:日本語-語彙.adoc[]

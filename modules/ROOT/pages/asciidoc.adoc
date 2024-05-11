@@ -94,6 +94,7 @@ NOTE: This command can be used as ... <.>
 <.> Refer to https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions[AsciiDoc Documentation]. 
 
 This should render as.
+
 NOTE: This command can be used as ...
 
 For multiple lines, use this
@@ -123,3 +124,73 @@ Types of admonitions:
 * WARNING
 
 
+== Linking files for direct downloads
+
+AsciiDoc's documentation for this can be found https://docs.antora.org/antora/latest/page/resource-id-coordinates/#id-resource[here].
+
+Simply use ``attachment$`` https://docs.antora.org/antora/latest/page/resource-id-coordinates/#id-family[family coordinate].
+
+.Direct Downloads
+----
+📒 repository <.>
+  📄 antora.yml
+  📂 modules
+    📂 HackTheBox
+      📂 pages
+        📄 index.adoc
+        📄 photon_lockdown.adoc
+    📂random
+      📂 attachments <.>
+        📂 cmsc134-machine-problem-1
+          📄 vuln.c <.>
+      📂 pages
+        📄 cmsc134-machine-problem-1.adoc
+        📄 cmsc134-machine-problem-1-sources.adoc
+        📄 cmsc134-machine-problem-1-writeup.adoc
+        📄 cmsc134-machine-problem-2.adoc
+        📄 cmsc134-writeups.adoc
+        📄 index.adoc
+    📂ROOT
+      📄 nav.adoc
+      📂 pages
+        📄 example.adoc
+        📄 index.adoc
+    📂Root-Me
+      📂 pages
+        📄 ftp_authentication.adoc
+        📄 index.adoc
+        📄 telnet_authentication.adoc
+        📄 twitter_authentication.adoc
+----
+<.> xref:writeups:ROOT:index.adoc[Writeups] (as of 2024/05/11)
+<.> Add an ``attachments`` directory inside the module
+<.> Target attachment file
+
+Then link it with ``xref`` macro
+
+....
+xref:writeups:random:attachment$cmsc134-machine-problem-1/vuln.c[vuln.c]
+....
+
+It should look like this now.
+
+xref:writeups:random:attachment$cmsc134-machine-problem-1/vuln.c[vuln.c]
+
+This will ask you to download the file.
+
+It is also possible to use text files as includes.
+
+....
+[,c]
+----
+\include::writeups:random:attachment$cmsc134-machine-problem-1/vuln.c[]
+----
+....
+
+
+[,c]
+----
+include::writeups:random:attachment$cmsc134-machine-problem-1/vuln.c[]
+----
+
+Visit xref:writeups:random:cmsc134-machine-problem-1-sources.adoc[this] working reference.
