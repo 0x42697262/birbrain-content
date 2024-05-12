@@ -274,3 +274,7 @@ Accessed,Name,URL,Description
 * https://github.com/vavkamil/awesome-vulnerable-apps
 * https://github.com/PanXProject/awesome-certificates
 
+
+== Someone's notes
+
+. https://hackmd.io/@Kiyent/SkDtF2_2T[AI Links]

@@ -615,3 +615,15 @@ z:: Uses `gzip`
 v:: verbose
 c:: compress
 x:: extract
+
+== sqlite3
+
+=== exporting from db to csv
+
+----
+.mode csv
+.header on
+.output output.csv
+SELECT * FROM table;
+.quit
+----
