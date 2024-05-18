@@ -627,3 +627,8 @@ x:: extract
 SELECT * FROM table;
 .quit
 ----
+
+== papers
+
+* http://eprints.lse.ac.uk/36674/1/LSEH_WP22.pdf[Using a Vector Autoregression Framework to measure the quality of English NHS hospitals]
+* https://www.researchgate.net/publication/357786404_A_LITERATURE_REVIEW_ON_TIME_SERIES_FORECASTING_METHODS[A LITERATURE REVIEW ON TIME SERIES FORECASTING METHODS]

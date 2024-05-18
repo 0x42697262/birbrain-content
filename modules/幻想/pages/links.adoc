@@ -12,6 +12,7 @@ Accessed,Name,URL,Description
 2024-03-19,ISC2 Certified in Cybersecurity Entry-Level Certification,https://www.isc2.org/certifications/cc[],"FREE Cybersecurity Training and Exam! Now for a Limited Time"
 2024-03-26,CLARK,https://clark.center[],"CLARK is the largest platform that provides FREE cybersecurity curriculum. It is home to high-value, high-impact cyber curriculum created by top educators and reviewed for relevance and quality."
 2024-04-24,CS50’s Introduction to Cybersecurity,https://cs50.harvard.edu/cybersecurity[],"An introduction to cybersecurity for technical and non-technical audiences alike. Learn how to secure your accounts, data, systems, and software against today’s threats and how to recognize and evaluate tomorrow’s as well, both at home and at work. Learn how to preserve your own privacy."
+2024-05-18,Cybercademy,https://cybercademy.org/training-platforms[],"A cybersecurity training platform for practical application."
 |===
 
 
