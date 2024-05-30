@@ -87,3 +87,17 @@ You can disable this by adding.
 
 By default, NixOS does not mount ``tmpfs`` on ``/tmp`` thus ``/tmp`` will persists across reboot.
 Use ``boot.tmp.useTmpfs = true;`` to mount ``/tmp`` as tmpfs.
+
+== Upgrade Flakes
+
+. Run
+
+----
+nix flake update
+----
+
+Then, upgrade
+
+----
+nixos-rebuild switch --flake . --upgrade
+----
