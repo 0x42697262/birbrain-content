@@ -118,3 +118,9 @@ DHCP lease::
 [NOTE]
 *Why do the checksums not prevent a malicious AS from modifying packets?*
 Checksums are not cryptographic. The malicious AS could modify the packet and create a new checksum for the modified packet
+
+== Polymorphic and Metamorphic Code
+
+In an attempt to continuously change the virus’s appearance to avoid signature-based detection, attacks employ polymorphic code wherein each time the virus propagates
+
+* evade detection
