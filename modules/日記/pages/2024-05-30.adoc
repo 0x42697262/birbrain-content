@@ -1,0 +1,71 @@
+= 2024年5月30日
+
+Local Area Network::
+* connect a group of local machines
+* all machines are connected to all other machines in LAN
+* infeasible to connect every machine in the world, a *router* is introduced
+
+Router::
+* a machine that is connected to two or more LANs
+
+Wide Area Network::
+* connect the entire world with enough routers
+* basis of the internet
+
+OSI 7-layer model::
+  Layer 2 (link layer):::
+  * uses 48-bit (6-byte) MAC addresses to uniquely identify each machine on the LAN
+  * contains MAC addresses
+  Layer 3 (IP layer):::
+  * uses 32-bit (4-byte) IP Addresses to uniquely identify each machine globally
+  * contains IP addresses
+  * only guarantees _best-effort delivery_
+  * does not handle any errors
+
+
+MAC addresses::
+* usually written as 6 pairs of hex numbers such as ``ca:fe:f0:0d:be:ef``
+* special broadcast address `ff:ff:ff:ff:ff:ff`` that says "send this message to everyoen on the local network"
+
+port number:: 16-bit
+
+Packets::
+* usually limited to a fixed length
+* can be corrupted in transite or even fial to send entirely
+* rely on higher layers for correctness and security
+
+Network Adversaries::
+  Off-path:::
+  * cannot read or modify any packets sent over the connection
+  On-path:::
+  * can read, but not modify packets
+  In-path:::
+  * can read, modify, and block packets
+  * also known as *man-in-the-middle*
+
+[NOTE]
+all adversaries can send packets of their own, including faking or *spoofing* the packet headers to appear like the message si coming from somebody else
+
+
+== Address Resolution Protocol (ARP)
+
+layer:: link (2)
+purpose:: translate IP address to MAC addresses
+vulnerability:: On-path attackers can see the requests and send spoofed malicious responses
+defense:: switches, arpwatch
+
+translates Layer 3 IP addresses into Layer 2 MAC addresses
+
+Sniffing Packets::
+* ethernet devices can enter *promiscuous mode*
+
+=== ARP Spoofing
+
+first example of a race condition, where the attacker’s response must arrive faster than the legitimate response to fool the victim
+
+=== Defenses
+
+switches::
+* use switches rather than hubs
+* have a MAC cache which keeps track of the IP address to MAC address pairings
+* higher quality switches include Virtual Local Area Networks (VLANs) which implement isolation by breaking the network into separate virtual networks
