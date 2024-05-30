@@ -69,3 +69,52 @@ switches::
 * use switches rather than hubs
 * have a MAC cache which keeps track of the IP address to MAC address pairings
 * higher quality switches include Virtual Local Area Networks (VLANs) which implement isolation by breaking the network into separate virtual networks
+
+== Dynamic Host Configuration Protocol (DHCP)
+
+* responsible for setting up configurations when a computer first joins a local network
+* considered as layer 2-3 protocol
+
+DHCP follows four steps,  between you (the client) and the server (who can give you the needed IP addresses)
+
+. *Client Discover*: the client broadcasts a request for a configuration
+. *Server Offer*: any server a ble to offer IP addresses respond with some configuration settings (usually only one server replies)
+. *Client Request*: the client broadcasts which configuration it has chosen
+. *Server Acknowledge*: the chosen server confirms that its configuration has been chosen
+
+DHCP lease::
+* configuration information provided in step 2 (server offer)
+* include a lease time
+* after the time expires, the client mut ask to renew the lease to keep using that configuration, or else the DHCP server will free up those settings for other devices that request leases later
+
+=== Network Address Translation
+
+* there are more computers than IPv$ address
+* not all networks support IPv6 (expanded address space)
+* DHCP supports NAT
+* allows multiple computers on a local network to share an IP address
+
+=== Attack
+
+* almost identical to ARP spoofing
+* at the server offer step, an attacker can send a *forged configuration*, which the client will accept if it arrives before the legitimate configuration reply
+* The attacker can also become a man-in-the-middle by manipulating the DNS server address, which lets the attacker supply malicious translations between human-readable host names (www.google.com) and IP addresses (6.6.6.6)
+
+=== Defenses
+
+* many networks just accept DHCP spoofing as a fact of life
+* rely on the higher layers to defend against attackers
+* general idea: if the message sent is properly encrypted, MITM can't do anything
+
+== Border Gateway Protocol
+
+* operates by having each Autonomous Systems advertise which networks it is responsible for to its neighboring Autonomous Systems
+
+=== Attack
+
+* operates on trust (assumes all ASs are effectively honest)
+* an Autonomous System can lie and say that it is responsible for a network it isn't, resulting in all traffic being redirected to the lying AS
+
+[NOTE]
+*Why do the checksums not prevent a malicious AS from modifying packets?*
+Checksums are not cryptographic. The malicious AS could modify the packet and create a new checksum for the modified packet
