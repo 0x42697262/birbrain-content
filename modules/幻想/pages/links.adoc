@@ -15,7 +15,7 @@ Accessed,Name,URL,Description
 2024-05-18,Cybercademy,https://cybercademy.org/training-platforms[],"A cybersecurity training platform for practical application."
 2024-06-06,Blue Team Labs Online,https://blueteamlabs.online[],"Our platform is the perfect place for established cyber defenders to practice in realistic scenarios and showcase their skills in a gamified and competitive environment. Paired with external training or self-study BTLO can develop your technical capability to investigate and defend against cyber attacks and intrusions."
 2024-06-06,LetsDefend,https://www.letsdefend.io/[],"LetsDefend helps you build a blue team career with hands-on experience by investigating real cyber attacks inside a simulated SOC."
-
+2024-06-06,CyberDefenders,https://cyberdefenders.org[],"CyberDefenders is a blue team training platform for SOC analysts, threat hunters, security blue teams and DFIR professionals to advance CyberDefense skills."
 |===
 
 
