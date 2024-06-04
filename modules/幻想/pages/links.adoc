@@ -13,6 +13,9 @@ Accessed,Name,URL,Description
 2024-03-26,CLARK,https://clark.center[],"CLARK is the largest platform that provides FREE cybersecurity curriculum. It is home to high-value, high-impact cyber curriculum created by top educators and reviewed for relevance and quality."
 2024-04-24,CS50’s Introduction to Cybersecurity,https://cs50.harvard.edu/cybersecurity[],"An introduction to cybersecurity for technical and non-technical audiences alike. Learn how to secure your accounts, data, systems, and software against today’s threats and how to recognize and evaluate tomorrow’s as well, both at home and at work. Learn how to preserve your own privacy."
 2024-05-18,Cybercademy,https://cybercademy.org/training-platforms[],"A cybersecurity training platform for practical application."
+2024-06-06,Blue Team Labs Online,https://blueteamlabs.online[],"Our platform is the perfect place for established cyber defenders to practice in realistic scenarios and showcase their skills in a gamified and competitive environment. Paired with external training or self-study BTLO can develop your technical capability to investigate and defend against cyber attacks and intrusions."
+2024-06-06,LetsDefend,https://www.letsdefend.io/[],"LetsDefend helps you build a blue team career with hands-on experience by investigating real cyber attacks inside a simulated SOC."
+
 |===
 
 
@@ -109,6 +112,7 @@ Accessed,Name,URL,Description
 2024-02-11,pwn.college,https://pwn.college[],"An education platform for students to learn about, and practice, core cybersecurity concepts in a hands-on fashion."
 2024-02-11,W3Challs,https://w3challs.com[],"Offers security challenges to learn and practice hacking."
 2024-03-24,HackMyVM,https://hackmyvm.eu[],"VMs made by the users for the users"
+2024-06-06,Vulnmachines,https://vulnmachines.com[],"Vulnmachines is a cybersecurity learning platform where security enthusiasts can get a hands-on experience of various skills in different cybersecurity categories through Capture The Flag Contests."
 |===
 
 == Computer Networking
