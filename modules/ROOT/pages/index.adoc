@@ -7,103 +7,21 @@ I didn't like my setup in https://github.com/KrulYuno/obsidian_files[Obsidian No
 
 This xref:setup.adoc[setup] feels much easier to track although it has a few features that I miss from Obsidian (like backlinks, wikilinks, and graphs).
 
+[NOTE]
+As of June 6, 2024, I won't be tranferring my https://github.com/KrulYuno/obsidian_files[Obsidian Notes] here.
+I noticed that I dislike taking notes.
+A lot.
+So, my golden rule for now is to write notes *that matters* to me.
+Writing notes what I read through class or from courses just drains me from actually learning and reading.
 
-.*TODO*
-****
-[%interactive]
-* Rewrite my obsidian notes here
-[%interactive]
-** 001 Linux
-[%interactive]
-*** [ ] GNU Compiler Collection
-*** [ ] GNU Debugger
-*** [ ] iwconfig
-*** [ ] readelf
-*** [ ] syst-analyze — blame
-*** [ ] syst
-*** [ ] Vim — Tricks
-*** [ ] xxd
-*** [ ]  GNU Debugger — hook-stop GNU Debugger — set
-*** [ ] NixOS
-*** [ ] readelf — commands
-*** [ ] rtl88x2bu
-*** [ ] syst-analyze
-*** [ ] Vim
-*** [ ] Wayland
-*** [x] QEMU
-** 002 Certificates
-[%interactive]
-*** [ ] Certificates
-*** [ ] Certified Information Systems Security Professional
-*** [ ] CompTIA Security+
-** [ ] Communication and Network Security
-** [ ] Encipherment
-** [ ] Plain Text
-** [ ] Spear Phishing
-** [ ] Computer Networking
-** [ ] Encryption
-** [ ] Punycode
-** [ ] sqlite3
-** [ ] Adversarial Machine Learning
-** [ ] Computer Security
-** [ ] Firefox
-** [ ] Rust
-** [ ] Static Analysis
-** [ ] Asset Security
-** [ ] Cryptanalysis
-** [ ] Firewall
-** [ ] Security and Risk Management
-** [ ] Substitution Cipher
-** [ ] Base64
-** [ ] Cryptographic Attack
-** [ ] Identity and Access Management
-** [ ] Security Architecture and Engineering
-** [ ] Supply Chain Attack
-** [ ] Birthday Attack
-** [ ] Cryptographic Systems
-** [ ] Information Security
-** [ ] Security Assessment and Testing
-** [ ] Symmetric Key Cryptography
-** [ ] BT Snoop File Format
-** [ ] Cryptography
-** [ ] Information Technology Security
-** [ ] Security Control
-** [ ] Symmetric Key Encryption
-** [ ] Business Email Compromise
-** [ ] Cryptosystem
-** [ ] Information Theory
-** [ ] Security Domains (CISSP)
-** [ ] TELNET
-** [ ] CEO Fraud
-** [ ] Cyberattack
-** [ ] Memory Layout — C
-** [ ] Security Framework
-** [ ] Threat Actor
-** [ ] CIA Triad
-** [ ] Cyber Physical Attack
-** [ ] Memory Layout
-** [ ] Security Lifeycle
-** [ ] Transposition Cipher
-** [ ] Cipher
-** [ ] Cybersecurity
-** [ ] Networking System
-** [ ] Security Operations
-** [ ] USB Baiting
-** [ ] Cipher Text
-** [ ] Cyber Threat
-** [ ] Network Security
-** [ ] Smishing
-** [ ] Vishing
-** [ ] CodeIgniter
-** [ ] Digital Security
-** [ ] Obsidian
-** [ ] Social Engineering
-** [ ] Watering Hole Attack
-** [ ] Collision Attack
-** [ ] Downgrade Attack
-** [ ] Phishing
-** [ ] Software Development Security
-** [ ] Whaling
-* [ ] Writeups as separate component (separate git repo)
-* [x] Journals (all stashed to xref:幻想:random.adoc[])
-****
+Hence, I'll stop taking notes that doesn't matter much.
+
+[IMPORTANT]
+If you want to learn better, make sure to do the following:
+
+. Predict
+. Simulate
+. Analyze
+
+This not only works for studying but works for other aspects of life as well.
+Like for example in gaming.

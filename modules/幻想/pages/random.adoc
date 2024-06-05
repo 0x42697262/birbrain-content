@@ -5,10 +5,6 @@
 
 making my own antora vim wiki plugin thingy
 
-== information security
-
-xref:information-security.adoc[Information Security]
-
 == job salary expectations when listed in job posting
 
 when asked these questions:
@@ -532,11 +528,6 @@ list wifi devices: `nmcli device`
 - NIST 800-171
 
 
-== learn better
-
-* prediction
-* simulation
-* analysis
 
 
 == another random
@@ -553,55 +544,8 @@ security keys for security control
 
 ---
 
-#cmsc176dl
-
-limitations of single-layer networks
-
-- limited expressiveness
-	- can only perform well in linear relationships
-- sensitivity to noise data
-	- will try to fit because of the outlier
-
-solution: multi-layer neural networks
-
-Feedforward network - info flows into one direction, from input to output
 
 
-== magic hehe
-
-Relating magical classifications to digital technology and computer science can provide interesting parallels:
-
-*Alchemist*:: Comparable to software engineers who experiment with different tools, libraries, or frameworks to create innovative solutions and optimize performance or efficiency in software development.
-*Arcanist*:: Similar to skilled software architects and theoreticians who possess deep knowledge of abstract computational concepts and principles. They specialize in understanding the fundamental theories behind computing, such as algorithms, data structures, and computational complexity. Arcanists excel in designing high-level system architectures, crafting elegant solutions to complex problems, and pushing the boundaries of computational knowledge. They are less focused on specific programming languages or frameworks and more concerned with the overarching principles that govern computation.
-*Channeler*:: Resembles data engineers who build pipelines and workflows to extract, transform, and load data from various sources, channeling it for analysis, visualization, or storage purposes.
-*Elementalist*:: Similar to software engineers who specialize in specific programming languages or frameworks, such as Java, Python, or React. Each element represents a different tool or technology used in software development.
-*Enchanter/Enchantress*:: Similar to software testers who evaluate and enhance the quality of software products by identifying bugs, defects, or inconsistencies and ensuring they meet user expectations.
-*Healer/White Mage*:: Resembles cybersecurity specialists who focus on identifying and remedying vulnerabilities in digital systems to protect them from malicious attacks and ensure their health and integrity.
-*Hexer/Curselord*:: Resembles ethical hackers or penetration testers who simulate cyber-attacks to identify weaknesses and vulnerabilities in digital systems, exposing them to potential harm or exploitation.
-*Illusionist*:: Resembles UX/UI designers who create visually appealing interfaces and experiences that may deceive or manipulate user perceptions. They use design elements to guide user interactions and create immersive digital environments.
-*Necromancer*:: Comparable to forensic analysts who investigate digital artifacts and traces to reconstruct events or uncover evidence of past activities within computer systems or networks.
-*Seer/Oracle*:: Similar to data scientists who analyze large datasets and use predictive analytics to forecast future trends or gain insights into hidden patterns and relationships within the data.
-*Shapeshifter*:: Resembles software architects who adapt and transform system designs to meet changing requirements or accommodate different platforms, environments, or technologies.
-*Sorcerer/Sorceress*:: Comparable to software developers who use their knowledge and skills to craft complex programs, applications, or systems. They wield various programming techniques and methodologies to achieve their goals.
-*Summoner*:: Comparable to cloud architects who provision and manage virtual resources and services from cloud providers, summoning computing power and storage on demand.
-*Telekinetic*:: Similar to experts in robotic process automation (RPA) who develop algorithms and scripts to automate tasks and manipulate digital objects without direct physical interaction.
-*Teleporter*:: Comparable to network engineers who design and manage systems for data transmission and communication, enabling instant connectivity and information exchange across vast distances.
-*Warder*:: Similar to system administrators or DevOps engineers who establish security measures and protocols to protect digital assets and ensure the stability and reliability of IT infrastructure.
-
-
-In the context of the relationship between magic and computer science, the analogy often draws parallels between the principles of magic and the concepts of computer science. Here's how some aspects of magic can be related to computer science:
-
-*Spells as Algorithms*:: In magic, spells are sequences of actions or incantations that produce a desired effect. Similarly, algorithms in computer science are step-by-step procedures designed to solve specific problems or achieve tasks.
-
-*Mana as Computational Resources*:: Mana, the magical energy used to cast spells, can be likened to computational resources in computer science, such as CPU power, memory, or bandwidth. Both mana and computational resources are finite and must be managed efficiently to achieve desired outcomes.
-*Spellcasting as Programming*:: The act of casting a spell involves specifying the desired outcome and executing the necessary steps to achieve it. This process is akin to writing and executing code in computer programming, where programmers define instructions for a computer to follow to perform tasks.
-*Magical Circles as Software Environments*:: Magical circles or runes, used in some magical practices to contain and control magical energy, can be compared to software environments or development frameworks in computer science. They provide a controlled space for performing magical operations or executing code.
-*Magical Devices as Computing Devices*:: Magical artifacts or devices, such as wands, staves, or amulets, serve as tools for channeling and controlling magical energy. Similarly, computing devices like computers, smartphones, and tablets are tools for processing and manipulating digital information.
-*Spellbooks as Code Repositories*:: Spellbooks, repositories of magical knowledge containing instructions for casting spells, can be likened to code repositories in computer science, where programmers store and manage code for various projects.
-
-== malware analysis
-
-indicator of compromise:: (ioc) artifacts left behind by malwares
 
 
 == Archiving and compression
