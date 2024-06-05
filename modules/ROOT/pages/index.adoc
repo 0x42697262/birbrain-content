@@ -8,6 +8,7 @@ I didn't like my setup in https://github.com/KrulYuno/obsidian_files[Obsidian No
 This xref:setup.adoc[setup] feels much easier to track although it has a few features that I miss from Obsidian (like backlinks, wikilinks, and graphs).
 
 [NOTE]
+====
 As of June 6, 2024, I won't be tranferring my https://github.com/KrulYuno/obsidian_files[Obsidian Notes] here.
 I noticed that I dislike taking notes.
 A lot.
@@ -15,8 +16,10 @@ So, my golden rule for now is to write notes *that matters* to me.
 Writing notes what I read through class or from courses just drains me from actually learning and reading.
 
 Hence, I'll stop taking notes that doesn't matter much.
+====
 
 [IMPORTANT]
+====
 If you want to learn better, make sure to do the following:
 
 . Predict
@@ -25,3 +28,4 @@ If you want to learn better, make sure to do the following:
 
 This not only works for studying but works for other aspects of life as well.
 Like for example in gaming.
+====
