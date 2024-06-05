@@ -38,10 +38,6 @@
 * xref:github.adoc[]
 ** xref:github-actions.adoc[]
 
-[Information Security]
-* xref:information-security.adoc[]
-** xref:security-domains.adoc[]
-
 [Vim]
 * xref:vim.adoc[]
 
