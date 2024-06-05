@@ -39,6 +39,9 @@
 * xref:github.adoc[]
 ** xref:github-actions.adoc[]
 
+[Google]
+* xref:google.adoc[]
+
 [Vim]
 * xref:vim.adoc[]
 

@@ -8,3 +8,7 @@ Which makes me lose focus on the topic.
 Instead I will start taking notes that *matters to me*.
 It is similar to Selective Note Taking approach but it's not optimized for efficiency.
 This approach focuses more on decreasing mental drain as much as possible.
+
+'''
+
+Learned something new xref:ROOT:google.adoc#_see_who_viewed_your_document[See who viewed your document in Google].

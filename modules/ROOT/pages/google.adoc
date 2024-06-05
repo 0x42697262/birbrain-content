@@ -1,0 +1,9 @@
+= Google
+
+== Docs
+
+=== See who viewed your document
+
+Go to menu:Tools[Activity dashboard].
+
+Although, you can't see the people who made copies of your document.
