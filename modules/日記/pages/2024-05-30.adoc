@@ -1,4 +1,4 @@
-= 2024年5月30日
+= 2024年05月30日
 
 Local Area Network::
 * connect a group of local machines

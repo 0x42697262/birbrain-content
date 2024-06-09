@@ -1,4 +1,4 @@
-= 2024年4月1日
+= 2024年04月01日
 
 Why can't I just figure out that xref:ROOT:qemu.adoc[QEMU] just doesn't work in xref:ROOT:nixos.adoc[NixOS]????
 

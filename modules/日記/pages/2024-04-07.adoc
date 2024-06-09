@@ -1,4 +1,4 @@
-= 2024年4月7日
+= 2024年04月07日
 
 == xref:ROOT:qemu.adoc[QEMU]
 

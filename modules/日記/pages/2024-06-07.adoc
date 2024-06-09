@@ -1,0 +1,3 @@
+= 2024年06月07日
+
+https://www.plc-security.com/content/Top_20_Secure_PLC_Coding_Practices_V1.0.pdf[PLC Coding Practices PDF]

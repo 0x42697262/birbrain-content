@@ -1,4 +1,4 @@
-= 2024年4月17日
+= 2024年04月17日
 
 use ``EXPLAIN`` in mysql queries before running.
 if the extra part contains ``using filesort`` then it's gonna be slow

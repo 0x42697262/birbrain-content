@@ -1,4 +1,4 @@
-= 2024年3月31日
+= 2024年03月31日
 
 == xref:ROOT:nixos.adoc[NixOS]
 

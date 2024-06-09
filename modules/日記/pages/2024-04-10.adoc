@@ -1,4 +1,4 @@
-= 2024年4月10日
+= 2024年04月10日
 
 
 I noticed that I kept changing user groups and it's quite annoying having to relogin just to apply the changes for the user.

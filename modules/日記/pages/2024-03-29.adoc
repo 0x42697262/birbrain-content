@@ -1,4 +1,4 @@
-= 2024年3月29日
+= 2024年03月29日
 
 == xz/liblzma Got Backdoored (CVE-2024-3094)
 

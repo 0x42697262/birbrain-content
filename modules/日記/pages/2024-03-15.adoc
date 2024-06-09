@@ -1,4 +1,4 @@
-= 2024年3月15日
+= 2024年03月15日
 
 I spent 12 hours just trying to make https://github.com/jackyzha0/quartz[Quartz] work and it did!
 I even copied https://www.mara-li.fr[Owlly Lab]'s code just to make Quartz nicer to look at.
