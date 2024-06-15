@@ -33,6 +33,9 @@
 ** xref:幻想:random.adoc[]
 ** xref:幻想:links.adoc[]
 
+[Android]
+* xref:android.adoc[]
+
 [AsciiDoc]
 * xref:asciidoc.adoc[]
 

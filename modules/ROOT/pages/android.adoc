@@ -1,0 +1,29 @@
+= Android
+
+[WARNING]
+====
+Do not delete files when trying to bypass Android's screen lock protection!!!
+====
+
+
+== Full Format
+
+[NOTE]
+====
+This wipes user data.
+====
+
+Use ``fastboot`` with the option ``fastboot -w``.
+
+[NOTE]
+====
+This doesn't remove Magisk root.
+====
+
+
+== ROOT
+
+. *Get a copy of ``boot.img`` from the ROM.*
+. *Send to phone*: ``adb push <directory>/init_boot.img /sdcard/Download/``
+. *Patch with https://topjohnwu.github.io/Magisk/install.html#patching-images[Magisk]*: ``fastboot flash init_boot <magisk_patched.img file>``
+. *Reboot.*
