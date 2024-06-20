@@ -88,7 +88,7 @@ Accessed,Name,URL,Description
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
-2024-04-28,PortSwigger Web Security Academy,https://portswigger.net/web-security[],"Free, online web security training from the creators of Burp Suite."
+2024-06-21,PortSwigger Web Security Academy,https://portswigger.net/web-security[],"Free, online web security training from the creators of Burp Suite."
 2024-04-28,bWAPP Files,https://sourceforge.net/projects/bwapp/files/bee-box[],"bWAPP, or a buggy web application, is a free and open source deliberately insecure web application."
 |===
 
