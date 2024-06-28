@@ -1,0 +1,41 @@
+= 2024年06月21日
+
+----
+$ lsof -i -P -n
+
+bash      10063 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (ESTABLISHED)
+fish      11081 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (ESTABLISHED)
+bash      13017 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (ESTABLISHED)
+fish      14024 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (ESTABLISHED)
+bash      14317 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (ESTABLISHED)
+fish      16382 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (ESTABLISHED)
+
+
+$ lsof -i -P -n
+
+bash      10063 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (CLOSE_WAIT)
+fish      11081 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (CLOSE_WAIT)
+bash      13017 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (CLOSE_WAIT)
+fish      14024 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (CLOSE_WAIT)
+bash      14317 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (CLOSE_WAIT)
+fish      16382 birb   9u  IPv4  77054      0t0  TCP 172.16.0.153:51976->151.101.66.217:443 (CLOSE_WAIT)
+----
+
+----
+$ sudo tcpdump -i any host 151.101.66.217
+
+tcpdump: data link type LINUX_SLL2
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
+23:06:46.594001 wlo1  In  IP 151.101.66.217.https > AtomicBird.51976: Flags [P.], seq 780588592:780588642, ack 651769513, win 287, options [nop,nop,TS val 3997402296 ecr 1726585493], length 50
+23:06:46.594003 wlo1  In  IP 151.101.66.217.https > AtomicBird.51976: Flags [P.], seq 50:73, ack 1, win 287, options [nop,nop,TS val 3997402296 ecr 1726585493], length 23
+23:06:46.594005 wlo1  In  IP 151.101.66.217.https > AtomicBird.51976: Flags [F.], seq 73, ack 1, win 287, options [nop,nop,TS val 3997402296 ecr 1726585493], length 0
+23:06:46.594039 wlo1  Out IP AtomicBird.51976 > 151.101.66.217.https: Flags [.], ack 50, win 501, options [nop,nop,TS val 1727195393 ecr 3997402296], length 0
+23:06:46.594048 wlo1  Out IP AtomicBird.51976 > 151.101.66.217.https: Flags [.], ack 73, win 501, options [nop,nop,TS val 1727195393 ecr 3997402296], length 0
+23:06:46.634559 wlo1  Out IP AtomicBird.51976 > 151.101.66.217.https: Flags [.], ack 74, win 501, options [nop,nop,TS val 1727195434 ecr 3997402296], length 0
+----
+
+This is a Fastly CDN but I do not understand why my terminals are connecting to it.
+Did I get pwned?
+
+Doesn't seem so, there's a forum post of it https://discourse.nixos.org/t/the-nixos-cache-is-now-hosted-by-fastly/1061/20[here]

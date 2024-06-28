@@ -1,0 +1,38 @@
+= 2024年06月28日
+
+== Setting Hyprland to use grayscale display
+
+.Blank Shader
+[,c]
+----
+precision mediump float;
+varying vec2 v_texcoord;
+uniform sampler2D tex;
+
+void main() {
+    vec4 pixColor = texture2D(tex, v_texcoord);
+    gl_FragColor = pixColor;
+}
+----
+
+
+.Grayscale Shader
+[,c]
+----
+precision mediump float;
+varying vec2 v_texcoord;
+uniform sampler2D tex;
+
+void main() {
+
+    vec4 pixColor = texture2D(tex, v_texcoord);
+
+    vec3 greyScale = vec3(0.4, 0.25, 0.3);
+    gl_FragColor = vec4(vec3(dot(pixColor.rgb, greyScale)), pixColor.a);
+}
+----
+
+Save those two as files and run ``hyprctl keyword decoration:screen_shader <shader path>``.
+
+Use the blank shader to reset.
+Do a *hyprland reload* to clear notifications stuck at the top of the screen.
