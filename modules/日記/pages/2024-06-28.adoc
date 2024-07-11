@@ -36,3 +36,7 @@ Save those two as files and run ``hyprctl keyword decoration:screen_shader <shad
 
 Use the blank shader to reset.
 Do a *hyprland reload* to clear notifications stuck at the top of the screen.
+
+== Tricks to stop procrastinating
+
+. probably make a spin the wheel of tasks. im not sure if this works
