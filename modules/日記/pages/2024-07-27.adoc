@@ -1,0 +1,7 @@
+= 2024年07月27日
+
+Laptop keyboard crashed.
+No idea why.
+Don't know the trigger.
+Restarting was the only option.
+Using external keyboard like wifi works, but wired keyboard does not work.

@@ -1,0 +1,23 @@
+= 2024年07月15日
+
+C-like structs for Python equivalent is using dataclass for Python version 3.7+.
+
+[,python]
+----
+from dataclassses import dataclass, field
+
+@dataclass
+class Point:
+  x: int
+  y: int
+
+@dataclass
+class System:
+  name: str
+  value: int
+  point: field(default_factory=Point)
+  message: field(default_factory=list)
+
+  def __post_init__(self):
+    self.messsage = ["Destroy.", "Command.", "Intercept."]
+----
