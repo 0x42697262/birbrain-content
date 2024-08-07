@@ -4,6 +4,14 @@
 
 [journal]
 * xref:日記:index.adoc[]
+** xref:日記:2024-07-27.adoc[]
+** xref:日記:2024-07-25.adoc[]
+** xref:日記:2024-07-15.adoc[]
+** xref:日記:2024-07-06.adoc[]
+** xref:日記:2024-06-28.adoc[]
+** xref:日記:2024-06-21.adoc[]
+** xref:日記:2024-06-13.adoc[]
+** xref:日記:2024-06-09.adoc[]
 ** xref:日記:2024-06-07.adoc[]
 ** xref:日記:2024-06-06.adoc[]
 ** xref:日記:2024-05-30.adoc[]
@@ -45,6 +53,10 @@
 
 [Google]
 * xref:google.adoc[]
+
+[Siemens]
+* Siemens
+** xref:tia-portal-openness.adoc[]
 
 [Vim]
 * xref:vim.adoc[]
