@@ -26,3 +26,10 @@ import Siemens.Engineering.HW.Features
 <.> Needed for importing Siemens.Engineering modules
 
 Check the notes for the API xref:tia-portal-openness-api.adoc[here].
+
+=== How To
+
+Insert Function Block into a Network of Organization Block (aka Instance)::
+There's no direct method but there's a way through doing it in XML by exporting the Function Blocks footnote:[https://support.industry.siemens.com/forum/ph/en/posts/openness-tia-inserting-a-function-block-into-a-network-of-a-function-or-organization-block-using-tia-openness/306040].
+
+
