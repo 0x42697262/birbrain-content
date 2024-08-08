@@ -54,10 +54,9 @@
 [Google]
 * xref:google.adoc[]
 
-[Siemens]
-* Siemens
-** xref:tia-portal-openness.adoc[]
-*** xref:tia-portal-openness-api.adoc[]
+[TIA Portal Openness]
+* xref:tia-portal-openness.adoc[]
+** xref:tia-portal-openness-api.adoc[]
 
 [Vim]
 * xref:vim.adoc[]
