@@ -1,5 +1,7 @@
 = TIA Portal Openness
 
+== API for automation of engineering workflows
+
 *Requirements*
 
 . https://cache.industry.siemens.com/dl/files/886/109826886/att_1163875/v1/TIAPortalOpenness_enUS_en-US.pdf[System Manual] (as of 2023)
@@ -23,22 +25,4 @@ import Siemens.Engineering.HW.Features
 <.> Needed for avoiding issues when importing the DLL file in Jupyter Notebooks
 <.> Needed for importing Siemens.Engineering modules
 
-== API for automation of engineering workflows (Python)
-
-=== Siemens.Engineering.TiaPortal
-
-Starting the portal
-
-[,python]
-----
-Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
-----
-
-or
-
-[,python]
-----
-Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithoutUserInterface)
-----
-
-This returns `Siemens.Engineering.TiaPortal` which can now be used to create a project, list devices, and so much more.
+Check the notes for the API xref:tia-portal-openness-api.adoc[here].

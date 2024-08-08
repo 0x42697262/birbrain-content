@@ -57,6 +57,7 @@
 [Siemens]
 * Siemens
 ** xref:tia-portal-openness.adoc[]
+*** xref:tia-portal-openness-api.adoc[]
 
 [Vim]
 * xref:vim.adoc[]

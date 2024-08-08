@@ -1,0 +1,62 @@
+= Siemens.Engineering (DLL)
+
+== TiaPortal
+
+With user interface
+
+[,python]
+----
+Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
+----
+
+or without a user interface
+
+[,python]
+----
+Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithoutUserInterface)
+----
+
+This returns `Siemens.Engineering.TiaPortal` which can now be used to create a project, list devices, and so much more.
+
+
+
+
+
+[#se-project]
+== Project
+
+
+[#se-projectbase]
+== ProjectBase
+
+*Derived Types*:
+
+* <<se-project, Project>>
+
+=== Devices
+
+Returns a list of ``<<se-hw-device, Siemens.Engineering.HW.Device>>``.
+
+
+
+
+[#se-hw-device]
+== HW.Device
+
+Check its <<se-hw-devicecomposition, composition>>.
+
+
+[#se-hw-devicecomposition]
+== HW.DeviceComposition
+
+=== CreateWithItem
+
+Returns ``<<se-hw-device, Siemens.Engineering.HW.Device>>``.
+
+====
+typeIdentifier:: Type identifier of the device to be created with sub items
+name:: Name of the device to be created with sub items
+deviceName:: The name of the device to create with subcomponents
+====
+<.> ``deviceName`` must be unique
+
