@@ -9,7 +9,7 @@
 . Install ``pythonnet`` from pip
 
 
-[,python]
+[source,python]
 ----
 import clr
 from System.IO import DirectoryInfo, FileInfo

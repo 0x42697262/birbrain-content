@@ -4,14 +4,14 @@
 
 With user interface
 
-[,python]
+[source,python]
 ----
 Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
 ----
 
 or without a user interface
 
-[,python]
+[source,python]
 ----
 Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithoutUserInterface)
 ----
@@ -60,3 +60,27 @@ deviceName:: The name of the device to create with subcomponents
 ====
 <.> ``deviceName`` must be unique
 
+[#sw-blocks-plcblock]
+== SW.Blocks.PlcBlock
+
+== Export
+
+.Inconsistent blocks and PLC data types (UDT) cannot be exported.
+----
+Inconsistent blocks and PLC data types (UDT) cannot be exported.
+   at Siemens.Engineering.Private.Session.Siemens.Engineering.Private.IInstanceSession.InvokeAction[TC](LifetimeContractHandle`1 lifetimeContractHandle, String name, IEnumerable`1 parameters, String fullName)
+   at Siemens.Engineering.Private.InternalInstanceAccess`2.InvokeAction(String name, IEnumerable`1 parameters)
+   at Siemens.Engineering.SW.Blocks.PlcBlock.Export(FileInfo path, ExportOptions exportOptions)
+----
+
+The fix to this is to first compile the <<sw-blocks-plcblock, PlcBlock>> as described https://support.industry.siemens.com/forum/ph/en/posts/importexporting-lad-from-as-xml/212303[here].
+
+[%collapsible]
+====
+[quote, JHD2, Industry Support Siemens]
+____
+a possible cause for the error is the LAD not being considered consistent. The function needs to consider the PlcBlock as consistent in order to export to xml, which can be checked by checking the PlcBlock's IsConsistent bool.
+
+To solve this issue, the LAD first needs to be compiled, after which the Export function should be able to be called without issue.
+____
+====
