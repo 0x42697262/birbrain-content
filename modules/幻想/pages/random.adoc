@@ -230,8 +230,6 @@ exploit     = SHELLCODE2 + NOP*5 + EIP
 sys.stdout.buffer.write(exploit)
 ----
 
-== xref:nixos.adoc[NixOS]
-
 == updating
 
 ``nixos-rebuild switch --upgrade``

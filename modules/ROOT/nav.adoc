@@ -4,6 +4,7 @@
 
 [journal]
 * xref:日記:index.adoc[]
+** xref:日記:2024-08-14.adoc[]
 ** xref:日記:2024-07-27.adoc[]
 ** xref:日記:2024-07-25.adoc[]
 ** xref:日記:2024-07-15.adoc[]
@@ -53,6 +54,9 @@
 
 [Google]
 * xref:google.adoc[]
+
+[NixOS]
+* xref:nixos.adoc[]
 
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
