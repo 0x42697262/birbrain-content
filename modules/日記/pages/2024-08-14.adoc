@@ -1,0 +1,11 @@
+= 2024年08月14日
+
+Trying to figure out *IPv6*.
+I can host it using Python `python -m http.server --bind ::`.
+
+Now I wonder if it works on LAN.
+_Update: It does work on LAN._
+It doesn't work on public IP though.
+It might be a firewall issue.
+
+To access IPv6 on Firefox, use this kind of URL notation `http://[::]:80/`.
