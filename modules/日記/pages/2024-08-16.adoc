@@ -1,0 +1,12 @@
+= 2024年08月16日
+
+When partitioning with GPT, the *first partition* should be the */boot* partition with the first sector at *2048*.
+Because, it might be needed for the boot loader.
+
+
+== xref:ROOT:discoverable-partitions-specification.adoc[Discoverable Partitions Specifcations]
+
+ESP:: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+Linux root (x86-64):: 4f68bce3-e8cd-4db1-96e7-fbcaf984b709
+Linux home:: 933ac7e1-2eb4-4f13-b844-0e14e2aef915
+
