@@ -1,0 +1,11 @@
+= Errors
+
+== !!! Error: Failed to get a list of valid profiles
+
+Fix: `emerge --sync`
+
+== cannot run command '/bin/bash': Exec format error 
+
+Check if the architecture of the stage file and install media are the same.
+
+My issue that caused this was because I have AMD64 minimal install while I downloaded ARM64 stage 3 file.

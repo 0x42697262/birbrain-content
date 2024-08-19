@@ -1,0 +1,24 @@
+= NMAP
+
+== Scanning
+
+-A:: Enable OS detection (-O), version detection (-sV), script scanning, and traceroute (--traceroute)
+-F:: Fast mode - Scan fewer ports than the default scan
+-T<0-5>:: Set timing template (higher is faster)
+
+== Recommended Flags
+
+=== Capture The Flag
+
+[, bash]
+----
+nmap -A -T5 <ip> -v
+----
+
+=== Bug Bounty
+
+[, bash]
+----
+nmap -A -F -T1 <ip> -v
+----
+

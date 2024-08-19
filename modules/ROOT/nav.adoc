@@ -4,6 +4,8 @@
 
 [journal]
 * xref:日記:index.adoc[]
+** xref:日記:2024-08-18.adoc[]
+** xref:日記:2024-08-17.adoc[]
 ** xref:日記:2024-08-16.adoc[]
 ** xref:日記:2024-08-14.adoc[]
 ** xref:日記:2024-07-27.adoc[]
@@ -49,6 +51,10 @@
 [AsciiDoc]
 * xref:asciidoc.adoc[]
 
+[Gentoo]
+* xref:gentoo.adoc[]
+** xref:gentoo-errors.adoc[]
+
 [Github]
 * xref:github.adoc[]
 ** xref:github-actions.adoc[]
@@ -58,6 +64,9 @@
 
 [NixOS]
 * xref:nixos.adoc[]
+
+[NMAP]
+* xref:nmap.adoc[]
 
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
