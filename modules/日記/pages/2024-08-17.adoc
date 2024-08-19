@@ -1,0 +1,9 @@
+= 2024年08月17日
+
+== xref:ROOT:gentoo.adoc[]
+
+====
+!!! Error: Failed to get a list of valid profiles
+====
+
+Fix: `emerge --sync`
