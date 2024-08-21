@@ -1,0 +1,4 @@
+= 2024年08月21日
+
+`PIPEWIRE_LATENCY=32/44100 osu-lazer`
+
