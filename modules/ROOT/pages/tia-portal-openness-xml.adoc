@@ -1,0 +1,109 @@
+= XML
+
+== Organization Block
+
+In general, UIds for all attributes should be unique to avoid errors.
+An example of this error is ``There are at least two definitions for UIds. The incorrect unique ID is '132'.``
+
+.Main Body
+[, xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+	<SW.Blocks.OB ID="0">
+		<AttributeList>
+			<Name>$NAME</Name>
+			<Namespace />
+			<Number>$NUMBER</Number> <.>
+			<ProgrammingLanguage>$PROGRAMMING_LANGUAGE</ProgrammingLanguage>
+			<SecondaryType>ProgramCycle</SecondaryType>
+		</AttributeList>
+		<ObjectList>
+			<MultilingualText ID="1" CompositionName="Comment">
+				<ObjectList>
+					<MultilingualTextItem ID="2" CompositionName="Items">
+						<AttributeList>
+							<Culture>en-US</Culture>
+							<Text />
+						</AttributeList>
+					</MultilingualTextItem>
+				</ObjectList>
+			</MultilingualText>
+			   <SW.Blocks.CompileUnit />  <.>
+			<MultilingualText ID="D" CompositionName="Title">
+				<ObjectList>
+					<MultilingualTextItem ID="E" CompositionName="Items">
+						<AttributeList>
+							<Culture>en-US</Culture>
+							<Text>"Main Program Sweep (Cycle)"</Text>
+						</AttributeList>
+					</MultilingualTextItem>
+				</ObjectList>
+			</MultilingualText>
+		</ObjectList>
+	</SW.Blocks.OB>
+</Document>
+----
+<.> Acceptable values must be within this range: ``1; 123-32767``.
+<.> Refer to this XML attribute: <<compileunit, SW.Blocks.CompileUnit>>.
+
+
+[#compileunit]
+.SW.Blocks.CompileUnit
+[, xml]
+----
+<SW.Blocks.CompileUnit ID="$ID" CompositionName="CompileUnits">
+	<AttributeList>
+		<NetworkSource>
+			<FlgNet
+				xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+				<Parts>
+					$PARTS
+				</Parts>
+				<Wires>
+					<Wire /> <.>
+				</Wires>
+			</FlgNet>
+		</NetworkSource>
+		<ProgrammingLanguage>$PROGRAMMING_LANGUAGE</ProgrammingLanguage>
+	</AttributeList>
+</SW.Blocks.CompileUnit>
+----
+<.> Refer to this XML attribute: <<wire_a, Wire (First)>> or <<wire_b, Wire>>.
+
+[#call]
+.Call
+[, xml]
+----
+<Call UId="$UID">
+	<CallInfo Name="$NAME" BlockType="$BLOCK_TYPE">
+		<IntegerAttribute Name="BlockNumber" Informative="true">$BLOCK_NUMBER</IntegerAttribute>
+		<Instance Scope="GlobalVariable" UId="$INSTANCE_UID">
+			<Component Name="$COMPONENT_NAME" />
+			<Address Area="DB" Type="$DB_TYPE" BlockNumber="$DB_BLOCK_NUMBER" BitOffset="0" Informative="true" />
+		</Instance>
+	</CallInfo>
+</Call>
+----
+
+[#wire_a]
+.Wire (First)
+[, xml]
+----
+<Wire UId="$UID">
+	<Powerrail />
+	<NameCon UId="$EN_UID" Name="en" /> <.>
+</Wire>
+----
+<.> Must be a value from a ``<<call, Call>>`` UId.
+
+[#wire_b]
+.Wire
+[, xml]
+----
+<Wire UId="$UID">
+	<NameCon UId="$ENO_UID" Name="eno" />
+	<NameCon UId="$EN_UID" Name="en" /> <.>
+</Wire>
+----
+<.> Must be a value from a ``<<call, Call>>`` UId.

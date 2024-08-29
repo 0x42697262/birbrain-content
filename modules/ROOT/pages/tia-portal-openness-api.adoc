@@ -19,9 +19,6 @@ Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithoutUserInter
 This returns `Siemens.Engineering.TiaPortal` which can now be used to create a project, list devices, and so much more.
 
 
-
-
-
 [#se-project]
 == Project
 

@@ -27,6 +27,24 @@ import Siemens.Engineering.HW.Features
 
 Check the notes for the API xref:tia-portal-openness-api.adoc[here].
 
+[%collapsible]
+.FileNotFoundException: Could not load file or assembly or one of its dependencies.
+====
+----
+FileNotFoundException: Could not load file or assembly 'Siemens.Engineering.Contract, Version=1800.100.4201.1, Culture=neutral, PublicKeyToken=37a18b206f7724a6' or one of its dependencies. The system cannot find the file specified.
+----
+
+To fix this error, simply add a reference DLL: ``Siemens.Engineering.Contract.dll``
+
+For example
+
+[, python]
+----
+clr.AddReference('C:\\Program Files\\Siemens\\Automation\\Portal V18\\Bin\\PublicAPI\\Siemens.Engineering.Contract.dll')
+----
+====
+
+
 === How To
 
 Insert Function Block into a Network of Organization Block (aka Instance)::
