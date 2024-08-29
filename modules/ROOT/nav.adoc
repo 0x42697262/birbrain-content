@@ -7,7 +7,6 @@
 ** xref:日記:2024-08-21.adoc[]
 ** xref:日記:2024-08-20.adoc[]
 ** xref:日記:2024-08-19.adoc[]
-** xref:日記:2024-08-18.adoc[]
 ** xref:日記:2024-08-17.adoc[]
 ** xref:日記:2024-08-16.adoc[]
 ** xref:日記:2024-08-14.adoc[]
@@ -65,6 +64,9 @@
 [Google]
 * xref:google.adoc[]
 
+[Linux]
+* xref:linux.adoc[]
+
 [NixOS]
 * xref:nixos.adoc[]
 
@@ -74,6 +76,7 @@
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
 ** xref:tia-portal-openness-api.adoc[]
+** xref:tia-portal-openness-xml.adoc[]
 
 [Vim]
 * xref:vim.adoc[]

@@ -1,0 +1,8 @@
+= Linux
+
+== Get BIOS Information
+
+[, bash]
+----
+$ dmidecode -t bios -q
+----
