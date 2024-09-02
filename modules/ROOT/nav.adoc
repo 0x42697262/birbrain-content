@@ -57,6 +57,9 @@
 * xref:gentoo.adoc[]
 ** xref:gentoo-errors.adoc[]
 
+[Git]
+* xref:git.adoc[]
+
 [Github]
 * xref:github.adoc[]
 ** xref:github-actions.adoc[]

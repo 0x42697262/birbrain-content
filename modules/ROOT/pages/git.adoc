@@ -1,0 +1,17 @@
+= Git
+
+== Stage specific chunk of lines
+
+[, bash]
+----
+git add -p
+----
+
+== Update an outdated branch based by cherry-picking
+
+[, bash]
+----
+git cherry-pick <commit-hash>
+----
+
+To find a commit hash, simply do ``git log <branch>``.
