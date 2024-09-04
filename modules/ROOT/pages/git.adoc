@@ -7,6 +7,9 @@
 git add -p
 ----
 
+Use ``s`` to split the hunks.
+It's useful when you don't want to stage the entire chunk.
+
 == Update an outdated branch based by cherry-picking
 
 [, bash]
