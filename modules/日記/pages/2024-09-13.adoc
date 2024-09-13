@@ -1,0 +1,17 @@
+= 2024年09月13日
+
+== Practical Binary Analysis
+
+Reading about https://practicalbinaryanalysis.com[Practical Binary Analysis] again.
+I am not sure if I can dedicate to this like how I have failed dedicating to learning malware development...
+
+I didn't want to install the binaries and tools directly on my host machine so I decided to just download the VM:
+
+. https://surfdrive.surf.nl/files/index.php/s/wV0pHO91VEGghTl/download[VM (.ova) torrent file]
+
+It is a bit slow but hopefully I don't become a leecher...
+
+== Knowledge-Base
+
+I feel like my daily notes are getting longer... I need to build a neovim extension soon.
+

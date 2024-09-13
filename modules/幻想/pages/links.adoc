@@ -68,6 +68,7 @@ Accessed,Name,URL,Description
 2024-02-11,Simple x86_64 buffer overflow in gdb,https://oxasploits.com/posts/simple-buffer-overflow-exploitation-walkthrough-gdb[],"Debugging a C buffer overflow in gdb to attain higher privileges."
 2024-02-11,Practical Binary Analysis,https://practicalbinaryanalysis.com[],"Practical Binary Analysis covers all major binary analysis topics in an accessible way, from binary formats, disassembly, and basic analysis to advanced techniques like binary instrumentation, taint analysis, and symbolic execution."
 2024-01-19,Awesome Malware Analysis,https://github.com/rshipp/awesome-malware-analysis[],"A curated list of awesome malware analysis tools and resources."
+2024-09-12,Microcorruption,https://microcorruption.com[],"tl;dr: Given a debugger and a device, find an input that unlocks it. Solve the level with that input. You've been given access to a device that controls a lock. Your job: defeat the lock by exploiting bugs in the device's code."
 |===
 
 

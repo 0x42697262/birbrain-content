@@ -1,0 +1,3 @@
+= 2024年09月10日
+
+Use ``udisksctl`` to poweroff an external HDD when after it's unmounted.
