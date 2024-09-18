@@ -96,6 +96,10 @@
 ** xref:qemu.adoc[]
 ** xref:vmware.adoc[]
 
+[Waydroid]
+* xref:waydroid.adoc[]
+** xref:waydroid-errors.adoc[]
+
 [日本語]
 * xref:日本語.adoc[]
 ** xref:日本語-語彙.adoc[]

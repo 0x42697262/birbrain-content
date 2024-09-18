@@ -1,0 +1,14 @@
+= Errors
+
+== Failed to get service waydroidplatform, trying again...
+
+Fix is to set some values of ``waydroid_base.prop`` file in ``/var/lib/waydroid``.
+
+.Set these exact variables
+[,prop]
+----
+ro.hardware.gralloc=default
+ro.hardware.egl=swiftshader
+----
+
+Then, restart the container ``waydroid container restart``.

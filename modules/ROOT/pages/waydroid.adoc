@@ -1,0 +1,7 @@
+= Waydroid
+
+
+Use https://github.com/casualsnek/waydroid_script[Waydroid Script] to install Google Play Store, libndk (better ARM translation), and Magisk.
+
+Check https://docs.waydro.id/faq/google-play-certification[Google Play Certification] in Waydroid documentation for us to login into Google.
+
