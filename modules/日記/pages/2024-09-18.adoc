@@ -1,0 +1,5 @@
+= 2024年09月18日
+
+https://www.youtube.com/watch?v=lSa_wHW1pgQ[ Fake CAPTCHA Runs Malware  (YouTube)]::
+Fake ReCAPTCHA through copy-pasting commands on Run.
+Check ``HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU`` for history of run commands.

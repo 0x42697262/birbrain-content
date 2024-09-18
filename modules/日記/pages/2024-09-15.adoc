@@ -1,0 +1,21 @@
+= 2024年09月15日
+
+https://www.youtube.com/watch?v=rEA7syABBeA[A friend asked, "what's so wrong with fast food?", so I made this video. (YouTube)]::
+Talks about how bad fast food buns are.
+Because of sugar and seed oils.
+I missed the 3rd point though.
+
+== Waydroid
+
+Setting a proxy for Burpsuite use:
+
+1. adb shell settings put global http_proxy "192.168.240.1:7890"
+2. $ openssl x509 -subject_hash_old -in my-ca-cert.pem | head -1
+Use the output as filename.
+3. $ sudo mkdir -p /var/lib/waydroid/overlay/system/etc/security/cacerts/
+4. $ sudo cp my-ca-cert.pem /var/lib/waydroid/overlay/system/etc/security/cacerts/13acab12.0
+5. $ sudo chmod 644 /var/lib/waydroid/overlay/system/etc/security/cacerts/13acab12.0
+6. Restart waydroid.
+
+https://portswigger.net/burp/documentation/desktop/mobile/config-android-device[Configuring Burpsuite Certificates]
+https://github.com/waydroid/waydroid/issues/870[Source]
