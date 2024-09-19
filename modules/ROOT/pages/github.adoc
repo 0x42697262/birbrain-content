@@ -1,0 +1,130 @@
+= Github
+
+== URL Paths
+
+=== Archive
+
+It's possible to grab the archive (as .tar.gz format) of a commit based on its hash commit.
+
+.The pattern goes like this
+----
+https://github.com/0x42697262/birbrain-content/commit/29f619b577210e0228037b24b737d4d44b2a7bb4.tar.gz <.>
+----
+<.> Notice the **.tar.gz** at the end
+
+This is a direct download link to a xref:git.adoc[] commit saved as an archive file.
+
+=== Patch
+
+To get the *patch* file of a commit, simply add ``.patch`` at the end of the commit URL.
+
+----
+https://github.com/0x42697262/birbrain-content/commit/29f619b577210e0228037b24b737d4d44b2a7bb4.patch
+----
+
+.29f619b577210e0228037b24b737d4d44b2a7bb4.patch
+[, diff]
+----
+From 29f619b577210e0228037b24b737d4d44b2a7bb4 Mon Sep 17 00:00:00 2001
+From: 0x42697262 <giogulane.wineffgulane@gmail.com>
+Date: Wed, 3 Apr 2024 06:10:15 +0900
+Subject: [PATCH] =?UTF-8?q?[=E6=97=A5=E8=A8=98]=20April=201,=202024=20--?=
+ =?UTF-8?q?=20wtf=20did=20i=20do=20wrong=20with=20my=20qemu=20setup=3F=3F?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .../pages/index.adoc"                         |  6 ++
+ .../pages/2024-04-01.adoc"                    | 66 +++++++++++++++++++
+ 2 files changed, 72 insertions(+)
+ create mode 100644 "modules/\346\227\245\350\250\230/pages/2024-04-01.adoc"
+
+diff --git "a/modules/\345\271\273\346\203\263/pages/index.adoc" "b/modules/\345\271\273\346\203\263/pages/index.adoc"
+index 2a80fc9..5f36f9f 100644
+--- "a/modules/\345\271\273\346\203\263/pages/index.adoc"
++++ "b/modules/\345\271\273\346\203\263/pages/index.adoc"
+@@ -3,3 +3,9 @@
+ 
+ This is where I store my temporary notes to which I still haven't made any progress or a deeper understanding of the topic or concept.
+ 
++Basically, this place is an _illusion of knowledge_ (heh).
++I have xref:links.adoc[websites] that I store here too which would probably be a permanent note residence here.
++I mean that makes sense, right?
++Linking websites doesn't mean I deeply understood the contents in there.
++So basically a bookmark...
++
+diff --git "a/modules/\346\227\245\350\250\230/pages/2024-04-01.adoc" "b/modules/\346\227\245\350\250\230/pages/2024-04-01.adoc"
+new file mode 100644
+index 0000000..74703a3
+--- /dev/null
++++ "b/modules/\346\227\245\350\250\230/pages/2024-04-01.adoc"
+@@ -0,0 +1,66 @@
++= 2024年4月1日
++
++Why can't I just figure out that xref:ROOT:qemu.adoc[QEMU] just doesn't work in xref:ROOT:nixos.adoc[NixOS]????
++
++I keep receiving these two errors.
++
++----
++Error starting installation: constructor returned NULL
++
++Traceback (most recent call last):
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/createvm.py", line 1881, in _finish_clicked
++    self._start_install(guest, installer)
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/createvm.py", line 1978, in _start_install
++    progWin.run()
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/asyncjob.py", line 270, in run
++    Gdk.Cursor.new_from_name(gdk_window.get_display(), "progress"))
++    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++TypeError: constructor returned NULL
++----
++
++And this error.
++
++----
++Error launching details: 'NoneType' object has no attribute 'conn'
++
++Traceback (most recent call last):
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/vmwindow.py", line 36, in get_instance
++    key = "%s+%s" % (vm.conn.get_uri(), vm.get_uuid())
++                     ^^^^^^^
++AttributeError: 'NoneType' object has no attribute 'conn'
++----
++
++I tried fixing it by setting the user groups to ``libvirtd`` and ``qemu-libvirtd``, but that still did not work.
++
++Someone (I forgot where I got it actually) mentioned that I should run xref:ROOT:virt-man.adoc[Virtual Manager] with xref:xwayland.adoc[XWayland] backend.
++
++----
++GDK_BACKEND=x11 virt-manager
++----
++
++Because apparently the issue is with the cursor???
++Yet, it gives this new error.
++
++----
++Unable to complete install: 'Cannot access storage file '/home/[redacted]/VMs/QEMU/image.qcow2' (as uid:301, gid:301): Permission denied'
++
++Traceback (most recent call last):
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/asyncjob.py", line 72, in cb_wrapper
++    callback(asyncjob, *args, **kwargs)
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtManager/createvm.py", line 2008, in _do_async_install
++    installer.start_install(guest, meter=meter)
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtinst/install/installer.py", line 695, in start_install
++    domain = self._create_guest(
++             ^^^^^^^^^^^^^^^^^^^
++  File "/nix/store/y8jzspc7yx8rasxihxs0r6b127vqg48a-virt-manager-4.1.0/share/virt-manager/virtinst/install/installer.py", line 637, in _create_guest
++    domain = self.conn.createXML(initial_xml or final_xml, 0)
++             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "/nix/store/8bxq9gk9mpsl62my6nd141cjnn9p08qq-python3.11-libvirt-10.0.0/lib/python3.11/site-packages/libvirt.py", line 4529, in createXML
++    raise libvirtError('virDomainCreateXML() failed')
++libvirt.libvirtError: Cannot access storage file '/home/[redacted]/VMs/QEMU/image.qcow2' (as uid:301, gid:301): Permission denied
++
++----
++
++This is why I have set xref:ROOT:libvirtd.adoc[libvirtd] to my user's groups.
++I'm stuck.
++If I can't use QEMU, then might as well not have a decent virtual machine.
+----
+

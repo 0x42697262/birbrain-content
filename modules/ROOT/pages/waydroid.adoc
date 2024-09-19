@@ -5,3 +5,8 @@ Use https://github.com/casualsnek/waydroid_script[Waydroid Script] to install Go
 
 Check https://docs.waydro.id/faq/google-play-certification[Google Play Certification] in Waydroid documentation for us to login into Google.
 
+== Fake Touch Input
+
+----
+waydroid prop set persist.waydroid.fake_touch "com.mobile.legends"
+----
