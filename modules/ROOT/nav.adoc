@@ -4,6 +4,7 @@
 
 [journal]
 * xref:日記:index.adoc[]
+** xref:日記:2024-09-20.adoc[]
 ** xref:日記:2024-09-19.adoc[]
 ** xref:日記:2024-09-18.adoc[]
 ** xref:日記:2024-09-16.adoc[]

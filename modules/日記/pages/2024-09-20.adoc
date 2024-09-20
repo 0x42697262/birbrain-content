@@ -1,0 +1,174 @@
+= 2024年09月20日
+
+== Minimalist Phone
+
+.frc_1:686636122116:android:895d0e9c7e789274cb3551_firebase_activate.json
+[, json]
+----
+{
+  "configs_key": {
+    "ACTIVATE_PRECISION_MODE_IN_INTRO": "false",
+    "ALWAYS_ACTIVATE_KEYBOARD_OPENING": "true",
+    "AMBASSADOR_URL": "https://www.minimalistphone.com/ambassador-program",
+    "AM_PM_AS_DEFAULT_TIME_FORMAT": "false",
+    "ASK_FOR_REVIEW_AFTER_ADDING_FAVORITE": "false",
+    "ASK_FOR_REVIEW_AFTER_BLOCKING_APP": "false",
+    "ASK_FOR_REVIEW_AT_DAY_X": "9999",
+    "ASK_FOR_REVIEW_AT_DAY_X_2ND_TIME": "9999",
+    "ASK_FOR_REVIEW_TEXT_VARIANT_0_1_2": "2",
+    "ASK_FOR_REVIEW_TITLE_VARIANT_0_1_2": "2",
+    "ASK_FOR_SURVEY_AT_DAY_X": "10000",
+    "ASK_RECOMMEND_TO_FRIEND_AT_DAY_X": "19",
+    "ASK_TO_JOIN_AMBASSADOR_ON_DAY_X": "10000",
+    "BACKEND_URL": "https://id.minimalistphone.com",
+    "BUY_BTN_VARIANT_0_1_2_3_4": "1",
+    "CHRISTMAS_SNOWFALL_ACTIVE": "true",
+    "DAYS_OF_TRIAL_ONE_TIME_PURCHASE": "7",
+    "DEFAULT_COOLDOWN_WHEN_OPENING_ACTIVE": "false",
+    "DEFAULT_FONT_FAMILY_ID": "0",
+    "DEFAULT_FONT_SIZE_ID": "2",
+    "DEFAULT_IN_APP_REMINDER_BEHAVIOUR_0_1_2": "2",
+    "DEFAULT_PLAN_PRESELECTED": "true",
+    "FIRST_24H_FREE_APPS": "false",
+    "FREE_FAVOURITES_COUNT": "2",
+    "FREE_HIDDEN_APPS_COUNT": "2",
+    "FREE_RENAMED_APPS_COUNT": "2",
+    "HARD_PAYWALL_AFTER_INTRO_ACTIVE": "true",
+    "IS_PRICE_PERSONALIZED": "false",
+    "MONOCHROME_MODE_INSTRUCTIONS": "https://uploads-ssl.webflow.com/5f36788697194f4ebab0391a/64ad29bc567a71fb9ecddbec_monochrome_mode-v1.6_instructions.pdf",
+    "ONE_TIME_PURCHASE_REFUND_WORDING_ACTIVE": "true",
+    "PAYWALL_BENEFITS_VISIBLE": "true",
+    "PAYWALL_TITLE_VISIBLE": "true",
+    "PAYWALL_VISUAL_OPTION": "2",
+    "PAYWALL_VISUAL_VISIBLE": "true",
+    "REFERRER_REPORTING_ACTIVE": "true",
+    "REMINDER_TIME_SPEND_ACTIVE_AFTER": "01-01-2020",
+    "SHOP_SELF_SERVICE_URL": "https://minimalistphone.onfastspring.com/account",
+    "SHOP_URL": "https://shop.minimalistphone.com/",
+    "SHOW_BUY_BTN_ON_FAVORITES": "true",
+    "SHOW_LOGIN_SUPPORT_BUTTON": "true",
+    "SHOW_MONTHLY_PRICES": "true",
+    "SHOW_NEW_PURCHASE_SCREEN": "true",
+    "SHOW_PRICE_PER_MONTH": "true",
+    "SHOW_PRODUCT_HUNT_DIALOG": "false",
+    "SHOW_PRODUCT_HUNT_URL": "https://www.producthunt.com/posts/minimalist-phone-reduce-your-screentime",
+    "SHOW_PURCHASE_SCREEN_BEFORE_PERMISSIONS": "false",
+    "SKU_1_MONTH_SUBSCRIPTION_TRIAL": "qqlabs.monthly.level0.7dtrial",
+    "SKU_1_MONTH_SUBSCRIPTION_TRIAL_HIGHEST_TIER": "qqlabs.monthly.level1.7dtrial",
+    "SKU_1_YEAR_SUBSCRIPTION_TRIAL": "qqlabs.yearly.level0.7dtrial",
+    "SKU_1_YEAR_SUBSCRIPTION_TRIAL_HIGHEST_TIER": "qqlabs.yearly.level3.trial7d",
+    "SKU_ONE_TIME_PURCHASE": "qqlabs.onetime.level0",
+    "SKU_ONE_TIME_PURCHASE_HIGHEST_TIER": "qqlabs.onetime.level3",
+    "SOFT_PAYWALL_AFTER_INTRO_ACTIVE": "false",
+    "SUPPORT_EMAIL_ADDRESS": "hello@care.minimalistphone.com",
+    "SURVEY_URL": "https://form.typeform.com/to/e6yr1DEf",
+    "TRIAL_WO_PAYMENT_PAYWALL_ACTIVE": "false",
+    "TURN_BRANCH_OFF_ON_DAY_X": "15",
+    "USE_HIGHEST_TIER_PRICING": "false",
+    "USE_INTRO_V2": "false",
+    "USE_LIFETIME_VERSION_LABEL": "false",
+    "USE_NEW_PERMISSION_GRANTING": "true",
+    "USE_ONBOARDING_V2": "true"
+  },
+  "fetch_time_key": 1726828629692,
+  "abt_experiments_key": [
+    {
+      "experimentId": "_exp_168",
+      "variantId": "0",
+      "triggerEvent": "intro_finished",
+      "experimentStartTime": "2024-08-13T15:14:07.582Z",
+      "triggerTimeoutMillis": "15552000000",
+      "timeToLiveMillis": "15552000000"
+    }
+  ],
+  "personalization_metadata_key": {
+    "BUY_BTN_VARIANT_0_1_2_3_4": {
+      "personalizationId": "ed1b7fbe-a0b7-4eb5-9848-c33e7ac5c814",
+      "armIndex": 1,
+      "choiceId": "1ef773c4-bb71-6b7e-85b3-3b218b2b48e6",
+      "group": "P13N"
+    }
+  },
+  "template_version_number_key": 407
+}
+----
+
+
+.frc_1:686636122116:android:895d0e9c7e789274cb3551_firebase_defaults.json
+[, json]
+----
+{
+  "configs_key": {
+    "DEFAULT_PLAN_PRESELECTED": "true",
+    "SHOW_MONTHLY_PRICES": "true",
+    "AMBASSADOR_URL": "",
+    "BACKEND_URL": "https://minimalist-phone-backend.herokuapp.com",
+    "SKU_ONE_TIME_PURCHASE": "qqlabs.onetime.level3",
+    "USE_NEW_PERMISSION_GRANTING": "false",
+    "SHOP_SELF_SERVICE_URL": "https://minimalistphone.onfastspring.com/account",
+    "DEFAULT_COOLDOWN_WHEN_OPENING_ACTIVE": "false",
+    "FREE_RENAMED_APPS_COUNT": "3",
+    "ASK_FOR_REVIEW_TITLE_VARIANT_0_1_2": "0",
+    "FREE_HIDDEN_APPS_COUNT": "3",
+    "ASK_FOR_REVIEW_AFTER_ADDING_FAVORITE": "true",
+    "SUPPORT_EMAIL_ADDRESS": "hello@minimalistphone.com",
+    "IS_PRICE_PERSONALIZED": "false",
+    "SHOW_PURCHASE_SCREEN_BEFORE_PERMISSIONS": "false",
+    "USE_LIFETIME_VERSION_LABEL": "false",
+    "FREE_FAVOURITES_COUNT": "4",
+    "SKU_1_YEAR_SUBSCRIPTION_TRIAL": "qqlabs.yearly.level3.trial7d",
+    "ASK_TO_JOIN_AMBASSADOR_ON_DAY_X": "10000",
+    "PAYWALL_TITLE_VISIBLE": "true",
+    "MONOCHROME_MODE_INSTRUCTIONS": "https://uploads-ssl.webflow.com/5f36788697194f4ebab0391a/63cd0e56d2b9134b4c8ab6d9_monochrome_mode-v1.5_instructions.pdf",
+    "SHOW_NEW_PURCHASE_SCREEN": "true",
+    "TURN_BRANCH_OFF_ON_DAY_X": "999",
+    "DEFAULT_FONT_FAMILY_ID": "0",
+    "ASK_FOR_SURVEY_AT_DAY_X": "10000",
+    "ASK_FOR_REVIEW_AT_DAY_X": "10000",
+    "SHOW_PRICE_PER_MONTH": "true",
+    "SHOW_LOGIN_SUPPORT_BUTTON": "false",
+    "DEFAULT_FONT_SIZE_ID": "2",
+    "REMINDER_TIME_SPEND_ACTIVE_AFTER": "01-01-2020",
+    "SURVEY_URL": "",
+    "CHRISTMAS_SNOWFALL_ACTIVE": "true",
+    "AM_PM_AS_DEFAULT_TIME_FORMAT": "false",
+    "DEFAULT_IN_APP_REMINDER_BEHAVIOUR_0_1_2": "0",
+    "ALWAYS_ACTIVATE_KEYBOARD_OPENING": "false",
+    "DAYS_OF_TRIAL_ONE_TIME_PURCHASE": "3",
+    "ASK_FOR_REVIEW_TEXT_VARIANT_0_1_2": "0",
+    "ASK_FOR_REVIEW_AFTER_BLOCKING_APP": "true",
+    "PAYWALL_VISUAL_VISIBLE": "false",
+    "ASK_FOR_REVIEW_AT_DAY_X_2ND_TIME": "10000",
+    "ASK_RECOMMEND_TO_FRIEND_AT_DAY_X": "10000",
+    "ACTIVATE_PRECISION_MODE_IN_INTRO": "false",
+    "USE_INTRO_V2": "false",
+    "PAYWALL_BENEFITS_VISIBLE": "true",
+    "TRIAL_WO_PAYMENT_PAYWALL_ACTIVE": "true",
+    "ONE_TIME_PURCHASE_REFUND_WORDING_ACTIVE": "false",
+    "SKU_1_MONTH_SUBSCRIPTION_TRIAL": "qqlabs.monthly.level1.7dtrial",
+    "REFERRER_REPORTING_ACTIVE": "true",
+    "BUY_BTN_VARIANT_0_1_2_3_4": "0",
+    "PAYWALL_VISUAL_OPTION": "1",
+    "SHOW_PRODUCT_HUNT_URL": "https://www.producthunt.com/"
+  },
+  "fetch_time_key": 0,
+  "abt_experiments_key": [],
+  "personalization_metadata_key": {},
+  "template_version_number_key": 0
+}
+----
+
+
+.PersistedInstallation.W0RFRkFVTFRd+MTo2ODY2MzYxMjIxMTY6YW5kcm9pZDo4OTVkMGU5YzdlNzg5Mjc0Y2IzNTUx.json
+[, json]
+----
+{
+  "Fid": "d6ihiEExQmiKNihPuNfJVF",
+  "Status": 3,
+  "AuthToken": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjE6Njg2NjM2MTIyMTE2OmFuZHJvaWQ6ODk1ZDBlOWM3ZTc4OTI3NGNiMzU1MSIsImV4cCI6MTcyNzQzMzQzMCwiZmlkIjoiZDZpaGlFRXhRbWlLTmloUHVOZkpWRiIsInByb2plY3ROdW1iZXIiOjY4NjYzNjEyMjExNn0.AB2LPV8wRgIhAM5upb05ut1C07nPORK7JH9zoPAzhm11ogb5roaBadSHAiEA_RPFp7Q8BpXirKeSfs-tjywlADjHmtg3uafhUnbX_Is",
+  "RefreshToken": "3_AS3qfwIBPPPy7AsWjCUQfTsseohFE_BmwiPGpCMjWU4S8cctItxNgRl-PIKZy_jaL-ONdBgHUyPj--Jt72gxGDDfwSrNm_Bi0aABdAxFrcNcJg",
+  "TokenCreationEpochInSecs": 1726828630,
+  "ExpiresInSecs": 604800
+}
+----
+
