@@ -127,3 +127,27 @@ nixpkgs.overlays = [
   )
 ];
 ----
+
+
+== Cleaning up Nix Store
+
+Delete all profiles in ``/nix/var/nix/profiles``.
+
+----
+sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 3d
+----
+
+Then clean up nix store.
+
+----
+nix store gc
+----
+
+This cleans more data and saves more storage than ``nix-garbage-collect``.
+Might be because of removing the profile histories.
+
+== NixOs List Generations
+
+----
+nixos-rebuild list-generations
+----
