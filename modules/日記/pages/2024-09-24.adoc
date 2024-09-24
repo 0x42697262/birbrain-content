@@ -1,6 +1,6 @@
 = 2024年09月24日
 
-== wifi
+== wifi (wpa-pbkdf2-pmkid+eapol)
 
 Requirements:
 
@@ -11,7 +11,9 @@ Requirements:
 
 . ``sudo hcxdumptool -i wlp6s0f3u2 -w WIFIs.pcapng``
 . ``hcxpcapngtool -o WIFIs.hc22000 WIFIs.pcapng``
-. ``hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'WIFIWIFI?1?1?1?1?1' -w 3``
+. ``hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'PLDTIFI?1?1?1?1?1' -w 3``
+
+Use ``hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'PLDTWIFI?1?1?1?1?1' -w 3 --show`` to show all cracked hashes.
 
 
 == Disabling Monitor Mode
@@ -21,3 +23,85 @@ Requirements:
 . ``ip link set wlo1 up``
 
 Check with ``iwconfig`` if Mode is set to **Managed**.
+
+== nmcli
+
+Connecting using another wifi adapter:: nmcli device wifi connect 'WLAN SSID' ifname wlo2 -a
+
+== TL;DRs
+
+https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf[Rapid Object Detection using a Boosted Cascade of Simple Features]::
+A *real-time* face detection algorithm that uses fewer number of features utilizing AdaBoost as the learning algorithm.
+
+FPS::: 15 FPS
+Accuracy::: ?
+Strengths:::
+. ?
+Weaknesses:::
+. ?
+
+https://arxiv.org/abs/1506.02640[You Only Look Once: Unified, Real-Time Object Detection]::
+A real-time generalize object detection algorithm.
+
+FPS::: 45 FPS
+Accuracy::: 63.4% mAP (Fast R-CNN + YOLO)
+Strengths:::
+. Faster than R-CNN and Deformable Parts Model
+Weaknesses:::
+. Lower Accuracy
+. Struggles with small objects that appears in groups (like flock of birds)
+. Main source of error is incorrect localizations
+
+https://arxiv.org/abs/1512.02325[SSD: Single Shot MultiBox Detector]::
+A convolutional neural network fast single-shot real-time object detection for multiple categories.
+
+FPS::: 59
+Accuracy::: 76.9% mAP (500x500)
+Strengths:::
+. Outperforms Faster R-CNN
+. Faster than YOLOv1
+. Higher accuracy
+Weaknesses:::
+. ?
+
+https://arxiv.org/abs/1506.01497[Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks]::
+Real-tiem object detection networks using regional proposal network.
+
+FPS::: 5
+Accuracy::: 78.8% mAP
+Strengths:::
+. ?
+Weaknesses:::
+. ?
+
+https://arxiv.org/abs/1605.06409[R-FCN: Object Detection via Region-based Fully Convolutional Network]::
+Region-based, fully convolutional networks (R-FCN) for accurate and efficient object detection using Residual Net (ResNet-101) as backbone.
+
+FPS::: 5
+Accuracy::: 83.6% mAP (PASCAL VOC 2007 dataset), 82% mAP (PASCAL VOC 2012 dataset)
+Strengths:::
+. 2.5 to 20 times faster than Faster R-CNN
+. Simpler, no need for iterative box regression
+Weaknesses:::
+. ?
+
+https://arxiv.org/abs/1708.02002[Focal Loss for Dense Object Detection]::
+Simple Dense Detector, RetinaNet, trained on focal loss matching one-stage detectors and surpassing two-stage detectors in accuracy.
+
+FPS::: 5
+Accuracy::: ?
+Strengths:::
+. ?
+Weaknesses:::
+. ?
+
+https://arxiv.org/abs/1911.09070[EfficientDet: Scalable and Efficient Object Detection]::
+Weighted bi-directional feature pyramid network and compound scaling method for object detection.
+
+FPS::: ?
+Accuracy::: 81.74% mIOU
+Strengths:::
+. 4 to 9 times smaller
+. 13 to 49 times fewer FLOPs
+Weaknesses:::
+. ?
