@@ -1,0 +1,123 @@
+= 2024年09月25日
+
+i played brawlhalla for the first.
+looks fun enough.
+controls are still confusing though.
+
+what's interesting is that brawlhalla(?) or steam is able to do `-multikeyboard` support.
+so if you have a laptop keyboard and an external usb keyboard, it's possible to have different outputs but the same inputs from different keyboards
+
+not sure if this is a steam thing or just brawlhalla
+
+== TL;DRs
+
+https://www.researchgate.net/profile/Padmavathi-Kora-2/publication/348920238_Automatic_Number_Plate_Recognition_System_using_Raspberry_Pi/links/6016cd1692851c2d4d0a68a2/Automatic-Number-Plate-Recognition-System-using-Raspberry-Pi.pdf[Automatic Number Plate Recognition System using Raspberry Pi]::
+Implements license plate recognition system using python and opencv on raspberry pi... don't use this paper
+
+https://www.academia.edu/download/56822592/IRJET-V5I4569.pdf[ACCURATE VEHICLE NUMBER PLATE REGOGNITION AND REAL TIME IDENTIFICATION USING RASPBERRY PI]::
+Automatic License Plate Recognition system using OpenCV for online deployment and real-time processing on Raspberry Pi 3.
+
+Year::: 2018
+Remark::: I can *probably* use this.
+Notes::: The authors implemented Raspberry Pi 3 for online process compared to MATLAB being offline.
+
+https://credence-publishing.com/journal/uploads/archive/202116272321515622211361.pdf[Automated number plate recognition system]::
+An automatic number-plate recognition system implemented through OpenCV.
+
+Year::: 2021
+Notes:::
+* Deployed in electronic toll collections, homes/offices to manage vehicle access in garages or premises, and traffic highways.
+* Used with database records of number plates which can be used for crime investigations.
+* Useful for law enforcement which records vehicles from the database
+
+https://www.mdpi.com/1424-8220/22/4/1434[Automated License Plate Recognition for Resource-Constrained Environments]::
+A hardware-efficient automated license plate recognition implemented on low-resource edge devices focusing on accuracy, energy efficiency, and computational latency.
+
+Year::: 2022
+Notes:::
+* Proof-of-concept prototype at nighttime
+* The methodology uses deep learning Neural Architecture Search
+* ``it is challenging to train the discovered deep neural networks to recognize license plates due to the lack of a large, annotated and diverse dataset``
+* Simulates the detection of number plates to identify poachers by sending the text through SMS
+* Achieving over 90% accuracy cannot be executed on low-cost edge platforms such as raspberry pi
+Devices:::
+* Raspberry Pi Zero
+* Raspberry Pi 3 Model B+
+* Raspberry Pi Camera Module
+* Intel Neural Compute Stick 2
+
+https://ieeexplore.ieee.org/abstract/document/8969068[Anonymous Vehicle Detection for Secure Campuses: A Framework for License Plate Recognition using Deep Learning]::
+
+abstract:::
+Automatic license plate recognition is being
+widely used for numerous applications since its inception.
+The ability to procure license plate numbers accurately has
+been beneficial in maintaining traffic rules, parking
+enforcement, and security. In this paper, we have discussed
+the results of using ALPR for recognition of anonymous
+vehicles entering our university campus. We used deep
+learning for license plate localization and Tesseract OCR for
+license plate recognition. By doing so we could read the
+license plates of vehicles entering a particular campus and
+verify if the vehicle is authorized by comparing it with a
+predefined list of authorized vehicles. To efficiently extract
+these number plates we have trained our model using Faster
+RCNN and tuned it to get the best output. The results of
+which have been discussed in this paper. Further, the image
+processing techniques used for preprocessing the identified
+number plate have been mentioned here. For character
+segmentation and character recognition, we have used
+tesseract. While training our model for number plate
+extraction the minimum loss obtained was 0.011 with
+RMSprop optimizer at initial learning rate 0.002.
+
+conclusion:::
+RMSprop gave the best result when the learning rate
+was set to 0.002. Applying this model, we could localize
+the license plate entering a given campus. Following
+which, with the help of above-mentioned filters we
+obtained a high contrast and noise-free image of the
+identified number plate and lastly with the help of
+Tesseract OCR we were able to extract the alpha-numeric
+characters from the plate in string format.
+In this proposed work change in light intensity of
+surroundings on number plates would make character
+recognition difficult. In future, changes could be made to
+the OCR to help accommodate light intensity on the
+number plate.
+This framework can further be used for smart traffic:
+identifying the number plates of vehicles breaking traffic
+rules or for optimized parking: keeping an account of
+vehicles in parking
+
+https://ieeexplore.ieee.org/abstract/document/9614840[Identification of Unauthorized Vehicles by License Plate Recognition Through Image Processing]::
+
+abstract:::
+The identification of vehicle’s license plates is
+becoming increasingly essential in the digital transportation
+system, particularly in Bangladesh. Improved safety, access to
+vehicles in authorized locations, time savings at tolls, and the
+discovery of guilty automobiles engaged in street accidents or
+other connected crimes are just a few of the benefits. This paper
+presents a simple method to identify the Bengali license plate
+used in the front and back sides of a registered vehicle through
+image processing. Number plate extraction, character
+segmentation, and character identification are the three
+fundamental pre-processing phases in the recommended
+approach. The test picture has been converted to gray level at
+the pre-processing stage. The proposed approach extracts the
+area from the license plate more effectively. Improved
+identification rate is found compared to some studies which has
+been carried out previously.
+
+conclusion:::
+This paper presents a simple method of identifying the
+unauthorized vehicles by recognizing the Bengali licence
+plate using image processing. The developed prototype
+model successfully identify the Bengali licence plate of
+Bangladeshi vehicles with a very good accuracy of 92% and
+96%, respectively, depending on the night and day time. The
+detection approach is straightforward and practical with a
+promising future applications in the transportation sector of
+Bangladesh. The developed model can also be applied to
+recognized the number plate of any language
