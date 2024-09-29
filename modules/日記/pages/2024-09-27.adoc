@@ -1,0 +1,10 @@
+= 2024年09月27日
+
+== TL;DRs
+
+https://www.youtube.com/watch?v=wVyu7NB7W6Y[Exposing The Flaw In Our Phone System]::
+Get SS7 access, get trusted, then perform 2G/3G attacks?
+
+Phone:::
+* Signaling System 7
+* Internation Mobile Subscriber Identity

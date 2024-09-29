@@ -1,0 +1,12 @@
+= 2024年09月28日
+
+Starting from now i'll be using TILs instead of TL;DRs...
+
+== TILs
+
+https://papers.mathyvanhoef.com/ccs2017.pdf[Key Reinstallation Attacks: Forcing None Reuse in WPA2]footnote:[https://www.krackattacks.com/[]]::
+The weakness is in the supplicant (client) which still accepts Message 3 allowing Message 3 replay attacks to reinstall the xref:ROOT:pairwise-transient-key.adoc[PTK].
+
+* 4-Way Handshake
+* Pairwise Master Key
+* xref:ROOT:pairwise-transient-key.adoc[Pairwise Transient Key]

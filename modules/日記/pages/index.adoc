@@ -4,5 +4,5 @@
 
 daily journal logs can be found here
 
-i also make some TL;DRs sometimes.
+i also make some TILs sometimes.
 inspired by this https://github.com/sderosiaux/every-single-day-i-tldr[person]

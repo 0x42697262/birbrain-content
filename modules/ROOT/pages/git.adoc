@@ -18,3 +18,12 @@ git cherry-pick <commit-hash>
 ----
 
 To find a commit hash, simply do ``git log <branch>``.
+
+== Pull From Another Branch
+
+Pulling from a local branch
+
+[, sh]
+----
+git pull origin <branch>
+----

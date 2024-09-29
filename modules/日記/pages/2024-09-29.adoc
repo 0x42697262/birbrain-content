@@ -1,0 +1,9 @@
+= 2024年09月29日
+
+== TILs
+
+https://web.archive.org/web/20180120075456/http://packetstorm.foofus.com/papers/wireless/viehboeck_wps.pdf[Brute forcing Wi-Fi Protected Setup]::
+A bruteforce attack to WPA WPS-PIN (External Registrar) by guessing the first half of the PIN (because M4 sends EAP-NACK message) and 2nd half of PIN (M6 sends EAP-NACK).
+The 8th digit PIN is always the checksum of digit 1 to 7.
+Thereby, reducing the number of attempts to 11,000 (10^4^ + 10^3^).
+
