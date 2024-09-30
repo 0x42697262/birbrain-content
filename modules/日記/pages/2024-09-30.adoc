@@ -1,0 +1,15 @@
+= 2024年09月30日
+
+== TILs
+
+https://ieeexplore.ieee.org/abstract/document/8757088[An overview and comparison of free Python libraries for data mining and big data analysis]::
+An overview and comparison of Python based libraries for data science.
+Evaluated by their features that the authors have provided.
+Pandas, scikit-learn, matplotlib, plotly, seaborn, hadoop, and pyspark returned one of the excellent ones.
+
+Year::: 2019
+
+https://link.springer.com/article/10.1007/s10664-013-9286-4[Measuring and modeling programming experience]::
+There is no good way or agreed method to measure programming experience.
+
+Year::: 2013
