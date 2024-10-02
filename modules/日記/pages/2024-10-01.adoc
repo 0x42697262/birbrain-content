@@ -1,0 +1,8 @@
+= 2024年10月01日
+
+== TILs
+
+https://www.academia.edu/download/61651202/IRJET-V4I126620200101-109100-1nbuifw.pdf[Python – The Fastest Growing Programming Language]::
+Python is popular, one of the fastest growing language, has simple syntax, and lots of libraries and wide community support.
+
+Year::: 2017
