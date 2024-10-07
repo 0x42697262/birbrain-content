@@ -101,6 +101,10 @@
 [NMAP]
 * xref:nmap.adoc[]
 
+[Python]
+* Python
+** xref:python-schema.adoc[]
+
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
 ** xref:tia-portal-openness-api.adoc[]

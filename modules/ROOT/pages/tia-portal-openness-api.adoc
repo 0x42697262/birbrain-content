@@ -1,5 +1,7 @@
 = Siemens.Engineering (DLL)
 
+See xref:tia-portal-openness.adoc#api[Requirements] on how to import *FileInfo*
+
 == TiaPortal
 
 With user interface
@@ -17,6 +19,37 @@ Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithoutUserInter
 ----
 
 This returns `Siemens.Engineering.TiaPortal` which can now be used to create a project, list devices, and so much more.
+
+
+[#enumerate-devices]
+== Enumerating Devices
+
+[, python]
+----
+TIA = Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
+project: Siemens.Engineering.Project = TIA.Projects.Create(FileInfo(<absolute path>), "CoolTIAProject")
+for device in project.Devices:
+   print(device.Name)
+----
+
+
+[#enumerate-all-program-blocks]
+== Enumerating All Program Blocks
+
+[, python]
+----
+TIA = Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
+project: Siemens.Engineering.Project = TIA.Projects.Create(FileInfo(<absolute path>), "CoolTIAProject") <.>
+for device in project.Devices:
+   for device_item in device:
+     container = Siemens.Engineering.IEngineeringServiceProvider(device_item).GetService[Siemens.Engineering.HW.Features.SoftwareContainer]()
+        if not container: continue
+        if not isinstance(container.Software, Siemens.Engineering.SW.PlcSoftware): continue
+        for block in container.Software.BlockGroup.Blocks:
+            print(block.Name)
+----
+
+To specify the PLC device, just add a conditional statement that checks for the name of the device is equivalent to what you are looking for.
 
 
 [#se-project]

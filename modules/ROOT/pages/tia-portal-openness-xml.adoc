@@ -1,5 +1,143 @@
 = XML
 
+== Schema
+
+The schema can be found within the same parent directory of *Siemens.Engineering.dll* with the name *Schemas*.
+Currently, I am playing with ``C:\Program Files\Siemens\Automation\Portal V18\PublicAPI\V18\Schemas``.
+
+I don't know how to read XMLSchemas so I am using https://pypi.org/project/xmlschema/[xmlschema] library.
+
+I dump out the parts of schema instead.
+
+[, python]
+----
+import xmlschema
+
+schema = xmlschema.XMLSchema(<<XSD FILE PATH HERE>>)
+
+print("Elements:")
+for element in schema.elements:
+    print(f"- {element} : {schema.elements[element]}")
+
+print("\nTypes:")
+for type_name, schema_type in schema.types.items():
+    print(f"- {type_name} : {schema_type}")
+----
+
+Each schemas in the directory are not dependent of each other.
+I think they act as a reference guide rather than a fully built XML schema (what I am thinking of is a generator or a builder).
+
+.Schemas
+****
+* SW.Common_v3.xsd
+* SW.Interface.Snapshot.xsd
+* SW.InterfaceSections_v5.xsd
+* SW.PlcBlocks.Access_v4.xsd
+* SW.PlcBlocks.CompileUnitCommon_v4.xsd
+* SW.PlcBlocks.Graph_v5.xsd
+* SW.PlcBlocks.InstanceSupervisions_v3.xsd
+* SW.PlcBlocks.LADFBD_v4.xsd
+* SW.PlcBlocks.SCL_v3.xsd
+* SW.PlcBlocks.STL_v4.xsd
+* SW.PlcBlocks.TypeSupervisions_v3.xsd
+* SW.TechnologicalObjects_AdditionalDataAxis_v1.xsd
+* SW.TechnologicalObjects_AdditionalDataKinematics_v1.xsd
+* SW.TechnologicalObjects_AdditionalDataMeasuringInput_v1.xsd
+* SW.TechnologicalObjects_AdditionalDataOutputCam_v1.xsd
+* SW.TechnologicalObjects_Parameters_v1.xsd
+* SW.TechnologicalObjects_ProfileDataCam_v1.xsd
+****
+
+When converting a decoded XML back to XML, sometimes you get issues such as https://github.com/sissaschool/xmlschema/issues/241[this] and https://github.com/sissaschool/xmlschema/issues/395[this].
+To fix this, simply add ``preserve_root=True`` on both decoding and encoding phase.
+
+[, python]
+----
+obj = schema.decode(xxx, preserve_root=True)
+collection = schema.encode(obj, preserve_root=True)
+collection
+----
+
+This code is based on the https://xmlschema.readthedocs.io/en/latest/usage.html#data-decoding-and-encoding[documentation].
+
+=== SW.InterfaceSections_v5.xsd
+
+Validates a single child element of ``Sections`` (a child element of Interface).
+
+[NOTE]
+This schema is useful for creating multi instancedb.
+
+For example:
+[, xml]
+----
+<Interface>
+	<Sections
+		xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+		<Section Name="Input" />
+		<Section Name="Output" />
+		<Section Name="InOut" />
+		<Section Name="Static">
+			<Member Name="Data_Point_Instance" Datatype="&quot;Data_Point&quot;" Accessibility="Public">
+				<AttributeList>
+					<BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+					<BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+					<BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+					<BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute>
+					<BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute>
+					<BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute>
+					<BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+				</AttributeList>
+				<Sections>
+					<Section Name="Input">
+						<Member Name="Gate 2" Datatype="Bool" />
+						<Member Name="Gate 1" Datatype="Bool" />
+					</Section>
+					<Section Name="Output">
+						<Member Name="Open" Datatype="Bool" />
+					</Section>
+					<Section Name="InOut" />
+					<Section Name="Static" />
+				</Sections>
+			</Member>
+		</Section>
+		<Section Name="Temp" />
+		<Section Name="Constant" />
+	</Sections>
+</Interface>
+----
+
+This will only validate a single child element of *Sections*.
+
+Hence, any child element of ``Sections`` gets evaluated as valid.
+
+[, xml]
+----
+<Section Name="Static">
+	<Member Name="Data_Point_Instance" Datatype="&quot;Data_Point&quot;" Accessibility="Public">
+		<AttributeList>
+			<BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+			<BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+			<BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+			<BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute>
+			<BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute>
+			<BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute>
+			<BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+		</AttributeList>
+		<Sections>
+			<Section Name="Input">
+				<Member Name="Gate 2" Datatype="Bool" />
+				<Member Name="Gate 1" Datatype="Bool" />
+			</Section>
+			<Section Name="Output">
+				<Member Name="Open" Datatype="Bool" />
+			</Section>
+			<Section Name="InOut" />
+			<Section Name="Static" />
+		</Sections>
+	</Member>
+----
+
+
 == Organization Block
 
 In general, UIds for all attributes should be unique to avoid errors.

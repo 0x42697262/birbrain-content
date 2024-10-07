@@ -1,0 +1,51 @@
+= python-schema
+
+== Writing Recursive Nested Objects
+
+The solution has been posten on xref:github.adoc[] a long time ago at this https://github.com/keleshev/schema/issues/119[issue].
+
+TL;DR
+
+[, python]
+----
+from schema import Schema
+
+person = dict()
+person.update({
+  'name': str,
+  Optional('children'): [Schema(person)],
+})
+
+person = Schema(person)
+----
+
+And that's it.
+We got a working recursive nested object...
+
+.Example JSON data
+[, json]
+----
+{
+  "name": "chi",
+  "children": [
+    {
+      "name": "cken",
+      "children": [
+        {
+          "name": "birb"
+        }
+      ]
+    }
+  ]
+}
+----
+
+Then, simply validate
+
+[, python]
+----
+person.validate(json_data)
+----
+
+[WARNING]
+Do not use `.json_schema()` function for this since it will crash due to maximum recursion error.
