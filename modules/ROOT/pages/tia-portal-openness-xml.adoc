@@ -62,7 +62,7 @@ This code is based on the https://xmlschema.readthedocs.io/en/latest/usage.html#
 
 === SW.InterfaceSections_v5.xsd
 
-Validates a single child element of ``Sections`` (a child element of Interface).
+Validates the ``Sections`` child element of ``Interface``.
 
 [NOTE]
 This schema is useful for creating multi instancedb.
@@ -71,8 +71,7 @@ For example:
 [, xml]
 ----
 <Interface>
-	<Sections
-		xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+	<Sections>
 		<Section Name="Input" />
 		<Section Name="Output" />
 		<Section Name="InOut" />
@@ -106,36 +105,7 @@ For example:
 </Interface>
 ----
 
-This will only validate a single child element of *Sections*.
-
-Hence, any child element of ``Sections`` gets evaluated as valid.
-
-[, xml]
-----
-<Section Name="Static">
-	<Member Name="Data_Point_Instance" Datatype="&quot;Data_Point&quot;" Accessibility="Public">
-		<AttributeList>
-			<BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
-			<BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
-			<BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
-			<BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute>
-			<BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute>
-			<BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute>
-			<BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
-		</AttributeList>
-		<Sections>
-			<Section Name="Input">
-				<Member Name="Gate 2" Datatype="Bool" />
-				<Member Name="Gate 1" Datatype="Bool" />
-			</Section>
-			<Section Name="Output">
-				<Member Name="Open" Datatype="Bool" />
-			</Section>
-			<Section Name="InOut" />
-			<Section Name="Static" />
-		</Sections>
-	</Member>
-----
+If the element **Section** contains an attribute, the validation will fail.
 
 
 == Organization Block

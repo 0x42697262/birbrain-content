@@ -20,17 +20,41 @@ Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithoutUserInter
 
 This returns `Siemens.Engineering.TiaPortal` which can now be used to create a project, list devices, and so much more.
 
+[TIP]
+Use ``getattr(<soemclass here>, <module>)`` to get some of the class.
+
+For example:
+
+[, python]
+----
+getattr(Siemens.Engineering.ExportOptions, "None")
+----
+
+Because *Siemens.Engineering.ExportOptions.None* returns an error.
+
+Basic project setup
+[, python]
+----
+TIA = Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
+project: Siemens.Engineering.Project = TIA.Projects.Create(FileInfo(<ABSOLUTE_PATH>), "CoolTIAProject")
+----
+
+
+
+
 
 [#enumerate-devices]
 == Enumerating Devices
 
 [, python]
 ----
-TIA = Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
-project: Siemens.Engineering.Project = TIA.Projects.Create(FileInfo(<absolute path>), "CoolTIAProject")
 for device in project.Devices:
    print(device.Name)
 ----
+
+
+
+
 
 
 [#enumerate-all-program-blocks]
@@ -38,8 +62,6 @@ for device in project.Devices:
 
 [, python]
 ----
-TIA = Siemens.Engineering.TiaPortal(Siemens.Engineering.TiaPortalMode.WithUserInterface)
-project: Siemens.Engineering.Project = TIA.Projects.Create(FileInfo(<absolute path>), "CoolTIAProject") <.>
 for device in project.Devices:
    for device_item in device.DeviceItems:
      container = Siemens.Engineering.IEngineeringServiceProvider(device_item).GetService[Siemens.Engineering.HW.Features.SoftwareContainer]()
@@ -51,6 +73,45 @@ for device in project.Devices:
 
 To specify the PLC device, just add a conditional statement that checks for the name of the device is equivalent to what you are looking for.
 
+
+
+
+
+
+[#import-xml-plc-block]
+== Import a PLC Block from XML
+
+[, python]
+----
+for device in project.Devices:
+   for device_item in device.DeviceItems:
+      container = Siemens.Engineering.IEngineeringServiceProvider(device_item).GetService[Siemens.Engineering.HW.Features.SoftwareContainer]()
+      if not container: continue
+      if not isinstance(container.Software, Siemens.Engineering.SW.PlcSoftware): continue
+      container.Software.BlockGroup.Blocks.Import(FileInfo(r"<ABSOLUTE_PATH>"), Siemens.Engineering.ImportOptions.Override)
+      continue
+----
+
+[#export-xml-plc-block]
+== Export a PLC Block as XML
+
+[, python]
+----
+for device in project.Devices:
+   for device_item in device.DeviceItems:
+      container = Siemens.Engineering.IEngineeringServiceProvider(device_item).GetService[Siemens.Engineering.HW.Features.SoftwareContainer]()
+         if not container: continue
+         if not isinstance(container.Software, Siemens.Engineering.SW.PlcSoftware): continue
+         name = 'Main' <.>
+         block = container.Software.BlockGroup.Blocks.Find(name)
+
+         singleCompile = block.GetService[Siemens.Engineering.Compiler.ICompilable]();
+         result = singleCompile.Compile()
+         block.Export(FileInfo(f"{Path().absolute().as_posix()}/{name}.xml"), getattr(Siemens.Engineering.ExportOptions, "None"))
+
+         continue
+----
+<.> Name of the PLC block to export
 
 [#se-project]
 == Project
