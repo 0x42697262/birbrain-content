@@ -107,11 +107,12 @@ for device in project.Devices:
 
          singleCompile = block.GetService[Siemens.Engineering.Compiler.ICompilable]();
          result = singleCompile.Compile()
-         block.Export(FileInfo(f"{Path().absolute().as_posix()}/{name}.xml"), getattr(Siemens.Engineering.ExportOptions, "None"))
+         block.Export(FileInfo(f"{Path().absolute().as_posix()}/{name}.xml"), getattr(Siemens.Engineering.ExportOptions, "None")) <.>
 
          continue
 ----
 <.> Name of the PLC block to export
+<.> This gets exported to the current path of the script
 
 [#se-project]
 == Project

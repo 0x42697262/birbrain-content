@@ -1,5 +1,7 @@
 = XML
 
+To generate XMLs, I recommend using https://docs.python.org/3/library/xml.etree.elementtree.html[ElementTree] to https://docs.python.org/3/library/xml.etree.elementtree.html#building-xml-documents[build xml documents] instead of having to mix and match the XML and XSD schemas.
+
 == Schema
 
 The schema can be found within the same parent directory of *Siemens.Engineering.dll* with the name *Schemas*.

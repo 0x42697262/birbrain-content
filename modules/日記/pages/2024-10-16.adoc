@@ -1,0 +1,31 @@
+= 2024年10月16日
+
+== TILs
+
+=== https://www.youtube.com/watch?v=31D94QOo2gY[Defcon 21 - The Secret Life of SIM Cards]
+Most(?) SIM cards are built with Java Card.
+Probably we can build it using https://www.oracle.com/java/technologies/javacard-downloads.html[Java Card Development Kit].
+It actually has low life expectancy, about 1,000 to 500,000 write cycles.
+
+
+
+Check these:
+
+PCSC::
+Get *PCSC* (PC/Smartcard API) reader for interfacing.
+
+SIM Alliance Loader::
+quite slow java app for loading apps inside the java cards, might take at least 2 minutes, also built for windows
+
+GlobalPlatform::
+Issuer Security Domain, which can only be communicated with OTA updates.
+
+LOADing and INSTALLing the app authorization.
+
+**AIDs**:
+
+. Application AID
+. Module AID
+. Instance AID
+
+https://simhacks.github.io/[simhacks]
