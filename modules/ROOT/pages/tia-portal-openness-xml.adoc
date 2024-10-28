@@ -109,6 +109,45 @@ For example:
 
 If the element **Section** contains an attribute, the validation will fail.
 
+== FlgNet
+
+=== Wires
+
+Every network calls (instances) will always have a wire named "en".
+
+[, xml]
+----
+...
+<NameCon UId="21" Name="en" />
+...
+----
+
+New wires will be created similar to "en" with its specific parameter name from the parts with the UId of the call.
+
+[, xml]
+----
+...
+<NameCon UId="21" Name="Wire 1" />
+...
+
+...
+<NameCon UId="21" Name="Wire 2" />
+...
+
+...
+<NameCon UId="21" Name="Wire 3" />
+...
+----
+
+If a wire is not connected to anything, it will always have "OpenCon" in its element.
+
+[, xml]
+----
+...
+<OpenCon UId="23" />
+<NameCon UId="21" Name="en" />
+...
+----
 
 == Organization Block
 
