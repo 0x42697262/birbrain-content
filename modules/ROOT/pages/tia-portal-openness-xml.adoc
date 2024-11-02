@@ -149,6 +149,8 @@ If a wire is not connected to anything, it will always have "OpenCon" in its ele
 ...
 ----
 
+Wire "en" will always connect to a network call, thus it will never have "OpenCon" as its connection at the end.
+
 == Organization Block
 
 In general, UIds for all attributes should be unique to avoid errors.

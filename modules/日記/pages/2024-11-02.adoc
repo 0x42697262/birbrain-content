@@ -1,0 +1,11 @@
+= 2024年11月02日
+
+== Joining Chats on Web Telegramfootnote:[Source: https://webapps.stackexchange.com/a/166625]
+
+[,js]
+----
+var link = document.createElement("a");
+link.href = "https://t.me/+xxxxxxxxxxxxxxxx";
+joinchat(link);
+----
+

@@ -1,0 +1,42 @@
+= 2024年10月25日
+
+
+== False 100% AI Detectorsfootnote:[https://www.reddit.com/r/studentsph/comments/1gb5kbk/comment/ltj9s3z]
+
+Turnitin explicitly advises not to use its tool against students, stating that it is not reliable enough: https://help.turnitin.com/ai-writing-detection.htm
+
+“Our AI writing detection model may not always be accurate (it may misidentify both human and AI-generated text) so it should not be used as the sole basis for adverse actions against a student. It takes further scrutiny and human judgment in conjunction with an organization’s application of its specific academic policies to determine whether any academic misconduct has occurred.”
+
+Here’s a warning specifically from OpenAI: https://help.openai.com/en/articles/8313351-how-can-educators-respond-to-students-presenting-ai-generated-content-as-their-own
+
+This paper references literally hundreds of studies 100% of which concluded that AI text detection is not accurate: A Survey on LLM-Generated Text Detection: Necessity, Methods, and Future Directions https://arxiv.org/abs/2310.14724
+
+And here are statements from various major American universities on why they won’t support or allow the use of any of these “detector” tools for academic integrity:
+
+MIT – AI Detectors Don’t Work. Here’s What to do Instead https://mitsloanedtech.mit.edu/ai/teach/ai-detectors-dont-work/
+
+Syracuse – Detecting AI Created Content https://answers.syr.edu/display/blackboard01/Detecting+AI+Created+Content
+
+UC Berkley – Availability of Turnitin Artificial Intelligence Detection https://rtl.berkeley.edu/news/availability-turnitin-artificial-intelligence-detection
+
+UCF - Faculty Center - Artificial Intelligence https://fctl.ucf.edu/technology/artificial-intelligence/
+
+Colorado State - Why you can’t find Turnitin’s AI Writing Detection tool https://tilt.colostate.edu/why-you-cant-find-turnitins-ai-writing-detection-tool/
+
+Missouri – Detecting Artificial Intelligence (AI) Plagiarism https://teachingtools.umsystem.edu/support/solutions/articles/11000119557-detecting-artificial-intelligence-ai-plagiarism
+
+Northwestern – Use of Generative Artificial Intelligence in Courses https://ai.northwestern.edu/education/use-of-generative-artificial-intelligence-in-courses.html
+
+SMU – Changes to Turnitin AI Detection Tool at SMU https://blog.smu.edu/itconnect/2023/12/13/discontinue-turnitin-ai-detection-tool/
+
+Vanderbilt – Guidance on AI Detection and Why We’re Disabling Turnitin’s AI Detector https://www.vanderbilt.edu/brightspace/2023/08/16/guidance-on-ai-detection-and-why-were-disabling-turnitins-ai-detector/
+
+Yale – AI Guidance for Teachers https://poorvucenter.yale.edu/AIguidance
+
+Alabama - Turnitin AI writing detection unavailable https://cit.ua.edu/known-issue-turnitin-ai-writing-detection-unavailable/
+
+The MIT and Syracuse statements in particular contain extensive references to supporting research.
+
+And of course the most famous examples for false positives: Both the U.S. Constitution and the Old Testament were “detected” as 100% AI generated.
+
+Using these unreliable tools to fail students is highly unethical. 

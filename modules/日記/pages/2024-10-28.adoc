@@ -1,0 +1,5 @@
+= 2024年10月25日
+
+== Windows
+
+Run Windows Troubleshooting: `C:\Windows\System32\control.exe /name Microsoft.Troubleshooting`
