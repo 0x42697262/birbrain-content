@@ -3,6 +3,9 @@
 I don't use vim.
 I use xref:neovim.adoc[the better vim].
 
+== Syntax Highlighting
+
+`set filetype=html`
 
 == Movements
 

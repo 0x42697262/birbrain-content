@@ -54,6 +54,13 @@ Accessed,Name,URL,Description
 2024-02-21,Shellcodes database for study cases,https://shell-storm.org/shellcode/index.html[],"List of shell codes"
 |===
 
+== Ransomware
+
+[%header, format=csv]
+|===
+Accessed,Name,URL,Description
+2024-11-06,ID Ransomware,https://id-ransomware.malwarehunterteam.com/[],"Upload a ransom note and/or sample encrypted file to identify the ransomware that has encrypted your data."
+|===
 
 == xref:ROOT:reverse-engineering.adoc[Reverse Engineering]
 
