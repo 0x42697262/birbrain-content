@@ -1,0 +1,6 @@
+= 2024年11月06日
+
+== https://www.youtube.com/watch?v=_N--2xOXEN0[The Most Valuable File Format You've Never Heard Of]
+
+Basically, it's https://github.com/PixarAnimationStudios/OpenUSD[OpenUSD], a universal scene description that gets widely used by almost everyone in the industry?
+Made of course by Pixar Animation Studios.
