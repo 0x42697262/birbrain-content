@@ -1,0 +1,10 @@
+= gdb
+
+== Enable Assembly with Hex Opcodes
+
+Just add ``/r`` parameter.
+
+----
+gdb> disassemble /r main
+----
+

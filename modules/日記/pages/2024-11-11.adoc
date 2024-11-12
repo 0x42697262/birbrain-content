@@ -1,0 +1,6 @@
+= 2024年11月11日
+
+== https://www.youtube.com/watch?v=LkHRv6ovaXs[This Malware Invades the KERNEL?]
+
+WinRig0.sys bring your own vulnerable driver.
+

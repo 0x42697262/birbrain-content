@@ -194,3 +194,12 @@ include::writeups:random:attachment$cmsc134-writeups/machine-problem-1/vuln.c[]
 ----
 
 Visit xref:writeups:random:cmsc134-writeups/machine-problem-1/sources.adoc[this] working reference.
+
+== Linking to other parts of the document
+
+[,asciidoc]
+----
+<<_code_block, Code Block>>
+----
+
+This will link to <<_code_block, Code Block>>.
