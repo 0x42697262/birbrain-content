@@ -109,6 +109,9 @@
 [NixOS]
 * xref:nixos.adoc[]
 
+[objdump]
+* xref:objdump.adoc[]
+
 [NMAP]
 * xref:nmap.adoc[]
 

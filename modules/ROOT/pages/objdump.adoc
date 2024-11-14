@@ -1,0 +1,24 @@
+= objdump
+
+.Copy/Paste
+----
+objdump -M intel --visualize-jumps=color -d <binary>
+----
+
+== Use Intel Syntax
+
+----
+objdump -M intel
+----
+
+== isplay assembler contents of executable sections
+
+----
+objdump -d
+----
+
+== Visualize Jumps (with color)
+
+----
+objdump --visualize-jumps=color
+----
