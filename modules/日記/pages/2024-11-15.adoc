@@ -1,0 +1,159 @@
+= 2024年11月15日
+
+
+==  Pizza Paradise 
+
+. https://pizzaparadise.ctf.intigriti.io/robots.txt[]
+. view-source:https://pizzaparadise.ctf.intigriti.io/secret_172346606e1d24062e891d537e917a90.html[]
+. view-source:https://pizzaparadise.ctf.intigriti.io/assets/js/auth.js[]
+. https://pizzaparadise.ctf.intigriti.io/topsecret_a9aedc6c39f654e55275ad8e65e316b3.php[]
+
+----
+agent_1337
+intel420
+----
+
+== Secure Bank
+
+----
+1337
+5670688
+----
+
+[IMPORTANT]
+INTIGRITI{pfff7_wh47_2f4?!}
+
+
+.$ nc securebank.ctf.intigriti.io 1335
+----
+****************************************
+*         Welcome to SecureBank        *
+*    Your trusted partner in security  *
+****************************************
+
+========================================
+=   SecureBank Superadmin Login System =
+========================================
+
+Enter superadmin PIN: 1337
+Enter your 2FA code: 5670688
+Access Granted! Welcome, Superadmin!
+Here is your flag: INTIGRITI{pfff7_wh47_2f4?!}
+----
+
+== Private Github Repository 
+
+. https://gist.githubusercontent.com/bob-193/f0fe97c23c507bc2c29a087e1d7682d0/raw/38934eddc8b2ff00f781988a1d2f3c8e1b1fccb7/email.md[]
+
+
+----
+$ echo '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' | base64 -d > bob.zip
+$ unzip bob.zip
+$ eval (ssh-agent -c)
+$ ssh-add id_rsa 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for 'id_rsa' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+$ chmod 600 id_rsa
+$ ssh-add id_rsa 
+Identity added: id_rsa (1337up)
+$ git init
+$ git remote add origin git@github.com:bob-193/1337up.git
+$ ssh -T git@github.com
+Hi nitrofany! You've successfully authenticated, but GitHub does not provide shell access.
+$ git pull origin main
+$ cat readme.md
+Hey, Tiffany! You will need to save this repo in your user space and implement changes we agreed earlier.
+$ git clone git@github.com:nitrofany/1337up.git
+$ cd 1337up
+$ cat config/.env
+flag=replace with production INTIGRITI{...}
+$ git log --oneline
+0f2ad04 (HEAD -> main, origin/main, origin/HEAD) update
+5c18888 update
+d127325 update
+5f73d37 init
+$ git show 5c18888
+commit 5c18888418fd3f2a9d76cfd278b69c1f7c41ba4f
+Author: root <root@vmi1519856.contaboserver.net>
+Date:   Mon Aug 19 14:15:57 2024 +0200
+
+    update
+
+diff --git a/.gitmodules b/.gitmodules
+new file mode 100644
+index 0000000..0f2b51c
+--- /dev/null
++++ b/.gitmodules
+@@ -0,0 +1,3 @@
++[submodule "config"]
++       path = config
++       url = https://github.com/nitrofany/01189998819991197253
+diff --git a/flag.txt b/flag.txt
+deleted file mode 100644
+index e69de29..0000000
+$ git clone git@github.com:nitrofany/01189998819991197253
+$ cat 01189998819991197253/flag.md
+# INTIGRITI{9e0121bb8bce15ead3d7f529a81b77b4}
+----
+
+
+== Cold Storage
+
+----
+$ unzip cryptovault.apk
+$ cd assets/www
+$ rm -r cordova.js cordova_plugins.js plugins/
+----
+
+. find ``return _0x351569[_0x588caa(0x11a)]`` in ``js/keygen.js``
+. add ``console.log(_0x22e526);`` before it
+. open website ``firefox index.html``
+. type password ``7331``
+. web dev tools -> copy ``494e544947524954497b35305f6d7563685f6630725f3533637572335f63306c645f353730723436337d``
+. convert from hex to string ``INTIGRITI{50_much_f0r_53cur3_c0ld_570r463}``
+
+
+== Logging
+
+[, python]
+----
+import re
+
+pattern = r"!%3DCHAR\((\d+)\)"
+with open('./app.log', 'r') as file:
+    logs = file.read()
+    
+
+matches = re.findall(pattern, logs)
+
+print("Matched numbers:", matches)
+
+text = ""
+for ascii_dec in matches:
+    dec = int(ascii_dec)
+    text += chr(dec)
+print(text)
+----
+
+.$ python
+----
+Matched numbers: ['49', '112', '114', '111', '100', '117', '99', '116', '115', '67', '82', '69', '65', '84', '69', '32', '84', '65', '66', '76', '69', '32', '112', '114', '111', '100', '117', '99', '116', '115', '32', 
+'40', '10', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '105', '100', '32', '73', '78', '84', '69', '71', '69', '82', '32', '80', '82', '73', '77', '65', '82', '89', '32', '75', '69', '89', 
+'44', '10', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '110', '97', '109', '101', '32', '84', '69', '88', '84', '44', '10', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32',
+ '32', '100', '101', '115', '99', '114', '105', '112', '116', '105', '111', '110', '32', '84', '69', '88', '84', '10', '32', '32', '32', '32', '32', '32', '32', '32', '41', '53', '76', '97', '112', '116', '111', '112',
+ '83', '109', '97', '114', '116', '112', '104', '111', '110', '101', '87', '105', '114', '101', '108', '101', '115', '115', '32', '82', '111', '117', '116', '101', '114', '70', '76', '65', '71', '84', '97', '98', '108'
+, '101', '116', '49', '104', '97', '115', '104', '120', '123', '53', '113', '49', '95', '108', '111', '103', '95', '97', '110', '97', '108', '121', '115', '49', '115', '95', '102', '48', '114', '95', '55', '104', '51',
+ '95', '119', '49', '110', '33', '125']
+1productsCREATE TABLE products (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            description TEXT
+        )5LaptopSmartphoneWireless RouterFLAGTablet1hashx{5q1_log_analys1s_f0r_7h3_w1n!}
+----
+
+[IMPORTANT]
+INTIGRITI{5q1_log_analys1s_f0r_7h3_w1n!}
