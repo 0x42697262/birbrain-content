@@ -20,8 +20,6 @@ intel420
 5670688
 ----
 
-[IMPORTANT]
-INTIGRITI{pfff7_wh47_2f4?!}
 
 
 .$ nc securebank.ctf.intigriti.io 1335
@@ -38,7 +36,7 @@ INTIGRITI{pfff7_wh47_2f4?!}
 Enter superadmin PIN: 1337
 Enter your 2FA code: 5670688
 Access Granted! Welcome, Superadmin!
-Here is your flag: INTIGRITI{pfff7_wh47_2f4?!}
+Here is your flag: INTIGRITI{haha}
 ----
 
 == Private Github Repository 
@@ -97,7 +95,7 @@ deleted file mode 100644
 index e69de29..0000000
 $ git clone git@github.com:nitrofany/01189998819991197253
 $ cat 01189998819991197253/flag.md
-# INTIGRITI{9e0121bb8bce15ead3d7f529a81b77b4}
+# INTIGRITI{haha}
 ----
 
 
@@ -114,7 +112,7 @@ $ rm -r cordova.js cordova_plugins.js plugins/
 . open website ``firefox index.html``
 . type password ``7331``
 . web dev tools -> copy ``494e544947524954497b35305f6d7563685f6630725f3533637572335f63306c645f353730723436337d``
-. convert from hex to string ``INTIGRITI{50_much_f0r_53cur3_c0ld_570r463}``
+. convert from hex to string ``INTIGRITI{hah}``
 
 
 == Logging
@@ -155,5 +153,3 @@ Matched numbers: ['49', '112', '114', '111', '100', '117', '99', '116', '115', '
         )5LaptopSmartphoneWireless RouterFLAGTablet1hashx{5q1_log_analys1s_f0r_7h3_w1n!}
 ----
 
-[IMPORTANT]
-INTIGRITI{5q1_log_analys1s_f0r_7h3_w1n!}
