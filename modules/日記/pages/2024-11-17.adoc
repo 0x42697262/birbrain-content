@@ -1,0 +1,21 @@
+= 2024年11月17日
+
+
+== HackTheBox
+
+=== Cicada
+
+----
+$ smbclient -L 10.10.11.35
+Password for [WORKGROUP\birb]: anonymous
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	ADMIN$          Disk      Remote Admin
+	C$              Disk      Default share
+	DEV             Disk      
+	HR              Disk      
+	IPC$            IPC       Remote IPC
+	NETLOGON        Disk      Logon server share 
+	SYSVOL          Disk      Logon server share
+----

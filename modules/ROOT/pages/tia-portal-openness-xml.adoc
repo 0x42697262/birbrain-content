@@ -258,3 +258,176 @@ An example of this error is ``There are at least two definitions for UIds. The i
 </Wire>
 ----
 <.> Must be a value from a ``<<call, Call>>`` UId.
+
+
+== Default XMLs
+
+The base template of what's needed when building your own XML.
+
+Notice below that there are 5 common elements AttributeList:
+
+. Interface
+. Name
+. Namespace
+. Number
+. ProgrammingLanguage
+
+=== OB
+
+[, xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+	<SW.Blocks.OB ID="0">
+		<AttributeList>
+			<Interface>
+				<Sections
+					xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+					<Section Name="Input">
+						<Member Name="Initial_Call" Datatype="Bool" Informative="true">
+							<Comment>
+								<MultiLanguageText Lang="en-US">Initial call of this OB</MultiLanguageText>
+							</Comment>
+						</Member>
+						<Member Name="Remanence" Datatype="Bool" Informative="true">
+							<Comment>
+								<MultiLanguageText Lang="en-US">=True, if remanent data are available</MultiLanguageText>
+							</Comment>
+						</Member>
+					</Section>
+					<Section Name="Temp" />
+					<Section Name="Constant" />
+				</Sections>
+			</Interface>
+			<Name>Main</Name>
+			<Namespace />
+			<Number>1</Number>
+			<ProgrammingLanguage>LAD</ProgrammingLanguage>
+			<SecondaryType>ProgramCycle</SecondaryType>
+		</AttributeList>
+		<ObjectList>
+			<SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+				<AttributeList>
+					<NetworkSource />
+					<ProgrammingLanguage>LAD</ProgrammingLanguage>
+				</AttributeList>
+			</SW.Blocks.CompileUnit>
+		</ObjectList>
+	</SW.Blocks.OB>
+</Document>
+----
+
+=== FB
+
+[, xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+	<SW.Blocks.FB ID="0">
+		<AttributeList>
+			<Interface>
+				<Sections
+					xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+					<Section Name="Input" />
+					<Section Name="Output" />
+					<Section Name="InOut" />
+					<Section Name="Static" />
+					<Section Name="Temp" />
+					<Section Name="Constant" />
+				</Sections>
+			</Interface>
+			<Name>FB_1</Name>
+			<Namespace />
+			<Number>1</Number>
+			<ProgrammingLanguage>FBD</ProgrammingLanguage>
+		</AttributeList>
+		<ObjectList>
+			<SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+				<AttributeList>
+					<NetworkSource />
+					<ProgrammingLanguage>FBD</ProgrammingLanguage>
+				</AttributeList>
+			</SW.Blocks.CompileUnit>
+		</ObjectList>
+	</SW.Blocks.FB>
+</Document>
+----
+
+
+
+=== FC
+
+[, xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+	<SW.Blocks.FC ID="0">
+		<AttributeList>
+			<Interface>
+				<Sections
+					xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+					<Section Name="Input" />
+					<Section Name="Output" />
+					<Section Name="InOut" />
+					<Section Name="Temp" />
+					<Section Name="Constant" />
+					<Section Name="Return">
+						<Member Name="Ret_Val" Datatype="Void" />
+					</Section>
+				</Sections>
+			</Interface>
+			<Name>FC_1</Name>
+			<Namespace />
+			<Number>1</Number>
+			<ProgrammingLanguage>FBD</ProgrammingLanguage>
+		</AttributeList>
+		<ObjectList>
+			<SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+				<AttributeList>
+					<NetworkSource />
+					<ProgrammingLanguage>FBD</ProgrammingLanguage>
+				</AttributeList>
+			</SW.Blocks.CompileUnit>
+		</ObjectList>
+	</SW.Blocks.FC>
+</Document>
+----
+
+
+
+=== DB
+
+.GlobalDB
+[, xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+	<SW.Blocks.GlobalDB ID="0">
+		<AttributeList>
+			<Interface>
+				<Sections
+					xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+					<Section Name="Static" />
+				</Sections>
+			</Interface>
+			<Name>DB_1</Name>
+			<Namespace />
+			<Number>1</Number>
+			<ProgrammingLanguage>DB</ProgrammingLanguage>
+		</AttributeList>
+		<ObjectList>
+			<MultilingualText ID="3" CompositionName="Title">
+				<ObjectList>
+					<MultilingualTextItem ID="4" CompositionName="Items">
+						<AttributeList>
+							<Culture>en-US</Culture>
+							<Text />
+						</AttributeList>
+					</MultilingualTextItem>
+				</ObjectList>
+			</MultilingualText>
+		</ObjectList>
+	</SW.Blocks.GlobalDB>
+</Document>
+----
+
