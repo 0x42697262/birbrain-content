@@ -1,0 +1,36 @@
+= Python
+
+== Tips
+
+=== Checking Specific Instances of classes using match()
+
+[, python]
+----
+class Entity:
+  ...
+
+class Human(Entity):
+  ...
+
+
+joe = Human()
+obj = Entity()
+
+match joe:
+  case _ if type(joe) is Entity:
+    print("It should not evaluate to this case")
+  case _ if type(joe) is Human:
+    print("It should evaluate to this case")
+  case _:
+    print("It won't.")
+
+match obj:
+  case _ if type(joe) is Human:
+    print("It should evaluate to this case")
+  case _ if type(joe) is Entity:
+    print("It should not evaluate to this case")
+  case _:
+    print("Another test to confirm")
+----
+
+``_ if`` is used for extending custom conditions since pattern matching does not work for booleans.

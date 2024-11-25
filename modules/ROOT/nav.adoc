@@ -117,7 +117,7 @@
 * xref:nmap.adoc[]
 
 [Python]
-* Python
+* xref:python.adoc[]
 ** xref:python-schema.adoc[]
 
 [TIA Portal Openness]
