@@ -27,3 +27,12 @@ This doesn't remove Magisk root.
 . *Send to phone*: ``adb push <directory>/init_boot.img /sdcard/Download/``
 . *Patch with https://topjohnwu.github.io/Magisk/install.html#patching-images[Magisk]*: ``fastboot flash init_boot <magisk_patched.img file>``
 . *Reboot.*
+
+
+== Booting to Recovery from Fastboot
+
+----
+fastboot reboot recovery
+----
+
+It might not work everytime since it's non-standard.
