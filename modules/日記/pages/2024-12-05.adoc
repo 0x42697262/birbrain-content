@@ -1,0 +1,11 @@
+= 2024年12月05日
+
+
+== Android
+
+https://xdaforums.com/t/root-ing-xiaomi-12-with-magisk.4445235/[Magisk Root Redmi]
+
+Do not follow the patch files there.
+Get ``init_boot.img`` (it's only 8mib) then do the next steps.
+Once done, do ``fastboot flash init_boot <magisk.img>``.
+Then reboot.

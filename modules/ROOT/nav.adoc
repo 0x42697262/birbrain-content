@@ -6,6 +6,10 @@
 * xref:日記:index.adoc[]
 ** 2024年
 *** 2024年11月
+**** xref:日記:2024-12-03.adoc[]
+**** xref:日記:2024-12-02.adoc[]
+**** xref:日記:2024-11-30.adoc[]
+**** xref:日記:2024-11-29.adoc[]
 **** xref:日記:2024-11-28.adoc[]
 **** xref:日記:2024-11-17.adoc[]
 **** xref:日記:2024-11-15.adoc[]
@@ -117,6 +121,10 @@
 
 [NMAP]
 * xref:nmap.adoc[]
+
+[Open Source Intelligence]
+* xref:osint.adoc[]
+** xref:osint-tools.adoc[]
 
 [Python]
 * xref:python.adoc[]

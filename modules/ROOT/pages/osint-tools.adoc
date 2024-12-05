@@ -1,0 +1,158 @@
+= Tools
+
+https://github.com/Jieyab89/OSINT-Cheat-sheet[]
+
+== MALTEGO
+
+Website:: https://www.maltego.com[]
+Type:: App
+Requires Registration:: Yes
+API:: Yes (for specific situations)
+Cost:: Community (Free), Professional (€ 5,000/year), Organization (needs contact)
+Publicly Accessible:: Yes
+Crack Potential:: Unlikely
+Alternatives:: https://phantomhelix.com/product/sierra[Sierra Community Edition], https://webbreacher.com/2022/03/15/obsidian/amp/[Obsidian] + https://juggl.io/[Juggl], https://shadowdragon.io/horizon/[Horizon]
+
+== SOCIALNET
+
+Website:: https://shadowdragon.io/socialnet/[]
+Type:: Website
+Requires Registration:: Yes
+API:: Requires contact
+Cost:: Requires contact
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: https://sociallinks.io/[Social Links Pro]
+
+== PIPL
+
+Website:: https://pipl.com/[]
+Type:: Website
+Requires Registration:: Yes
+API:: Yes
+Cost:: Requires Contact
+Publicly Accessible:: Yes
+Crack Potential:: No
+Alternatives:: https://epieos.com/[Epieos], https://endato.com/developer-apis[endato]
+
+
+== INTEL 471
+
+Website:: https://intel471.com/titan[]
+Type:: App, Website
+Requires Registration:: Yes
+API:: Requires contact
+Cost:: Requires contact
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: ?
+
+== CYBERSIXGILL
+
+Website:: https://cybersixgill.com/[]
+Type:: App
+Requires Registration:: Yes
+API:: Requires contact
+Cost:: Requires contact
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: ?
+
+Basically, a Threat Intelligence tool?
+
+https://cybersixgill.com/cti-demo-on-demand[]
+
+== SOCIAL LINKS PRO
+
+Website:: https://sociallinks.io/[]
+Type:: Website
+Requires Registration:: Yes
+API:: Requires contact
+Cost:: Requires contact
+Publicly Accessible:: No, requires subscription
+Crack Potential:: No
+Alternatives:: Sherlock, Socialscan
+
+== CIPHERTRACE
+
+Website:: https://digitalshield.net/products/ciphertrace/[]
+Type:: Website
+Requires Registration:: Yes
+API:: Requires Contact
+Cost:: Requires contact
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: https://blockexplorer.one/[BlockExplorer]
+
+
+https://digitalshield.net/clients[DigitalShield Clients]
+
+== ORBIS
+
+Website:: https://www.moodys.com/orbis[]
+Type:: Website
+Requires Registration:: Yes
+API:: Requires contact
+Cost:: Requires contact
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: https://eikon.refinitiv.com/[Eikon]
+
+== ATII HADES DARK WEB
+
+Website:: https://followmoneyfightslavery.org/darkweb-intelligence/[]
+Type:: ? website
+Requires Registration:: Yes
+API:: ?
+Cost:: ?
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: ?
+
+== ZEROFOX
+
+
+== CYABRA
+== ELCOMSOFT
+
+
+Website:: https://www.elcomsoft.com/[]
+Type:: App
+Requires Registration:: No
+API:: No
+Cost:: USD 80 - USD 6,000
+Publicly Accessible:: Yes
+Crack Potential:: No
+Alternatives:: ?
+
+== RF DETECTOR
+
+Type:: Hardware
+Requires Registration:: N/A
+API:: N/A
+Cost:: Depends
+Publicly Accessible:: Yes
+Crack Potential:: N/A
+Alternatives:: https://reiusa.net/rf-detection/[REI], https://phantom-technologies.com/rf-detectors-for-wireless-devices/[RF Detectors for Wireless Devices], https://www.brickhousesecurity.com/counter-surveillance/digital-rf[BrickHouse Security]
+
+== MENLO
+
+Website:: https://www.menlosecurity.com/[]
+Type:: Software
+Requires Registration:: No
+API:: No
+Cost:: Requires Contact
+Publicly Accessible:: No
+Crack Potential:: N/A
+Alternatives:: ?
+
+== VOICEAI
+
+Website:: https://voice.ai/[]
+Type:: Software
+Requires Registration:: Yes
+API:: No
+Cost:: Free, Paid
+Publicly Accessible:: Yes
+Crack Potential:: No Need
+Alternatives:: https://github.com/neonbjb/tortoise-tts[TorToiSe], https://github.com/voice-cloning-app/Voice-Cloning-App[Voice Cloning App], https://github.com/abus-aikorea/voice-pro[Voice Pro], https://www.voicemod.net/[Voicemod]

@@ -1,0 +1,148 @@
+= 2024年11月29日
+
+
+== Open Source Intelligence
+
+=== MALTEGO
+
+Website:: https://www.maltego.com[]
+Type:: App
+Requires Registration:: Yes
+Type of Service:: Online, Online Activation, Offline Activation
+API:: Yes (for specific situations)
+Cost:: Community (Free), Professional (€ 5,000/year), Organization (needs contact)
+Publicly Accessible:: Yes
+Crack Potential:: Unlikely
+Alternatives:: https://phantomhelix.com/product/sierra[Sierra Community Edition], https://webbreacher.com/2022/03/15/obsidian/amp/[Obsidian] + https://juggl.io/[Juggl], https://shadowdragon.io/horizon/[Horizon]
+
+=== SOCIALNET
+
+Website:: https://shadowdragon.io/socialnet/[]
+Type:: ?
+Requires Registration:: Yes
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: ?
+Crack Potential:: ?
+Alternatives:: https://sociallinks.io/[Social Links Pro]
+
+=== PIPL
+
+Website:: https://pipl.com/[]
+Type:: SaaS
+Requires Registration:: Yes
+Type of Service:: Online
+API:: Yes
+Cost:: Requires Contact
+Publicly Accessible:: Yes
+Crack Potential:: No
+Alternatives:: https://epieos.com/[Epieos], https://endato.com/developer-apis[endato]
+
+References:
+
+- https://www.vendr.com/buyer-guides/pipl[]^*^
+
+=== INTEL 471
+
+Website:: ?
+Type:: SaaS
+Requires Registration:: Yes
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: ?
+Crack Potential:: No
+Alternatives:: ?
+
+=== CYBERSIXGILL
+
+Website:: ?
+Type:: SaaS
+Requires Registration:: Yes
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: No, requires subscription
+Crack Potential:: No
+Alternatives:: ?
+
+Basically, a Threat Intelligence tool?
+
+https://cybersixgill.com/cti-demo-on-demand[]
+
+=== SOCIAL LINKS PRO
+
+Website:: https://sociallinks.io/[]
+Type:: ?
+Requires Registration:: Yes
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: No, requires subscription
+Crack Potential:: No
+Alternatives:: ?
+
+=== CIPHERTRACE
+
+Website:: https://digitalshield.net/products/ciphertrace/[]
+Type:: ? website
+Requires Registration:: ?
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: ?
+
+
+https://digitalshield.net/clients[DigitalShield Clients]
+
+=== ORBIS
+
+Website:: https://www.moodys.com/orbis[]
+Type:: ? website
+Requires Registration:: ?
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: ?
+
+=== ATII HADES DARK WEB
+
+Website:: https://followmoneyfightslavery.org/darkweb-intelligence/[]
+Type:: ? website
+Requires Registration:: Yes
+Type of Service:: ?
+API:: ?
+Cost:: ?
+Publicly Accessible:: No
+Crack Potential:: No
+Alternatives:: ?
+
+
+
+=== ZEROFOX
+
+
+
+=== CYABRA
+=== ELCOMSOFT
+
+
+Website:: https://www.elcomsoft.com/[]
+Type:: App
+Requires Registration:: No
+Type of Service:: Offline
+API:: No
+Cost:: USD 80 - USD 6,000
+Publicly Accessible:: Yes
+Crack Potential:: No
+Alternatives:: ?
+
+=== RF DETECTOR
+=== MENLO
+=== VOICEAI
+=== SECHAWK

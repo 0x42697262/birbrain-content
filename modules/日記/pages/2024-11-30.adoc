@@ -1,0 +1,27 @@
+= 2024年11月30日
+
+
+== NixOS bullshits
+
+.$ sudo nixos-rebuild switch --flake . --upgrade
+----
+building the system configuration...
+error: builder for '/nix/store/6qhzfi6lwqrwadj32rp4ha148gamp8wd-linux-6.12.1-libre-src.drv' failed with exit code 127;
+       last 10 log lines:
+       > Running phase: unpackPhase
+       > unpacking source archive /nix/store/mhxs0z5i9pcapvymgw2k9k4k3z5yrjvp-linux-6.12.1.tar.xz
+       > source root is linux-6.12.1
+       > setting SOURCE_DATE_EPOCH to timestamp 1732285826 of file linux-6.12.1/virt/lib/irqbypass.c
+       > Running phase: patchPhase
+       > Running phase: updateAutotoolsGnuConfigScriptsPhase
+       > Running phase: configurePhase
+       > no configure script, doing nothing
+       > Running phase: buildPhase
+       > /nix/store/gw0swsnbfk9l8d1il70psm8b3r5m33jv-stdenv-linux/setup: line 1715: /nix/store/pxic1zyba59whccpw2x87vca6xhz2bpa-branches-r19663/6.12/deblob-6.12: No such file or directory
+       For full logs, run 'nix log /nix/store/6qhzfi6lwqrwadj32rp4ha148gamp8wd-linux-6.12.1-libre-src.drv'.
+error: 1 dependencies of derivation '/nix/store/idzibpwj9kd5w1b4k3hphppm93kavmvq-cpupower-6.12.1.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/xpdbxm5sc6a4z1qjzq76v9i6vg52rd4b-cpupower-6.12.1_fish-completions.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/gkvbzw0y05mr9g1skaqbpq3g8bd47a5g-man-paths.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/p3qf7hmx77l47d52vqgxq41cjr5rgklj-system-path.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/cjba93k08104i1xlb8pijxmi3lw3h309-nixos-system-AtomicBird-25.05.20241125.4633a7c.drv' failed to build
+----
