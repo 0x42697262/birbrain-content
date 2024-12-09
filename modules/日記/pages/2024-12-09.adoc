@@ -1,0 +1,9 @@
+= 2024年12月09日
+
+== Frida
+
+. https://blog.hypn.za.net/2020/04/19/hacking-unity-games-part-2-manipulating/[Windows Unity Hacking with enumerator.js]
+. https://platinmods.com/threads/frida-api-set-up-and-injection-hook-unity.147443/[Hooking to Android Unity games with Frida (forum)]
+. https://github.com/vfsfitvnm/frida-il2cpp-bridge[Frida module for Il2Cpp at runtime for Unity version in the range 5.3.0 - 2022.1.x]
+. https://www.linkedin.com/pulse/hacking-unity-game-android-5-minutes-using-frida-abdelrahman-amhawy/[Hacking Unity game with Frida without obfuscation]
+. https://secfathy0x1.medium.com/use-case-bypassing-in-app-purchase-by-payment-client-side-validation-e87e2c775a9c[Local-side verification of IAP hacking with Frida]

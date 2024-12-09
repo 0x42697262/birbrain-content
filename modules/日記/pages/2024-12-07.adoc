@@ -1,0 +1,8 @@
+= 2024年12月07日
+
+When attacking web ctfs, maybe gobuster might help.
+
+== Learning Vulnerabilities
+
+https://portswigger.net/web-security/request-smuggling[HTTP Request Smuggling]
+
