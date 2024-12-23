@@ -6,3 +6,17 @@
 ----
 $ dmidecode -t bios -q
 ----
+
+== CPU Cores
+
+Note that ``cpu0`` cannot be offlined because may be of interrupts.
+
+.Disable
+----
+$ echo 0 > /sys/devices/system/cpu/cpu1/online
+----
+
+.Online
+----
+$ echo 1 > /sys/devices/system/cpu/cpu1/online
+----
