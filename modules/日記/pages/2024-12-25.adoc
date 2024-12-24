@@ -27,3 +27,8 @@ options rtl8723be fwlps=0
 ```
 
 ----
+
+== Arch Linux Installation
+
+You can actually use GPT for BIOS systems.
+Just follow typical partition layout for GPT then install grub for EFI one.
