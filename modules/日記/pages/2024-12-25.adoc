@@ -5,3 +5,25 @@
 === INIT NOT FOUND
 
 https://www.reddit.com/r/linuxmint/comments/18eohux/comment/kcpg6x0/[Boot arch linux using grub2 instead of normal mode.]
+
+== RTL8723BE
+
+=== Wifi Device Keeps Powering Off
+
+Fix: https://unix.stackexchange.com/a/367726[Disable power management]
+
+----
+Create a /etc/modprobe.d/rtl8723be.conf with the following contents:
+
+options rtl8723be fwlps=0
+the problem is explained on the archlinux-wiki:
+
+```
+Some users may encounter errors with powersave on this card. This is shown with occasional disconnects that are not recognized by high level network managers (netctl, NetworkManager). This error can be confirmed by running dmesg -w or journalctl -f and looking for output related to powersave and the rtl8723ae/rtl8723be module. If you are having this issue, use the fwlps=0 kernel option, which should prevent the WiFi card from automatically sleeping and halting connection.
+
+/etc/modprobe.d/rtl8723be.conf
+
+options rtl8723be fwlps=0
+```
+
+----
