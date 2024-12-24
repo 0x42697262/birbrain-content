@@ -1,0 +1,7 @@
+= 2024年12月25日
+
+== Ventoy
+
+=== INIT NOT FOUND
+
+https://www.reddit.com/r/linuxmint/comments/18eohux/comment/kcpg6x0/[Boot arch linux using grub2 instead of normal mode.]
