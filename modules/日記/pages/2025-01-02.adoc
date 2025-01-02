@@ -1,0 +1,10 @@
+= 2025年01月02日
+
+== Finished Papers
+
+=== https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/WhyFromNigeria.pdf[Why do Nigerian Scammers Say They are from Nigeria?]
+
+A binary classification problem where the attacker's goal is to identify the true positives from the false positives (scammed vs cannot be scammed).
+However, it is very difficult to build a classifier since that requires data from actual victims.
+"Nigerian Scam" is used because this filters potential victims from the ones who doesn't fall for scams.
+Victims who are oblivious to scams will be marked as viable targets for the scammers.
