@@ -22,3 +22,11 @@ nmap -A -T5 <ip> -v
 nmap -A -F -T1 <ip> -v
 ----
 
+== Cheatsheet
+
+=== Scan for Active Hosts
+
+.Fast Scanning
+----
+nmap -n -sn -PR -PS -PA -PU -T5 192.168.240.1/24
+----

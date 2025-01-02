@@ -8,3 +8,29 @@ A binary classification problem where the attacker's goal is to identify the tru
 However, it is very difficult to build a classifier since that requires data from actual victims.
 "Nigerian Scam" is used because this filters potential victims from the ones who doesn't fall for scams.
 Victims who are oblivious to scams will be marked as viable targets for the scammers.
+
+== Nmap
+
+.scan for active hosts
+----
+nmap -n -sn -PR -PS -PA -PU -T5 192.168.240.1/24
+----
+
+== adb
+
+=== Pulling a package
+
+.List packages
+----
+adb shell pm list packages
+----
+
+.Get full path of the package
+----
+adb shell pm path com.example.app
+----
+
+.Pull the app
+----
+adb pull /data/app/com.example.someapp-2.apk path/to/desired/destination
+----
