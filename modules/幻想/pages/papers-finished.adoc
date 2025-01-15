@@ -1,9 +1,0 @@
-= Papers Finished Reading
-
-== xref:日記:2025-01-03.adoc[]
-
-. https://www.acsac.org/2001/papers/110.pdf[Why Information Security is Hard – An Economic Perspective]
-
-== xref:日記:2025-01-02.adoc[]
-
-. https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/WhyFromNigeria.pdf[Why do Nigerian Scammers Say They are from Nigeria?]

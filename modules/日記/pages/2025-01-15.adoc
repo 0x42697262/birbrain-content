@@ -1,0 +1,37 @@
+= 2025年01月15日
+
+
+== Read Blogs
+
+=== https://medium.com/@bethqiang/the-absolute-beginners-guide-to-test-driven-development-with-a-practical-example-c39e73a11631[The Absolute Beginner’s Guide to Test Driven Development, with a Practical Example]
+
+Gives clear overview of TDD.
+Contains some good resource to learn TDD as well (like https://exercism.org/[exercism.org]).
+
+=== https://dev.to/napicella/test-driven-development-by-example-29g8[Test Driven Development by Example]
+
+Provides a simple `throttle` function to be developed thru TDD.
+I don't know what language is being used.
+Maybe it's not a programming language but instead a pseudocode.
+I thought the blog stated controversies about TDD, I guess I will need to look out for more controversies about it.
+
+=== https://code.tutsplus.com/the-newbies-guide-to-test-driven-development--net-13835t[The Newbie's Guide to Test-Driven Development]
+
+PHP guide to TDD.
+Mostly skimmed through the readings tho.
+
+=== https://jrsinclair.com/articles/2016/one-weird-trick-that-will-change-the-way-you-code-forever-javascript-tdd/[One weird trick that will change the way you code forever: JavaScript TDD]
+
+Explains how TDD isn't about __testing__ but rather a way of thinking and coding.
+The advice is to start small with small projects.
+It'll be slow at first but will improve overtime.
+
+
+=== https://dev.to/codenameone/why-i-dont-do-tdd-1j71[Why I Don't do TDD]
+
+Not good for integration testing.
+Not good for slow testing.
+Is good for fast testing.
+Works well with loose typing languages.
+Might not be needed in Rust?
+Behavior-Driven Development might be a good alternative for bigger projects?

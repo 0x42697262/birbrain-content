@@ -99,7 +99,7 @@
 * xref:幻想:index.adoc[]
 ** xref:幻想:random.adoc[]
 ** xref:幻想:links.adoc[]
-** xref:幻想:papers-finished.adoc[]
+** xref:幻想:readings-finished.adoc[]
 
 [Android]
 * xref:android.adoc[]
