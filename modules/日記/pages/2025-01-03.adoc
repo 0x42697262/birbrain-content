@@ -1,0 +1,10 @@
+= 2025年01月03日
+
+
+== Finished Papers
+
+=== https://www.acsac.org/2001/papers/110.pdf[Why Information Security is Hard – An Economic Perspective]
+
+This is more about economics of security.
+This is where I learned about **price discrimination**.
+Basically, companies don't want wealthy or rich people to save money thus they make cheap services inconvenient.
