@@ -1,0 +1,16 @@
+= 2025年01月16日
+
+
+== Just Reading
+
+=== https://duo.com/blog/the-great-dns-vulnerability-of-2008-by-dan-kaminsky[The Great DNS Vulnerability of 2008 by Dan Kaminsky]
+
+A big DNS vulnerability found in 2008 by Dan Kaminsky.
+DNS poisoning is attacked through Content Delivery Networks (CDN).
+I don't really get how *Kaminsky attack* works.
+The basic idea is that a malicious DNS is hosted which gets used by the users.
+Although, how can someone attack local area network to poison the DNS cache?
+A https://ieeexplore.ieee.org/document/8384122[paper] by Tripathi et. al. might provide insights to DNS poisoning in LAN. 
+
+Is Kaminsky attack still possible?
+Probably the answer is "no" based on this https://www.usna.edu/Users/cs/choi/it432/lec/l07/lec.html[lecture].

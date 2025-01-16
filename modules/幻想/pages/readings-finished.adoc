@@ -19,3 +19,7 @@
 . https://code.tutsplus.com/the-newbies-guide-to-test-driven-development--net-13835t[The Newbie's Guide to Test-Driven Development]
 . https://jrsinclair.com/articles/2016/one-weird-trick-that-will-change-the-way-you-code-forever-javascript-tdd/[One weird trick that will change the way you code forever: JavaScript TDD]
 . https://dev.to/codenameone/why-i-dont-do-tdd-1j71[Why I Don't do TDD]
+
+=== xref:日記:2025-01-16.adoc[]
+
+. https://duo.com/blog/the-great-dns-vulnerability-of-2008-by-dan-kaminsky[The Great DNS Vulnerability of 2008 by Dan Kaminsky]
