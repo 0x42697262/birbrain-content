@@ -1,0 +1,27 @@
+= 2025年01月17日
+
+* Had issues with github actions that my repo artifact isn't being uploaded. It turns out that I needed to update `actions/upload-pages-artifact` to *v3* and `actions/deploy-pages` to *v4*.
+
+== Just Reading
+
+=== https://www.usna.edu/Users/cs/choi/it432/lec/l07/lec.html[Remote DNS attacks and DNS defenses]
+
+To understand Kaminsky Attack, it targets remote DNS servers instead of local DNS servers.
+Which I mistakenly thought of.
+The target remote DNS server is impossible to sniff for packets unlike locally hosted ones.
+Hence a game of probability is used.
+The `Birthday Paradox`, just make guesses until the correct identifier has been found.
+Although this is difficult to accomplish since DNS servers would just reuse the cache from the first request.
+And waiting for the cache to clear would take at least one day.
+Somewhere at least 84 years.
+This can be bypassed by using a *fake subdomain name*.
+Like, `48h3r8.google.com` to send queries to the DNS server.
+
+Defenses against Kaminsky Attack: *(1) DNSSEC*, *(2) DNS over TLS*, and *(3) DNS over HTTPS*.
+If remote DNS servers are secure, on the assumption that they have defensed enabled, then how secure are local DNS servers?
+How is it attacked?
+
+=== https://link.springer.com/article/10.1007/s11606-024-09290-9[Incidence and Prevalence of Post-COVID-19 Myalgic Encephalomyelitis: A Report from the Observational RECOVER-Adult Study]
+
+Post-COVID-19 is linked to ME/CFS.
+There's a significant increase in cases compared to pre-covid.
