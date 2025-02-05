@@ -1,0 +1,13 @@
+= 2025年02月06日
+
+== Virtual Display Monitor on Windows
+
+solution is to use https://kaanlabs.com/create-persistent-virtual-displays-in-windows-with-usbmmidd/[usbmmidd]
+
+----
+./deviceinstaller64.exe install usbmmIdd.inf usbmmidd
+./deviceinstaller64.exe enableidd 1
+----
+
+then just set the dimension
+
