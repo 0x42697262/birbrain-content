@@ -1,0 +1,10 @@
+= 2025年02月18日
+
+== Arch Linux Invalid or Corrupted package (PGP signature)
+
+Just do these steps:
+
+1. `pacman-key --init`
+2. `pacman-key --populate`
+
+
