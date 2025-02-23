@@ -1,0 +1,7 @@
+= 2025年02月22日
+
+== Nix Flakes for Development Environment
+
+. https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10#a-flake-with-derivation
+
+I have it used https://github.com/0x42697262/Practice-Codes-Dump/blob/master/data_structures_and_algorithms/flake.nix[here].
