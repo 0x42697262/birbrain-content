@@ -1,0 +1,71 @@
+= 2025年02月25日
+
+== OverTheWire
+
+
+okay, it might be nice to have an automated bash script for accessing the levels
+
+=== level 2
+
+there will be a file named `-` which contains our password
+
+----
+bandit1@bandit:~$ ls -la
+total 24
+-rw-r-----  1 bandit2 bandit1   33 Sep 19 07:08 -
+drwxr-xr-x  2 root    root    4096 Sep 19 07:08 .
+drwxr-xr-x 70 root    root    4096 Sep 19 07:09 ..
+-rw-r--r--  1 root    root     220 Mar 31  2024 .bash_logout
+-rw-r--r--  1 root    root    3771 Mar 31  2024 .bashrc
+-rw-r--r--  1 root    root     807 Mar 31  2024 .profile
+----
+
+it's not possible to just print out `-` directly like `cat -` since that would cause maybe something like (off memory btw) standard input reading.
+so what you need to do is to use relative path by printing it. 
+`cat ./-`
+
+this avoids the std input issue
+
+=== level 3
+
+ezpz, simply use quotation marks
+
+=== level 4
+
+oh the password for level 5 is scattered around multiple files, and to make it worse the filename starits with `-`!
+
+but it's still easy, simply grab all of the strings for every file!
+
+wait, why `strings` command? not `cat`? welp it broke my terminal session so i had to restart.
+the files contains raw bytes, not purely ascii text.
+that is why.
+
+certainly, it's possible to print the strings of the files but that's too painfully long.
+what if there were 100+ files?
+type it one by one?
+automate it by a script to increment the values by one?
+what if randomly named files?
+yeah, no
+
+let's use `grep`!
+
+and regular expression...
+
+since we already know that the password is 32 characters long and only contains alpha characters with digits, our regular expression ends up as `^[A-Za-z0-9]{32}$`.
+combine those we geeettttt: `strings ./* | grep -E '^[A-Za-z0-9]{32}$'`.
+
+oh `-E` means extended regular expression.
+see `man grep` for more details.
+
+ezpz
+
+=== level 5
+
+this was a little bit harder to figure out but i already have a potential solution in mind.
+i do not know which commands to use but the challenge already provides hints.
+it was enough to ask chatgpt (yes, unfortunately) to bring the commands that i needed.
+
+`find` was all i need (which i was already aware of but not know the parameters)
+
+and i know `find` command can also print the contents so i asked chatgpt again on how to use -exec, then we get this full command to find our file and prints the password:
+`find . -type f -size 1033c ! -executable -exec cat {} +`
