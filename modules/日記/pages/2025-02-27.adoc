@@ -1,0 +1,40 @@
+= 2025年02月27日
+
+
+== Windows
+
+i finally figured out how to bypass windows domain, traditional method
+
+i don't know what to call this but active directory or domain something something in windows is quite annoying.
+if you have no admin privilege access, simply grab a windows usb installation and copy cmd.exe into utilman.exe.
+the typical.
+
+tho i had two issues with it:
+
+. Shim SBAT Security Policy Violation
+. not able to login into the new local admin account
+
+Here's what the shim sbat violation is:
+
+----
+Verifying shim SBAT data failed: Security Policy Violation  
+Something has gone seriously wrong: SBAT self-check failed: Security Policy Violation
+----
+
+the fix to this was disable secureboot in the bios settings.
+you need to be careful since you might trip up bitlocker, and luckily bitlocker on my laptop wasn't enabled.
+
+as for the localadmin account, i was having issues because windows forced to login on the domain and i can't connect to the domain.
+
+it turns out the fix to this was simply add `.\` before the username and login as usual.
+this forces windows to use local account and not point to the domain of the machine.
+
+
+but my main issue for today was not diagnosed properly.
+
+i needed to find out which process was taking up all the resources of the HDD (making it reach 100% usage).
+i thought it was the logs, but it wasn't.
+i thought it was malwarebytes, but i am not sure.
+
+but there were writes to `srudb.dat` somewhere in the windows directory.
+i cannot pinpoint it.
