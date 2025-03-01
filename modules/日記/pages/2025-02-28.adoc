@@ -1,0 +1,35 @@
+= 2025年02月28日
+
+== find the file that contains regex
+
+[, bash]
+----
+find . -type f -exec sh -c 'strings "$1" | grep -qE "^[A-Za-z0-9]{32}$"' _ {} \;
+----
+
+== overthewire
+
+=== level 6
+
+the challenge was the same as the previous level.
+
+using manpages for `find`, we get this following:
+
+----
+find / -user bandit7 -group bandit6 -size 33c ! -executable  2>/dev/null
+----
+
+the `2>/dev/null` exists to get rid of all **Permission denied** errors getting printed to the standard output.
+
+=== level 7
+
+interesting challenge, not that difficult.
+
+certainly, i can still use `grep` to solve this level: `cat data.txt | grep millionth`.
+
+but it's quite restrictive if it were applied on another scenario (hinting level 8 here).
+which is why i tried using `sed` then pipe it to `awk`.
+
+i have used this before but never figured them out properly in the past.
+
+simply put, just chain those two together: `sed -n '/^millionth\t/p' data.txt | awk '{print $2}'`.
