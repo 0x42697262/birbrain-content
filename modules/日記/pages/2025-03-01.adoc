@@ -32,3 +32,47 @@ ezpz, i've been doing this since the dawn of my linux journey:
 ----
 cat data.txt | base64 -d | grep -Eo '[A-Za-z0-9]{32}'
 ----
+
+=== level 11
+
+rotation cipher!
+
+this reminds me of gravity falls that i loved to do before.
+it's not 3 letters backwards anymore but instead 13 letters backwards (or forwards).
+
+i have no idea what to use for linux commands that will automatically shift the characters.
+i thought i could bash script it but that's too complicated.
+
+apparently, `tr` command exists.
+which **translate**s the characters
+
+[, bash]
+----
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m' | grep -Eo '[A-Za-z0-9]{32}'
+----
+
+little explanation:
+
+* `A-Za-z` are the selected range of characters
+* `N-ZA-Mn-za-m` gets translated to this new characters based on the selection
+
+notice that the translation affects the lower characters as well.
+
+=== level 12
+
+i hate this level.
+there's a lot, by a lot i mean really a lot of unarching archived data.
+you will need to do this around 9 times!
+
+this level uses `gzip`, `tar`, and `bzip` for unarchiving the binary data.
+
+before that, `xxd` is required to convert the dumped hex data back into binary file.
+
+[, bash]
+----
+xxd -r level12.orig | gunzip -d -c | bzip2 -d -c | gzip -d -c | tar xvfO - | tar xvfO - | bzip2 -d -c | tar xvfO - | gzip -d -c | grep -Eo '[A-Za-z0-9]{32}'
+----
+
+this one-liner command is one hell of a mess
+
+i had issues with tar not outputting to **stdout** so i have to use the `-O` flag then used `-` for the **stdin**.
