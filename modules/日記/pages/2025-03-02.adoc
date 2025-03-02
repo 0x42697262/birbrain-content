@@ -1,0 +1,29 @@
+= 2025年03月02日
+
+== overthewire
+
+=== level 13
+
+well, this level was confusing at first glance but apparently it's simple.
+
+just don't login on another machine, make sure to login from **bandit13**.
+
+[, bash]
+----
+ssh -i sshkey.private bandit14@localhost
+----
+
+then i was able to grab the password for level 14 from `/etc/bandit_pass/bandit14`.
+
+=== level 14
+
+i thought this level still uses `ssh`, apparently it's `netcat`...
+
+anyways, i simply need to send data to port **30000* on **localhost**.
+
+this won't work, apparently, when i'm not logged in as **bandit14**.
+
+[, bash]
+----
+cat /etc/bandit_pass/bandit14 | grep -Eo '[A-Za-z0-9]{32}' | nc localhost 30000
+----
