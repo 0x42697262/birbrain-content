@@ -19,7 +19,7 @@ then i was able to grab the password for level 14 from `/etc/bandit_pass/bandit1
 
 i thought this level still uses `ssh`, apparently it's `netcat`...
 
-anyways, i simply need to send data to port **30000* on **localhost**.
+anyways, i simply need to send data to port *30000* on **localhost**.
 
 this won't work, apparently, when i'm not logged in as **bandit14**.
 
