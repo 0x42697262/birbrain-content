@@ -1,0 +1,39 @@
+= 2025年03月04日
+
+== overthewire
+
+=== level 17
+
+this level is simple, the task is to identify the difference between the two files.
+
+hence, `diff` is the solution.
+
+[, bash]
+----
+diff passwords.old passwords.new passwords.old
+----
+
+**<** is used because i wanted to grab the password for the next level on the `passwords.new` file.
+
+[, bash]
+----
+ssh -t bandit17@bandit.labs.overthewire.org -p 2220 "diff passwords.new passwords.old | awk '\$1==\"<\" {print \$2}'" 
+----
+
+=== level 18
+
+the solution is what i've already been using ever since!
+
+`scp`!!!
+
+[, bash]
+----
+scp -P 2220 bandit1$@bandit.labs.overthewire.org:./readme .
+----
+
+well the alternative method is to just use `ssh`
+
+[, bash]
+----
+ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+----
