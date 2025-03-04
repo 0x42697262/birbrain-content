@@ -1,0 +1,101 @@
+= 2025年03月03日
+
+== overthewire
+
+=== level 15
+
+there's multiple solutions to this level.
+aside from that, i wanted to find a way to automatically download a file from ssh... apparently i can still use `ssh` with **-t** command!
+
+my first solution was `socat` but i get this error:
+
+----
+2025/03/03 02:43:34 socat[3899037] E exactly 2 addresses required (there are 1); use option "-h" for help
+----
+
+so, i moved on to using `ncat` (this is not netcat!) by `nmap`.
+
+[, bash]
+----
+ncat localhost 30001 < /etc/bandit_pass/bandit15
+----
+
+ez, right? but that's not enough.
+i wanted to grab the response automatically.
+
+hence,
+
+
+[, bash]
+----
+ssh -t bandit15@bandit.labs.overthewire.org -p 2220 "ncat --ssl localhost 30001 < /etc/bandit_pass/bandit15" > level15
+----
+
+as my final command.
+
+this should work for level 14 as well
+
+
+now for the other solutions.
+
+back to `socat`
+
+i tried `socat - openssl:localhost:30001 < /etc/bandit_pass/bandit15` to fix the 2 address error.
+but once i did that, i got a new error! amazing!
+
+----
+2025/03/03 02:52:06 socat[3908975] W OpenSSL: Warning: this implementation does not check CRLs
+2025/03/03 02:52:06 socat[3908975] E SSL_connect(): error:0A000086:SSL routines::certificate verify failed
+----
+
+simply append `verify=0` after the address.
+
+
+[, bash]
+----
+ssh -t bandit15@bandit.labs.overthewire.org -p 2220 "socat - openssl:localhost:30001,verify=0 < /etc/bandit_pass/bandit15"
+----
+
+the other method is `openssl`
+
+
+[, bash]
+----
+openssl s_client -connect localhost:30001 < /etc/bandit_pass/bandit15 -quiet
+----
+
+* **s_client** implements generic TLS/SSL client
+* **-quiet** parameter removes TLS handshake information since the response from the server isn't returned without it
+
+
+so here's the full command for the alternative approach:
+
+[, bash]
+----
+ssh -t bandit15@bandit.labs.overthewire.org -p 2220 "openssl s_client -connect localhost:30001 < /etc/bandit_pass/bandit15 -quiet"
+----
+
+
+reference: https://superuser.com/questions/346958/can-the-telnet-or-netcat-clients-communicate-over-ssl[]
+
+=== level 16
+
+before i explain anything.
+here is the overall command to solve this level...
+
+[, bash]
+----
+ssh -t bandit16@bandit.labs.overthewire.org -p 2220 "cd \"\$(mktemp -d)\" && nmap -Pn -p31000-32000 localhost | awk '\$2==\"open\" {print \$1}' | grep -Eo '[0-9]+' | while read port; do ncat --ssl localhost \$port < /etc/bandit_pass/bandit16 2>/dev/null; done | awk '/-----BEGIN RSA PRIVATE KEY-----/,/-----END RSA PRIVATE KEY-----/' > private.key && chmod 400 private.key && ssh -t -i private.key bandit17@localhost -p 2220 \"cat /etc/bandit_pass/bandit17\""
+----
+
+then return `yes`.
+
+[, bash]
+----
+cd "$(mktemp -d)" && nmap -Pn -p31000-32000 localhost | awk '$2=="open" {print $1}' | grep -Eo '[0-9]+' | while read port; do ncat --ssl localhost $port < /etc/bandit_pass/bandit16 2>/dev/null; done | awk '/-----BEGIN RSA PRIVATE KEY-----/,/-----END RSA PRIVATE KEY-----/' > private.key && chmod 400 private.key && ssh -t -i private.key bandit17@localhost -p 2220 "cat /etc/bandit_pass/bandit17"
+----
+
+well, that's just a fucking big mess.
+
+let's decompose it.
+next time...
