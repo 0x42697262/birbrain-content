@@ -1,0 +1,27 @@
+= 2025年03月06日
+
+== overthewire
+
+=== level 19
+
+i have no idea how `setuid` works.
+i still have not figured out why this works at all.
+it's very confusing.
+
+my thought process on this one is that **setuid** works by running a command from another user because that binary said so.
+
+
+[, bash]
+----
+./bandit20-do cat /etc/bandit_pass/bandit20
+----
+
+normally, you dont have permission to read */etc/bandit_pass/bandit20* password.
+maybe that's how *setuid* works?
+no idea
+
+[, bash]
+----
+ssh -t bandit19@bandit.labs.overthewire.org -p 2220 "./bandit20-do cat /etc/bandit_pass/bandit20"
+----
+
