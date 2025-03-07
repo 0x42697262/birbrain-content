@@ -205,6 +205,8 @@ BalenaInvalidLoginCredentials: Invalid login credentials
 ----
 
 Simply wipe out all docker data related to OpenBalena.
+This is because the config inside the docker container sometimes uses the old database data.
+This occurs because of deleting the `open-balena` git repo.
 
 Since my machine is only configured to use OpenBalena, I can simply wipe them all at once.
 
