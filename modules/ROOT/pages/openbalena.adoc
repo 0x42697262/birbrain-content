@@ -1,0 +1,220 @@
+= OpenBalena
+
+== Setup
+
+**OpenBalena** has complete (sort of) getting started guide https://open-balena-docs.balena.io/getting-started[here].
+I will be skipping some parts since a lot of the instructions are already provided in the docs.
+
+
+
+=== Local Domain
+
+Make sure to update `/etc/hosts` file with the following:
+
+----
+api.mydomain.com
+ca.mydomain.com
+cloudlink.mydomain.com
+logs.mydomain.com
+ocsp.mydomain.com
+registry2.mydomain.com
+s3.mydomain.com
+tunnel.mydomain.com
+dashboard.mydomain.com
+----
+
+Alternatively, you can simply use `*.mydomain.com`.
+
+[IMPORTANT]
+====
+Make sure your domain ends with a TLD (Top-Level Domain) since the credentials login of **balena-cli** does not allow logins without it. It throws an error.
+====
+
+Create a self-signed certificate to prevent SSL errors.
+The guide doesn't provide steps for SSL certificate generation.
+Luckily, I found a https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8[gist] that provides one easily.
+
+Before doing that, make sure to create the subject information for the Certifcate Signing Request (CSR).
+
+----
+# config.conf
+[req]
+prompt = no
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[req_distinguished_name]
+C = CA
+ST = Kitchener
+L = ON
+OU = Org
+CN = mydomain.com
+emailAddress = chicken@mydomain.com
+commonName = mydomain.com
+
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
+
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = mydomain.com
+DNS.2 = api.mydomain.com
+DNS.3 = ca.mydomain.com
+DNS.4 = cloudlink.mydomain.com
+DNS.5 = logs.mydomain.com
+DNS.6 = ocsp.mydomain.com
+DNS.7 = registry2.mydomain.com
+DNS.8 = s3.mydomain.com
+DNS.9 = tunnel.mydomain.com
+DNS.10 = dashboard.mydomain.com
+----
+
+And the specific extensions for the SSL certificate after the CSR has been created.
+
+----
+# openbalena.ext
+authorityKeyIdentifier = keyid,issuer
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
+
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = mydomain.com
+DNS.2 = api.mydomain.com
+DNS.3 = ca.mydomain.com
+DNS.4 = cloudlink.mydomain.com
+DNS.5 = logs.mydomain.com
+DNS.6 = ocsp.mydomain.com
+DNS.7 = registry2.mydomain.com
+DNS.8 = s3.mydomain.com
+DNS.9 = tunnel.mydomain.com
+DNS.10 = dashboard.mydomain.com
+----
+
+Once that's done, generate the SSL certificate, private key, and full certificate signing chain.
+
+.Generate the root certificates
+----
+$ openssl req -x509 -nodes -new -sha256 -days 1024 -newkey rsa:2048 -keyout RootCA.key -out RootCA.pem -config config.conf
+----
+
+.Convert the root certificate into crt format
+----
+$ openssl x509 -outform pem -in RootCA.pem -out RootCA.crt
+----
+
+.Generate the ssl
+----
+$ openssl req -new -nodes -newkey rsa:2048 -keyout openbalena.key -out openbalena.csr -config config.conf
+----
+
+.Convert it again
+----
+$ openssl x509 -req -sha256 -days 1024 -in openbalena.csr -CA RootCA.pem -CAkey RootCA.key -CAcreateserial -extfile mydomain.com.ext -out openbalena.crt
+----
+
+Once generated, there will be 3 files that will be needed for the local domain setup.
+
+. `openbalena.crt`
+. `openbalena.key`
+. `RootCA.pem`
+
+Based on the getting started guide, `haproxy` will be used to setup the certificates.
+Simply export the environment variables.
+
+.Export the DNS TLD
+----
+$ export DNS_TLD=mydomain.com
+----
+
+.Export encoded server certificate
+----
+$ export HAPROXY_CRT="{{ openbalena.crt base64 encoded string }}"
+----
+
+.Export intermediate certificates
+----
+$ export ROOT_CA="{{ openbalena.key base64 encoded string }}"
+----
+
+.Export private key
+----
+$ export HAPROXY_KEY="{{ RootCA.pem base64 encoded string }}"
+----
+
+[NOTE]
+====
+Use `openssl base64 -A` to convert the certificates and keys.
+====
+
+Before the server can be started, copy the root certificate first to `/usr/local/share/ca-certificates/`.
+
+[, bash]
+----
+$ cp RootCA.crt /usr/local/share/ca-certificates/openbalena.crt
+----
+
+If the distro used is Ubuntu, make sure to update the certificate store.
+
+[, bash]
+----
+$ sudo update-ca-certificates
+----
+
+The last steps would be to run the server.
+
+[, bash]
+----
+$ make pki-custom
+----
+
+[, bash]
+----
+$ make verify
+----
+
+Once verified, this should output
+
+----
+curl --fail --retry 3 https://api.mydomain.com/ping
+OK
+----
+
+== Errors
+
+=== SSL Certificate Problem
+
+----
+curl: (60) SSL certificate problem: authority and issuer serial number mismatch
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
+----
+
+This issue can only be fixed when the SSL certificates are properly configured.
+
+=== Invalid Login Credentials
+
+When logging on using `balena-cli` from a local machine using **credentials** option, it is possible to receive this error:
+
+----
+BalenaInvalidLoginCredentials: Invalid login credentials
+----
+
+Simply wipe out all docker data related to OpenBalena.
+
+Since my machine is only configured to use OpenBalena, I can simply wipe them all at once.
+
+----
+$ docker stop $(docker ps -aq)
+$ docker rm $(docker ps -aq)
+$ docker volume rm $(docker volume ls -q)
+----
+
+[WARNING]
+====
+**BE CAREFUL NOT TO WIPE ALL OF YOUR OTHER DOCKER CONTAINER AND VOLUMES!!!**
+====

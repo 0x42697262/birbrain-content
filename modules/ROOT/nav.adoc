@@ -153,6 +153,9 @@
 [NMAP]
 * xref:nmap.adoc[]
 
+[OpenBalena]
+* xref:openbalena.adoc[]
+
 [Open Source Intelligence]
 * xref:osint.adoc[]
 ** xref:osint-tools.adoc[]
