@@ -1,0 +1,51 @@
+= 2025年03月24日
+
+== lxc (using incus)
+
+to setup wayland gui, make sure `/etc/subuid` and `/etc/subgid` contains the mapping of the container user.
+
+for example, in debian there is a default user `debian` with the ids `1000`.
+
+hence, `/etc/subuid` and `/etc/subgid` should contain the following:
+
+----
+debian:1000000:1000000000
+debian:1000:1
+----
+
+now, do not forget to restart the service `incus` and `incus-user`.
+
+for the profiles, make sure to set the **XDG_RUNTIME_DIR** to your host user's uid.
+typically it's located at `/tmp`.
+
+but in **hyprland**'s case, it's on `$XDG_RUNTIME_DIR/wayland-1` (or it could be 0).
+in my case, it's now on `/run/user/1000/wayland-1`.
+
+make sure that `raw.idmap` is configured.
+
+----
+raw.idmap: |
+uid 1000 1000
+gid 1000 1000
+----
+
+
+----
+warn: wayland.c:1728: compositor does not implement the XDG toplevel icon protocol
+ err: slave.c:399: failed to change working directory to /root: Permission denied
+ err: slave.c:508: /usr/bin/bash: failed to execute: Permission denied
+ err: fdm.c:215: no such FD: 6
+----
+
+if this error shows up, change the current directory.
+
+notice the `/root: Permission denied`.
+this is because the user shell has changed from **root** to a *user*.
+
+----
+Error: Error occurred when starting proxy device: Error: Failed to listen on /mnt/.container_sockets/wayland-1: listen unix /mnt/.container_sockets/wayland-1: bind: no such file or directory
+----
+
+`.container_sockets` directory doesn't exist.
+a solution to fix this is to create a script that will create the directory.
+

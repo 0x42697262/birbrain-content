@@ -1,0 +1,11 @@
+= 2025年03月26日
+
+== incus
+
+for profiles, the configuration option for `user.user-data` is a legacy version of `cloud-init.user-data`.
+
+in https://cloudinit.readthedocs.io/en/22.1_a/topics/vendordata.html[vendor data documentation] of cloud-init, **vendor-data** acts like **user-data** but it only runs on the first boot.
+
+so, if we wanted it to run every boot of the container, **user-data** should be used.
+
+i will stick to **vendor-data** since i only want the configs to run once (on the first boot).
