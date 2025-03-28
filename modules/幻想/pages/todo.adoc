@@ -1,0 +1,21 @@
+= TODO
+
+A list of stuffs to do.
+
+* [ ] Create **avviki**
+* [ ] Finish OverTheWire Bandit
+* [ ] Create OverTheWire Bandit Writeups
+* [ ] Clean up xref:random.adoc[]
+* [ ] HackTheBox
+** [ ] Finish Chemistry with Writeups
+** [ ] Finish Cicada with Writeups
+** [ ] Finish Runner with Writeups
+** [ ] Finish Solar Labs with Writeups
+* [ ] TryHackMe
+** [ ] Finish Blue
+** [ ] Finish Mr Robot
+* [ ] Setup Nix Home Manager
+** [ ] Get Antora and plugins working
+* [ ] Fix LXC container apps not detecting web camera and microphone
+* [ ] Make a Gentoo Overlay or Ebuild for wl-clipboard-rs
+* [ ] Get Fcitx5 working on Gentoo
