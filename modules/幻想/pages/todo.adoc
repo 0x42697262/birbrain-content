@@ -14,8 +14,8 @@ A list of stuffs to do.
 * [ ] TryHackMe
 ** [ ] Finish Blue
 ** [ ] Finish Mr Robot
-* [*] Setup Nix Home Manager
-* [ ] Get Flakes working on Home Manager (if possible)
+* [*] Setup Nix Home Manager (DATE: 2025-03-28)
+* [*] Get Flakes working on Home Manager (if possible) (DATE: 2025-03-28)
 ** [ ] Get Antora and plugins working
 * [ ] Fix LXC container apps not detecting web camera and microphone
 * [ ] Make a Gentoo Overlay or Ebuild for wl-clipboard-rs

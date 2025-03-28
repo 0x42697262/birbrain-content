@@ -1,21 +1,25 @@
 = Nix
 
 [INFO]
-====
+****
 xref:nix.adoc[Nix] is the package manager!
 
 xref:nixos.adoc[NixOS] is the distribution!
-====
+****
 
 == Custom Nix Location
 
-WARNING: DO NOT SEPARATE THE NIX STORE LOCATION. IT IS BETTER TO MOVE `/nix/` TO ANOTHER DIRECTORY INSTEAD.
+[WARNING]
+====
+DO NOT SEPARATE THE NIX STORE LOCATION. IT IS BETTER TO MOVE `/nix/` TO ANOTHER DIRECTORY INSTEAD.footnote:[https://discourse.nixos.org/t/custom-store-location/9663/2] 
+====
+
 
 Make sure that permissions are kept as is for `/nix`.
 
 [, bash]
 ----
-# mount --bind /path/to/nix /nix
+$ mount --bind /path/to/nix /nix
 ----
 
 For permanent solution, update your `/etc/fstab` with the following:
@@ -25,4 +29,148 @@ For permanent solution, update your `/etc/fstab` with the following:
 /path/to/nix /nix none bind 0 0
 ----
 
-footnote:[https://discourse.nixos.org/t/custom-store-location/9663/2] 
+== Flakes + Home Manager
+
+=== Installing Home Manager
+
+Get https://github.com/nix-community/home-manager[Home Manager] installed for https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone[non-nixos system].
+
+But the **tl;dr** is:
+
+[, bash]
+----
+$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager <.>
+$ nix-channel --update
+$ nix-shell '<home-manager>' -A install
+----
+<.> This is on **unstable** branch
+
+=== Enabling Flakes
+
+Add `experimental-features = nix-command flakes` in your `/etc/nix/nix.conf`.
+
+./etc/nix/nix.conf
+[, conf]
+----
+build-users-group = nixbld
+max-jobs = auto
+experimental-features = nix-command flakes
+----
+
+_I probably missed some steps but you can look for it somewhere else._
+
+=== Creating Flake.nix and home.nix
+
+My current directory structure:
+
+----
+. (~/.config/home-manager/)
+├── flake.lock
+├── flake.nix
+└── modules
+    └── home.nix
+----
+
+You might want to read about Flakes so that the next steps won't be confusing.
+Otherwise, proceed ahead.
+
+.flake.nix
+[, nix]
+----
+{
+  description = "0x42697262's Home Manager configurations using Flakes";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    homeManager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, homeManager }: {
+    homeConfigurations = {
+      "birb@QuarkPenguin" = homeManager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        modules = [ ./modules/home.nix ];
+      };
+    };
+  };
+}
+----
+
+We want Home Manager get referenced by flakes.
+
+[, nix]
+----
+homeManager = {
+  url = "github:nix-community/home-manager";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+----
+
+Then configure Home Manager through flakes.
+
+[, nix]
+----
+homeConfigurations = {
+  "birb@QuarkPenguin" = homeManager.lib.homeManagerConfiguration {
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+    modules = [ ./modules/home.nix ];
+  };
+};
+----
+
+After that, we then import our `home.nix` module.
+
+[, nix]
+----
+modules = [ ./modules/home.nix ];
+----
+
+.home.nix
+[, nix]
+----
+{ pkgs, ... }: {
+  programs.home-manager.enable = true; <.>
+  home = {
+    homeDirectory = "/home/birb";
+    username = "birb";
+    stateVersion = "24.11";
+    packages = with pkgs; [ antora tree ];
+  };
+}
+----
+<.> We need Home Manager installed, don't forget this line.
+
+=== Switching to flakes
+
+First, make sure to have the home manager configuration directory initialized with git and added to git.
+
+[, bash]
+----
+$ git init .
+$ git add .
+----
+
+You can also commit it.
+
+Then, update flakes.
+
+[, bash]
+----
+$ nix flake update
+----
+
+And finally, run `home-manager`!
+
+[, bash]
+----
+$ home-manager switch --flake .
+----
