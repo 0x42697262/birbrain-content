@@ -6,6 +6,9 @@
 * xref:日記:index.adoc[]
 ** 2025年
 *** 2025年03月
+**** xref:日記:2025-03-28.adoc[]
+**** xref:日記:2025-03-26.adoc[]
+**** xref:日記:2025-03-24.adoc[]
 **** xref:日記:2025-03-06.adoc[]
 **** xref:日記:2025-03-04.adoc[]
 **** xref:日記:2025-03-03.adoc[]
@@ -113,9 +116,10 @@
 
 [幻想]
 * xref:幻想:index.adoc[]
-** xref:幻想:random.adoc[]
+** xref:幻想:todo.adoc[]
 ** xref:幻想:links.adoc[]
 ** xref:幻想:readings-finished.adoc[]
+** xref:幻想:random.adoc[]
 
 [Advanced Encryption Standard]
 * xref:advanced-encryption-standard.adoc[]
