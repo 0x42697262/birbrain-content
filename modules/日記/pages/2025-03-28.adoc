@@ -1,0 +1,37 @@
+= 2025年03月28日
+
+i made a xref:幻想:todo.adoc[to do list] because i keep forgetting what i need to do. _badumtss_
+
+oh, and finished writeups for https://ctf.hackthebox.com/event/details/cyber-apocalypse-ctf-2025-tales-from-eldoria-2107[HackTheBox Cyber Apocalypse CTF 2025: Tales from Eldoria].
+
+Forensics writeups: xref:writeups:HackTheBox:a-new-hire.adoc[A new hire] xref:writeups:HackTheBox:thorins-amulet.adoc[Thorin's Amulet].
+
+== github
+
+probably i should take not about `git commit --amend` since that's what I "need" to do, not `git commit -a` which is another different thing
+
+added new notes:
+
+* xref:ROOT:nix.adoc[]
+
+== nix
+
+[, bash]
+----
+$ nix flake update
+path '/home/user/home-manager' does not contain a 'flake.nix', searching up
+error: path '/home/user/home-manager' is not part of a flake (neither it nor its parent directories contain a 'flake.nix' file)
+----
+
+`flake.nix` must exist
+
+[, bash]
+----
+nix flake update          
+error: path '/nix/store/6ychk6zrxyhzxbpx7wrjmp7hbg0nap04-source/flake.nix' does not exist
+----
+
+solution: `git add flake.nix`
+
+
+if there's a new file, make sure to add it to git.
