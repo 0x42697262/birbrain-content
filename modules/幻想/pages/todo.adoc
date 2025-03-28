@@ -1,6 +1,6 @@
 = TODO
 
-A list of stuffs to do.
+A list of stuffs to do (without priority).
 
 * [ ] Create **avviki**
 * [ ] Finish OverTheWire Bandit
@@ -17,6 +17,11 @@ A list of stuffs to do.
 * [*] Setup Nix Home Manager (DATE: 2025-03-28)
 * [*] Get Flakes working on Home Manager (if possible) (DATE: 2025-03-28)
 ** [ ] Get Antora and plugins working
+* [ ] Make Fish shell work with Nix
 * [ ] Fix LXC container apps not detecting web camera and microphone
 * [ ] Make a Gentoo Overlay or Ebuild for wl-clipboard-rs
 * [ ] Get Fcitx5 working on Gentoo
+* [ ] **FIX A LOT OF BROKEN LINKS IN BIRBRAIN** yes antora is complaining a looooot~
+* [ ] Fix Waybar
+* [ ] Get a wallpaper, stop using a black background for 1 year
+* [ ] Maybe get Nix sandboxing working with https://github.com/nixpak/nixpak[NixPak]
