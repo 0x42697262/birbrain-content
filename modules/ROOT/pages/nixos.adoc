@@ -1,5 +1,12 @@
 = NixOS
 
+[INFO]
+====
+xref:nixos.adoc[NixOS] is the distribution!
+
+xref:nix.adoc[Nix] is the package manager!
+====
+
 Take note of xref:日記:2024-03-31.adoc[] since it may be helpful.
 
 Lately, I have been slowly relying on using nixos modules for installation, but it still not majority of it of course.

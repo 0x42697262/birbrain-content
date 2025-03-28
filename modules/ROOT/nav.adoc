@@ -148,6 +148,9 @@
 [Linux]
 * xref:linux.adoc[]
 
+[Nix]
+* xref:nix.adoc[]
+
 [NixOS]
 * xref:nixos.adoc[]
 

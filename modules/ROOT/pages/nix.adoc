@@ -1,0 +1,28 @@
+= Nix
+
+[INFO]
+====
+xref:nix.adoc[Nix] is the package manager!
+
+xref:nixos.adoc[NixOS] is the distribution!
+====
+
+== Custom Nix Location
+
+WARNING: DO NOT SEPARATE THE NIX STORE LOCATE. IT IS BETTER TO MOVE `/nix/` TO ANOTHER DIRECTORY INSTEAD.
+
+Make sure that permissions are kept as is for `/nix`.
+
+[, bash]
+----
+# mount --bind /path/to/nix /nix
+----
+
+For permanent solution, update your `/etc/fstab` with the following:
+
+./etc/fstab
+----
+/path/to/nix /nix none bind 0 0
+----
+
+footnote:[https://discourse.nixos.org/t/custom-store-location/9663/2] 
