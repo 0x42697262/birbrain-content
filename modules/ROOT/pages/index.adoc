@@ -1,31 +1,29 @@
 = 知識
 :page-aliases: root, home, 知識
 
-I no longer use https://obsidian.md[Obsidian] for taking notes.
-Everything will be stored here including other stuffs that I do.
-I didn't like my setup in https://github.com/KrulYuno/obsidian_files[Obsidian Notes] and was annoying to keep track of the files.
+Welcome to my personal knowledge base.
+Everything that matters to me will be stored here.
+This serves as a structured place to organize my thoughts, notes, and random findings.
 
-This xref:setup.adoc[setup] feels much easier to track although it has a few features that I miss from Obsidian (like backlinks, wikilinks, and graphs).
+== Structure
 
-[NOTE]
-====
-As of June 6, 2024, I won't be tranferring my https://github.com/KrulYuno/obsidian_files[Obsidian Notes] here.
-I noticed that I dislike taking notes.
-A lot.
-So, my golden rule for now is to write notes *that matters* to me.
-Writing notes what I read through class or from courses just drains me from actually learning and reading.
+My notes are categorized into three main sections:
 
-Hence, I'll stop taking notes that doesn't matter much.
-====
+- xref:ROOT:index.adoc[**ROOT/**] → Knowledge base notes
+- xref:幻想:index.adoc[**幻想/**] → Random stash (TODO lists, collected links, finished readings, etc.)
+- xref:日記:index.adoc[**日記/**] → Daily notes
 
-[IMPORTANT]
-====
-If you want to learn better, make sure to do the following:
+== Learning Approach
+
+To deepen understanding, I follow a simple method:
 
 . Predict
 . Simulate
 . Analyze
 
-This not only works for studying but works for other aspects of life as well.
-Like for example in gaming.
+I hope to apply this not only on studying but also to other areas of life.
+
+[NOTE]
+====
+My old https://obsidian.md[Obsidian] notes have been https://github.com/KrulYuno/obsidian_files[archived] and are no longer updated.
 ====
