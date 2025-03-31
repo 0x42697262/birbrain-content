@@ -1,0 +1,6 @@
+= 2025年03月31日
+
+Use https://github.com/lilyball/nix-env.fish[nix-env.fish] after installing xref:ROOT:nix.adoc[nix] on non-nixos system.
+Or just use https://github.com/kidonng/nix.fish[nix.fish].
+
+on antora, use `\[.line-through]#text#` for [.line-through]#strikethrough# 
