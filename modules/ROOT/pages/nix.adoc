@@ -7,6 +7,18 @@ xref:nix.adoc[Nix] is the package manager!
 xref:nixos.adoc[NixOS] is the distribution!
 ****
 
+== Environment Setup
+
+For https://fishshell.com/[Fish Shell], get https://github.com/lilyball/nix-env.fish[nix.env.fish].
+However, a faster environment setup exists https://github.com/kidonng/nix.fish[nix.fish].
+
+Install it by using https://github.com/jorgebucaran/fisher[Fisher].
+
+[, fish]
+----
+$ fisher install kidonng/nix.fish
+----
+
 == Custom Nix Location
 
 [WARNING]
