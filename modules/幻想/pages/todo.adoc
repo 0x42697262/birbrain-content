@@ -3,6 +3,7 @@
 A list of stuffs to do (without priority).
 
 * [ ] Create **avviki**
+* [ ] Contribute to https://github.com/pinnacle-comp/pinnacle[pinnacle]
 * [ ] Finish OverTheWire Bandit
 * [ ] Create OverTheWire Bandit Writeups
 * [ ] Clean up xref:random.adoc[]
@@ -14,10 +15,10 @@ A list of stuffs to do (without priority).
 * [ ] TryHackMe
 ** [ ] Finish Blue
 ** [ ] Finish Mr Robot
-* [*] Setup Nix Home Manager (DATE: 2025-03-28)
-* [*] Get Flakes working on Home Manager (if possible) (DATE: 2025-03-28)
-** [ ] Get Antora and plugins working
-* [ ] Make Fish shell work with Nix
+* [x] [.line-through]#Setup Nix Home Manager# #(DATE: 2025-03-28)#
+* [x] [.line-through]#Get Flakes working on Home Manager (if possible)# #(DATE: 2025-03-28)#
+** [x] [.line-through]#Get Antora and plugins working# #(DATE: 2025-03-31)#
+* [x] [.line-through]#Make Fish shell work with Nix# #(DATE: 2025-03-31)#
 * [ ] Fix LXC container apps not detecting web camera and microphone
 * [ ] Make a Gentoo Overlay or Ebuild for wl-clipboard-rs
 * [ ] Get Fcitx5 working on Gentoo
