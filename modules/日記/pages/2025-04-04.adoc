@@ -1,0 +1,63 @@
+= 2025年04月04日
+
+== connecting to eduroam using nmcli
+
+[, bash]
+----
+nmcli connection add type wifi ifname wlo1 con-name eduroam ssid eduroam
+----
+
+`wlo1` is the interface
+`con-name eduroam` will be the filename
+`ssid eduroam` the ssid of the wifi access point
+
+then modify the connection file
+
+./etc/NetworkManager/system-connections/eduroam.nmconnection
+[, config]
+----
+[connection]
+id=eduroam
+uuid=ac58f10c-fab7-46c3-b513-8b18113e6f16
+type=wifi
+interface-name=wlo1
+
+[wifi]
+mode=infrastructure
+ssid=eduroam
+
+[wifi-security]
+key-mgmt=wpa-eap <.>
+
+[802-1x] <.>
+eap=ttls;
+identity=<university email or username>
+password=<password>
+phase2-auth=pap
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+
+[proxy]
+----
+
+This config is used for TTLS, PAP, and not validating CA certs.
+
+Then to enable the network:
+
+[, bash]
+----
+nmcli conn up id eduroam --ask
+----
+
+i get an error if i do not put #`--ask`# option
+
+----
+Passwords or encryption keys are required to access the wireless network 'eduroam'.
+Warning: password for '802-1x.identity' not given in 'passwd-file' and nmcli cannot ask without '--ask' option.
+Error: Connection activation failed: Secrets were required, but not provided
+----
