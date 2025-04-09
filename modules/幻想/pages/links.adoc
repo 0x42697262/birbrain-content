@@ -22,6 +22,7 @@ Accessed,Name,URL,Description
 2024-06-06,Blue Team Labs Online,https://blueteamlabs.online[],"Our platform is the perfect place for established cyber defenders to practice in realistic scenarios and showcase their skills in a gamified and competitive environment. Paired with external training or self-study BTLO can develop your technical capability to investigate and defend against cyber attacks and intrusions."
 2024-06-06,LetsDefend,https://www.letsdefend.io/[],"LetsDefend helps you build a blue team career with hands-on experience by investigating real cyber attacks inside a simulated SOC."
 2024-06-06,CyberDefenders,https://cyberdefenders.org[],"CyberDefenders is a blue team training platform for SOC analysts, threat hunters, security blue teams and DFIR professionals to advance CyberDefense skills."
+2025-04-09,APIsecU,https://www.apisecuniversity.com/[],"The API Security University (APIsecU) was founded on the belief that web application programming interfaces (APIs) are a vital pipeline for data to flow across the Internet. We realized that APIs are a leading attack vector for criminals and are continuously being adopted by organizations without sufficient security controls in place. At scale, this situation creates a perfect storm for criminals to breach data, devastate businesses, and expose sensitive information worldwide."
 |===
 
 
@@ -95,6 +96,9 @@ Accessed,Name,URL,Description
 2021-09-11,AES Proposal: Rijndael,https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf[],"Something along the lines of cryptography."
 2023-06-05,the cryptopals crypto challenges,https://www.cryptopals.com[],"A collection of exercises that demonstrate attacks on real-world crypto."
 2024-02-11,Cryptohack,https://cryptohack.org[],"A fun, free platform for learning modern cryptography"
+2025-04-09,MysteryTwister,https://mysterytwister.org[],"MysteryTwister is a cipher contest, where you can solve cryptographic riddles (challenges) of different difficulty levels. If you are successful, you will be immortalized in the Hall of Fame."
+2025-04-09,The Joy of Cryptography,https://joyofcryptography.com/[],"The Joy of Cryptography is a free undergraduate-level textbook that introduces students to the fundamentals of provable security."
+2025-04-09, A Graduate Course in Applied Cryptography,https://toc.cryptobook.us/[],"The book covers many constructions for different tasks in cryptography. For each task we define a precise security goal that we aim to achieve and then present constructions that achieve the required goal."
 |===
 
 
