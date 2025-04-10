@@ -1,6 +1,6 @@
 = Just a bunch of websites I scavenged
 
-=== Software Engineering
+== Software Engineering
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description

