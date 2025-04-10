@@ -135,6 +135,9 @@
 [AsciiDoc]
 * xref:asciidoc.adoc[]
 
+[GDB]
+* xref:gdb.adoc[]
+
 [Gentoo]
 * xref:gentoo.adoc[]
 ** xref:gentoo-errors.adoc[]

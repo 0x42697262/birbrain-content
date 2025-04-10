@@ -1,10 +1,12 @@
-= gdb
+= GDB
 
-== Enable Assembly with Hex Opcodes
+Install this cool GDB plugin https://github.com/hugsy/gef[GEF].
 
-Just add ``/r`` parameter.
+== Commands
 
-----
-gdb> disassemble /r main
-----
+until:: until <address> (short form: **u**)
 
+== diassemble Options
+
+/r:: raw bytes
+/m:: mix source code and assembly
