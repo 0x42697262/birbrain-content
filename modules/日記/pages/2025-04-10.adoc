@@ -1,0 +1,9 @@
+= 2025年04月10日
+
+== cool curl trick
+
+`curl -s http://192.168.56.101/uploads/ | w3m -dump -T text/html`
+
+== getting incus lxc containers to work on xwayland would need additional configuration because .Xauthority doesn't exist
+
+`xhost +local:`
