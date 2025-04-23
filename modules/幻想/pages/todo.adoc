@@ -23,13 +23,12 @@ A list of stuffs to do (without priority).
 * [x] [.line-through]#Get Flakes working on Home Manager (if possible)# #(DATE: 2025-03-28)#
 ** [x] [.line-through]#Get Antora and plugins working# #(DATE: 2025-03-31)#
 * [x] [.line-through]#Make Fish shell work with Nix# #(DATE: 2025-03-31)#
-* [ ] Fix LXC container apps not detecting web camera and microphone
-* [ ] Make a Gentoo Overlay or Ebuild for wl-clipboard-rs
-* [ ] Get screenshot tool working
-* [ ] Install OBS
-* [ ] Get Fcitx5 working on Gentoo
+* [x] [.line-through]#Fix LXC container apps not detecting web camera and microphone# #(DATE: 2025-04-23)#
+* [x] [.line-through]#Install OBS# #(DATE: 2025-04-23)#
+* [ ] Get Fcitx5 working
 * [ ] **FIX A LOT OF BROKEN LINKS IN BIRBRAIN** yes antora is complaining a looooot~
 * [ ] Fix Waybar
-* [ ] Get a wallpaper, stop using a black background for 1 year
+* [x] [.line-through]#Get a wallpaper, stop using a black background for 1 year# #(DATE: 2025-04-23)#
 * [ ] Maybe get Nix sandboxing working with https://github.com/nixpak/nixpak[NixPak]
-* [ ] Configure zram
+* [x] [.line-through]#Configure zram# #(DATE: 2025-04-23)#
+* [ ] Rice Hyprland
