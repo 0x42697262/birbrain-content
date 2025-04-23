@@ -1,0 +1,24 @@
+= 2025年04月23日
+
+----
+0000000000001119 <main>:
+    1119:       55                      push   rbp
+    111a:       48 89 e5                mov    rbp,rsp
+    111d:       c7 45 f8 20 04 00 00    mov    DWORD PTR [rbp-0x8],0x420
+    1124:       8b 05 e6 2e 00 00       mov    eax,DWORD PTR [rip+0x2ee6]        # 4010 <shit>
+    112a:       83 c0 10                add    eax,0x10
+    112d:       89 45 fc                mov    DWORD PTR [rbp-0x4],eax
+    1130:       b8 00 00 00 00          mov    eax,0x0
+    1135:       5d                      pop    rbp
+    1136:       c3                      ret
+----
+
+----
+0000000000001119 <main>:
+    1119:       55                      push   rbp
+    111a:       48 89 e5                mov    rbp,rsp
+    111d:       c7 45 fc 20 04 00 00    mov    DWORD PTR [rbp-0x4],0x420
+    1124:       b8 00 00 00 00          mov    eax,0x0
+    1129:       5d                      pop    rbp
+    112a:       c3                      ret
+----
