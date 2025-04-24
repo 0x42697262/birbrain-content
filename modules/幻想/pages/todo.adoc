@@ -31,4 +31,6 @@ A list of stuffs to do (without priority).
 * [x] [.line-through]#Get a wallpaper, stop using a black background for 1 year# #(DATE: 2025-04-23)#
 * [ ] Maybe get Nix sandboxing working with https://github.com/nixpak/nixpak[NixPak]
 * [x] [.line-through]#Configure zram# #(DATE: 2025-04-23)#
-* [ ] Rice Hyprland
+* [x] [.line-through]#Rice Hyprland# #(DATE: 2025-04-24)#
+* [ ] Compare battery drain between Waybar and AGS
+* [ ] Rice Waybar or AGS
