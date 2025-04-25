@@ -1,0 +1,6 @@
+= 2025年04月24日
+
+https://github.com/waycrate/swhkd[swhkd] is okay but i still can't use it as daily driver replacement because of:
+
+. doesn't support chords (example: #super + backslash; c; c#)
+. other tty sessions can control swhkd (on the same user, nto sure if it's another user)
