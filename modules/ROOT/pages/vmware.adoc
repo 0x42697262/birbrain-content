@@ -24,7 +24,10 @@ Do not forget to load the drivers:
 ...
 ----
 
-Fix:: systemctl restart vmware-networks.service
+.Fix
+----
+systemctl restart vmware-networks.service
+----
 
 == Workstation Pro 17 License Keys (no longer relevant)
 
