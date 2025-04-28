@@ -3,7 +3,30 @@
 I think I will only use VMWare for Windows installs.
 If I want to use Linux, I can just spin up xref:ROOT:qemu.adoc[QEMU]/KVM or VirtualBox.
 
-== Workstation Pro 17 License Keys
+Do not forget to load the drivers:
+
+[, bash]
+----
+# modprobe -a vmw_vmci vmmon
+----
+
+== Issues
+
+=== Could not connect 'Ethernet0' to virtual network '/dev/vmnet1'. More information can be found in the vmware.log file.
+
+.Error
+----
+...
+2025-04-28T16:47:11.384Z In(05) vcpu-0 VNET: MACVNetPortOpenDevice: Ethernet0: can't open vmnet device (No such file or directory)
+2025-04-28T16:47:11.385Z In(05) vcpu-0 VNET: MACVNetPort_Connect: Ethernet0: can't open data fd
+2025-04-28T16:47:11.385Z In(05) vcpu-0 [msg.vnet.connectvnet] Could not connect 'Ethernet0' to virtual network '/dev/vmnet1'. More information can be found in the vmware.log file.
+2025-04-28T16:47:11.385Z In(05) vcpu-0 [msg.device.startdisconnected] Virtual device 'Ethernet0' will start disconnected.
+...
+----
+
+Fix:: systemctl restart vmware-networks.service
+
+== Workstation Pro 17 License Keys (no longer relevant)
 
 [cols="1,2", options="header", frame="all"]
 |===
