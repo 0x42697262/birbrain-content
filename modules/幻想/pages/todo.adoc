@@ -16,6 +16,22 @@ A list of stuffs to do (without priority).
 * [ ] TryHackMe
 ** [ ] Finish Blue
 ** [ ] Finish Mr Robot
+* [ ] 0x0539
+** [x] [.line-through]#Here be dragons# #(DATE: 2025-04-27)#
+** [x] [.line-through]#Look at it# #(DATE: 2025-04-27)#
+** [ ] Excessive Alert
+** [x] [.line-through]#Baby's First Bytecode# #(DATE: 2025-04-27)#
+** [x] [.line-through]#SIGSEGV# #(DATE: 2025-04-27)#
+** [x] [.line-through]#Rotten Crypto# #(DATE: 2025-04-27)#
+** [x] [.line-through]#New Location# #(DATE: 2025-04-27)#
+** [ ] Inizializzato Pizzaria
+** [ ] Fragmented
+** [ ] Bleed the Stack
+** [ ] A Lucky Feeling
+** [ ] Encrypted Nuclear ELF
+** [ ] Crypto Cookies
+** [ ] Rock Paper Scissors
+** [ ] Go Ahead Crack Me
 * [ ] Play https://microcorruption.com/[Microcorruption]
 * [ ] Finish https://mas.owasp.org/crackmes/[MAS Crackmes] (just Android)
 * [ ] Learn about https://github.com/projectdiscovery/nuclei-templates[Nuclei Templates]
@@ -32,4 +48,4 @@ A list of stuffs to do (without priority).
 * [x] [.line-through]#Configure zram# #(DATE: 2025-04-23)#
 * [x] [.line-through]#Rice Hyprland# #(DATE: 2025-04-24)#
 * [x] [.line-through]#Compare battery drain between Waybar and AGS# #(DATE: 2025-04-24)#
-* [ ] Rice Waybar
+* [x] [.line-through]#Rice Waybar# #(DATE: 2025-04-29)#
