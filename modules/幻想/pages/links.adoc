@@ -23,6 +23,7 @@ Accessed,Name,URL,Description
 2024-06-06,LetsDefend,https://www.letsdefend.io/[],"LetsDefend helps you build a blue team career with hands-on experience by investigating real cyber attacks inside a simulated SOC."
 2024-06-06,CyberDefenders,https://cyberdefenders.org[],"CyberDefenders is a blue team training platform for SOC analysts, threat hunters, security blue teams and DFIR professionals to advance CyberDefense skills."
 2025-04-09,APIsecU,https://www.apisecuniversity.com/[],"The API Security University (APIsecU) was founded on the belief that web application programming interfaces (APIs) are a vital pipeline for data to flow across the Internet. We realized that APIs are a leading attack vector for criminals and are continuously being adopted by organizations without sufficient security controls in place. At scale, this situation creates a perfect storm for criminals to breach data, devastate businesses, and expose sensitive information worldwide."
+2025-04-30,CyberTalents,https://cybertalents.com/[],"Cyber Talents is a platform that ranks cyber security talents according to their real hands on skills in different cyber security categories by running capture the flag competitions in order to be hired by recruiters."
 |===
 
 
