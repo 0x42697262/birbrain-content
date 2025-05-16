@@ -16,7 +16,7 @@ but i like this solution more since it doesn't depend on nmap:
 [, bash]
 ----
 ssh -t bandit20@bandit.labs.overthewire.org -p 2220 "nc -lp 6969 < /etc/bandit_pass/bandit20 & ./suconnect 6969 | grep -E '^[A-Za-z0-9]{32}\$'"-
----
+----
 
 I had to use `^` and `$` since i only want the line with the password
 

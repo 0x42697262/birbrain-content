@@ -51,8 +51,8 @@ let's use `grep`!
 
 and regular expression...
 
-since we already know that the password is 32 characters long and only contains alpha characters with digits, our regular expression ends up as `^[A-Za-z0-9]{32}$`.
-combine those we geeettttt: `strings ./* | grep -E '^[A-Za-z0-9]{32}$'`.
+since we already know that the password is 32 characters long and only contains alpha characters with digits, our regular expression ends up as ``^[A-Za-z0-9]\{32}$``.
+combine those we geeettttt: ``strings ./* | grep -E '^[A-Za-z0-9]\{32}$'``.
 
 oh `-E` means extended regular expression.
 see `man grep` for more details.

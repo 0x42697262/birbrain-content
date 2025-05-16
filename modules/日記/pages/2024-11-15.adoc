@@ -36,7 +36,6 @@ intel420
 Enter superadmin PIN: 1337
 Enter your 2FA code: 5670688
 Access Granted! Welcome, Superadmin!
-Here is your flag: INTIGRITI{haha}
 ----
 
 == Private Github Repository 
@@ -95,7 +94,7 @@ deleted file mode 100644
 index e69de29..0000000
 $ git clone git@github.com:nitrofany/01189998819991197253
 $ cat 01189998819991197253/flag.md
-# INTIGRITI{haha}
+# INTIGRITI\{haha}
 ----
 
 
@@ -112,7 +111,7 @@ $ rm -r cordova.js cordova_plugins.js plugins/
 . open website ``firefox index.html``
 . type password ``7331``
 . web dev tools -> copy ``494e544947524954497b35305f6d7563685f6630725f3533637572335f63306c645f353730723436337d``
-. convert from hex to string ``INTIGRITI{hah}``
+. convert from hex to string ``INTIGRITI\{hah}``
 
 
 == Logging
