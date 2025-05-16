@@ -1,0 +1,12 @@
+= 2025年05月16日
+
+Found an annoying error in Siemens TIA Portal which did not happen a long time ago.
+
+.FIX: See solution xref:ROOT:tia-portal-openness-api-errors.adoc[here].
+----
+Unhandled Exception: Siemens.Engineering.EngineeringSecurityException: Security error.
+Can't access this process to acquire needed information.
+Security error.
+Owner 'username' of this process is not member of the windows group 'Siemens TIA Openness'.
+Please contact your administrator.
+----

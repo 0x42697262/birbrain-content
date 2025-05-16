@@ -1,0 +1,15 @@
+= Errors
+
+== Unhandled Exception: Siemens.Engineering.EngineeringSecurityException: Security error.
+
+.Error
+----
+Unhandled Exception: Siemens.Engineering.EngineeringSecurityException: Security error.
+Can't access this process to acquire needed information.
+Security error.
+Owner 'username' of this process is not member of the windows group 'Siemens TIA Openness'.
+Please contact your administrator.
+----
+
+NOTE: The solution to this error is to add your user to **Siemens TIA Openness** local group, then reboot.
+

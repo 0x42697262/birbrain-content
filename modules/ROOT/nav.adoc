@@ -5,6 +5,8 @@
 [journal]
 * xref:日記:index.adoc[]
 ** 2025年
+*** 2025年05月
+**** xref:日記:2025-05-16.adoc[]
 *** 2025年04月
 **** xref:日記:2025-04-24.adoc[]
 **** xref:日記:2025-04-23.adoc[]
@@ -184,6 +186,7 @@
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
 ** xref:tia-portal-openness-api.adoc[]
+*** xref:tia-portal-openness-api-errors.adoc[]
 ** xref:tia-portal-openness-xml.adoc[]
 
 [Vim]
