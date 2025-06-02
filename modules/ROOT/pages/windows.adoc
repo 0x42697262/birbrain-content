@@ -1,0 +1,12 @@
+= Windows
+
+Microsoft Windows operating system related notes.
+
+== Issues
+
+=== Laptop shuts down when critical level while plugged in.
+
+See xref:ROOT:windows-powercfg.adoc[setting critical battery actions] for a temporary fix.
+
+This is a hardware issue.
+To permanently solve this issue, replace the laptop's battery with a working one.

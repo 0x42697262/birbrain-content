@@ -1,0 +1,19 @@
+= Powercfg
+
+== Low Battery Level Actions
+
+=== Critical
+
+By default, the critical battery level action triggers when battery levels falls below **2%** to **5%**.
+
+To remove or disable this action, set `BATACTIONCRIT` to **0**.
+
+.AC (plugged in)
+----
+powercfg -setacvalueindex SCHEME_CURRENT SUB_BATTERY BATACTIONCRIT 0
+----
+
+.DC (on battery power)
+----
+powercfg -setdcvalueindex SCHEME_CURRENT SUB_BATTERY BATACTIONCRIT 0
+----

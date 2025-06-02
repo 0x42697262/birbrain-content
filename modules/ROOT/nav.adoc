@@ -6,6 +6,8 @@
 * xref:日記:index.adoc[]
 ** 2025年
 *** 2025年05月
+**** xref:日記:2025-05-28.adoc[]
+**** xref:日記:2025-05-24.adoc[]
 **** xref:日記:2025-05-16.adoc[]
 *** 2025年04月
 **** xref:日記:2025-04-24.adoc[]
@@ -200,6 +202,10 @@
 [Waydroid]
 * xref:waydroid.adoc[]
 ** xref:waydroid-errors.adoc[]
+
+[Windows]
+* xref:windows.adoc[]
+** xref:windows-powercfg.adoc[]
 
 [日本語]
 * xref:日本語.adoc[]

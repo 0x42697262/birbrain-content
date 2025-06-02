@@ -1,0 +1,6 @@
+= 2025年05月28日
+
+.Fix to windows laptop shutting down automatically when dead battery when plugged in
+----
+powercfg -setacvalueindex SCHEME_CURRENT SUB_BATTERY BATACTIONCRIT 0
+----
