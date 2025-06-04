@@ -1,0 +1,11 @@
+= 2025年06月04日
+
+Readings tonight:
+
+. https://www.ibm.com/think/topics/gradient-descent[Gradient Descent] - so it's like linear algebra but for curves instead
+. https://www.sciencedirect.com/topics/computer-science/point-crossover[Point Crossover] - had to differentiate between single and double point crossover
+
+Some videos watched:
+
+. https://www.youtube.com/watch?v=XP8R0yzAbdo[Genetic Algorithm Tutorial - How to Code a Genetic Algorithm] - pretty neat demonstration, answered some of my questions like having inferior children after superior ones
+. https://www.youtube.com/watch?v=MacVqujSXWE[The Knapsack Problem & Genetic Algorithms - Computerphile] - i don't quite understand it or is very extensive
