@@ -1,5 +1,11 @@
 = Readings Finished
 
+== 2025年06月
+
+. https://francescolelli.info/machine-learning/on-genetic-algorithms-as-an-optimization-technique-for-neural-networks[On Genetic Algorithms as an Optimization Technique for Neural Networks]
+. https://www.ibm.com/think/topics/gradient-descent[Gradient Descent]
+. https://www.sciencedirect.com/topics/computer-science/point-crossover[Point Crossover]
+
 == 2025年01月
 
 . https://www.acsac.org/2001/papers/110.pdf[Why Information Security is Hard – An Economic Perspective]

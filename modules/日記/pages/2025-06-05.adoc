@@ -1,0 +1,11 @@
+= 2025年06月05日
+
+Readings tonight:
+
+. https://francescolelli.info/machine-learning/on-genetic-algorithms-as-an-optimization-technique-for-neural-networks[On Genetic Algorithms as an Optimization Technique for Neural Networks]
+
+Some videos watched:
+
+. https://www.youtube.com/watch?v=kHyNqSnzP8Y[13. Learning: Genetic Algorithms]
+. https://www.youtube.com/watch?v=ihX3-WDua2I[Neat AI does Flappy Birds using NEAT and a Genetic Algorithm]
+. https://www.youtube.com/watch?v=zsGvCwaaMOI[Building the Flappy Bird A.I. without LIBRARIES | Genetic Algorithm | Python/PyCharm] - quite tiresome to watch. i just wanted an explanation or logic of the code, not line by line explanation.
