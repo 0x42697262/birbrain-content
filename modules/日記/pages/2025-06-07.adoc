@@ -1,0 +1,5 @@
+= 2025年06月07日
+
+in windows ssh server, default config for authorized keys is located in `C:\ProgramData\ssh\administrators_authorized_keys`.
+
+so just add your public key there and connect with `ssh -i <ssh pub key> <host>`
