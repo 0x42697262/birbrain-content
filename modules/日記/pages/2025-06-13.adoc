@@ -1,0 +1,40 @@
+= 2025年06月13日
+:icons: check
+
+== Morning/Midday Reset Flow
+
+* [ ] Get out of bed (without phone in hand)
+* [ ] Drink a full glass of water
+* [ ] Wash face or take a quick shower
+* [ ] Change clothes (even fresh PJs count)
+* [ ] Open a window or go outside for 1–2 mins for light and air
+* [ ] Do 1–2 minutes of movement (light stretch, short walk, anything)
+* [ ] Eat something small (even a banana or toast)
+* [ ] Refill your water or prep a drink
+* [ ] Check exactly 1 message from inbox
+* [ ] Sit at your desk — no pressure to work yet
+* [ ] Read this out loud or silently: _"Late isn’t lost. One 5-minute win flips the day."_
+* [ ] Open your reverse engineering tool or notes — just look, no task yet
+* [ ] Set a timer for 5 minutes and start your first micro-task (rename a function, comment, trace something simple)
+
+
+== Crackme-4
+
+c3() = 0x3a
+c0() = 0x55
+c1() = 0x36
+c2() = 0x2d
+c4() = 0x59
+c8() = 0x2b
+c5() = 0x4c
+c6() = 0x2e
+c7() = 0x22
+c9() = 
+
+U6-:YL."+\
+
+
+== Crack_5
+
+Y00X00
+P0iNT3R_tYPe5_M4tt3r
