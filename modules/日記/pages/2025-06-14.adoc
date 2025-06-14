@@ -1,0 +1,15 @@
+= 2025年06月14日
+
+Installed https://github.com/moonlight-stream/moonlight-qt[Moonlight] and https://github.com/LizardByte/Sunshine[Sunshine].
+
+Will probably ditch VNC since it's quite laggy.
+
+== Crack_5
+
+x/s 0x00005555555580d0
+
+== tryhackme
+
+i replayed blue.
+
+was able to understand soem stuffs easier now
