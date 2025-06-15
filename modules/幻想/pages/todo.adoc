@@ -8,11 +8,6 @@ A list of stuffs to do (without priority).
 * [ ] Create OverTheWire Bandit Writeups
 * [ ] Clean up xref:random.adoc[]
 * [ ] Clean up my user home directory and backups
-* [ ] HackTheBox
-** [ ] Finish Chemistry with Writeups
-** [ ] Finish Cicada with Writeups
-** [ ] Finish Runner with Writeups
-** [ ] Finish Solar Labs with Writeups
 * [ ] TryHackMe
 ** [x] [.line-through]#Finish Blue# #(DATE: 2025-06-15)#
 ** [ ] Finish Mr Robot
@@ -41,7 +36,7 @@ A list of stuffs to do (without priority).
 * [x] [.line-through]#Make Fish shell work with Nix# #(DATE: 2025-03-31)#
 * [x] [.line-through]#Fix LXC container apps not detecting web camera and microphone# #(DATE: 2025-04-23)#
 * [x] [.line-through]#Install OBS# #(DATE: 2025-04-23)#
-* [ Photon Lockdown] Get Fcitx5 working
+* [ ] Get Fcitx5 working
 * [ ] **FIX A LOT OF BROKEN LINKS IN BIRBRAIN** yes antora is complaining a looooot~
 * [x] [.line-through]#Get a wallpaper, stop using a black background for 1 year# #(DATE: 2025-04-23)#
 * [ ] Maybe get Nix sandboxing working with https://github.com/nixpak/nixpak[NixPak]
