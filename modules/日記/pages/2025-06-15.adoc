@@ -1,0 +1,41 @@
+= 2025年06月15日
+
+
+== fs0ciety
+
+
+----
+$ fcrackzip --verbose --use-unzip --dictionary --init-password ~/rockyou.txt  fsociety.zip 
+found file 'sshcreds_datacenter.txt', (size cp/uc    198/   729, flags 9, chk 8d9c)
+
+
+PASSWORD FOUND!!!!: pw == justdoit
+----
+
+
+== 0ld_is_g0ld
+
+----
+.-. .---- .--. ... .- -- ..- ...-- .-.. -- ----- .-. ... ...--
+----
+
+pdf2john '0ld is g0ld.pdf' > pdf.hash
+
+~/hackthebox/0ld_is_g0ld
+❯ cat pdf.hash 
+0ld is g0ld.pdf:$pdf$4*4*128*-1060*1*16*5c8f37d2a45eb64e9dbbf71ca3e86861*32*9cba5cfb1c536f1384bba7458aae3f8100000000000000000000000000000000*32*702cc7ced92b595274b7918dcb6dc74bedef6ef851b4b4b5b8c88732ba4dac0c
+
+~/hackthebox/0ld_is_g0ld
+❯ john pdf.hash --wordlist=~/rockyou.txt 
+Using default input encoding: UTF-8
+Loaded 1 password hash (PDF [MD5 SHA2 RC4/AES 32/64])
+Cost 1 (revision) is 4 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:05 14.44% (ETA: 14:51:23) 0g/s 456729p/s 456729c/s 456729C/s 330127..3284651
+0g 0:00:00:10 28.48% (ETA: 14:51:24) 0g/s 425088p/s 425088c/s 425088C/s rinaisabel2002..rin025
+0g 0:00:00:13 37.35% (ETA: 14:51:23) 0g/s 422606p/s 422606c/s 422606C/s misalov35..misa1886
+jumanji69        (0ld is g0ld.pdf)
+1g 0:00:00:15 DONE (2025-06-15 14:51) 0.06410g/s 437169p/s 437169c/s 437169C/s jumbonear..jumane
+Use the "--show --format=PDF" options to display all of the cracked passwords reliably
+Session completed
