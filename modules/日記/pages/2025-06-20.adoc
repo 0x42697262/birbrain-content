@@ -1,0 +1,7 @@
+= 2025年06月20日
+
+light weight laptops with low-end specs and decent(?) battery life which is also good for moonlight streaming:
+
+. https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Miix_520_12IKB/Miix_520_12IKB_Spec.pdf[Lenovo Miix 520-12IKB 12.2"]
+. https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T480/ThinkPad_T480_Spec.PDF[Lenovo ThinkPad T480 14"]
+. https://h20195.www2.hp.com/v2/getpdf.aspx/c05572133.pdf[HP ProBook 430G5 Gen 8 13.3"]
