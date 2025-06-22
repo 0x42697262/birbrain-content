@@ -1,0 +1,12 @@
+= Errors
+:stem:
+
+**Any errors that I'll ever receive but I cannot put it on any category yet get stashed here.**
+
+== libinput.so.10: cannot open shared object file
+
+From:
+
+* **slint-lsp**, from neovim's plugins (June 22, 2025)
+
+**Fix:** Install ``libinput`` package.
