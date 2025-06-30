@@ -44,3 +44,4 @@ A list of stuffs to do (without priority).
 * [x] [.line-through]#Rice Hyprland# #(DATE: 2025-04-24)#
 * [x] [.line-through]#Compare battery drain between Waybar and AGS# #(DATE: 2025-04-24)#
 * [x] [.line-through]#Rice Waybar# #(DATE: 2025-04-29)#
+* [ ] Zhuyin Checker Using Finite State Machines
