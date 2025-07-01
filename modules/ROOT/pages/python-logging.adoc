@@ -1,0 +1,110 @@
+= logging
+
+I have always wondered how logs were implemented by the developers.
+Especially the ones like ``dmesg`` and ``journalctl``.
+Most of the time, there is no need to implement one from scratch since there's already a library intended for logging.
+
+Luckily, Python has a default library for https://docs.python.org/3/library/logging.html[logging]!
+
+== Setup
+
+Import ``logging``.
+
+[, python]
+----
+import logging
+----
+
+Use the logger.
+
+[, python]
+----
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='myapp.log', level=logging.INFO)
+logger.info("Logging started.")
+----
+
+That's it!
+
+But the default behavior uses very basic logging format.
+What if I wanted a different format?
+A custom one.
+
+== Formatter
+
+Define the format for the logger to use.
+
+[, python]
+----
+FORMAT: str = "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)d] - %(message)s"
+----
+
+Create a function for setup.
+
+[, python]
+----
+
+def setup(level=logging.INFO):
+    logger = logging.getLogger()
+    logger.setLevel(level)
+
+    for handler in logger.handlers[:]:
+        logger.removeHandler(handler)
+
+    formatter = logging.Formatter(FORMAT, datefmt="%Y-%m-%d %H:%M:%S")
+
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(level)
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+----
+
+Use the logger.
+
+[, python]
+----
+logs.setup(logging.DEBUG)
+logger = logging.getLogger(__name__)
+----
+
+This is enough for adding a logging mechanism right into the console.
+
+== Exceptions and Warnings
+
+Sometimes I want to log Python errors outside the script as well.
+Not just the current functions.
+
+Setup handler for exceptions.
+
+[, python]
+----
+import sys
+def handle_exception(exc_type, exc_value, exc_traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    logger = logging.getLogger("UncaughtException")
+    logger.critical("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+----
+
+Setup handler for warnings.
+
+[, python]
+----
+import warnings
+def handle_warning(message, category, filename, lineno, file=None, line=None):
+    logger = logging.getLogger("Warnings")
+    logger.warning(f"{filename}:{lineno}: {category.__name__}: {message}")
+----
+
+Update the setup function.
+
+[, python]
+----
+def setup(level=logging.INFO):
+    sys.excepthook = handle_exception
+    warnings.showwarning = handle_warning
+    ...
+----
+
+This should now be usable.

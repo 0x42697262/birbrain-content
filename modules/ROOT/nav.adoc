@@ -6,6 +6,7 @@
 * xref:日記:index.adoc[]
 ** 2025年
 *** 2025年06月
+**** xref:日記:2025-06-26.adoc[]
 **** xref:日記:2025-06-22.adoc[]
 **** xref:日記:2025-06-20.adoc[]
 **** xref:日記:2025-06-16.adoc[]
@@ -195,6 +196,7 @@
 [Python]
 * xref:python.adoc[]
 ** xref:python-schema.adoc[]
+** xref:python-logging.adoc[]
 
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]

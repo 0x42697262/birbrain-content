@@ -1,5 +1,8 @@
 = Python
 
+* xref:ROOT:python-logging.adoc[logging]
+* xref:ROOT:python-schema.adoc[schema]
+
 == Tips
 
 === Checking Specific Instances of classes using match()
