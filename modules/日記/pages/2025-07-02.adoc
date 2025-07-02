@@ -1,0 +1,27 @@
+= 2025年07月02日
+
+overall, tried to see if i can limit my cpu watts draw
+
+== installed aur packages:
+
+* ryzen_smu
+* zenpower3
+* powertop
+* ryzenadj
+
+== activity log
+
+tried to set the frequency using ``cpulimit`` and it still used the same battery watts.
+
+thought of setting the maximum watts of the cpu through ``ryzenadj``, it didn't work even with ``ryzen_smu`` installed.
+
+firefox slows down a lot if only 1 thread is allotted.
+2 threads should be the minimum.
+yet still teh same wattage drain.
+
+``powertop`` still says laptop draws 15W to 42W.
+which supposedly should be set to only 8W.
+
+----
+$ ryzenadj --stapm-limit=7000 --fast-limit=7000 --slow-limit=7000 --info
+----
