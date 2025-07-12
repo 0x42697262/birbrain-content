@@ -5,8 +5,10 @@
 [journal]
 * xref:日記:index.adoc[]
 ** 2025年
-*** 2025年06月
+*** 2025年07月
+**** xref:日記:2025-07-11.adoc[]
 **** xref:日記:2025-07-02.adoc[]
+*** 2025年06月
 **** xref:日記:2025-06-26.adoc[]
 **** xref:日記:2025-06-22.adoc[]
 **** xref:日記:2025-06-20.adoc[]
@@ -151,6 +153,9 @@
 
 [Android]
 * xref:android.adoc[]
+
+[Arch Linux]
+* xref:arch-linux.adoc[]
 
 [AsciiDoc]
 * xref:asciidoc.adoc[]

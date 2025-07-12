@@ -1,0 +1,31 @@
+= Arch Linux
+
+== Pacman Errors
+
+=== Error Signature
+
+.Example
+----
+sudo pacman -Syu linux-firmware                                                                                  ✘ 1   5s  21:58:38 
+error: cachyos: signature from "CachyOS <admin@cachyos.org>" is invalid
+:: Synchronizing package databases...
+ cachyos-v3 is up to date
+ cachyos-core-v3 is up to date
+ cachyos-extra-v3 is up to date
+ cachyos                                                     499.6 KiB   385 KiB/s 00:01 [---------------------------------------------------] 100%
+ core is up to date
+ extra is up to date
+ multilib is up to date
+error: cachyos: signature from "CachyOS <admin@cachyos.org>" is invalid
+error: failed to synchronize all databases (unexpected error)
+----
+
+[NOTE]
+====
+**FIX**
+
+----
+# pacman-key --refresh-keys
+----
+====
+
