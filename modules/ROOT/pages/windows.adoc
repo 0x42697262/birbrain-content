@@ -31,7 +31,7 @@ This will reboot and Windows 11 will now allow creation of local account.
 
 [CAUTION]
 ====
-This method does not work as of July 12, 2025.
+This method works as of July 12, 2025.
 ====
 
 This is for after installing Windows 11 Pro and updating the system.
