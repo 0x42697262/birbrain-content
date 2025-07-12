@@ -10,3 +10,32 @@ See xref:ROOT:windows-powercfg.adoc[setting critical battery actions] for a temp
 
 This is a hardware issue.
 To permanently solve this issue, replace the laptop's battery with a working one.
+
+== Windows 11 Microsoft Account Creation Bypass
+
+=== Method 1
+
+[Warning]
+====
+This method does not work as of July 12, 2025.
+====
+
+This is for after installing Windows 11 Pro and updating the system.
+
+Press btn:[Shift+F10] to open up **cmd.exe**.
+Run ``OOBE\BYPASSNRO``.
+
+This will reboot and Windows 11 will now allow creation of local account.
+
+=== Method 2
+
+[Warning]
+====
+This method does not work as of July 12, 2025.
+====
+
+This is for after installing Windows 11 Pro and updating the system.
+Current screen should ask you to choose between personal or school/work type.
+
+Press btn:[Shift+F10] to open up **cmd.exe**.
+Run ``start ms-cxh:localonly``.
