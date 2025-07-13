@@ -1,0 +1,19 @@
+= 2025年07月13日
+
+== Zig, Compile for Windows x64
+
+[, zig]
+----
+const std = @import("std");
+
+extern "kernel32" fn WinExec(cmd: [*:0]const u8, show: u32) u32;
+
+pub fn main() void {
+    const command = "calc.exe";
+    _ = WinExec(command, 0); // SW_HIDE = 0
+}
+----
+
+----
+$ zig build-exe main.zig -target x86_64-windows -O ReleaseSmall
+----
