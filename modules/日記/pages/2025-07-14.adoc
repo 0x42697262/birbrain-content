@@ -1,0 +1,31 @@
+= 2025年07月15日
+
+== achieved screensharing in incus container
+
+summary:
+
+[, yaml]
+----
+devices:
+  dbus:
+    path: /run/dbus/system_bus_socket
+    shift: "true"
+    source: /run/dbus/system_bus_socket
+    type: disk
+  dbus_session:
+    path: /mnt/.sockets/bus
+    shift: "true"
+    source: /run/user/1000/bus
+    type: disk
+----
+
+run using ``dbus-run-session``
+
+don't forget ``export XDG_CURRENT_DESKTOP=Hyprland`` because of https://wiki.archlinux.org/title/XDG_Desktop_Portal#Portal_does_not_start[2 requirements]
+
+needed packages
+
+----
+dbus-glib kdbusaddons libdbusmenu-glib libdbusmenu-gtk3 sdbus-cpp xdg-desktop-portal-hyprland xdg-desktop-portal
+----
+

@@ -1,0 +1,229 @@
+= Screensharing
+
+[NOTE]
+====
+This guide is specifically for getting Wayland screensharing to work using xdg-desktop-portal-hyprland.
+It won't contain any steps or instructions on how to install Incus/LXD, get X11/Wayland working, or passthrough audio.
+
+Please refer to the references or find guides online.
+====
+
+== TL;DR Incus Config
+
+[, yaml]
+----
+config:
+  boot.autostart: false
+  cloud-init.vendor-data: |
+    #cloud-config
+    users:
+      - name: chicken
+        groups: wheel, video
+        sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    runcmd:
+    - chown -R chicken:chicken /home/chicken/
+    write_files:
+      - path: /etc/profile
+        append: true
+        content: |
+          mkdir -p /run/user/1000
+          chown chicken:chicken /run/user/1000
+          ln -sf /mnt/.sockets/X0 /tmp/.X11-unix/X0
+          ln -sf /mnt/.sockets/bus /run/user/1000/bus
+          ln -sf /mnt/.sockets/pipewire-0 /run/user/1000/pipewire-0
+          ln -sf /mnt/.sockets/wayland-1 /run/user/1000/wayland-1
+          export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+          export DISPLAY=:0
+          export QT_QPA_PLATFORM=wayland
+          export WAYLAND_DISPLAY=wayland-1
+          export XDG_CURRENT_DESKTOP=Hyprland
+          export XDG_RUNTIME_DIR=/run/user/1000
+          export XDG_SESSION_TYPE=wayland
+
+description: Screensharing Tutorial
+devices:
+  dbus:
+    path: /run/dbus/system_bus_socket
+    shift: "true"
+    source: /run/dbus/system_bus_socket
+    type: disk
+  dbus_session:
+    path: /mnt/.sockets/bus
+    shift: "true"
+    source: /run/user/1000/bus
+    type: disk
+  graphics:
+    gid: "1000"
+    type: gpu
+    uid: "1000"
+  wayland:
+    path: /mnt/.sockets/wayland-1
+    shift: true
+    source: /run/user/1000/wayland-1
+    type: disk
+  xwayland:
+    path: /mnt/.sockets/X0
+    shift: "true"
+    source: /tmp/.X11-unix/X0
+    type: disk
+  pipewire:
+    path: /mnt/.sockets/pipewire-0
+    shift: true
+    source: /run/user/1000/pipewire-0
+    type: disk
+----
+
+== Prerequisites
+
+This guide is specifically for my own setup.
+However, it's possible to change the environment used since the overall idea is the same.
+
+Prerequisites:
+
+* Hyprland as host desktop environment
+* pipewire for audio passthrough
+* Wayland/X11 passthrough
+* xdg-desktop-portal-hyprland for screensharing
+* DBUS for screensharing
+
+Once the basic setup of audio + wayland/x11 passthrough is working, there is a need to passthrough **DBUS** as well for xref:ROOT:pipewire.adoc[pipewire] to work.
+
+== DBUS Sockets and Session Passthrough
+
+=== Locating Sockets and Sessions
+
+Look for the file ``system_bus_socket`` and ``bus``.
+
+Make sure the host have the necessary DBUS packages installed.
+
+Paths for the files:
+
+.Socket
+----
+/run/dbus/system_bus_socket
+----
+
+.Session
+----
+/run/user/1000/bus
+----
+
+The location of the session is dependent on the user id.
+To find the user id, simply run ``id`` command.
+
+=== Adding to Devices
+
+Next is add the DBUS paths to the profile in **devices**.
+
+[, yaml]
+----
+devices:
+  dbus:
+    path: /run/dbus/system_bus_socket
+    shift: "true"
+    source: /run/dbus/system_bus_socket
+    type: disk
+  dbus_session:
+    path: /mnt/.sockets/bus
+    shift: "true"
+    source: /run/user/1000/bus
+    type: disk
+----
+
+Take note of the ``path`` since it will be used to symlink it later in the container.
+The path does not necessarily have to be in ``/mnt`` but I noticed that the config fails to passthrough the file or directory when it's directly placed on ``/run``.
+Other people places their path on ``/tmp``.
+Do what you prefer and what works.
+
+[NOTE]
+====
+Although I haven't tested if either one works but maybe if some experiments with the configuration, either the socket or sesssion may not be needed.
+====
+
+=== Generating Symlink and Environment Variables
+
+Create a consistent symlink to ``/run/dbus/system_bus_socket`` and ``/run/user/1000/bus`` by updating ``/etc/profile``.
+Because sometimes ``cloud-init`` fails to configure the profile config.
+
+[, yaml]
+----
+write_files:
+  - path: /etc/profile
+    append: true
+    content: |
+      mkdir -p /run/user/1000
+      chown chicken:chicken /run/user/1000
+      ln -sf /mnt/.sockets/bus /run/user/1000/bus
+      export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+      export WAYLAND_DISPLAY=wayland-1
+      export XDG_CURRENT_DESKTOP=Hyprland
+----
+
+I didn't include the other symlinks and environment variables because I wanted to only show the necessary ones for screensharing to work.
+
+Notice that I didn't symlink ``/run/dbus/system_bus_socket``, it's because for some reason this works.
+Unlike the directory ``1000``.
+
+There is also a need to export the ``DBUS_SESSION_BUS_ADDRESS`` to tell DBUS where the current session path is located.
+Export its value to the path of ``bus`` with prefix ``unix:path=``.
+
+.Environment variable of bus
+----
+unix:path=/run/user/1000/bus
+----
+
+Export ``XDG_CURRENT_DESKTOP`` and ``WAYLAND_DISPLAY``.
+These two must be present in order for ``xdg-desktop-portal`` and ``xdg-desktop-portal-hyprland`` to run.
+
+Here's a note from Arch Wiki regarding portals not starting.
+
+.https://wiki.archlinux.org/title/XDG_Desktop_Portal#Portal_does_not_start[Portal Does Not Start]
+----
+XDG_CURRENT_DESKTOP has to be set to the name of your compositor, e.g. XDG_CURRENT_DESKTOP=sway. WAYLAND_DISPLAY is set automatically by the compositor. 
+----
+
+
+=== Getting Xauthority
+
+Currently, the configuration isn't enough to run DBUS session since this error occurs.
+
+----
+Authorization required, but no authorization protocol specified
+----
+
+But it can be fixed by getting ``xhost`` on to the host running it.
+
+.Solution
+----
+xhost +local:
+----
+
+=== Running Screenshare
+
+I use **firefox** as my main web browser and often times **chromium**.
+
+To run with screensharing capabilities, execute ``dbus-run-session``.
+
+----
+$ dbus-run-session firefox
+$ dbus-run-session chromium
+----
+
+Then test screensharing on this https://www.webrtc-experiment.com/Pluginfree-Screen-Sharing/[website].
+
+If it fails, there should be a log in the terminal showing errors for what you have missed or potentially what this guide have missed.
+
+
+
+
+That should be all.
+
+
+== References
+
+* https://discuss.linuxcontainers.org/t/zoom-screensharing-not-working-when-zoom-is-running-in-a-lxd-container/9641[Poor guy wasn't able to screenshare, no one replied to the thread]
+* https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/114[when i thought i have to manually run dbus]
+* https://www.reddit.com/r/linux4noobs/comments/lu1plx/hi_i_get_this_authorization_required_but_no/[xauthority solution]
+* https://forums.opensuse.org/t/authorization-required-but-no-authorization-protocol-specified/167149[before i discovered xauthority solution]
+* https://bbs.archlinux.org/viewtopic.php?id=289342[checked chromium error logs aside from firefox errors]
+* https://www.reddit.com/r/voidlinux/comments/1008a8n/issue_with_sharing_screen_via_chromium_on_wayland/[finally, dbus-run-session as solution]

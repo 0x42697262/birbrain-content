@@ -1,0 +1,61 @@
+= Incus
+
+https://linuxcontainers.org/incus/[Incus] is a tool to containerize applications and manages virtual machines.
+
+This is actually just **LXC** under the hood.
+Incus also a fork of **LXD** due to https://discuss.linuxcontainers.org/t/lxd-has-been-re-licensed-and-is-now-under-a-cla/18454[licensing issues].
+
+What works for LXD will mostly work for Incus as well.
+
+== Reasons
+
+=== Why Did I Pick Incus Over LXD?
+
+I forgot the reason.
+License was one thing but it was mostly because of LXD being tied to Ubuntu.
+I no longer remember where I read this.
+
+=== Why Am I Using Incus?
+
+**TL;DR: It's like a VM but it's not!**
+
+I am a Windows user for a long time.
+Well, not that long.
+I have used Windows since Windows 95.
+And with that comes the necessary work of avoiding malwares getting into my main box.
+
+I used to play with https://sandboxie-plus.com/[sandboxie Plus] (it was once called just Sandboxie and it was not free) to sandbox programs and applications I do not trust.
+I also use Sandboxie for certain games and tools and I enjoyed having almost full control of the software.
+Not to mention, it doesn't mess up with my user data and system configurations.
+If I needed something to be ran once, Sandboxie is my go to tool.
+
+But it wasn't perfect since some applications doesn't run especially if they have anti-VM built in.
+
+When I started using Linux, the sandboxing equivalent that I found was xref:ROOT:firejail.adoc[].
+However, I didn't fully understand its full potential.
+
+Then I found out about https://linuxcontainers.org/[linux containers].
+And fell inlove that linux containers can **actually run games** with **very little overhead**!
+
+Incus also worked as a clean alternative for virtual machines since it's light and it's possible to create a new one easily.
+A big plus when I write code with a lot of system changes like database servers.
+
+Now, my main usage for Incus is containerization of apps because I don't wanna mess up my system that much (it was a nightmare to maintain WINE and windows).
+By mess, I mean I don't want to clean up files I keep forgetting to delete.
+Oftentimes, work overlaps on my personal computer.
+So, supposed work files that should not be part of my personal files are included.
+This includes software development environment as well.
+
+With Incus containers, I keep my system as is.
+I can separate my concerns easily and not worry about it.
+
+== References
+
+Thanks to these writeups, I was able to get passthrough for graphics and audio.
+
+* https://regrow.earth/blog/2024-10-29_gui-apps-in-incus-containers/[Running Graphical Applications in Incus Containers]
+* https://gist.github.com/bketelsen/aa7b4dccc2f91e7a5b16e802c26ff4a0[Wayland + X11]
+* https://discuss.linuxcontainers.org/t/incus-lxd-profile-for-gui-apps-wayland-x11-and-pulseaudio/18295[Incus / LXD profile for GUI apps: Wayland, X11 and Pulseaudio]
+* https://blog.swwomm.com/2022/08/lxd-containers-for-wayland-gui-apps.html[LXD Containers for Wayland GUI Apps]
+* https://osamuaoki.github.io/en/2023/11/15/lxc-5/#yaml-to-allow-ipcs-for-wayland--x--sounds[YAML to allow IPCs for Wayland + X + sounds]
+* https://discourse.ubuntu.com/t/lxd-incus-profile-for-gui-apps-wayland-x11-and-pulseaudio/40255[LXD / Incus profile for GUI apps: Wayland, X11 and Pulseaudio]
