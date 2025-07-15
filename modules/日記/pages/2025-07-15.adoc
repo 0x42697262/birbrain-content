@@ -1,0 +1,7 @@
+= 2025年07月15日
+
+osu! lazer can now submit maps.
+
+if error: ``BeatmapID <id> that has not been assigned to it by the server!``
+
+just edit externally using lazer (file is located in /tmp/xxxxxxxxx) and set all the beatmap id's to ``-1`` (without space)
