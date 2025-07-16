@@ -1,0 +1,13 @@
+= 2025年07月16日
+
+== pipewire cracking issues fix
+
+.run as root
+----
+# echo 2048 > /sys/class/rtc/rtc0/max_user_freq
+# echo 2048 > /proc/sys/dev/hpet/max-user-freq 
+----
+
+source: https://bbs.archlinux.org/viewtopic.php?pid=2083341#p2083341[]
+
+beware of audio speeding up
