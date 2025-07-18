@@ -1,0 +1,20 @@
+= 2025年07月18日
+
+== incus webcam passhtrough permission error
+
+[, yaml]
+----
+webcam:
+    mode: "0777"
+    path: /dev/video0
+    required: "false"
+    source: /dev/video0
+    type: unix-char
+----
+
+the fix is to add `0777` as permission although this might be a security risk
+
+also add `required: false` so that when camera isn't plugged in, the container doesn't fail to start.
+
+there should be a better way to passthrough cam + mic.
+i'll look for it next time
