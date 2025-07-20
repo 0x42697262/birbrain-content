@@ -1,0 +1,38 @@
+= 2025年07月20日
+
+== incus get audio working for non-pipewire supported applications
+
+this is how i fixed wine audio not working for osu! stable.
+it works for roblox as well
+
+[, yaml]
+----
+devices:
+  pulse:
+    bind: container
+    connect: unix:/run/user/1000/pulse/native
+    listen: unix:/mnt/.sockets/pulse-native
+    mode: "0777"
+    type: proxy
+----
+
+then in /etc/profile
+
+./etc/profile
+[, bash]
+----
+ln -sf /mnt/.sockets/pulse-native /run/user/1000/pulse-native
+export PULSE_SERVER=unix:/run/user/1000/pulse-native
+----
+
+it might be needed to set wine sound to pulse:
+
+----
+$ winetricks sound=pulse
+----
+
+make sure to have this packages installed:
+
+* pulseaudio
+* alsa-lib
+* libpulse
