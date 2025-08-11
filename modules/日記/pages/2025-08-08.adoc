@@ -1,0 +1,42 @@
+= 2025年08月08日
+
+== destructive method to swap files in a partition
+
+today I realized that i fucked up my cachyos install.
+my root partition uses 512G space while my home partition uses 128G.
+plus i was on XFS file system...
+yikes indeed.
+
+welp what i need to do is just back my files up to another storage and restore them.
+luckily i had enough storage for that otherwise i am doomed...
+
+.backing up:
+----
+# rsync --archive --numeric-ids --hard-links --sparse --human-readable --progress --acls --xattrs --verbose /mnt/home/ /isekai/backup_home/ 2> /isekai/rsync_home_errors.log
+# rsync --archive --numeric-ids --hard-links --sparse --human-readable --progress --acls --xattrs --verbose /mnt/ /isekai/backup_root/ 2> /isekai/rsync_root_errors.log
+----
+
+i fucked up once again by not adding ``--numeric-ids`` to rsync but luckily i was still able to boot.
+otherwise i'd be fixing the uids
+
+then I deleted the volume groups.
+i forgot the commands though
+
+then i recreated them.
+but it'll ask you to wipe an existing XFS partition, it'll be fine since that's wasn't my backup partition.
+
+i noticed that my usage of the / partition was quite small so i adjust it to 80GiB instead.
+gave free space to my home partition as well.
+
+then i restored the back up thru ``rsync``.
+
+next was fix ``/etc/fstab`` to point to the UUIDS (use ``blkid``) of my partitions.
+fixed the systemd-boot of ``/boot`` to point to proper UUIDS again.
+
+unmounted it liveusb.
+
+and i am done.
+
+success!
+
+

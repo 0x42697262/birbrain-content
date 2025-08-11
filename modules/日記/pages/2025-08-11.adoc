@@ -1,0 +1,44 @@
+= 2025年08月11日
+
+== Windows PIF
+
+Windows **PIF** file can still end up executing a **PE32** executable, but not because PIFs *contain* PE binaries.
+
+* **PIF files** (Program Information Files) are *not* executable binaries; they’re legacy shortcut/configuration files for MS-DOS programs. Historically, they stored settings like window size, memory options, and command-line parameters.
+* When you double-click a `.pif` file, Windows doesn’t parse it like an EXE — instead, the Windows shell reads the PIF metadata and launches the program it points to.
+* If the `Program` or `Command Line` field inside the PIF points to a **PE32 EXE**, Windows will load and execute that EXE.
+* This means a malicious actor could craft a `.pif` that looks harmless but is actually a disguised shortcut to `malware.exe`.
+* Since `.pif` is in Windows’ **“executable” extension list** (alongside `.exe`, `.bat`, `.scr`, etc.), double-clicking it will run the target without extra prompts in many cases.
+* Windows Explorer *still* treats `.pif` as an executable type.
+* AV/EDR solutions watch `.pif` launches for this reason.
+* It’s sometimes abused for phishing or payload delivery because users might think “it’s just a shortcut” or “it’s a document”.
+
+yeah i used chatgpt
+
+.Save as powershell code
+[, powershell]
+----
+Add-Type -TypeDefinition @'
+using System;
+
+class X {
+    static void Main() {
+        Console.WriteLine(".PIF worked!");
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+}
+'@ -OutputAssembly test.exe
+----
+
+then execute it.
+
+.Disable security protection for running scripts
+----
+Set-ExecutionPolicy Bypass -Scope Process
+----
+
+next is rename it to .pif extension.
+even when show hidden file extension is neabled in explorer, it will not pop up.
+
+alternatively, find any .exe and rename it to .pif extension.
