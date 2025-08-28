@@ -61,6 +61,7 @@ Accessed,Name,URL,Description
 2023-11-10,KNOB Attack,https://knobattack.com[],Key Negotiation of Bluetooth Attack that affects all devices that "speak Bluetooth".
 2024-01-07,Bluetooth Forward and Future Secrecy Attacks and Defenses (CVE 2023-24023),https://github.com/francozappa/bluffs[],"Bluetooth BR/EDR devices with Secure Simple Pairing and Secure Connections pairing in Bluetooth Core Specification 4.2 through 5.4 allow certain man-in-the-middle attacks that force a short key length, and might lead to discovery of the encryption key and live injection, aka BLUFFS."
 2024-02-09,SSH ProxyCommand == unexpected code execution (CVE-2023-51385),https://vin01.github.io/piptagole/ssh/security/openssh/libssh/remote-code-execution/2023/12/20/openssh-proxycommand-libssh-rce.html[],"SSH’s ProxyCommand is a feature quite widely used to proxy ssh connections by allowing to specify custom commands to be used to connect to the server. Arguments to this directive may contain tokens like %h, %u which refer to hostname and username respectively."
+2025-08-27,"FortMajeure: Authentication Bypass in FortiWeb (CVE-2025-52970)",https://pwner.gg/blog/2025-08-13-fortiweb-cve-2025-52970,"There’s an OOB access in the cookie handling/parsing code, allowing an unauthenticated attacker to force the server to use a predictable secret key for session encryption/signing."
 |===
 
 
@@ -117,8 +118,9 @@ Accessed,Name,URL,Description
 [%header, format=csv]
 |===
 Accessed,Name,URL,Description
-2024-06-21,PortSwigger Web Security Academy,https://portswigger.net/web-security[],"Free, online web security training from the creators of Burp Suite."
 2024-04-28,bWAPP Files,https://sourceforge.net/projects/bwapp/files/bee-box[],"bWAPP, or a buggy web application, is a free and open source deliberately insecure web application."
+2024-06-21,PortSwigger Web Security Academy,https://portswigger.net/web-security[],"Free, online web security training from the creators of Burp Suite."
+2025-08-27,XVWA,https://github.com/s4n7h0/xvwa,"XVWA is a badly coded web application written in PHP/MySQL that helps security enthusiasts to learn application security."
 |===
 
 == Packet Sniffing
