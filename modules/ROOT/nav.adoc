@@ -5,6 +5,8 @@
 [journal]
 * xref:日記:index.adoc[]
 ** 2025年
+*** 2025年09月
+**** xref:日記:2025-09-11.adoc[]
 *** 2025年08月
 **** xref:日記:2025-08-11.adoc[]
 **** xref:日記:2025-08-08.adoc[]
@@ -158,8 +160,6 @@
 ** xref:幻想:random.adoc[]
 
 [Advanced Encryption Standard]
-* xref:advanced-encryption-standard.adoc[]
-** xref:advanced-encryption-standard-ecb.adoc[]
 
 [Android]
 * xref:android.adoc[]

@@ -1,0 +1,6 @@
+= 2025年09月11日
+
+after one month of not writing my daily diary entry, i finally decided to create a portfolio page while keeping my personal information minimal as possible:
+https://0x42697262.github.io/
+
+oh,right, maybe i should write a guide how to get flatpak working on linux containers
