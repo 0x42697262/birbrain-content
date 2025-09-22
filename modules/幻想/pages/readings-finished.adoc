@@ -1,5 +1,9 @@
 = Readings Finished
 
+== 2025年09月
+
+. https://bogdanthegeek.github.io/blog/projects/vapeserver/[Hosting a WebSite on a Disposable Vape]
+
 == 2025年06月
 
 . https://francescolelli.info/machine-learning/on-genetic-algorithms-as-an-optimization-technique-for-neural-networks[On Genetic Algorithms as an Optimization Technique for Neural Networks]
