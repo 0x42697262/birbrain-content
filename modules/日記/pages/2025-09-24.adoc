@@ -1,0 +1,20 @@
+= 2025年09月24日
+
+== Check current nesting settings
+
+----
+cat /sys/module/kvm_amd/parameters/nested
+----
+
+If output is:
+0:: nested virtualization disabled
+1:: nested virtualization disabled
+
+https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63B-4.pdf[]
+
+== TODO: Tomorrow
+
+- [ ] get qemu/kvm working
+- [ ] nesting is optional but configure it
+- [ ] vms on raw disk access
+- [ ] install windows

@@ -1,0 +1,4 @@
+= Advanced Encryption Standard
+
+I'll leave this blank because I have very little memory about the mathematics of this encryption.
+But here's a note on how to break xref:advanced-encryption-standard-ecb.adoc[AES-ECB using PKSC#7].
