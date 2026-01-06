@@ -219,6 +219,9 @@
 * xref:osint.adoc[]
 ** xref:osint-tools.adoc[]
 
+[PHP]
+* xref:php.adoc[]
+
 [Python]
 * xref:python.adoc[]
 ** xref:python-schema.adoc[]
