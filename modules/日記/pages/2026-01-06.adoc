@@ -1,0 +1,52 @@
+= 2026年01月06日
+
+== Docker
+
+.journalctl -xeu docker
+----
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.872853220+08:00" level=info msg="Starting up"
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.873629732+08:00" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.873725208+08:00" level=info msg="CDI directory does not exist, skipping: failed to monitor for changes: no such file or directory" dir=/var/run/cdi
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.873738687+08:00" level=info msg="CDI directory does not exist, skipping: failed to monitor for changes: no such file or directory" dir=/etc/cdi
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.880173024+08:00" level=info msg="Creating a containerd client" address=/run/containerd/containerd.sock timeout=1m0s
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.887891839+08:00" level=info msg="Loading containers: start."
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.895361176+08:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.908109300+08:00" level=info msg="Restoring containers: start."
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.933896165+08:00" level=info msg="Deleting nftables IPv4 rules" error="exit status 1"
+Jan 06 08:53:33 network dockerd[9285]: time="2026-01-06T08:53:33.951983980+08:00" level=info msg="Deleting nftables IPv6 rules" error="exit status 1"
+Jan 06 08:53:34 network dockerd[9285]: time="2026-01-06T08:53:34.011298245+08:00" level=info msg="stopping event stream following graceful shutdown" error="<nil>" module=libcontainerd namespace=moby
+Jan 06 08:53:34 network dockerd[9285]: failed to start daemon: Error initializing network controller: error obtaining controller instance: failed to register "bridge" driver: failed to create NAT chain DOCKER: iptables failed: iptables >
+Jan 06 08:53:34 network dockerd[9285]: iptables v1.8.11 (legacy): can't initialize iptables table `nat': Table does not exist (do you need to insmod?)
+Jan 06 08:53:34 network dockerd[9285]: Perhaps iptables or your kernel needs to be upgraded.
+Jan 06 08:53:34 network dockerd[9285]:  (exit status 3)
+Jan 06 08:53:34 network systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
+----
+
+.sudo iptables -t nat -L                                                                                              
+----
+modprobe: FATAL: Module ip_tables not found in directory /lib/modules/6.18.3-2-cachyos                                 
+iptables v1.8.11 (legacy): can't initialize iptables table `nat': Table does not exist (do you need to insmod?)        
+Perhaps iptables or your kernel needs to be upgraded.                                                                                                                                                                                         
+----
+
+If CachyOS is the distro, install ``iptables-nft``.
+You probably dont want this on your host machine.
+
+== HFMD
+
+Hand, Foot, and Mouth Disease.
+
+Common illness, very contagious.
+Infects children younger than 5 years old (but can still infect older ones ofc).
+Incubation period is 3 to 7 days.
+Commonly caused by these viruses:
+Enterovirus 71 and Coxsackievirus A10, A6, and A16.
+
+Signs and Symptoms:
+
+* Fever
+* Sore throat
+* Painful mouth sores that blister
+* Rash commonly found on the hands and feet
+
+Treatment: No treatment, just hope it gets away after 7 to 10 days.
