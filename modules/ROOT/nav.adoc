@@ -195,10 +195,13 @@
 [Google]
 * xref:google.adoc[]
 
+[Guides]
+* Guides
+** xref:incus-guide-screensharing.adoc[]
+** xref:headscale-server-setup.adoc[]
+
 [Incus]
 * xref:incus.adoc[]
-** Guides
-*** xref:incus-guide-screensharing.adoc[]
 
 [Linux]
 * xref:linux.adoc[]
@@ -238,6 +241,10 @@
 
 [Vim]
 * xref:vim.adoc[]
+
+[VPN]
+* xref:vpn.adoc[]
+** xref:tailscale.adoc[]
 
 [Virtualization]
 * Virtualization

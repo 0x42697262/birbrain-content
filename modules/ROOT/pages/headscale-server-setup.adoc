@@ -1,0 +1,109 @@
+= Headscale Control Server Guide
+
+I'll be using AWS EC2 VM instance for this one. I won't be explaining the details much that's needed but make sure port 80 and 443 works.
+Make sure to have your own domain as well because Let's Encrypt blocks amazon domains.
+
+== Requirements
+
+* AWS EC2 VM instance
+* custom domain url
+* any linux box
+* headscale (for control server)
+* tailscale (for clients)
+
+=== Installing Tailscale on your PC
+
+If Ubuntu:
+
+----
+curl -fsSL https://tailscale.com/install.sh | sh
+----
+
+After installation completes, start the Tailscale client:
+
+----
+tailscale up --login-server https://<domain url>:<port> --authkey <authkey>
+----
+
+== Server
+
+WIP
+
+== Client
+
+Make sure you register a node to the headscale control server.
+
+The link:https://headscale.net/stable/usage/getting-started/#normal-interactive-login[official documentation] is already good enough.
+
+**WIP**
+
+== Exit Node Setup
+
+This part is optional.
+If you want to act your server as a VPN for your devices (clients), simply follow the guide.
+
+=== Server
+
+==== Configure tables
+
+Configure the headscale control server to link:https://tailscale.com/kb/1408/quick-guide-exit-nodes[use port forwarding].
+
+----
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
+----
+
+==== Register a new node
+
+Get xref:tailscale.adoc[] installed and running on the headscale control server.
+Yes, it is needed.
+
+Login with the registered node to your headscale control server.
+
+----
+sudo tailscale up --login-server=<YOUR_HEADSCALE_URL> --advertise-exit-node
+----
+
+Make sure to run ``sudo tailscale up`` after the command above.
+
+==== Approve routes
+
+Find your newly registered node.
+
+----
+headscale nodes list-routes
+----
+
+Pay attention to the ID.
+This will be used for approving the route with command below.
+
+----
+headscale nodes approve-routes --identifier <ID of node> --routes 0.0.0.0/0
+----
+
+==== Restart headscale service
+
+If using **systemd**, run the command.
+
+----
+sudo systemctl restart headscale
+----
+
+I forgot the others so you're on your own.
+
+=== Clients
+
+Logging in is the same.
+
+----
+sudo tailscale up --login-server <YOUR_HEADSCALE_URL>
+----
+
+Then set the exit node.
+
+----
+sudo tailscale set --exit-node <name of the node>
+----
+
+Append ``--reset`` to ``tailscale up`` if you've already configured.

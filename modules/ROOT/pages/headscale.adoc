@@ -1,0 +1,26 @@
+= Headscale
+
+An open-source control server for xref:tailscale.adoc[].
+
+== Registering new users
+
+.https://headscale.net/stable/usage/getting-started/#create-a-headscale-user
+----
+headscale users create <USER>
+----
+
+== Listing existing users
+
+.https://headscale.net/stable/usage/getting-started/#list-existing-headscale-users
+----
+headscale users list
+----
+
+== Using a preauthkey
+
+.https://headscale.net/stable/usage/getting-started/#list-existing-headscale-users
+----
+headscale preauthkeys create --user <USER_ID>
+----
+
+Use the ID provided in the list of users.

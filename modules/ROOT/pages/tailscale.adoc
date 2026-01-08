@@ -1,0 +1,13 @@
+= Tailscale
+
+== Login Specific Control Server
+
+----
+tailscale up --login-server https://<domain url>:<port>
+----
+
+Alternatively, an authentication token can be used.
+
+----
+tailscale up --login-server https://<domain url>:<port> --authkey <authkey>
+----
