@@ -107,3 +107,6 @@ sudo tailscale set --exit-node <name of the node>
 ----
 
 Append ``--reset`` to ``tailscale up`` if you've already configured.
+
+If the setting the exit node does not work, you can try appending ``--exit-node=<ip of exit node>``.
+Credits due to my significant other.
