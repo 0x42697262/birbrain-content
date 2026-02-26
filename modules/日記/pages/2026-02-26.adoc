@@ -1,0 +1,40 @@
+= 2026年02月26日
+
+== Flatpak
+
+=== error: While opening repository /var/lib/flatpak/repo: opening repo: opendir(/var/lib/flatpak/repo): No such file or directory
+
+----
+https://github.com/flatpak/flatpak/issues/5488#issuecomment-1697152286
+----
+
+=== error: No remote refs found for ‘flathub’
+
+----
+❯ flatpak install flathub org.vinegarhq.Sober
+Looking for matches…
+error: No remote refs found for ‘flathub’
+----
+
+Just run
+
+----
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+----
+
+=== error: Flatpak system operation EnsureRepo not allowed for user
+
+If you get this after running command above, just append ``--user``.
+
+----
+flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+----
+
+=== bwrap: Can't mount proc on /newroot/proc: Operation not permitted, error: ldconfig failed, exit status 256
+
+----
+bwrap: Can't mount proc on /newroot/proc: Operation not permitted
+error: ldconfig failed, exit status 256
+----
+
+Just do ``incus config set <container name> security.nesting true``.
