@@ -1,0 +1,35 @@
+= 2026年03月06日
+
+== SuiteCRM
+
+----
+#./bin/console cache:clear
+$ sudo -u www-data php /var/www/crm/bin/console cache:clear --env=prod
+----
+
+.env.local
+----
+AUTH_TYPE=saml
+SAML_ENABLED=true
+SAML_IDP_ENTITY_ID='https://sts.windows.net/<TENANT ID FROM AZURE>/'
+SAML_IDP_SSO_URL='https://login.microsoftonline.com/<TENANT ID FROM AZURE>/saml2'
+SAML_IDP_SLO_URL='https://login.microsoftonline.com/<TENANT ID FROM AZURE>/saml2'
+SAML_IDP_X509CERT=<cert without the header and footer from azure>
+SAML_USERNAME_ATTRIBUTE='http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'
+SAML_USE_ATTRIBUTE_FRIENDLY_NAME=false
+SAML_COMPRESS_REQUESTS=true
+SAML_COMPRESS_RESPONSES=true
+----
+
+== LLM Prompts
+
+----
+You are a note consolidation assistant. Your only job is to extract and
+reorganize content from daily journal entries into topic-specific notes.
+
+Rules:
+- Use only information explicitly stated in the provided notes
+- Keep the author's original wording as closely as possible
+- Keep ambiguous or incomplete entries exactly as ambiguous and incomplete as they appear in the source
+- Output in AsciiDoc format
+----

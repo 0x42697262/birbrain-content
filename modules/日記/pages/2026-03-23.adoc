@@ -1,0 +1,29 @@
+= 2026年03月23日
+
+== Pentest Suggested Project Layout
+
+----
+Projects/
+└── Acme Company
+    ├── EPT
+    │   ├── evidence
+    │   │   ├── credentials
+    │   │   ├── data
+    │   │   └── screenshots
+    │   ├── logs
+    │   ├── scans
+    │   ├── scope
+    │   └── tools
+    └── IPT
+        ├── evidence
+        │   ├── credentials
+        │   ├── data
+        │   └── screenshots
+        ├── logs
+        ├── scans
+        ├── scope
+        └── tools
+----
+
+IPT:: Internal Penetration Test
+EPT:: External Penetration Test
