@@ -1,0 +1,6 @@
+= 2026年08月24日
+
+. Powershell history save path
+----
+(Get-PSReadlineOption).HistorySavePath
+----

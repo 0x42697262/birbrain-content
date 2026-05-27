@@ -1,5 +1,9 @@
 = NMAP
 
+== Definitions
+
+-sS:: `TCP-SYN` (synchronize TCP) where this scan just sends one packet with SYN flag. No need to do the three-way handshake as it just waits for either `RST` (closed) or `SYN-ACK` (open) flag.
+
 == Scanning
 
 -A:: Enable OS detection (-O), version detection (-sV), script scanning, and traceroute (--traceroute)

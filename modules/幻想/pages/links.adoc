@@ -250,6 +250,7 @@ Accessed,Name,URL,Description
 2024-01-02,Anna's Archive,https://annas-archive.org[],"📚 The largest truly open library in human history. ⭐️ We mirror Sci-Hub and LibGen. We scrape and open-source Z-Lib, Internet Archive Lending Library, DuXiu, and more."
 2024-02-11,Assembly Language / Reversing / Malware Analysis / Game Hacking,https://gist.github.com/muff-in/ff678b1fda17e6188aa0462a99626121[],"Lots of links pointing to various resources."
 2025-08-29,Cineby,https://www.cineby.app[],"Netflix Alternative"
+2026-05-27,cobalt,https://cobalt.tools[],"cobalt helps you save anything from your favorite websites: video, audio, photos or gifs. just paste the link and you’re ready to rock!"
 |===
 
 
