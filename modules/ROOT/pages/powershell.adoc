@@ -22,8 +22,3 @@ mstsc /shadow:# /control
 ----
 
 NOTE: Use `quser` to get the user id.
-
-NOTE: If logged in as admin, there is no need for a password.
-
-
-
