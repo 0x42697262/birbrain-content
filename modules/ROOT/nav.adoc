@@ -235,6 +235,9 @@
 [PHP]
 * xref:php.adoc[]
 
+[Powershell]
+* xref:powershell.adoc[]
+
 [Python]
 * xref:python.adoc[]
 ** xref:python-schema.adoc[]
