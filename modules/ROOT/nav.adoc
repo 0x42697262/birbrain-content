@@ -207,6 +207,10 @@
 ** xref:incus-guide-screensharing.adoc[]
 ** xref:headscale-server-setup.adoc[]
 
+[Headscale]
+* Headscale
+** xref:headscale.adoc[]
+
 [Incus]
 * xref:incus.adoc[]
 
