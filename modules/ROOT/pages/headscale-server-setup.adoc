@@ -27,7 +27,15 @@ tailscale up --login-server https://<domain url>:<port> --authkey <authkey>
 
 == Server
 
-WIP
+=== Setting Up A Domain
+
+I used Cloudflare as my domain name provider.
+
+=== Domain Configuration
+
+Simply add your domain (I recommend doing subdomains) to DNS records in cloudflare with the IP address (or Elastic IP) of your EC2 instance.
+
+Make sure to set `Proxy status` to **DNS only**.
 
 == Client
 
