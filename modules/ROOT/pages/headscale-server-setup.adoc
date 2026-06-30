@@ -1,60 +1,300 @@
-= Headscale Control Server Guide
+= Headscale Control Server Setup Guide
 
-I'll be using AWS EC2 VM instance for this one. I won't be explaining the details much that's needed but make sure port 80 and 443 works.
-Make sure to have your own domain as well because Let's Encrypt blocks amazon domains.
+A guide to running your own https://headscale.net[headscale] control server (a
+self-hosted Tailscale coordination server) on a public Linux VM, secured with
+HTTPS via Let's Encrypt, and optionally turned into a VPN *exit node*.
+
+[IMPORTANT]
+====
+This guide is written from a real, working setup, and it deliberately calls out
+the gotchas encountered along the way. Issues are flagged inline with
+`NOTE` / `CAUTION` admonitions as they become relevant, and collected at the end
+under <<troubleshooting>>. If a step misbehaves, check there first -- almost
+every "it just hangs / doesn't work" moment in headscale has a known cause.
+====
+
+== Assumptions
+
+* The server is a generic systemd-based Linux distro (Debian, Arch, etc.). The
+  author runs NixOS, so the declarative equivalents appear in `NOTE` callouts,
+  but the main path is plain Linux + `config.yaml`.
+* You have a cloud VM (the examples assume AWS EC2, but any provider works) with
+  a *public IP*. Cloud-provider VM setup itself is out of scope.
 
 == Requirements
 
-* AWS EC2 VM instance
-* custom domain url
-* any linux box
-* headscale (for control server)
-* tailscale (for clients)
+* A public Linux VM with a *static* public IP. On EC2, allocate and associate an
+  Elastic IP so the address survives stop/start -- if the IP changes, both DNS
+  and the issued certificate break.
+* A *custom domain* you control.
++
+[CAUTION]
+====
+Do **not** use the provider's auto-assigned hostname (e.g.
+`*.compute.amazonaws.com`). Let's Encrypt will not issue certificates for those,
+so TLS -- and therefore the whole setup -- will fail. A custom (sub)domain is
+mandatory.
+====
+* Required software (install via your distro's package manager; the exact
+  commands are intentionally omitted -- only the packages matter):
+** *Server*: `headscale` (the control server) **and** `tailscale` -- the server
+   itself must run a tailscale client if you want it to be an exit node.
+** *Clients*: `tailscale`.
+** *Optional*: `ethtool` -- only for exit-node throughput tuning (see below).
 
-=== Installing Tailscale on your PC
+=== Ports
 
-If Ubuntu:
+Open these in both the OS firewall **and** the cloud security group:
+
+[cols="1,3"]
+|===
+| Port | When it's needed
+
+| `tcp/443`
+| Always. HTTPS for clients, and the TLS-ALPN-01 ACME challenge.
+
+| `tcp/80`
+| Only if you use the *HTTP-01* ACME challenge instead of TLS-ALPN-01.
+
+| `udp/3478`
+| Only if you enable the embedded DERP relay.
+|===
+
+This guide uses TLS-ALPN-01, so **only `tcp/443` is required**.
+
+== Step 1 -- Point your domain at the server
+
+At your DNS provider (Cloudflare, etc.), add an *A record* for your chosen
+subdomain pointing to the server's public/Elastic IP:
 
 ----
-curl -fsSL https://tailscale.com/install.sh | sh
+headscale.example.com.   A   <YOUR_SERVER_PUBLIC_IP>
 ----
 
-After installation completes, start the Tailscale client:
+[NOTE]
+====
+If you use Cloudflare, set *Proxy status* to **DNS only** (grey cloud). The
+orange-cloud proxy terminates TLS itself and will break headscale's own
+Let's Encrypt + the Tailscale clients' expectations.
+====
+
+Verify it resolves before continuing -- the certificate cannot be issued until
+the name points at the box:
 
 ----
-tailscale up --login-server https://<domain url>:<port> --authkey <authkey>
+dig +short headscale.example.com
 ----
 
-== Server
+== Step 2 -- Configure headscale (server)
 
-=== Setting Up A Domain
+headscale reads `/etc/headscale/config.yaml`. The important parts:
 
-I used Cloudflare as my domain name provider.
+[source,yaml]
+----
+# The public URL clients register against.
+server_url: https://headscale.example.com
 
-=== Domain Configuration
+# Listen on all interfaces, on 443.
+listen_addr: 0.0.0.0:443
 
-Simply add your domain (I recommend doing subdomains) to DNS records in cloudflare with the IP address (or Elastic IP) of your EC2 instance.
+# --- Built-in Let's Encrypt (no nginx / certbot needed) ---
+tls_letsencrypt_hostname: headscale.example.com
+# TLS-ALPN-01 runs the ACME challenge over 443, so port 80 is NOT needed.
+tls_letsencrypt_challenge_type: TLS-ALPN-01
 
-Make sure to set `Proxy status` to **DNS only**.
+# --- DNS ---
+dns:
+  magic_dns: false
+  nameservers:
+    global:
+      - 1.1.1.1
+      - 1.0.0.1
+----
 
-== Client
+[NOTE]
+.Let's Encrypt is automatic
+====
+headscale obtains and renews the certificate itself -- you do **not** need nginx
+or a separate certbot. Just set `tls_letsencrypt_hostname` and a challenge type.
+With `TLS-ALPN-01` the challenge happens on 443, so you only open one port.
 
-Make sure you register a node to the headscale control server.
+On *NixOS* this is fully declarative -- the cert is fetched automatically on
+first start:
 
-The link:https://headscale.net/stable/usage/getting-started/#normal-interactive-login[official documentation] is already good enough.
+[source,nix]
+----
+services.headscale = {
+  enable = true;
+  address = "0.0.0.0";
+  port = 443;
+  settings = {
+    server_url = "https://headscale.example.com";
+    tls_letsencrypt_hostname = "headscale.example.com";
+    tls_letsencrypt_challenge_type = "TLS-ALPN-01";
+  };
+};
+----
+====
 
-**WIP**
+[CAUTION]
+.Issue I hit: DNS config requires global nameservers
+====
+Setting only `magic_dns` triggered a validation failure:
 
-== Exit Node Setup
+----
+dns.nameservers.global must be set when overriding local DNS
+----
 
-This part is optional.
-If you want to act your server as a VPN for your devices (clients), simply follow the guide.
+The fix is to provide global nameservers (the `nameservers.global` block above).
+I keep `magic_dns: false` for now to avoid also needing a `base_domain`. On
+*NixOS* the exact same fix applies:
 
-=== Server
+[source,nix]
+----
+dns = {
+  magic_dns = false;
+  nameservers.global = [ "1.1.1.1" "1.0.0.1" ];
+};
+----
+====
 
-==== Configure tables
+[NOTE]
+.What MagicDNS is (and why it's off here)
+====
+*MagicDNS* lets devices on your tailnet reach each other by *name* instead of by
+raw `100.x` IP. With it on, headscale gives each node a hostname under a *base
+domain* (the MagicDNS suffix) -- a machine called `laptop` becomes something like
+`laptop.tailnet.example.com` -- and it can also push DNS servers / search domains
+down to clients.
 
-Configure the headscale control server to link:https://tailscale.com/kb/1408/quick-guide-exit-nodes[use port forwarding].
+* *On*: peers resolve by name (`ssh laptop` instead of `ssh 100.64.0.3`). You
+  must also set a `base_domain` (plus the `nameservers.global` above).
+* *Off* (this guide): no automatic names -- you address peers by their `100.x`
+  Tailscale IP, from `headscale nodes list` / `tailscale status`.
+
+It's off here purely to keep the setup minimal: it avoids needing a
+`base_domain`, and since that base domain would embed your real domain, leaving
+MagicDNS off is also one less place to leak it. To enable it later, set
+`magic_dns: true` and a `base_domain` that is **not** the same hostname as
+`server_url` (headscale rejects that overlap).
+====
+
+[CAUTION]
+.Issue I hit: headscale can't bind port 443
+====
+headscale runs as a non-root `headscale` user, and 443 is a privileged port --
+so it fails to start with a *permission denied* on `:443` unless the service is
+granted `CAP_NET_BIND_SERVICE`.
+
+On generic systemd, add a drop-in (`systemctl edit headscale`):
+
+----
+[Service]
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+----
+
+On *NixOS*:
+
+[source,nix]
+----
+systemd.services.headscale.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+----
+====
+
+== Step 3 -- Start headscale and verify
+
+----
+sudo systemctl enable --now headscale
+journalctl -u headscale -f
+----
+
+In the logs, watch for the ACME certificate being obtained and headscale
+listening. Then confirm from the *outside* (your laptop), which tests DNS, the
+firewall/security group, and the cert end to end:
+
+----
+curl -I https://headscale.example.com
+----
+
+A valid (non-self-signed) response means TLS-ALPN-01 succeeded and you're
+publicly reachable.
+
+[NOTE]
+====
+The certificate can only be issued once DNS points at the box **and** 443 is
+reachable. If the cert never appears, that's almost always the cause -- not a
+headscale bug.
+====
+
+== Step 4 -- Create a user and a pre-auth key
+
+On the server. First a user, then a pre-auth key for it:
+
+----
+headscale users create <user>
+headscale users list                 # note the user's ID
+headscale preauthkeys create --user <user> --reusable --expiration 8760h
+----
+
+* `8760h` is ~1 year (Go-style duration; `h` is the largest reliable unit).
+* `--reusable` lets several devices enroll with the same key.
+
+[NOTE]
+====
+Pre-auth keys are *immutable* -- you cannot edit a key's expiration after the
+fact. To change it, create a new key and `headscale preauthkeys expire` the old
+one. Also: depending on the headscale version, `--user` may want the numeric ID
+from `headscale users list` rather than the name.
+====
+
+== Step 5 -- Join a client
+
+Install `tailscale` on the client, then point it at *your* server instead of
+Tailscale's:
+
+----
+sudo tailscale up --login-server https://headscale.example.com --authkey <KEY>
+----
+
+[WARNING]
+.Issue I hit: `--login-server` must include `https://`
+====
+Running it with a bare hostname (`--login-server headscale.example.com`, no
+scheme) made `tailscale up` **hang with no output at all**. Always include the
+`https://` scheme.
+====
+
+Verify the device joined -- on the server `headscale nodes list` should show it
+with a `100.x.y.z` address, and on the client `tailscale status` lists peers.
+
+[NOTE]
+====
+MagicDNS is off in this guide, so there are no automatic hostnames -- reach peers
+by their `100.x` Tailscale IPs.
+====
+
+== Step 6 -- Exit node (optional)
+
+Turn the server into a VPN exit node so clients can route their internet traffic
+through it.
+
+=== Server side
+
+==== Enable IP forwarding
+
+An exit node forwards traffic, which the kernel won't do without IP forwarding.
+
+[CAUTION]
+.Issue I hit
+====
+`tailscale up --advertise-exit-node` warned:
+
+----
+IP forwarding is disabled, subnet routing/exit nodes will not work.
+----
+
+Enable it. On generic Linux:
 
 ----
 echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
@@ -62,59 +302,147 @@ echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale
 sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
 ----
 
-==== Register a new node
+On *NixOS*, don't hand-edit `/etc/sysctl.d` -- let the tailscale module set the
+same sysctls:
 
-Get xref:tailscale.adoc[] installed and running on the headscale control server.
-Yes, it is needed.
-
-Login with the registered node to your headscale control server.
-
+[source,nix]
 ----
-sudo tailscale up --login-server=<YOUR_HEADSCALE_URL> --advertise-exit-node
-----
-
-Make sure to run ``sudo tailscale up`` after the command above.
-
-==== Approve routes
-
-Find your newly registered node.
-
-----
-headscale nodes list-routes
+services.tailscale = {
+  enable = true;
+  useRoutingFeatures = "server";   # enables net.ipv4.ip_forward + net.ipv6.conf.all.forwarding
+};
 ----
 
-Pay attention to the ID.
-This will be used for approving the route with command below.
+Verify either way:
 
 ----
-headscale nodes approve-routes --identifier <ID of node> --routes 0.0.0.0/0
+sysctl net.ipv4.ip_forward net.ipv6.conf.all.forwarding   # both should be 1
 ----
+====
 
-==== Restart headscale service
+[NOTE]
+.Optional: UDP GRO warning
+====
+You may also see a warning that *UDP GRO forwarding is suboptimally configured*
+on the network interface. This only affects exit-node throughput, not
+correctness. If you care, apply Tailscale's recommended `ethtool` tweak to the
+interface (requires the `ethtool` package). Safe to ignore otherwise.
+====
 
-If using **systemd**, run the command.
+==== Advertise and approve the exit node
 
-----
-sudo systemctl restart headscale
-----
-
-I forgot the others so you're on your own.
-
-=== Clients
-
-Logging in is the same.
-
-----
-sudo tailscale up --login-server <YOUR_HEADSCALE_URL>
-----
-
-Then set the exit node.
+Run a tailscale client *on the server* and advertise it as an exit node:
 
 ----
-sudo tailscale set --exit-node <name of the node>
+sudo tailscale up --login-server https://headscale.example.com --authkey <KEY> --advertise-exit-node
 ----
 
-Append ``--reset`` to ``tailscale up`` if you've already configured.
+[NOTE]
+====
+If a later plain `tailscale up` clears the advertisement, re-assert it without a
+full re-login: `sudo tailscale set --advertise-exit-node`.
+====
 
-If the setting the exit node does not work, you can try appending ``--exit-node=<ip of exit node>``.
-Credits due to my significant other.
+Advertising only *offers* the routes (`0.0.0.0/0`, `::/0`); headscale won't hand
+them to clients until you approve them. On the server:
+
+----
+headscale nodes list                 # find the exit node's ID
+headscale nodes approve-routes --identifier <ID> --routes "0.0.0.0/0,::/0"
+headscale nodes list-routes          # confirm: Approved + Serving show 0.0.0.0/0 and ::/0
+----
+
+[CAUTION]
+.Issue I hit: "no exit nodes found"
+====
+Two things confused me here:
+
+* The client kept showing *no exit nodes found* -- because the routes were not
+  approved yet. Running `approve-routes` for **both** `0.0.0.0/0` and `::/0`
+  fixed it.
+* Running `tailscale exit-node list` **on the server** also shows nothing -- a
+  node never lists *itself* as an exit node. Always check from a *different*
+  client.
+====
+
+=== Client side
+
+After approval, the client can see and select the exit node:
+
+----
+tailscale exit-node list                 # the server should now appear
+sudo tailscale set --exit-node=<EXIT_NODE_100.x_IP> --exit-node-allow-lan-access
+----
+
+* Get the `100.x` IP from `headscale nodes list` / `tailscale status`.
+* `--exit-node-allow-lan-access` keeps your local LAN (printer, NAS) reachable
+  while everything else routes through the server.
+
+Confirm your egress IP changed (run on the client):
+
+----
+curl https://ipv4.icanhazip.com/         # should now be the SERVER's public IP
+----
+
+Turn it back off (route directly again):
+
+----
+sudo tailscale set --exit-node=
+----
+
+[CAUTION]
+.Issue I hit: exit node breaks org-restricted services
+====
+An exit node is *full tunnel* -- **all** your traffic exits via the server's IP,
+and there's no native per-app/per-destination split. After enabling it, services
+that gate access by IP (e.g. a corporate Google Workspace / Meet behind
+conditional access or an IP allowlist) stopped working, because my apparent IP
+was now the cloud VM instead of the expected one.
+
+There's no clean way to exclude just those services. The practical approach is to
+toggle the exit node *off* (`tailscale set --exit-node=`) when you need
+IP-restricted org services, and only enable it when you actually want the
+server's IP. Also be mindful that tunneling work traffic around org IP rules may
+conflict with your organization's acceptable-use policy.
+====
+
+[#troubleshooting]
+== Troubleshooting (collected gotchas)
+
+[cols="1,2"]
+|===
+| Symptom | Cause / fix
+
+| `tailscale up` hangs with no output
+| `--login-server` is missing the `https://` scheme. Add it.
+
+| Client: `tailscale exit-node list` is empty
+| Routes not approved on the server. Run
+  `headscale nodes approve-routes` for both `0.0.0.0/0` and `::/0`.
+
+| `tailscale exit-node list` empty *on the server itself*
+| Expected -- a node never lists itself. Check from another client.
+
+| headscale won't start, *permission denied* on `:443`
+| Non-root service can't bind a privileged port. Grant
+  `CAP_NET_BIND_SERVICE` (see Step 2).
+
+| Config error: `dns.nameservers.global must be set when overriding local DNS`
+| Provide `dns.nameservers.global` (and keep `magic_dns: false`).
+
+| Certificate never issues
+| DNS not pointing at the box yet, or 443 not reachable
+  (firewall / security group). TLS-ALPN-01 must reach the server on 443.
+
+| Exit node warns *IP forwarding is disabled*
+| Enable `net.ipv4.ip_forward` + `net.ipv6.conf.all.forwarding`
+  (or `useRoutingFeatures = "server"` on NixOS).
+
+| Exit node works but org services (Meet, etc.) break
+| Full-tunnel changed your egress IP. Toggle the exit node off when you
+  need IP-restricted services.
+
+| Exit-node advertisement disappeared
+| A plain `tailscale up` cleared it. Re-run
+  `tailscale set --advertise-exit-node`.
+|===
