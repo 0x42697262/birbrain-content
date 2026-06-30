@@ -1,10 +1,17 @@
 = Headscale
 
-An open-source control server for xref:tailscale.adoc[].
+An open-source, self-hosted implementation of the control server for xref:tailscale.adoc[].
+It manages users, nodes, and routes for your private network (tailnet).
+
+See xref:headscale-server-setup.adoc[] for setting up the control server itself.
 
 == Users
 
+A user owns the nodes registered to the control server.
+
 === Registering new users
+
+Create a new user before registering any nodes under it.
 
 .https://headscale.net/stable/usage/getting-started/#create-a-headscale-user
 ----
@@ -13,6 +20,9 @@ headscale users create <USER>
 
 === Listing existing users
 
+Lists all users along with their IDs.
+The ID is needed when creating preauthkeys.
+
 .https://headscale.net/stable/usage/getting-started/#list-existing-headscale-users
 ----
 headscale users list
@@ -20,29 +30,68 @@ headscale users list
 
 == Nodes
 
-=== Listing Nodes
+A node is any device (client or server) registered to the tailnet.
+
+=== Listing nodes
+
+Shows every registered node together with its ID, name, and IP address.
 
 ----
 headscale nodes list
 ----
 
-=== Routes
+=== Listing routes
+
+Lists the routes advertised by nodes, such as subnet routes or an exit node (`0.0.0.0/0`).
+Note the ID of the node whose routes you want to approve.
 
 ----
 headscale nodes list-routes
 ----
 
-== Using a preauthkey
+=== Approving routes
 
-.https://headscale.net/stable/usage/getting-started/#list-existing-headscale-users
+Advertised routes are not used until they are approved.
+Use the node ID from `headscale nodes list-routes` and pass the routes to approve.
+
+----
+headscale nodes approve-routes --identifier <NODE_ID> --routes <ROUTES>
+----
+
+For example, approving an exit node:
+
+----
+headscale nodes approve-routes --identifier <NODE_ID> --routes 0.0.0.0/0
+----
+
+== Preauthkeys
+
+A preauthkey lets a node register itself non-interactively, without the manual browser login flow.
+
+=== Creating a preauthkey
+
+Use the user ID from `headscale users list`.
+
+.https://headscale.net/stable/usage/getting-started/#using-a-preauthkey
 ----
 headscale preauthkeys create --user <USER_ID>
 ----
 
-Use the ID provided in the list of users.
+=== Setting an expiration
 
-=== Expiration
+By default a preauthkey expires after one hour.
+Pass `--expiration` to set a longer lifetime.
 
 ----
 headscale preauthkeys create --user <USER_ID> --expiration 1y
+----
+
+== Service management
+
+After changing approved routes or other settings, restart the control server so the changes take effect.
+
+If using *systemd*:
+
+----
+sudo systemctl restart headscale
 ----
