@@ -1,13 +1,68 @@
 = Tailscale
 
-== Login Specific Control Server
+The client used to connect a device to a tailnet.
+When paired with a self-hosted xref:headscale.adoc[] control server, point the client at your own server instead of Tailscale's.
+
+See xref:headscale-server-setup.adoc[] for the full client and server setup.
+
+== Installation
+
+On Ubuntu (or other Debian-based distros):
+
+----
+curl -fsSL https://tailscale.com/install.sh | sh
+----
+
+== Connecting to a control server
+
+=== Interactive login
+
+Bring the client up and register it against a specific control server.
+This opens a browser login flow to register the node.
 
 ----
 tailscale up --login-server https://<domain url>:<port>
 ----
 
-Alternatively, an authentication token can be used.
+=== Login with an authkey
+
+Alternatively, use a preauthkey to register non-interactively.
+Generate the key on the control server with `headscale preauthkeys create`.
 
 ----
 tailscale up --login-server https://<domain url>:<port> --authkey <authkey>
+----
+
+[TIP]
+====
+Append `--reset` to `tailscale up` if the node has already been configured and you want to apply new flags.
+====
+
+== Exit nodes
+
+An exit node routes all of a device's internet traffic through another node, acting like a VPN.
+
+=== Advertising an exit node
+
+On the node that should act as the exit node, advertise it during login.
+
+----
+sudo tailscale up --login-server=<YOUR_HEADSCALE_URL> --advertise-exit-node
+----
+
+The advertised route must then be approved on the control server with
+`headscale nodes approve-routes` (see xref:headscale.adoc[]).
+
+=== Using an exit node
+
+On the client, set the exit node by name.
+
+----
+sudo tailscale set --exit-node <name of the node>
+----
+
+If setting the exit node by name does not work, use its IP address instead.
+
+----
+sudo tailscale set --exit-node=<ip of exit node>
 ----

@@ -247,6 +247,10 @@
 ** xref:python-schema.adoc[]
 ** xref:python-logging.adoc[]
 
+[Tailscale]
+* Tailscale
+** xref:tailscale.adoc[]
+
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
 ** xref:tia-portal-openness-api.adoc[]
@@ -255,10 +259,6 @@
 
 [Vim]
 * xref:vim.adoc[]
-
-[VPN]
-* xref:vpn.adoc[]
-** xref:tailscale.adoc[]
 
 [Virtualization]
 * Virtualization
