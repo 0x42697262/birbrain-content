@@ -208,8 +208,7 @@
 ** xref:headscale-server-setup.adoc[]
 
 [Headscale]
-* Headscale
-** xref:headscale.adoc[]
+* xref:headscale.adoc[]
 
 [Incus]
 * xref:incus.adoc[]
@@ -248,8 +247,7 @@
 ** xref:python-logging.adoc[]
 
 [Tailscale]
-* Tailscale
-** xref:tailscale.adoc[]
+* xref:tailscale.adoc[]
 
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
