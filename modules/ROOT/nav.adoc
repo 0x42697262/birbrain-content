@@ -175,15 +175,26 @@
 ** xref:幻想:random.adoc[]
 
 [Advanced Encryption Standard]
+* xref:advanced-encryption-standard.adoc[]
+** xref:advanced-encryption-standard-ecb.adoc[]
 
 [Android]
 * xref:android.adoc[]
+
+[Antora]
+* xref:antora.adoc[]
 
 [Arch Linux]
 * xref:arch-linux.adoc[]
 
 [AsciiDoc]
 * xref:asciidoc.adoc[]
+
+[Discoverable Partitions Specification]
+* xref:discoverable-partitions-specification.adoc[]
+
+[Firejail]
+* xref:firejail.adoc[]
 
 [GDB]
 * xref:gdb.adoc[]
@@ -198,9 +209,14 @@
 [Github]
 * xref:github.adoc[]
 ** xref:github-actions.adoc[]
+** xref:github-pages.adoc[]
+** xref:github-personal-access-tokens.adoc[]
 
 [Google]
 * xref:google.adoc[]
+
+[Grep]
+* xref:grep.adoc[]
 
 [Guides]
 * Guides
@@ -215,6 +231,9 @@
 
 [Linux]
 * xref:linux.adoc[]
+
+[Neovim]
+* xref:neovim.adoc[]
 
 [Nix]
 * xref:nix.adoc[]
@@ -235,8 +254,19 @@
 * xref:osint.adoc[]
 ** xref:osint-tools.adoc[]
 
+[Pairwise Transient Key]
+* xref:pairwise-transient-key.adoc[]
+
 [PHP]
 * xref:php.adoc[]
+** xref:php-composer.adoc[]
+** xref:php-laravel.adoc[]
+
+[Pipewire]
+* xref:pipewire.adoc[]
+
+[Polkit]
+* xref:polkit.adoc[]
 
 [Powershell]
 * xref:powershell.adoc[]
@@ -245,6 +275,18 @@
 * xref:python.adoc[]
 ** xref:python-schema.adoc[]
 ** xref:python-logging.adoc[]
+
+[Reverse Engineering]
+* xref:reverse-engineering.adoc[]
+
+[Rust]
+* xref:rust.adoc[]
+
+[Sed]
+* xref:sed.adoc[]
+
+[Stack Smashing]
+* xref:stack-smashing.adoc[]
 
 [Tailscale]
 * xref:tailscale.adoc[]
@@ -260,8 +302,14 @@
 
 [Virtualization]
 * Virtualization
+** xref:libvirtd.adoc[]
 ** xref:qemu.adoc[]
+** xref:virt-manager.adoc[]
 ** xref:vmware.adoc[]
+
+[Wayland]
+* xref:wayland.adoc[]
+** xref:xwayland.adoc[]
 
 [Waydroid]
 * xref:waydroid.adoc[]
