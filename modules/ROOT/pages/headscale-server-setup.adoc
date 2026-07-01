@@ -177,6 +177,10 @@ It's off here purely to keep the setup minimal: it avoids needing a
 MagicDNS off is also one less place to leak it. To enable it later, set
 `magic_dns: true` and a `base_domain` that is **not** the same hostname as
 `server_url` (headscale rejects that overlap).
+
+MagicDNS is *not* a security feature -- on or off, it changes only how you
+address peers (names vs `100.x` IPs), not who can reach your tailnet. See
+<<security>>.
 ====
 
 [CAUTION]
@@ -446,3 +450,35 @@ conflict with your organization's acceptable-use policy.
 | A plain `tailscale up` cleared it. Re-run
   `tailscale set --advertise-exit-node`.
 |===
+
+[#security]
+== Security considerations
+
+[cols="2,1,2"]
+|===
+| Item | Notes & mitigation
+
+| *Origin IP is public* (DNS "DNS only")
+| Pointing the record straight at the server -- required for TLS-ALPN-01 and
+  direct client connections -- exposes the server's IP. Unavoidable for a
+  control server clients connect to; rely on the firewall + patching.
+
+| *`CAP_NET_BIND_SERVICE`*
+| Granting just this one capability to bind `443` is the *least-privilege* way
+  to do it -- prefer it over running headscale as root.
+|===
+
+[NOTE]
+====
+*MagicDNS* being on or off is **not** a security issue -- it only changes how you
+address peers (names vs `100.x` IPs), not who can access the tailnet.
+====
+
+[NOTE]
+.NixOS: secrets in a flake input
+====
+If you read values from a `path:` flake input (as in this setup), that input is
+copied into the *world-readable* Nix store in plaintext. Fine for a domain, but
+never put genuine secrets (auth keys, OIDC client secrets) there -- use a real
+secrets tool such as `agenix` or `sops-nix`, which decrypt to runtime-only files.
+====
