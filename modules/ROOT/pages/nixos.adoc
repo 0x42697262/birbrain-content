@@ -158,3 +158,165 @@ Might be because of removing the profile histories.
 ----
 nixos-rebuild list-generations
 ----
+
+== Updating
+
+``nixos-rebuild switch --upgrade``
+
+== Installation
+
+Summary:
+
+. connect to wifi using **wpa_cli**
+. partition the disk with **parted** (esp, root, home). make sure to use **BTRFS**
+. use **Full-Disk Encryption**
+. create subvolumes (nix, persist, log)
+. mount them
+
+=== partitioning the drive
+
+. Set partition table to GPT
++
+[,sh]
+----
+#parted /dev/<device> -- mklabel gpt
+parted /dev/vda -- mklabel gpt
+----
+. Create boot partition
++
+[,sh]
+----
+#parted /dev/<device> -- mkpart ESP fat32 1MiB 512MiB
+parted /dev/vda -- mkpart ESP fat32 1MiB 512MiB
+----
+. Set ESP boot flag
++
+[,sh]
+----
+#parted /dev/<device> -- set <partition number> <partition label> on
+parted /dev/vda -- set 1 ESP on
+----
+. Create root and home partition
++
+[,sh]
+----
+#parted /dev/<device> -- mkpart root <file system> <start> end>
+parted /dev/vda -- mkpart root btrfs 512MiB 32.5MiB
+parted /dev/vda -- mkpart home btrfs 32.5GiB 100%
+----
+
+simpler version
+
+```sh
+parted /dev/vda
+mklabel gpt
+mkpart ESP fat32 1MiB 512MiB
+set 1 ESP on
+mkpart root btrfs 512MiB 32.5GiB
+mkpart home btrfs 32.5GiB 100%
+```
+
+`print` to verify
+
+=== formatting with luks encryption
+
+. format boot partition (no encryption)
++
+[,sh]
+----
+mkfs.fat -F 32 -n boot /dev/vda1
+----
+. format root and home partitions with luks
++
+[,sh]
+----
+#cryptsetup --verify-passphrase -v luksFormat <partition>
+cryptsetup --verify-passphrase -v luksFormat /dev/vda2
+cryptsetup --verify-passphrase -v luksFormat /dev/vda3
+----
++
+[NOTE]
+This does not include a label to the luks container. Use `cryptsetup config <luks container> --label <label>` to add a label.
+. mount encrypted partitions
++
+[,sh]
+----
+#cryptsetup open <partition> <label>
+cryptsetup open /dev/vda2 root_luks
+cryptsetup open /dev/vda2 home_luks
+----
+. partition home and root
++
+[,sh]
+----
+#mkfs.btrfs -L <label> <luks dev mapper name>
+mkfs.btrfs -L nixos /dev/mapper/root_luks
+mkfs.btrfs -L home /dev/mapper/home_luks
+----
++
+i use `root` and `home` to have separate partition labels. this causes an issue in booting if labels are the same. the labels here might be used by `/dev/disk/by-label/`.
+. mounting root and home partitions
++
+[,sh]
+----
+#mount -t <file system> /dev/mapper/<partition> </mnt locations>
+mount -t btrfs /dev/mapper/root_luks /mnt
+mount -t btrfs /dev/mapper/home_luks /mnt/home
+----
++
+do `mkdir /mnt/home` if directory does not exist
+. creating subvolumes
++
+[,sh]
+----
+btrfs subvolume create /mnt/root
+btrfs subvolume create /mnt/nix
+btrfs subvolume create /mnt/persist
+btrfs subvolume create /mnt/log
+btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+----
+. unmount
++
+[,sh]
+----
+umount /mnt/home
+umount /mnt
+----
+. mount root and home, and others
++
+[,sh]
+----
+mount -o subvol=root,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt
+----
+. create directories for mount point
++
+[,sh]
+----
+mkdir /mnt/home
+mkdir /mnt/nix
+mkdir /mnt/persist
+mkdir -p /mnt/var/log
+----
+. mount home and subvolumes
++
+[,sh]
+----
+mount -o compress=zstd,relatime,ssd,space_cache=v2 /dev/mapper/home_luks /mnt/home
+mount -o subvol=nix,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt/nix
+mount -o subvol=persist,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt/persist
+mount -o subvol=log,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt/var/log
+----
+. mount boot
++
+[,sh]
+----
+mkdir /mnt/boot
+#mount /dev/<partition> /mnt/boot
+mount /dev/vda1 /mnt/boot
+----
+. generate nixos-config
++
+[,sh]
+----
+nixos-generate-config --root /mnt
+----

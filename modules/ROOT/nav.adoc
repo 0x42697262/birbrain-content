@@ -187,6 +187,9 @@
 [Antora]
 * xref:antora.adoc[]
 
+[APTs]
+* xref:apt.adoc[]
+
 [Arch Linux]
 * xref:arch-linux.adoc[]
 
@@ -240,6 +243,9 @@
 
 [Incus]
 * xref:incus.adoc[]
+
+[iw]
+* xref:iw.adoc[]
 
 [Linux]
 * xref:linux.adoc[]
@@ -298,8 +304,17 @@
 [Rust]
 * xref:rust.adoc[]
 
+[Security Frameworks]
+* xref:security-frameworks.adoc[]
+
 [Sed]
 * xref:sed.adoc[]
+
+[sqlite3]
+* xref:sqlite3.adoc[]
+
+[SSH]
+* xref:ssh.adoc[]
 
 [Stack Smashing]
 * xref:stack-smashing.adoc[]
@@ -356,6 +371,9 @@
 
 [Zig]
 * xref:zig.adoc[]
+
+[zram]
+* xref:zram.adoc[]
 
 [日本語]
 * xref:日本語.adoc[]

@@ -37,3 +37,40 @@ match obj:
 ----
 
 ``_ if`` is used for extending custom conditions since pattern matching does not work for booleans.
+
+=== Command-line arguments
+
+[python]
+----
+import sys
+
+args = sys.argv
+----
+
+*sys.args* will always contain the filename
+
+better use `argparse` for parameters with arguments
+
+[python]
+----
+import argparse
+
+parser = argparse.ArgumentParser(description="description here")
+parser.add_argument("--name", help="set name")
+args = parser.parse_args()
+----
+
+to use flags, add ``action="store_true"`` inside the argument. default values can also be set with ``default="value"``.
+
+``metavar`` for changing help argument string
+
+=== Trace memory usage
+
+[python]
+----
+import tracemalloc
+tracemalloc.start()
+# some function here or __main__()
+print(tracemalloc.get_traced_memory())
+tracemalloc.stop()
+----

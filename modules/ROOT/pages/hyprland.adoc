@@ -38,6 +38,14 @@ Save those two as files and run `hyprctl keyword decoration:screen_shader <shade
 Use the blank shader to reset.
 Do a *hyprland reload* to clear notifications stuck at the top of the screen.
 
+== Screenshare not working
+
+Restart `xdg-desktop-portal-hyprland`:
+
+----
+systemctl restart --user xdg-desktop-portal-hyprland.service
+----
+
 == Source
 
 * https://hyprland.org[hyprland.org]

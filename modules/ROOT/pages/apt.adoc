@@ -1,0 +1,16 @@
+= APTs
+
+Advanced Persistent Threats (APTs) are stealthy threat actors, typically
+nation-state or state-sponsored groups, that gain and maintain long-term
+unauthorized access to a target network.
+
+== APT1
+
+* PLA Unit 61398
+* date: 2006 - 2013
+* longest time period access to a network: 1764 days (4 years 10 months)
+** average: 356 days
+* Military Unit Cover Designator (MUCDs)
+* webc2-table malware family
+* headquarter is located in Pudong New Area, Shanghai
+* has at least hundreds to thousands of personnel

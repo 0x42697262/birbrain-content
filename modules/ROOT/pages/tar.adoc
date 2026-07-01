@@ -14,6 +14,14 @@ compressed. There will be a need to append these parameters to not include them.
 
 This will set the user and group to `root`.
 
+== Flags
+
+J:: Uses `xz`
+z:: Uses `gzip`
+v:: verbose
+c:: compress
+x:: extract
+
 == Source
 
 * https://www.gnu.org/software/tar/[GNU tar]

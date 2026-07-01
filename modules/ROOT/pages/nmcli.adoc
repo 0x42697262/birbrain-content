@@ -71,6 +71,12 @@ Warning: password for '802-1x.identity' not given in 'passwd-file' and nmcli can
 Error: Connection activation failed: Secrets were required, but not provided
 ----
 
+== List wifi devices
+
+----
+nmcli device
+----
+
 == Source
 
 * https://networkmanager.dev[networkmanager.dev]

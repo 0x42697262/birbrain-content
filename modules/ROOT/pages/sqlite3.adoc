@@ -1,0 +1,17 @@
+= sqlite3
+
+`sqlite3` is the command-line shell for SQLite databases.
+
+== Exporting from db to csv
+
+----
+.mode csv
+.header on
+.output output.csv
+SELECT * FROM table;
+.quit
+----
+
+== Source
+
+* https://www.sqlite.org/cli.html[sqlite.org — Command Line Shell]

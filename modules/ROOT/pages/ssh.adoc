@@ -1,0 +1,23 @@
+= SSH
+
+SSH (Secure Shell) is a protocol for securely operating network services over an
+unsecured network, most commonly remote login and command execution.
+
+== Switching SSH keys
+
+When switching ssh keys:
+
+----
+eval "$(ssh-agent -s)"
+ssh-add <rsa>
+----
+
+Example:
+
+----
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/homeserver
+----
+
+== Source
+
+* https://www.openssh.com[openssh.com]

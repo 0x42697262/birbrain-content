@@ -39,3 +39,8 @@ Current screen should ask you to choose between personal or school/work type.
 
 Press kbd:[Shift+F10] to open up **cmd.exe**.
 Run ``start ms-cxh:localonly``.
+
+== Fix windows 10 boot
+
+select the disk with ``diskpart`` then select the system volume. if gpt use ``bcdboot``. if mbr, use ``bootrec``. assign a drive letter.
+bcdboot: ``bcdboot C:\windows /s V: /f UEFI``

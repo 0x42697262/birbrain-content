@@ -1,0 +1,13 @@
+= Security Frameworks
+
+Common security frameworks:
+
+- SOC 2
+- ISO 270012
+- NIST CSF2
+- HIPAA2
+- PCI DSS2
+- HITRUST2
+- COBIT2
+- NIST 800-53
+- NIST 800-171

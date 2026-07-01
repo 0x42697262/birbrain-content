@@ -16,6 +16,22 @@ Requirements:
 
 Use `hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'PLDTWIFI?1?1?1?1?1' -w 3 --show` to show all cracked hashes.
 
+== Enabling Monitor Mode
+
+Checking if wifi card supports monitor mode:
+
+. put into monitor mode
+. check if there's monitor mode
+. test packet injection with `aireplay-ng --test <interface>`
+
+starting monitor mode: `airmon-ng start <interface>`
+
+checking if monitor mode: `iwconfig` and find the `Mode:Monitor`
+
+use `airodump-ng <interface>` to see all the access points
+
+make sure to `airmon-ng check kill`
+
 == Disabling Monitor Mode
 
 . `ip link set wlo1 down`
@@ -23,6 +39,48 @@ Use `hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'PLDTWIFI?1?1?1?1?1' -w 3 --s
 . `ip link set wlo1 up`
 
 Check with `iwconfig` if Mode is set to *Managed*.
+
+== Sniffing the network
+
+----
+airodump-ng --bssid <ap_bssid> --essid <ap_name> -c <channel> -w <filename> <interface>
+----
+
+[NOTE]
+====
+This is wrong: if your card can't capture the data, it will only show `clear-to-send` and `request-to-send` and no `Acknowledgement`. a successful sniff must have both `Acknowledgement` and `WPA Handshake` in `airodump-ng`.
+It needs CTS -> RTS -> Qos Data.
+====
+
+targeting a specific network requires specifying the `BSSID`.
+
+An alternative to the monitor-mode setup above:
+
+----
+ifconfig wlan0 down
+airmon-ng check kill
+iwconfig wlan0 mode monitor
+ifconfig wlan0 up
+iwconfig
+----
+
+Wireshark display filter:
+
+----
+wlan.fc.type_subtype in {0x00}
+----
+
+== Choosing an adapter
+
+See https://github.com/v1s1t0r1sh3r3/airgeddon/wiki/Cards%20and%20Chipsets[airgeddon — Cards and Chipsets], and check xref:iw.adoc[iw] for Virtual Interface (VIF) capability.
+
+Avoid these chipsets:
+
+* rtl8814au
+* rtl8812au
+* rtl8821/11au
+
+Reference: https://github.com/morrownr/USB-WiFi/issues/314[morrownr/USB-WiFi#314]
 
 == Source
 

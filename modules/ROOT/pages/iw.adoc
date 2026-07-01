@@ -1,0 +1,33 @@
+= iw
+
+`iw` is the command-line tool for configuring Linux wireless devices (nl80211).
+
+iw dev:: show which interface it is related to ``phy``
+
+== Find if it supports AP
+
+.$ iw list
+----
+Supported interface modes:
+	 * IBSS
+	 * managed
+	 * **AP**
+	 * AP/VLAN
+	 * WDS
+	 * monitor
+	 * mesh point
+----
+
+== Checking for Virtual Interface capability
+
+----
+iw list | grep "Supported interface modes" -A 8
+----
+
+*note: run with sudo if not working*
+
+Should output `AP/VLAN` (not just `AP`) for full support of `VIF` (Virtual Interface).
+
+== Source
+
+* https://wireless.wiki.kernel.org/en/users/documentation/iw[wireless.wiki.kernel.org — iw]

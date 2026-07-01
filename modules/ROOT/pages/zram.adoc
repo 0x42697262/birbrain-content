@@ -1,0 +1,12 @@
+= zram
+
+zram creates a compressed block device in RAM, commonly used as swap to make
+better use of memory before hitting disk.
+
+== Using zram-generator
+
+Use only 50% of max ram in `/etc/systemd/zram-generator.conf`.
+
+== Source
+
+* https://github.com/systemd/zram-generator[systemd/zram-generator]
