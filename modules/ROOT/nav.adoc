@@ -177,10 +177,6 @@
 [adb]
 * xref:adb.adoc[]
 
-[Advanced Encryption Standard]
-* xref:advanced-encryption-standard.adoc[]
-** xref:advanced-encryption-standard-ecb.adoc[]
-
 [Android]
 * xref:android.adoc[]
 
@@ -195,6 +191,12 @@
 
 [AsciiDoc]
 * xref:asciidoc.adoc[]
+
+[Cryptography]
+* Cryptography
+** xref:advanced-encryption-standard.adoc[]
+*** xref:advanced-encryption-standard-ecb.adoc[]
+** xref:pairwise-transient-key.adoc[]
 
 [Docker]
 * xref:docker.adoc[]
@@ -232,6 +234,7 @@
 
 [Guides]
 * Guides
+** xref:wifi-cracking.adoc[]
 ** xref:incus-guide-screensharing.adoc[]
 ** xref:headscale-server-setup.adoc[]
 
@@ -250,6 +253,10 @@
 [Linux]
 * xref:linux.adoc[]
 ** xref:discoverable-partitions-specification.adoc[]
+** xref:polkit.adoc[]
+** xref:wayland.adoc[]
+** xref:xwayland.adoc[]
+
 
 [Neovim]
 * xref:neovim.adoc[]
@@ -276,9 +283,6 @@
 * xref:osint.adoc[]
 ** xref:osint-tools.adoc[]
 
-[Pairwise Transient Key]
-* xref:pairwise-transient-key.adoc[]
-
 [PHP]
 * xref:php.adoc[]
 ** xref:php-composer.adoc[]
@@ -286,9 +290,6 @@
 
 [Pipewire]
 * xref:pipewire.adoc[]
-
-[Polkit]
-* xref:polkit.adoc[]
 
 [Powershell]
 * xref:powershell.adoc[]
@@ -349,15 +350,10 @@
 [VMWare]
 * xref:vmware.adoc[]
 
-[Wayland]
-* xref:wayland.adoc[]
 
 [Waydroid]
 * xref:waydroid.adoc[]
 ** xref:waydroid-errors.adoc[]
-
-[WiFi Cracking]
-* xref:wifi-cracking.adoc[]
 
 [Windows]
 * xref:windows.adoc[]
@@ -365,9 +361,6 @@
 
 [x86]
 * xref:x86.adoc[]
-
-[XWayland]
-* xref:xwayland.adoc[]
 
 [Zig]
 * xref:zig.adoc[]
