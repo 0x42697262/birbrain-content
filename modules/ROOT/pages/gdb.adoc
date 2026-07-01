@@ -7,6 +7,15 @@ debugging and reverse engineering (see xref:reverse-engineering.adoc[Reverse Eng
 
 Install this cool GDB plugin https://github.com/hugsy/gef[GEF].
 
+Compile with gcc's `-g` flag to include debug symbols.
+
+== TUI navigation
+
+. layout next
+. nexti (assembly next)
+. next (code next)
+. refresh
+
 == Commands
 
 until:: until <address> (short form: **u**)

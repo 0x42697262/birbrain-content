@@ -13,6 +13,15 @@ echo $DISPLAY          # e.g. :0 provided by XWayland
 xeyes                  # an X11 app running under Wayland
 ----
 
+== Incus containers
+
+Getting incus lxc containers to work on XWayland would need additional
+configuration because `.Xauthority` doesn't exist:
+
+----
+xhost +local:
+----
+
 == Source
 
 * https://wayland.freedesktop.org/xserver.html[wayland.freedesktop.org — XWayland]

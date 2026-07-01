@@ -1,0 +1,25 @@
+= adb
+
+`adb` (Android Debug Bridge) is a command-line tool to communicate with
+xref:android.adoc[Android] devices.
+
+== Pulling a package
+
+.List packages
+----
+adb shell pm list packages
+----
+
+.Get full path of the package
+----
+adb shell pm path com.example.app
+----
+
+.Pull the app
+----
+adb pull /data/app/com.example.someapp-2.apk path/to/desired/destination
+----
+
+== Source
+
+* https://developer.android.com/tools/adb[developer.android.com — adb]

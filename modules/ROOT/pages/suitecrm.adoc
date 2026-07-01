@@ -1,0 +1,31 @@
+= SuiteCRM
+
+SuiteCRM is an open-source Customer Relationship Management (CRM) application
+written in xref:php.adoc[PHP].
+
+== Clear cache
+
+----
+#./bin/console cache:clear
+$ sudo -u www-data php /var/www/crm/bin/console cache:clear --env=prod
+----
+
+== Azure SAML config
+
+.env.local
+----
+AUTH_TYPE=saml
+SAML_ENABLED=true
+SAML_IDP_ENTITY_ID='https://sts.windows.net/<TENANT ID FROM AZURE>/'
+SAML_IDP_SSO_URL='https://login.microsoftonline.com/<TENANT ID FROM AZURE>/saml2'
+SAML_IDP_SLO_URL='https://login.microsoftonline.com/<TENANT ID FROM AZURE>/saml2'
+SAML_IDP_X509CERT=<cert without the header and footer from azure>
+SAML_USERNAME_ATTRIBUTE='http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'
+SAML_USE_ATTRIBUTE_FRIENDLY_NAME=false
+SAML_COMPRESS_REQUESTS=true
+SAML_COMPRESS_RESPONSES=true
+----
+
+== Source
+
+* https://suitecrm.com[suitecrm.com]

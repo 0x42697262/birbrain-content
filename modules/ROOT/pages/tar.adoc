@@ -1,0 +1,19 @@
+= tar
+
+`tar` creates and extracts archive files.
+
+== Excluding owner and group
+
+I noticed that the tar archive will store the user and group name when files are
+compressed. There will be a need to append these parameters to not include them.
+
+[,bash]
+----
+--owner=0 --group=0
+----
+
+This will set the user and group to `root`.
+
+== Source
+
+* https://www.gnu.org/software/tar/[GNU tar]

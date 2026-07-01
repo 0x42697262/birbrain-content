@@ -29,3 +29,21 @@ error: failed to synchronize all databases (unexpected error)
 ----
 ====
 
+=== Invalid or Corrupted package (PGP signature)
+
+Just do these steps:
+
+. `pacman-key --init`
+. `pacman-key --populate`
+
+== Installation
+
+You can actually use GPT for BIOS systems.
+Just follow typical partition layout for GPT then install grub for EFI one.
+
+== Get installed packages by user on Pacman
+
+----
+pacman -Qqtt
+----
+

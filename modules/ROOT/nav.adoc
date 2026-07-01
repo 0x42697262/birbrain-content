@@ -174,6 +174,9 @@
 ** xref:幻想:readings-finished.adoc[]
 ** xref:幻想:random.adoc[]
 
+[adb]
+* xref:adb.adoc[]
+
 [Advanced Encryption Standard]
 * xref:advanced-encryption-standard.adoc[]
 ** xref:advanced-encryption-standard-ecb.adoc[]
@@ -190,8 +193,17 @@
 [AsciiDoc]
 * xref:asciidoc.adoc[]
 
+[Docker]
+* xref:docker.adoc[]
+
 [Firejail]
 * xref:firejail.adoc[]
+
+[Flatpak]
+* xref:flatpak.adoc[]
+
+[Frida]
+* xref:frida.adoc[]
 
 [GDB]
 * xref:gdb.adoc[]
@@ -223,6 +235,9 @@
 [Headscale]
 * xref:headscale.adoc[]
 
+[Hyprland]
+* xref:hyprland.adoc[]
+
 [Incus]
 * xref:incus.adoc[]
 
@@ -244,6 +259,9 @@
 
 [NMAP]
 * xref:nmap.adoc[]
+
+[nmcli]
+* xref:nmcli.adoc[]
 
 [OpenBalena]
 * xref:openbalena.adoc[]
@@ -286,14 +304,23 @@
 [Stack Smashing]
 * xref:stack-smashing.adoc[]
 
+[SuiteCRM]
+* xref:suitecrm.adoc[]
+
 [Tailscale]
 * xref:tailscale.adoc[]
+
+[tar]
+* xref:tar.adoc[]
 
 [TIA Portal Openness]
 * xref:tia-portal-openness.adoc[]
 ** xref:tia-portal-openness-api.adoc[]
 *** xref:tia-portal-openness-api-errors.adoc[]
 ** xref:tia-portal-openness-xml.adoc[]
+
+[Ventoy]
+* xref:ventoy.adoc[]
 
 [Vim]
 * xref:vim.adoc[]
@@ -309,15 +336,26 @@
 
 [Wayland]
 * xref:wayland.adoc[]
-** xref:xwayland.adoc[]
 
 [Waydroid]
 * xref:waydroid.adoc[]
 ** xref:waydroid-errors.adoc[]
 
+[WiFi Cracking]
+* xref:wifi-cracking.adoc[]
+
 [Windows]
 * xref:windows.adoc[]
 ** xref:windows-powercfg.adoc[]
+
+[x86]
+* xref:x86.adoc[]
+
+[XWayland]
+* xref:xwayland.adoc[]
+
+[Zig]
+* xref:zig.adoc[]
 
 [日本語]
 * xref:日本語.adoc[]
