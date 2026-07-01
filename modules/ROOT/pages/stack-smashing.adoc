@@ -1,0 +1,31 @@
+= Stack Smashing
+
+Stack smashing is a buffer overflow attack where writing past a fixed-size stack
+buffer overwrites adjacent stack data — most importantly the saved return address —
+to redirect execution.
+
+== Basic usage
+
+A minimal vulnerable program and how it is typically built for study:
+
+[,c]
+----
+#include <stdio.h>
+
+int main() {
+    char buf[16];
+    scanf("%s", buf); // no bounds check -> overflow
+    return 0;
+}
+----
+
+----
+# disable protections to make the overflow observable
+gcc vuln.c -o vuln -fno-stack-protector -no-pie -ggdb
+----
+
+See xref:幻想:random.adoc[random] for gdb walkthrough notes.
+
+== Source
+
+* https://en.wikipedia.org/wiki/Stack_buffer_overflow[Wikipedia — Stack buffer overflow]

@@ -85,10 +85,10 @@ make sure to `airmon-ng check kill`
 `airodump-ng --bssid <ap_bssid> --essid <ap_name> -c <channel> -w <filename> <interface>`
 
 > [!NOTE]- This is wrong
-> if your card can't capture the data, it will only show `clear-to-send` and `request-to-send` and no `Acknowledgement`. a successful sniff must have both `Acknowledgement` and `WPA Handshake` in [[airodump-ng]]
+> if your card can't capture the data, it will only show `clear-to-send` and `request-to-send` and no `Acknowledgement`. a successful sniff must have both `Acknowledgement` and `WPA Handshake` in `airodump-ng`
 it needs CTS -> RTS -> Qos Data
 
-targeting a specific network requires specifying the [[BSSID]]. 
+targeting a specific network requires specifying the `BSSID`.
 
 
 or an alternative to that above would be:
@@ -102,7 +102,7 @@ iwconfig
 wlan.fc.type_subtype in {0x00}
 ```
 
-# iw
+== iw
 
 iw dev:: show which interface it is related to ``phy``
 
@@ -154,7 +154,7 @@ to use flags, add ``action="store_true"`` inside the argument. default values ca
 select the disk with ``diskpart`` then select the system volume. if gpt use ``bcdboot``. if mbr, use ``bootrec``. assign a drive letter.
 bcdboot: ``bcdboot C:\windows /s V: /f UEFI``
 
-== xref:stack-smashing.adoc[Stack Smashing]
+== xref:ROOT:stack-smashing.adoc[Stack Smashing]
 
 [c]
 ----
@@ -200,7 +200,7 @@ remove a breakpoint: ``del #``
 * x/16x buf
 * i f
 
-== Run Obsidian in xref:wayland.adoc[Wayland]
+== Run Obsidian in xref:ROOT:wayland.adoc[Wayland]
 
 ----
 OBSIDIAN_USE_WAYLAND=11 obsidan -enable-features=UseOzonePlatform -ozone-platform=wayland
@@ -236,34 +236,35 @@ sys.stdout.buffer.write(exploit)
 
 === partitioning the drive
 
-1. Set partition table to GPT
-
-```sh
+. Set partition table to GPT
++
+[,sh]
+----
 #parted /dev/<device> -- mklabel gpt
 parted /dev/vda -- mklabel gpt
-```
-
-2. Create boot partition
-
-```sh
+----
+. Create boot partition
++
+[,sh]
+----
 #parted /dev/<device> -- mkpart ESP fat32 1MiB 512MiB
 parted /dev/vda -- mkpart ESP fat32 1MiB 512MiB
-```
-
-3. Set ESP boot flag
-
-```sh
+----
+. Set ESP boot flag
++
+[,sh]
+----
 #parted /dev/<device> -- set <partition number> <partition label> on
 parted /dev/vda -- set 1 ESP on
-```
-
-4. Create root and home partition
-
-```sh
+----
+. Create root and home partition
++
+[,sh]
+----
 #parted /dev/<device> -- mkpart root <file system> <start> end>
 parted /dev/vda -- mkpart root btrfs 512MiB 32.5MiB
 parted /dev/vda -- mkpart home btrfs 32.5GiB 100%
-```
+----
 
 simpler version
 
@@ -280,104 +281,106 @@ mkpart home btrfs 32.5GiB 100%
 
 === formatting with luks encryption
 
-1. format boot partition (no encryption)
-
-```sh
+. format boot partition (no encryption)
++
+[,sh]
+----
 mkfs.fat -F 32 -n boot /dev/vda1
-```
-
-2. format root and home partitions with luks
-
-```sh
+----
+. format root and home partitions with luks
++
+[,sh]
+----
 #cryptsetup --verify-passphrase -v luksFormat <partition>
 cryptsetup --verify-passphrase -v luksFormat /dev/vda2
 cryptsetup --verify-passphrase -v luksFormat /dev/vda3
-```
-
-> [!NOTE]
-> This does not include a label to the luks container. Use `cryptsetup config <luks container> --label <label>` to add a label.
-
-3. mount encrypted partitions
-
-```sh
+----
++
+[NOTE]
+This does not include a label to the luks container. Use `cryptsetup config <luks container> --label <label>` to add a label.
+. mount encrypted partitions
++
+[,sh]
+----
 #cryptsetup open <partition> <label>
 cryptsetup open /dev/vda2 root_luks
 cryptsetup open /dev/vda2 home_luks
-```
-
-4. partition home and root
-
-```sh
+----
+. partition home and root
++
+[,sh]
+----
 #mkfs.btrfs -L <label> <luks dev mapper name>
 mkfs.btrfs -L nixos /dev/mapper/root_luks
 mkfs.btrfs -L home /dev/mapper/home_luks
-```
+----
++
 i use `root` and `home` to have separate partition labels. this causes an issue in booting if labels are the same. the labels here might be used by `/dev/disk/by-label/`.
-
-5. mounting root and home partitions
-
-```sh
+. mounting root and home partitions
++
+[,sh]
+----
 #mount -t <file system> /dev/mapper/<partition> </mnt locations>
 mount -t btrfs /dev/mapper/root_luks /mnt
 mount -t btrfs /dev/mapper/home_luks /mnt/home
-```
-
+----
++
 do `mkdir /mnt/home` if directory does not exist
-
-6. creating subvolumes
-
-```sh
+. creating subvolumes
++
+[,sh]
+----
 btrfs subvolume create /mnt/root
 btrfs subvolume create /mnt/nix
 btrfs subvolume create /mnt/persist
 btrfs subvolume create /mnt/log
 btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
-```
-
-7. unmount
-
-```sh
+----
+. unmount
++
+[,sh]
+----
 umount /mnt/home
 umount /mnt
-```
-
-8. mount root and home, and others
-
-```sh
+----
+. mount root and home, and others
++
+[,sh]
+----
 mount -o subvol=root,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt
-```
-
-9. create directories for mount point
-
-```sh
+----
+. create directories for mount point
++
+[,sh]
+----
 mkdir /mnt/home
 mkdir /mnt/nix
 mkdir /mnt/persist
 mkdir -p /mnt/var/log
-```
-
-10. mount home and subvolumes
-
-```sh
+----
+. mount home and subvolumes
++
+[,sh]
+----
 mount -o compress=zstd,relatime,ssd,space_cache=v2 /dev/mapper/home_luks /mnt/home
 mount -o subvol=nix,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt/nix
 mount -o subvol=persist,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt/persist
 mount -o subvol=log,compress=zstd,noatime,ssd,space_cache=v2 /dev/mapper/root_luks /mnt/var/log
-```
-
-11. mount boot
-
-```sh
+----
+. mount boot
++
+[,sh]
+----
 mkdir /mnt/boot
 #mount /dev/<partition> /mnt/boot
 mount /dev/vda1 /mnt/boot
-```
-
-12. generate nixos-config
-
-```sh
+----
+. generate nixos-config
++
+[,sh]
+----
 nixos-generate-config --root /mnt
-```
+----
 
 == Section 19 of RA 11055
 
@@ -475,7 +478,7 @@ iw list | grep "Supported interface modes" -A 8
 
 *note: run with sudo if not working*
 
-should output `AP/VLAN` (not just `AP`) for full support of [[Virtual Interface|VIF]]
+should output `AP/VLAN` (not just `AP`) for full support of `VIF` (Virtual Interface)
 
 
 avoid these chipsets:
@@ -493,22 +496,22 @@ list wifi devices: `nmcli device`
 
 #nixos-installation 
 
-1. connect to wifi using **wpa_cli**
-2. partition the disk with **parted** (esp, root, home). make sure to use **BTRFS**
-3. use **Full-Disk Encryption**
-4. create subvolumes (nix, persist, log)
-5. mount them
+. connect to wifi using **wpa_cli**
+. partition the disk with **parted** (esp, root, home). make sure to use **BTRFS**
+. use **Full-Disk Encryption**
+. create subvolumes (nix, persist, log)
+. mount them
 
 
 
-1. malware analysis lab
-2. ids/zeek network monitoring
-	1. snort
-	2. suricata
-3. metasploitable
-4. wazuh to soar implementation
-	1. setup wazuh, at least one agent
-	2. integrate shuffle platform with automation
+. malware analysis lab
+. ids/zeek network monitoring
+.. snort
+.. suricata
+. metasploitable
+. wazuh to soar implementation
+.. setup wazuh, at least one agent
+.. integrate shuffle platform with automation
 
 
 

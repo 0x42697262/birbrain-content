@@ -1,0 +1,18 @@
+= XWayland
+
+XWayland is an X server that runs as a client of a xref:wayland.adoc[Wayland]
+compositor, allowing legacy X11 applications to run in a Wayland session.
+
+== Basic usage
+
+Compositors usually start XWayland automatically. X11 apps then see a normal
+`DISPLAY`:
+
+----
+echo $DISPLAY          # e.g. :0 provided by XWayland
+xeyes                  # an X11 app running under Wayland
+----
+
+== Source
+
+* https://wayland.freedesktop.org/xserver.html[wayland.freedesktop.org — XWayland]

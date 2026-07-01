@@ -1,0 +1,21 @@
+= sed
+
+`sed` (stream editor) transforms text from a stream or file line by line using a
+small scripting language, most often for substitutions.
+
+== Basic usage
+
+----
+# substitute all occurrences on each line
+sed 's/foo/bar/g' file.txt
+
+# edit a file in place
+sed -i 's/foo/bar/g' file.txt
+
+# delete lines matching a pattern
+sed '/^#/d' config.conf
+----
+
+== Source
+
+* https://www.gnu.org/software/sed/[GNU sed]

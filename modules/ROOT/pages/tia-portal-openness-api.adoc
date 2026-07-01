@@ -148,9 +148,8 @@ Returns ``<<se-hw-device, Siemens.Engineering.HW.Device>>``.
 ====
 typeIdentifier:: Type identifier of the device to be created with sub items
 name:: Name of the device to be created with sub items
-deviceName:: The name of the device to create with subcomponents <.>
+deviceName:: The name of the device to create with subcomponents. ``deviceName`` must be unique.
 ====
-<.> ``deviceName`` must be unique
 
 [#sw-blocks-plcblock]
 == SW.Blocks.PlcBlock

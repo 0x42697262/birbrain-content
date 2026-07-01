@@ -1,0 +1,22 @@
+= PipeWire
+
+PipeWire is a server for handling audio and video streams on Linux. It replaces
+PulseAudio and JACK, providing low-latency processing and a security model for
+media routing (used heavily by Wayland screen sharing).
+
+== Basic usage
+
+----
+# check the user services
+systemctl --user status pipewire pipewire-pulse wireplumber
+
+# list nodes / ports
+pw-cli ls Node
+
+# graph patchbay
+pw-top
+----
+
+== Source
+
+* https://pipewire.org[pipewire.org]

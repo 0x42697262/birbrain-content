@@ -1,0 +1,18 @@
+= Virt-Manager
+
+Virtual Machine Manager (`virt-manager`) is a desktop GUI for managing virtual
+machines through xref:libvirtd.adoc[libvirt], typically backed by KVM/xref:qemu.adoc[QEMU].
+
+== Basic usage
+
+----
+# launch the GUI
+virt-manager
+
+# it talks to libvirt, so the daemon must be running
+systemctl enable --now libvirtd
+----
+
+== Source
+
+* https://virt-manager.org[virt-manager.org]

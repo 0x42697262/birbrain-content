@@ -1,0 +1,17 @@
+= Neovim
+
+Neovim is a hyperextensible, Vim-based text editor. It keeps Vim compatibility
+while adding a built-in Lua runtime, an LSP client, and an async job API.
+
+== Basic usage
+
+----
+# open a file
+nvim file.txt
+----
+
+Configuration lives in `~/.config/nvim/init.lua` (or `init.vim`).
+
+== Source
+
+* https://neovim.io[neovim.io]

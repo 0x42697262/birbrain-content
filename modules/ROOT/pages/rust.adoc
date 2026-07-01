@@ -1,0 +1,22 @@
+= Rust
+
+Rust is a systems programming language focused on performance and memory safety,
+enforcing ownership and borrowing rules at compile time without a garbage collector.
+
+== Basic usage
+
+----
+# create a new project
+cargo new hello
+
+# build and run
+cd hello
+cargo run
+
+# release build
+cargo build --release
+----
+
+== Source
+
+* https://www.rust-lang.org[rust-lang.org]

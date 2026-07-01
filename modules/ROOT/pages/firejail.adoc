@@ -1,0 +1,19 @@
+= Firejail
+
+Firejail is a SUID sandbox program that restricts the run-time environment of
+untrusted applications using Linux namespaces, seccomp-bpf, and capabilities.
+
+== Basic usage
+
+----
+# run an application inside the sandbox
+firejail firefox
+
+# restrict a program to a private home directory
+firejail --private=~/some_directory <program>
+----
+
+== Source
+
+* https://firejail.wordpress.com[firejail.wordpress.com]
+* https://github.com/netblue30/firejail[github.com/netblue30/firejail]

@@ -1,0 +1,21 @@
+= Composer
+
+Composer is the dependency manager for PHP. It resolves and installs libraries
+declared in `composer.json` and generates an autoloader.
+
+== Basic usage
+
+----
+# start a new project
+composer init
+
+# add a dependency
+composer require vendor/package
+
+# install everything from composer.json / composer.lock
+composer install
+----
+
+== Source
+
+* https://getcomposer.org[getcomposer.org]

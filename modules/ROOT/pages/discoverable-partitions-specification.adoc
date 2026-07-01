@@ -1,0 +1,20 @@
+= Discoverable Partitions Specification
+
+The Discoverable Partitions Specification (DPS) defines GPT partition type UUIDs
+that let the OS automatically discover and mount partitions (root, `/home`, swap,
+ESP, ...) without an `/etc/fstab` entry. systemd implements it via
+`systemd-gpt-auto-generator`.
+
+== Basic usage
+
+----
+# inspect GPT partition type UUIDs
+lsblk -o NAME,PARTTYPE,PARTTYPENAME
+
+# see what systemd auto-generated from partition types
+systemctl list-units -t mount
+----
+
+== Source
+
+* https://uapi-group.org/specifications/specs/discoverable_partitions_specification/[uapi-group.org — Discoverable Partitions Specification]

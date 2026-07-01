@@ -1,0 +1,19 @@
+= Wayland
+
+Wayland is a display server protocol and the successor to the X11 windowing system.
+The compositor is the display server; clients render their own windows and talk to
+it directly. Legacy X11 apps run through xref:xwayland.adoc[XWayland].
+
+== Basic usage
+
+----
+# check the current session type
+echo $XDG_SESSION_TYPE      # "wayland" or "x11"
+
+# hint an Electron/Chromium app to use Wayland
+app --enable-features=UseOzonePlatform --ozone-platform=wayland
+----
+
+== Source
+
+* https://wayland.freedesktop.org[wayland.freedesktop.org]

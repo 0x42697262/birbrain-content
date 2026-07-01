@@ -1,0 +1,15 @@
+= Github Pages
+
+GitHub Pages is a static site hosting service that serves files directly from a
+GitHub repository, optionally built through a GitHub Actions workflow.
+
+== Basic usage
+
+* Enable under `Settings > Pages` and pick a source (a branch, or GitHub Actions).
+* For a generated site, a workflow uploads the build output as a Pages artifact and
+  deploys it (see xref:github-actions.adoc[Github Actions]).
+
+== Source
+
+* https://pages.github.com[pages.github.com]
+* https://docs.github.com/en/pages[GitHub Docs — Pages]

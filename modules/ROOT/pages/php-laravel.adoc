@@ -1,0 +1,19 @@
+= Laravel
+
+Laravel is a PHP web application framework following the MVC pattern, with routing,
+an ORM (Eloquent), templating (Blade), and an artisan CLI.
+
+== Basic usage
+
+----
+# create a new application
+composer create-project laravel/laravel example-app
+
+# run the development server
+cd example-app
+php artisan serve
+----
+
+== Source
+
+* https://laravel.com[laravel.com]

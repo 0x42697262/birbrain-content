@@ -1,0 +1,21 @@
+= grep
+
+`grep` searches input for lines matching a pattern (regular expression) and prints
+the matches. Part of the GNU coreutils/grep package on most Linux systems.
+
+== Basic usage
+
+----
+# recursive, show line numbers
+grep -rn "pattern" .
+
+# case-insensitive, whole word
+grep -iw "word" file.txt
+
+# extended regex, invert match
+grep -Ev "^#" config.conf
+----
+
+== Source
+
+* https://www.gnu.org/software/grep/[GNU grep]

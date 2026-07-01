@@ -1,0 +1,21 @@
+= Reverse Engineering
+
+Reverse engineering is the process of analysing a compiled program or protocol to
+understand its structure and behaviour without access to the original source.
+
+== Basic usage
+
+Common tooling:
+
+* Static analysis: `ghidra`, `radare2`/`rizin`, xref:objdump.adoc[objdump]
+* Dynamic analysis: xref:gdb.adoc[gdb], `ltrace`, `strace`
+* Disassemble a binary quickly:
+
+----
+objdump -d -M intel ./binary
+----
+
+== Source
+
+* https://ghidra-sre.org[ghidra-sre.org]
+* https://rizin.re[rizin.re]

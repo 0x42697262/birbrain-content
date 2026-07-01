@@ -1,0 +1,20 @@
+= libvirtd
+
+`libvirtd` is the libvirt virtualization management daemon. It exposes a stable API
+for managing hypervisors such as KVM/xref:qemu.adoc[QEMU], consumed by tools like
+xref:virt-manager.adoc[virt-manager] and `virsh`.
+
+== Basic usage
+
+----
+# enable and start the daemon
+systemctl enable --now libvirtd
+
+# manage domains from the CLI
+virsh list --all
+virsh start <domain>
+----
+
+== Source
+
+* https://libvirt.org[libvirt.org]

@@ -4,7 +4,7 @@
 
 Soooooooooooooooo, I got xref:ROOT:virt-manager.adoc[Virt-Manager] working from the issue I have on xref:2024-04-01.adoc[this day].
 
-Turns out, if you use `virtualisation.libvirtd.qemu.runAsRoot = false;`, xref:libvirtd.adoc[libvirtd] will use `qemu-libvirtd` as a group.
+Turns out, if you use `virtualisation.libvirtd.qemu.runAsRoot = false;`, xref:ROOT:libvirtd.adoc[libvirtd] will use `qemu-libvirtd` as a group.
 Hence, it's required to add a group for it.
 
 Then fix the file permission path.

@@ -32,7 +32,7 @@ AttributeError: 'NoneType' object has no attribute 'conn'
 
 I tried fixing it by setting the user groups to ``libvirtd`` and ``qemu-libvirtd``, but that still did not work.
 
-Someone (I forgot where I got it actually) mentioned that I should run xref:ROOT:virt-man.adoc[Virtual Manager] with xref:xwayland.adoc[XWayland] backend.
+Someone (I forgot where I got it actually) mentioned that I should run xref:ROOT:virt-manager.adoc[Virtual Manager] with xref:ROOT:xwayland.adoc[XWayland] backend.
 
 ----
 GDK_BACKEND=x11 virt-manager

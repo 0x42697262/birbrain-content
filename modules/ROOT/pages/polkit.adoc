@@ -1,0 +1,19 @@
+= Polkit
+
+Polkit (formerly PolicyKit) is an authorization framework that lets unprivileged
+processes request privileged actions through a defined policy, instead of running
+whole programs as root.
+
+== Basic usage
+
+----
+# run a command through polkit authorization
+pkexec <command>
+----
+
+Rules are defined in `/etc/polkit-1/rules.d/` (JavaScript) and actions in
+`/usr/share/polkit-1/actions/` (XML).
+
+== Source
+
+* https://gitlab.freedesktop.org/polkit/polkit[gitlab.freedesktop.org/polkit/polkit]

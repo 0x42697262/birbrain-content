@@ -1,0 +1,22 @@
+= Antora
+
+Antora is a static site generator for documentation written in AsciiDoc. It
+aggregates content from multiple git repositories ("components") into a single
+versioned site, driven by a playbook.
+
+== Basic usage
+
+----
+# generate the site from a playbook
+antora antora-playbook.yml
+
+# fetch the latest content sources before building
+antora --fetch antora-playbook.yml
+----
+
+This wiki is built with Antora — see xref:setup.adoc[Setup].
+
+== Source
+
+* https://antora.org[antora.org]
+* https://docs.antora.org[docs.antora.org]

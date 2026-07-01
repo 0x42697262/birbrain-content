@@ -1,0 +1,26 @@
+= Github Personal Access Tokens
+
+A Personal Access Token (PAT) is a credential used in place of a password when
+authenticating to GitHub over HTTPS or the API. Fine-grained tokens can be scoped
+to specific repositories and permissions.
+
+== Basic usage
+
+Create one under `Settings > Developer settings > Personal access tokens`, then use
+it as the password when Git prompts:
+
+----
+git clone https://github.com/<user>/<repo>.git
+Username: <user>
+Password: <paste token>
+----
+
+Or with the API:
+
+----
+curl -H "Authorization: Bearer <token>" https://api.github.com/user
+----
+
+== Source
+
+* https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens[GitHub Docs — Managing personal access tokens]
