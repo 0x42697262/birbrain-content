@@ -1,5 +1,10 @@
 = GDB
 
+GDB (the GNU Debugger) lets you run a program under controlled conditions —
+setting breakpoints, stepping through execution, inspecting memory and registers,
+and disassembling code. It is part of the GNU toolchain and is a staple for
+debugging and reverse engineering (see xref:reverse-engineering.adoc[Reverse Engineering]).
+
 Install this cool GDB plugin https://github.com/hugsy/gef[GEF].
 
 == Commands
@@ -10,3 +15,7 @@ until:: until <address> (short form: **u**)
 
 /r:: raw bytes
 /m:: mix source code and assembly
+
+== Source
+
+* https://www.sourceware.org/gdb/[sourceware.org/gdb]

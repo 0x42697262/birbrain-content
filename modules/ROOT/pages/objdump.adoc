@@ -1,5 +1,10 @@
 = objdump
 
+`objdump` displays information from object files and executables — most commonly
+disassembling machine code back to assembly. It is part of the GNU binutils
+package and is a common tool for static analysis and
+xref:reverse-engineering.adoc[reverse engineering].
+
 .Copy/Paste
 ----
 objdump -M intel --visualize-jumps=color -d <binary>
@@ -11,7 +16,7 @@ objdump -M intel --visualize-jumps=color -d <binary>
 objdump -M intel
 ----
 
-== isplay assembler contents of executable sections
+== Display assembler contents of executable sections
 
 ----
 objdump -d
@@ -22,3 +27,7 @@ objdump -d
 ----
 objdump --visualize-jumps=color
 ----
+
+== Source
+
+* https://sourceware.org/binutils/[GNU binutils]

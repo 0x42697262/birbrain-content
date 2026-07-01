@@ -1,4 +1,15 @@
 = Open Source Intelligence
 
+Open Source Intelligence (OSINT) is the practice of collecting and analyzing
+information from publicly available sources — search engines, social media, public
+records, DNS/WHOIS, image metadata, leaked datasets, and so on — to build a picture
+of a target. It is used in penetration testing reconnaissance, threat intelligence,
+investigations, and CTFs, and it relies only on legally accessible data rather than
+intrusion.
+
 For the list of tools, refer xref:osint-tools.adoc[here].
+
+== Source
+
+* https://osintframework.com[OSINT Framework]
 

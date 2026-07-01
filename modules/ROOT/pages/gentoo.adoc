@@ -1,3 +1,32 @@
 = Gentoo
 
+Gentoo is a source-based Linux distribution: packages are compiled from source on
+your own machine, with per-package build options (USE flags) controlling which
+features get compiled in. This trades install time for a highly customizable,
+minimal system. Package management is handled by Portage via the `emerge` command.
+
 Check this https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base[Handbook] for installation instruction.
+
+== Basic usage
+
+----
+# sync the package tree
+emerge --sync
+
+# install a package
+emerge --ask app-editors/vim
+
+# update the whole system (respecting new USE flags)
+emerge --ask --update --deep --newuse @world
+
+# remove a package and unused dependencies
+emerge --deselect app-editors/vim
+emerge --ask --depclean
+----
+
+See also xref:gentoo-errors.adoc[Gentoo errors].
+
+== Source
+
+* https://www.gentoo.org[gentoo.org]
+* https://wiki.gentoo.org[wiki.gentoo.org]

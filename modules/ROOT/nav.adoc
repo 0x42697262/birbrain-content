@@ -190,9 +190,6 @@
 [AsciiDoc]
 * xref:asciidoc.adoc[]
 
-[Discoverable Partitions Specification]
-* xref:discoverable-partitions-specification.adoc[]
-
 [Firejail]
 * xref:firejail.adoc[]
 
@@ -231,6 +228,7 @@
 
 [Linux]
 * xref:linux.adoc[]
+** xref:discoverable-partitions-specification.adoc[]
 
 [Neovim]
 * xref:neovim.adoc[]
@@ -305,7 +303,9 @@
 ** xref:libvirtd.adoc[]
 ** xref:qemu.adoc[]
 ** xref:virt-manager.adoc[]
-** xref:vmware.adoc[]
+
+[VMWare]
+* xref:vmware.adoc[]
 
 [Wayland]
 * xref:wayland.adoc[]

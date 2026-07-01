@@ -1,3 +1,31 @@
 = Electronic Code Book
 
+Electronic Code Book (ECB) is the simplest xref:advanced-encryption-standard.adoc[AES]
+block cipher mode: the message is split into fixed-size blocks (16 bytes for AES)
+and each block is encrypted independently with the same key.
+
+Because encryption is deterministic and stateless, *identical plaintext blocks
+produce identical ciphertext blocks*. This leaks structure — the classic example
+is the "ECB penguin", where an encrypted image still shows its outline. For this
+reason ECB is considered insecure for anything beyond a single random block.
+
 == Breaking
+
+If an oracle encrypts `attacker_input || secret` under ECB with a fixed key, the
+secret can be recovered one byte at a time (byte-at-a-time ECB decryption):
+
+. Detect the block size by feeding growing input and watching when the ciphertext
+  length jumps.
+. Confirm ECB by sending two identical blocks and checking that the two matching
+  ciphertext blocks appear.
+. Align the input so exactly one unknown byte of the secret falls at the end of a
+  block, then brute-force that byte (256 tries) by matching ciphertext blocks.
+. Shift the window and repeat for each following byte.
+
+PKCS#7 padding is what makes the final blocks predictable enough to align and
+verify the recovered bytes.
+
+== Source
+
+* https://cryptopals.com/sets/2/challenges/12[Cryptopals: Byte-at-a-time ECB decryption]
+* https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB)[Block cipher mode of operation — ECB]

@@ -1,3 +1,29 @@
 = Pairwise Transient Key
 
+The Pairwise Transient Key (PTK) is the set of session keys used to protect
+unicast traffic between a single client (supplicant) and an access point in
+WPA/WPA2/WPA3 networks. It is derived per-session during the 4-way handshake, so
+every association gets fresh keys.
 
+The PTK is derived from the Pairwise Master Key (PMK) together with both MAC
+addresses and the two nonces exchanged in the handshake (ANonce from the AP,
+SNonce from the client):
+
+----
+PTK = PRF(PMK, "Pairwise key expansion",
+          min(AA, SPA) || max(AA, SPA) ||
+          min(ANonce, SNonce) || max(ANonce, SNonce))
+----
+
+It is then split into sub-keys:
+
+KCK (Key Confirmation Key):: authenticates handshake messages (MIC)
+KEK (Key Encryption Key):: encrypts the GTK sent to the client
+TK  (Temporal Key):: encrypts the actual data frames
+
+Because the PTK depends on the PMK and the nonces, capturing the 4-way handshake
+lets an attacker brute-force the passphrase offline (the basis of WPA2 cracking).
+
+== Source
+
+* https://en.wikipedia.org/wiki/IEEE_802.11i-2004[IEEE 802.11i]

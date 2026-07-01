@@ -1,4 +1,14 @@
 = Advanced Encryption Standard
 
-I'll leave this blank because I have very little memory about the mathematics of this encryption.
-But here's a note on how to break xref:advanced-encryption-standard-ecb.adoc[AES-ECB using PKSC#7].
+The Advanced Encryption Standard (AES) is a symmetric block cipher standardized by
+NIST in FIPS 197 (2001), based on the Rijndael cipher. It encrypts data in 128-bit
+blocks using a key of 128, 192, or 256 bits, and is the most widely used symmetric
+cipher today (TLS, disk encryption, Wi-Fi, etc.).
+
+I'll leave the internals blank because I have very little memory about the
+mathematics of this encryption. But here's a note on how to break
+xref:advanced-encryption-standard-ecb.adoc[AES-ECB using PKCS#7].
+
+== Source
+
+* https://csrc.nist.gov/pubs/fips/197/final[FIPS 197: Advanced Encryption Standard]
