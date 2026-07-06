@@ -1,0 +1,12 @@
+= 2026年07月04日
+
+== keyboard
+
+----
+SUBSYSTEM=="usb", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0ea0", MODE="0666", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0ea0", MODE="0666", TAG+="uaccess"
+----
+
+use `lsusb` to get the vendor and product id
+
+usually in the *xxxx:xxxx* format

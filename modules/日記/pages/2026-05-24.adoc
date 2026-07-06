@@ -1,4 +1,4 @@
-= 2026年08月24日
+= 2026年05月24日
 
 . Powershell history save path
 ----
