@@ -10,3 +10,15 @@ SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0ea0", MODE="06
 use `lsusb` to get the vendor and product id
 
 usually in the *xxxx:xxxx* format
+
+== incus
+
+----
+ERROR        | x86_64 emulation currently requires hardware acceleration!
+CPU acceleration status: /dev/kvm is not found: VT disabled in BIOS or KVM kernel module not loaded
+More info on configuring VM acceleration on Linux:
+https://developer.android.com/studio/run/emulator-acceleration#vm-linux
+General information on acceleration: https://developer.android.com/studio/run/emulator-acceleration.
+----
+
+fix: incus config device add machine-learning kvm unix-char source=/dev/kvm mode=0666

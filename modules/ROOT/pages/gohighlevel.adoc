@@ -1,0 +1,93 @@
+== GoHighLevel
+
+== Notify CSRs When a Conversation Is Assigned
+
+Native GHL workflow automation, no API needed.
+Assigning a conversation in the inbox sets the contact's *Assigned User* field,
+so that field change is the hook.
+There is no native "Conversation Assigned" trigger.
+
+=== Trigger: Contact Changed / Assigned User
+
+.Steps
+. Automations -> Workflows -> create workflow.
+. Add New Trigger -> *Contact Changed*.
+. + Add Filters -> *Assigned User* -> *Changed*.
+. Save trigger.
+. Workflow Settings -> enable *Allow Re-Entry* (fires on every reassignment).
+
+NOTE: Only fires for *customer* conversations (they have a contact behind them).
+Internal teammate threads have no contact and will not trigger.
+
+WARNING: Broad trigger, fires on ANY assigned-user change (manual, round-robin,
+bulk, API). Filter by pipeline/tag if noisy, and filter out empty (unassign)
+events or you fire blank notifications.
+
+=== Slack Notification (DM to assigned CSR)
+
+. Settings -> Integrations -> connect Slack workspace (one-time; adds LeadConnector bot).
+. Add action -> *Slack* -> event *Send Direct Message to a User*.
+. Recipient source -> *Assigned User* (not a hardcoded user).
+
+IMPORTANT: Matching is by email. The CSR's GHL user email
+(Settings -> My Staff -> User Info) must match their Slack account email.
+
+=== Email Notification
+
+Use *Send Internal Notification*, NOT *Send Email*.
+
+[WARNING]
+====
+*Send Email* shows only From Name / From Address and always sends to the *contact*
+(the customer) — wrong target. *Send Internal Notification* is the one with the
+recipient selector (*To User Type*).
+====
+
+. Add action -> *Send Internal Notification*.
+. Type of Notification -> *Email*.
+. *To User Type* -> *Assigned User*.
+
+TIP: Leave From Email blank for account default, or use a domain authenticated in
+GHL for deliverability.
+
+=== Message Content
+
+Trigger is contact-based, so only *contact* merge fields populate; message-body /
+last-message fields render blank. Insert fields via the `{ }` picker.
+
+.Slack DM
+----
+🔔 New conversation assigned to you
+
+👤 {{contact.name}}
+📞 {{contact.phone}}
+✉️ {{contact.email}}
+
+Open: <deep link>
+----
+
+.Email subject
+----
+New conversation assigned: {{contact.name}}
+----
+
+.Deep link to the thread
+----
+https://app.gohighlevel.com/v2/location/<LOCATION_ID>/contacts/detail/{{contact.id}}
+----
+
+`LOCATION_ID` is static per sub-account (grab from browser URL). Store as a Custom
+Value for reuse or hardcode it. Swap the domain if white-labelled. Check the
+merge-field picker for a native Contact/Conversation URL field first.
+
+=== Test / Reproduce
+
+. Publish the workflow (drafts do not fire).
+. Conversations inbox -> open a real/throwaway thread -> set *Assigned To* -> a CSR.
+. Workflow -> *Execution Logs* -> confirm enrollment + both actions ran.
+
+NOTE: No manual "fire" button. The assignment action *is* the test.
+
+CAUTION: If a notification shows "sent" but never arrives, check the user's
+profile for *DND* — GHL marks it executed while silently not delivering.
+----
