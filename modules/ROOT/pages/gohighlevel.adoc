@@ -1,4 +1,4 @@
-== GoHighLevel
+= GoHighLevel
 
 == Notify CSRs When a Conversation Is Assigned
 
