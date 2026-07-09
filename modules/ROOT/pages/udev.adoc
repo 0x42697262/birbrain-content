@@ -1,0 +1,24 @@
+= udev
+
+Rules are placed in ``/etc/udev/rules.d/`` as ``.rules`` files.
+
+Reload rules without rebooting:
+
+----
+sudo udevadm control --reload
+sudo udevadm trigger
+----
+
+== Allow User Access to a USB Device
+
+Useful for keyboards configured with tools like VIA/Vial that need direct ``hidraw`` access.
+
+[,udev]
+----
+SUBSYSTEM=="usb", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0ea0", MODE="0666", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0ea0", MODE="0666", TAG+="uaccess"
+----
+
+Use ``lsusb`` to get the vendor and product id.
+
+It's usually in the *xxxx:xxxx* format where the first part is the vendor id and the second is the product id.
