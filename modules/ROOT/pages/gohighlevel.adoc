@@ -90,4 +90,3 @@ NOTE: No manual "fire" button. The assignment action *is* the test.
 
 CAUTION: If a notification shows "sent" but never arrives, check the user's
 profile for *DND* — GHL marks it executed while silently not delivering.
-----
