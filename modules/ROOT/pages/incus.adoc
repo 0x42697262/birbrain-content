@@ -49,6 +49,21 @@ This includes software development environment as well.
 With Incus containers, I keep my system as is.
 I can separate my concerns easily and not worry about it.
 
+== KVM Passthrough
+
+Programs that need hardware acceleration (like the Android emulator) will fail inside a container because ``/dev/kvm`` is not exposed:
+
+----
+ERROR        | x86_64 emulation currently requires hardware acceleration!
+CPU acceleration status: /dev/kvm is not found: VT disabled in BIOS or KVM kernel module not loaded
+----
+
+Fix is to pass the ``/dev/kvm`` device to the container:
+
+----
+incus config device add <container> kvm unix-char source=/dev/kvm mode=0666
+----
+
 == References
 
 Thanks to these writeups, I was able to get passthrough for graphics and audio.

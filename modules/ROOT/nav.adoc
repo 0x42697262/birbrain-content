@@ -260,6 +260,7 @@
 * xref:linux.adoc[]
 ** xref:discoverable-partitions-specification.adoc[]
 ** xref:polkit.adoc[]
+** xref:udev.adoc[]
 ** xref:wayland.adoc[]
 ** xref:xwayland.adoc[]
 
