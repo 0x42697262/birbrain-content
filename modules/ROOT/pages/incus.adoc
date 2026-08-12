@@ -64,6 +64,143 @@ Fix is to pass the ``/dev/kvm`` device to the container:
 incus config device add <container> kvm unix-char source=/dev/kvm mode=0666
 ----
 
+== When Downloads Fail Inside A Container
+
+A fresh NixOS container, pulling a flake from GitHub, fails like this:
+
+----
+warning: unable to download 'https://github.com/0x42697262/nixos-config/archive/f07eb29.tar.gz':
+  Failure when receiving data from the peer (56)
+  Connection died, tried 5 times before giving up; retrying in 314 ms (attempt 1/5)
+----
+
+Meanwhile ``ping google.com`` answers in 22 ms.
+Network is clearly *up*, yet bulk transfers die.
+
+This section is the diagnostic ladder for that, in the order worth climbing, because the obvious answer is usually wrong.
+
+=== Ping Proves Almost Nothing
+
+``ping`` sends one small ICMP packet and waits for one small reply.
+Almost every interesting failure mode leaves that untouched:
+
+* an MTU blackhole only eats large frames
+* a middlebox resetting TLS sessions never sees ICMP
+* packet loss of 40% still lets a single ping through most of the time
+
+So a successful ping narrows nothing down.
+Reproduce the **actual failing transfer** instead.
+
+=== Reproduce With Curl, Not With Nix
+
+Nix retries five times and buries the cause in warnings.
+Curl reports it directly:
+
+----
+incus exec <container> -- curl -sS -L -o /dev/null -m 45 \
+  -w 'http=%{http_code} bytes=%{size_download} ip=%{remote_ip} proto=%{http_version} tls=%{time_appconnect}\n' \
+  https://github.com/<owner>/<repo>/archive/<rev>.tar.gz
+----
+
+Those fields are the whole diagnosis in one line:
+
+``tls=``:: Non-zero means the TLS handshake **completed**. The failure is after that, not in connectivity, DNS, or certificates.
+``bytes=``:: Zero with a non-zero ``tls`` means the connection died waiting for the response body.
+``ip=``:: Which endpoint was actually used. GitHub answers on several addresses and the redirect to ``codeload.github.com`` lands on a different one.
+
+=== Ruling Out MTU
+
+MTU is the usual suspect, and for good reason.
+A container's ``eth0`` inherits the bridge MTU, typically 1500.
+If anything upstream carries less -- PPPoE, WireGuard, any tunnel -- oversized frames are dropped.
+Path MTU Discovery is supposed to fix that by way of ICMP ``frag-needed``, but those packets have to survive the whole path *and* be translated back through the container's NAT.
+When they do not, you get precisely this signature: handshakes fine, bulk transfer dead.
+
+Test it with the DF bit set, which forbids fragmentation, so an oversized packet fails instead of being split:
+
+----
+ping -4 -c1 -M do -s 1472 google.com
+----
+
+[CAUTION]
+====
+``-s`` is the **payload** size, and the header arithmetic differs per address family:
+
+* IPv4: payload + 28 = total (20 IP + 8 ICMP)
+* IPv6: payload + 48 = total (40 IPv6 + 8 ICMPv6)
+
+Forget ``-4`` and ``ping`` may resolve AAAA instead, where ``-s 1464`` asks for 1512 bytes on a 1500-byte link.
+That fails **locally** with ``ping: sendmsg: Message too long`` -- the packet never left the machine.
+Read as a path failure, it invents an MTU limit that does not exist.
+This is exactly how I first misdiagnosed this bug, concluding a path MTU of 1480 that was pure header arithmetic.
+====
+
+A real MTU ceiling is **monotonic and repeatable**: every size above the threshold fails, every size below passes, every time.
+Anything ragged -- 1500 passing while 1428 fails -- is packet loss, not MTU.
+
+If it does turn out to be MTU, fix it at the bridge, since the limit belongs to the host's uplink and not to any one guest:
+
+----
+incus network set incusbr0 bridge.mtu 1480
+incus restart <container>
+----
+
+Per-instance, leaving the shared bridge alone:
+
+----
+incus config device override <container> eth0 mtu=1480
+----
+
+Or immediately, inside the guest, no restart required:
+
+----
+ip link set dev eth0 mtu 1480
+----
+
+=== Always Compare Against The Host
+
+The single most valuable test, and the one easiest to skip: run the same transfer on the host.
+If the host fails too, the container is innocent and every minute spent on bridges, veths, and profiles is wasted.
+
+----
+for i in $(seq 1 10); do
+  curl -4 -o /dev/null -m 20 -s <url> && echo ok || echo FAIL
+done
+----
+
+=== Beware Small Samples
+
+On a path that fails intermittently, three attempts will hand you a confident, wrong answer.
+While chasing this bug I produced two:
+
+. **A per-IP correlation.** Four failures all landed on ``20.205.243.166``, eight successes all on ``20.205.243.165``. Convincing, and meaningless -- ``.166`` is ``github.com`` and ``.165`` is ``codeload.github.com``, so the addresses simply recorded *how far* each attempt got before dying.
+. **An HTTP/2 versus HTTP/1.1 difference.** First sample: HTTP/1.1 won 2-of-3 against 1-of-3. Ten attempts each, minutes later: HTTP/2 10/10, HTTP/1.1 5/10. The protocol was never a factor.
+
+Ten attempts per variable, minimum.
+
+=== What It Actually Was
+
+Not the container.
+Not MTU -- IPv4 at a full 1500 with DF set passes from both host and guest.
+Not IPv6, not the HTTP version.
+
+Connections to ``github.com`` completed their TLS handshake and were then dropped before any HTTP response arrived, on roughly half of all attempts, **identically from the host and from the container**.
+That puts the cause upstream of both: the network path, a middlebox, or GitHub's edge.
+Nothing on this machine can fix it.
+
+Workarounds, in order of preference:
+
+. **Retry.** It is intermittent, so the next attempt has even odds.
+. **Do not fetch inside the container at all.** Build the image on the host, where the store is likely warm already, and ``incus image import`` it. The container then downloads nothing.
+. **Copy the closure in** with ``nix copy`` over a mounted disk device, if the container already exists.
+
+[NOTE]
+====
+The lesson generalizes past Incus.
+A container shares the host's kernel and rides the host's network path, so almost every "the container can't reach the internet" bug is either a device/bridge misconfiguration -- which fails *deterministically* -- or an upstream problem the host has too.
+Test the host before touching the container.
+====
+
 == References
 
 Thanks to these writeups, I was able to get passthrough for graphics and audio.
