@@ -1,0 +1,105 @@
+= 2025年09月27日
+
+== Windows powershell commands
+
+.Rename Host
+----
+Rename-Computer -NewName <name here>
+----
+
+== Windows Server Active Directory
+
+=== Verify Active Directory
+
+.Get-WindowsFeature AD-Domain-Services                                                        
+----
+Display Name                                            Name                       Install State
+------------                                            ----                       -------------
+[X] Active Directory Domain Services                    AD-Domain-Services             Installed
+----
+
+.Get-ADDomainController
+----
+ComputerObjectDN           : CN=LAB-DC1,OU=Domain Controllers,DC=ad,DC=homelab,DC=com
+DefaultPartition           : DC=ad,DC=homelab,DC=com
+Domain                     : ad.homelab.com
+Enabled                    : True
+Forest                     : ad.homelab.com
+HostName                   : Lab-DC1.ad.homelab.com
+InvocationId               : 14f469d0-6095-4ffa-9ede-19f4df01485e
+IPv4Address                : 192.168.56.10
+IPv6Address                :
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : LAB-DC1
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=LAB-DC1,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuratio
+                             n,DC=ad,DC=homelab,DC=com
+OperatingSystem            : Windows Server 2022 Standard Evaluation
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (20348)
+OperationMasterRoles       : {SchemaMaster, DomainNamingMaster, PDCEmulator, RIDMaster...}
+Partitions                 : {DC=ForestDnsZones,DC=ad,DC=homelab,DC=com, DC=DomainDnsZones,DC=ad,DC=homelab,DC=com,
+                             CN=Schema,CN=Configuration,DC=ad,DC=homelab,DC=com,
+                             CN=Configuration,DC=ad,DC=homelab,DC=com...}
+ServerObjectDN             : CN=LAB-DC1,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=ad,DC=homela
+                             b,DC=com
+ServerObjectGuid           : b5333005-b504-42c4-8518-dc409bb9b548
+Site                       : Default-First-Site-Name
+SslPort                    : 636
+----
+
+.netdom query fsmo
+----
+Schema master               Lab-DC1.ad.homelab.com
+Domain naming master        Lab-DC1.ad.homelab.com
+PDC                         Lab-DC1.ad.homelab.com
+RID pool manager            Lab-DC1.ad.homelab.com
+Infrastructure master       Lab-DC1.ad.homelab.com
+The command completed successfully.
+----
+
+.systeminfo | findstr /B /C:"Domain"
+----
+Domain:                    ad.homelab.com
+----
+
+=== Join Active Directory
+
+----
+Add-Computer -DomainName "<domain>" -Credential <domain>\<user> -Restart
+----
+
+=== Check Clients/Workstations
+
+.Get-ADComputer -Identity CLIENT01
+----
+DistinguishedName : CN=CLIENT01,CN=Computers,DC=ad,DC=homelab,DC=com
+DNSHostName       : CLIENT01.ad.homelab.com
+Enabled           : True
+Name              : CLIENT01
+ObjectClass       : computer
+ObjectGUID        : 91659f66-b999-4d93-af3e-865b063b5597
+SamAccountName    : CLIENT01$
+SID               : S-1-5-21-2251905782-184091960-1319809313-1103
+UserPrincipalName :
+----
+
+
+=== Create new Organizational Unit
+
+----
+New-ADOrganizationalUnit -Name HR -Path "DC=ad,DC=homelab,DC=com"
+----
+
+=== List all Organizational Units
+.Get-ADOrganizationalUnit  -Filter * | Select Name, DistinguishableName
+----
+Name               DistinguishableName
+----               -------------------
+Domain Controllers {}
+HR                 {}
+----
+
+

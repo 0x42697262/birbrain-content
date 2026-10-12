@@ -1,0 +1,167 @@
+= 2025年09月30日
+
+== Windows powershell commands
+
+.Active Directory add new user
+----
+New-ADUser -Name "Alice Margatroid" `
+>> -SamAccountName alice `
+>> -UserPrincipalName alice@ad.homelab.com `
+>> -AccountPassword (ConvertTo-SecureString "Dolls4us" -AsPlainText -Force) `
+>> -Enabled $true `
+>> -Path "OU=HR,DC=ad,DC=homelab,DC=com"
+----
+
+.Active Directory add new group
+----
+New-ADGroup -Name HR `
+>> -GroupScope Global `
+>> -GroupCategory Security `
+>> -Path "OU=HR,DC=ad,DC=homelab,DC=com"
+----
+
+.Active Directory add user to group
+----
+Add-ADGroupMember -Identity HR -Members alice
+----
+
+.Active Directory get user details
+----
+Get-ADUser -Identity alice -Properties Enabled,PasswordLastSet,LockedOut
+---
+DistinguishedName : CN=Alice Margatroid,OU=HR,DC=ad,DC=homelab,DC=com
+Enabled           : False
+GivenName         :
+LockedOut         : False
+Name              : Alice Margatroid
+ObjectClass       : user
+ObjectGUID        : 43bec4e7-4338-4571-a8cf-039689bca8a4
+PasswordLastSet   :
+SamAccountName    : alice
+SID               : S-1-5-21-2251905782-184091960-1319809313-1104
+Surname           :
+UserPrincipalName : alice@ad.homelab.com
+----
+
+.Active Directory reset password
+----
+Set-ADAccountPassword -Identity alice -Reset -NewPassword (ConvertTo-SecureString "Dolls4us" -AsPlainText -Force)
+----
+
+.Active Directory enable user
+----
+Enable-ADAccount -Identity alice
+----
+
+.Active Directory create new gpo
+----
+New-GPO -Name "WallpaperPolicy" -Comment "Prevent users changing wallpaper"
+---
+DisplayName      : WallpaperPolicy
+DomainName       : ad.homelab.com
+Owner            : AD\Domain Admins
+Id               : 3bcd8878-9924-4c83-a45f-f1e253a1ee61
+GpoStatus        : AllSettingsEnabled
+Description      : Prevent users changing wallpaper
+CreationTime     : 9/30/2025 5:28:30 AM
+ModificationTime : 9/30/2025 5:28:30 AM
+UserVersion      : AD Version: 0, SysVol Version: 0
+ComputerVersion  : AD Version: 0, SysVol Version: 0
+WmiFilter        :
+----
+
+.Active Directory apply gpo to organizational unit
+----
+New-GPLink -Name "WallpaperPolicy" -Target "OU=HR,DC=ad,DC=homelab,DC=com"
+---
+GpoId       : 3bcd8878-9924-4c83-a45f-f1e253a1ee61
+DisplayName : WallpaperPolicy
+Enabled     : True
+Enforced    : False
+Target      : OU=HR,DC=ad,DC=homelab,DC=com
+Order       : 1
+----
+
+.Active Directory update gpo
+----
+PS C:\Users\Administrator> Enter-PSSession -ComputerName CLIENT01 -Credential ad\administrator
+[CLIENT01]: PS C:\Users\Administrator\Documents> gpupdate /force
+Updating policy...
+
+
+
+Computer Policy update has completed successfully.
+
+User Policy update has completed successfully.
+
+
+
+[CLIENT01]: PS C:\Users\Administrator\Documents> gpresult /r /scope:user
+
+Microsoft (R) Windows (R) Operating System Group Policy Result tool v2.0
+c Microsoft Corporation. All rights reserved.
+
+Created on ?9/?30/?2025 at 5:50:00 AM
+
+
+
+RSOP data for AD\Administrator on CLIENT01 : Logging Mode
+----------------------------------------------------------
+
+OS Configuration:            Member Workstation
+OS Version:                  10.0.26100
+Site Name:                   N/A
+Roaming Profile:             N/A
+Local Profile:               C:\Users\Administrator
+Connected over a slow link?: No
+
+
+USER SETTINGS
+--------------
+
+    Last time Group Policy was applied: 9/30/2025 at 5:34:09 AM
+    Group Policy was applied from:      Lab-DC1.ad.homelab.com
+    Group Policy slow link threshold:   500 kbps
+    Domain Name:                        AD
+    Domain Type:                        Windows 2008 or later
+
+    Applied Group Policy Objects
+    -----------------------------
+        N/A
+
+    The following GPOs were not applied because they were filtered out
+    -------------------------------------------------------------------
+        Local Group Policy
+            Filtering:  Not Applied (Empty)
+
+    The user is a part of the following security groups
+    ---------------------------------------------------
+        Domain Users
+        Everyone
+        BUILTIN\Users
+        BUILTIN\Administrators
+        NT AUTHORITY\INTERACTIVE
+        CONSOLE LOGON
+        NT AUTHORITY\Authenticated Users
+        This Organization
+        LOCAL
+        Group Policy Creator Owners
+        Domain Admins
+        Schema Admins
+        Enterprise Admins
+        Authentication authority asserted identity
+        Denied RODC Password Replication Group
+        High Mandatory Level
+----
+
+.WinRM enable for remoting
+----
+Enable-PSRemoting
+---
+WinRM has been updated to receive requests.
+WinRM service type changed successfully.
+WinRM service started.
+
+WinRM has been updated for remote management.
+WinRM firewall exception enabled.
+----
