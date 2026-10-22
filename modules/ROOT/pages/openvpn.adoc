@@ -1,0 +1,121 @@
+= OpenVPN
+
+OpenVPN is a TLS-based VPN.
+These notes cover the **client** side using ``openvpn3`` (``openvpn3-linux``), the newer client that runs sessions through D-Bus, so no ``sudo`` is needed to connect.
+
+== Basic Usage
+
+=== Connecting From A File
+
+----
+openvpn3 session-start --config <file>.ovpn
+----
+
+The ``Session path:`` line it prints only means a session was **created**, not that it connected.
+
+=== Checking The Connection
+
+----
+openvpn3 sessions-list      # Status: Connection, Client connected
+ip -br a | grep tun         # tun interface with an address from the VPN
+----
+
+=== Reading The Session Log
+
+----
+openvpn3 log --config <file>.ovpn
+----
+
+This attaches to the session and prints its status changes, which is where the real failure reason shows up.
+
+=== Disconnecting
+
+----
+openvpn3 session-manage --config <file>.ovpn --disconnect
+----
+
+== Persistent Profiles
+
+Options like ``--allow-compression`` can only be set on an **imported** profile, not on a raw ``.ovpn`` file.
+``--persistent`` keeps the profile across reboots.
+
+----
+openvpn3 config-import --config <file>.ovpn --name <name> --persistent
+openvpn3 session-start --config <name>
+openvpn3 session-manage --config <name> --disconnect
+----
+
+== Errors
+
+=== Connection Fails: Compression Is Not Available
+
+Connecting to a HackTheBox ``.ovpn`` file connects and then immediately drops:
+
+----
+Client INFO: Connected: edge-sg-free-1.hackthebox.eu:443 ... via /TCP on tun/...
+[STATUS] Connection, Client connected
+Client -- ERROR --: Compression Error: server pushed compression settings that are not allowed and will result in a non-working connection.
+[STATUS] Connection, Client connection failed: Compression is not available
+Client INFO: Stopping VPN client
+----
+
+==== Reading The Log
+
+Read it in order:
+
+. ``Client connected`` with a ``tun`` address: network, credentials, and certificates are all fine.
+. ``Compression Error``: right after connecting, the server pushed a setting the client refused.
+. ``Compression is not available`` then ``Stopping VPN client``: the client hung up **on purpose**.
+
+So this is a policy refusal, not a broken network.
+
+==== Why
+
+The server pushes compression to every client on connect.
+The old ``openvpn`` v2 client accepts it silently.
+
+``openvpn3`` refuses by default because of **VORACLE**: compressing data *inside* encryption leaks information through the size of the encrypted packets, which lets an attacker guess secrets.
+Rather than silently accept, it disconnects.
+
+==== Fix
+
+Import the file, then allow compression on that profile:
+
+----
+openvpn3 config-import --config <file>.ovpn --name htb --persistent
+openvpn3 config-manage --config htb --allow-compression asym
+openvpn3 session-start --config htb
+----
+
+[cols="1,1,1"]
+|===
+| Value | Client sends compressed | Client accepts compressed
+
+| ``no`` (default) | no | no -- disconnects if pushed
+| ``asym`` | no | yes
+| ``yes`` | yes | yes
+|===
+
+``asym`` is the safer choice: it accepts what the server pushes but never compresses outgoing traffic, which is the direction VORACLE targets.
+Only fall back to ``yes`` if ``asym`` still fails.
+
+=== Harmless: Failed Changing DNS Scope
+
+----
+Client !! CRITICAL !!: Failed changing DNS Scope: No DNS resolver configured
+----
+
+Despite the label, this does **not** kill the connection -- the log continues to ``Client connected`` after it.
+``openvpn3`` sets DNS through ``systemd-resolved``; without it, the VPN still works, only the VPN's DNS servers are not applied.
+For HackTheBox, targets are reached by IP, so it does not matter.
+
+To silence it on NixOS:
+
+----
+services.resolved.enable = true;
+----
+
+== Source
+
+* https://github.com/OpenVPN/openvpn3-linux[github.com/OpenVPN/openvpn3-linux]
+* https://community.openvpn.net/openvpn/wiki/VORACLE[community.openvpn.net/openvpn/wiki/VORACLE]

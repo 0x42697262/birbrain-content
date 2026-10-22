@@ -287,6 +287,9 @@
 [OpenBalena]
 * xref:openbalena.adoc[]
 
+[OpenVPN]
+* xref:openvpn.adoc[]
+
 [Open Source Intelligence]
 * xref:osint.adoc[]
 ** xref:osint-tools.adoc[]
