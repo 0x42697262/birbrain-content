@@ -5,13 +5,14 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Linear Regression.md`.
 
----
+'''
 
-* assume that $X_i$, $\beta_0$, $\beta_1$ are fixed values
+* assume that latexmath:[X_i], latexmath:[\beta_0], latexmath:[\beta_1] are fixed values
 == Formula
 
-$$
+[latexmath]
+++++
 Y_i = \beta_0 + \beta_1X_i + \varepsilon_i
-$$
+++++
 
-* $\varepsilon_i$ is a random variable
+* latexmath:[\varepsilon_i] is a random variable

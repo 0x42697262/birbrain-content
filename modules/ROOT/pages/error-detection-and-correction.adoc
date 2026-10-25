@@ -1,11 +1,10 @@
 = Error Detection and Correction
 :page-origin: Obsidian
 :page-date: 2023-10-19
-:page-tags: []
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Error Detection and Correction.md`.
 
----
+'''
 
 == Types of Errors:
 

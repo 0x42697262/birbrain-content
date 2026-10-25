@@ -5,15 +5,15 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Return on Investment.md`.
 
----
+'''
 
 The result of subtracting the project costs from the benefits and then dividing by the costs.
 
-$$ROI = \frac\{\{\text\{Total Discounted Benefits\} - \text\{Total Discounted Costs\}\}\}\{\{\text\{Discounted Costs\}\}\}$$
+latexmath:[ROI = \frac{{\text{Total Discounted Benefits} - \text{Total Discounted Costs}}}{{\text{Discounted Costs}}}]
 
-**Required Rate of Return**
+*Required Rate of Return*
 * _minimum acceptable_ rate of return of investment
-**Internal Rate of Return**
+*Internal Rate of Return*
 * the discount rate at which the net present value of an investment is equal to zero
 
 image::pasted-image-20230918043437.png[]

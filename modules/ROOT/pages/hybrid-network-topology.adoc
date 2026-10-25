@@ -5,10 +5,12 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Hybrid Network Topology.md`.
 
----
+'''
 
-INFO: 
+[NOTE]
+====
 image::hybrid-network-topology.png[]
+====
 
 ----
 Hybrid topology is like a mix of different types of network topologies, such as star, bus, ring, or mesh. It's used to combine the advantages of these individual topologies to create a more robust and flexible network. In a hybrid topology, different parts of the network may use different topologies depending on what works best for that specific area or purpose.

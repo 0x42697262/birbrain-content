@@ -5,16 +5,15 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Physical Layer.md`.
 
----
+'''
 
 The lowest layer of the xref:open-systems-interconnection-model.adoc[Open Systems Interconnection Model] is concerned with electrically or optically transmitting raw unstructured data data bits across the network from the physical layer of the sending device to the physical layer of the receiving device.
 
 It can include specifications such as voltages, pin layout, cabling, and radio frequencies. At the physical layer, one might find "physical" resources such as network hubs, cabling, repeaters, network adapters, or modems.
 
-INFO: 
-https://www.forcepoint.com/cyber-edu/osi-model
+NOTE: https://www.forcepoint.com/cyber-edu/osi-model
 
----
+'''
 
 * coordinates the functions required to carry a bit stream over a physical medium
 * deals with the mechanical and electrical specifications of the interface and transmission medium
@@ -31,10 +30,10 @@ The Physical Layer is concerned of:
 * Transmission mode
 
 == Theoretical Basis
-* **analog data**
+* *analog data*
 *** refers to information that is continuous
 *** infinite number of values in a range
-* **digital data**
+* *digital data*
 *** refers to information that has discrete states
 *** limited number of values
  image::analog-and-digital-data-signal.png[]

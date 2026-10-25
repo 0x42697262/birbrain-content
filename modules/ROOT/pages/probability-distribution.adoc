@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Probability Distribution.md`.
 
----
+'''
 
 * a list of all possible outcomes of a random variable
 

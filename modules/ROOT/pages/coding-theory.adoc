@@ -1,7 +1,6 @@
 = Coding Theory
 :page-origin: Obsidian
 :page-date: 2023-10-19
-:page-tags: []
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Coding Theory.md`.
 

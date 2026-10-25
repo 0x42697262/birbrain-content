@@ -5,6 +5,6 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Weighted Scoring Model.md`.
 
----
+'''
 
 image::pasted-image-20230918050716.png[]

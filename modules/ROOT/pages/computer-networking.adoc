@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/Computer Networking.md`.
 
-Interconnected computing devices that *exchange* **data** and **resources** to each other.
+Interconnected computing devices that *exchange* *data* and *resources* to each other.
 
 * Local Area Network
 * xref:network-topology.adoc[Network Topology]

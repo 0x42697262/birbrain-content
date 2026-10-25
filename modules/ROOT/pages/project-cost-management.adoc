@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Project Cost Management.md`.
 
----
+'''
 
 * one of the xref:project-management-constraints.adoc[constraints] in Project Management
 * usually measured in monetary value
@@ -29,14 +29,17 @@
 2. Budgetary Estimate
 3. Definitive Estimate
 
-| Estimate Type | When                                   | Range         |
-| ------------- | -------------------------------------- | ------------- |
-| ROM           | 3 to 5 years before project completion | -50% to +100% |
-| Budgetary     | 1 to 2 years out                       | -10% to +25%  | 
-| Definitive    | less than a year out                   | -5% to +10%   |
+[%header,cols="3*"]
+|===
+| Estimate Type | When | Range
+
+| ROM | 3 to 5 years before project completion | -50% to +100%
+| Budgetary | 1 to 2 years out | -10% to +25%
+| Definitive | less than a year out | -5% to +10%
+|===
 
 
----
+'''
 
 Please see:
 * Net Present Value

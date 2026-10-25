@@ -5,11 +5,11 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Project Charter.md`.
 
----
+'''
 
-A *document* that _formally **recognizes**_ the **existence** of a project and provides *direction* on the project's objectives and management. It **authorizes** the *project manager* to use <u>organizational resources</u> to complete the project.
+A *document* that _formally *recognizes*_ the *existence* of a project and provides *direction* on the project's objectives and management. It *authorizes* the *project manager* to use [.underline]#organizational resources# to complete the project.
 
-This is part of the **Initiation** phase.
+This is part of the *Initiation* phase.
 
 == Steps in Project Charter
 
@@ -24,12 +24,12 @@ This is part of the **Initiation** phase.
 .. Implementing a balanced scorecard
 . Developing a Project Charter
 
----
+'''
 
 === 1. Identifying Potential Projects
 We use _realistic methods_ to select which projects to work on.
-* **Strategic Planning** provides important information to help organizations _identify_ and then _select_ potential projects.
-* **xref:swot-analysis.adoc[SWOT Analysis]**
+* *Strategic Planning* provides important information to help organizations _identify_ and then _select_ potential projects.
+* *xref:swot-analysis.adoc[SWOT Analysis]*
 * Align IT with Business Strategy
 *** improving business process
 *** enable innovation and expansion
@@ -41,33 +41,33 @@ We use _realistic methods_ to select which projects to work on.
 === 2. Project Selection
 ==== Methods for Project Selection
 There are five common techniques:
-1. **Focusing on broad organizational needs**
-	1. Need
-	2. Funding
-	3. Will
-2. **Categorizing IT projects**
-	1. Time
-		1. How long will take take to complete a project?
-	2. Priority
-		1. High, Medium, or Low
-		2. An organization should complete a high-priority projects first.
-	3. Project's Impetus
-		1. Project
-		2. Opportunity
-		3. Directive
-3. **Performing Net Present Value or other financial analyses**
-	1. Net Present Value
-		1. Expected monetary gain or loss from a project
-	2. xref:return-on-investment.adoc[Return On Investment] (ROI)
-		1. Approximate measure of an investment's profitability
-	3. xref:payback-analysis.adoc[Payback Analysis]
-		1. Amount of time to recoup the total amount invested in a project in terms of net cash inflows
-4. **Using a xref:weighted-scoring-model.adoc[Weight Scoring Model]** (a tool that provides a systematic process for selecting projects based on many criteria)
-	1. Identify criteria that are important to the selection process
-	2. Assign a weight to each criterion
-	3. Calculate weighted score for each project
-5. **Implementing a balanced scorecard** (helps organizations align business activities to strategy, improve communications, and monitor performance against strategic goals)
-	1. image::pasted-image-20230918030707.png[]
+. *Focusing on broad organizational needs*
+.. Need
+.. Funding
+.. Will
+. *Categorizing IT projects*
+.. Time
+... How long will take take to complete a project?
+.. Priority
+... High, Medium, or Low
+... An organization should complete a high-priority projects first.
+.. Project's Impetus
+... Project
+... Opportunity
+... Directive
+. *Performing Net Present Value or other financial analyses*
+.. Net Present Value
+... Expected monetary gain or loss from a project
+.. xref:return-on-investment.adoc[Return On Investment] (ROI)
+... Approximate measure of an investment's profitability
+.. xref:payback-analysis.adoc[Payback Analysis]
+... Amount of time to recoup the total amount invested in a project in terms of net cash inflows
+. *Using a xref:weighted-scoring-model.adoc[Weight Scoring Model]* (a tool that provides a systematic process for selecting projects based on many criteria)
+.. Identify criteria that are important to the selection process
+.. Assign a weight to each criterion
+.. Calculate weighted score for each project
+. *Implementing a balanced scorecard* (helps organizations align business activities to strategy, improve communications, and monitor performance against strategic goals)
+.. image::pasted-image-20230918030707.png[]
 
 
 === 3. Developing a Project Charter

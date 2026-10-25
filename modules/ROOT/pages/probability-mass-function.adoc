@@ -4,10 +4,10 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Probability Mass Function.md`.
 
----
+'''
 
-* a function that maps a xref:discrete-random-variable.adoc[Discrete Random Variable] $X$ to some probability $p \in [0, 1]$
+* a function that maps a xref:discrete-random-variable.adoc[Discrete Random Variable] latexmath:[X] to some probability latexmath:[p \in [0, 1]]
 
----
+'''
 
 See xref:probability-density-function.adoc[Probability Density Function].

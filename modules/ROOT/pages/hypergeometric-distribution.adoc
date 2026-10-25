@@ -4,14 +4,15 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Hypergeometric Distribution.md`.
 
----
+'''
 
 == Formula
 
-$$
-P(x|N,K,n) = \frac\{\binom\{K\}\{x\}\binom\{N-K\}\{n-x\}\}\{\binom\{N\}\{n\}\}
-$$
+[latexmath]
+++++
+P(x|N,K,n) = \frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}
+++++
 where:
-* $N$ is the population size
-* $K$ is the number of success in the population
-* $n$ is the sample size
+* latexmath:[N] is the population size
+* latexmath:[K] is the number of success in the population
+* latexmath:[n] is the sample size

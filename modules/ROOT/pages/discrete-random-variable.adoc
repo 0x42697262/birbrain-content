@@ -4,10 +4,10 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Discrete Random Variable.md`.
 
----
+'''
 
 * quantified by a function called xref:probability-mass-function.adoc[Probability Mass Function]
 
----
+'''
 
 See xref:continuous-random-variable.adoc[Continuous Random Variable].

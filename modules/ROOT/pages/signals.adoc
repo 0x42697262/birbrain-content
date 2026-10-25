@@ -1,11 +1,10 @@
 = Signals
 :page-origin: Obsidian
 :page-date: 2023-10-03
-:page-tags: []
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Signals.md`.
 
----
+'''
 
 * xref:periodic-analog-signals.adoc[Periodic Analog Signals]
 * xref:sine-waves.adoc[Sine Waves]

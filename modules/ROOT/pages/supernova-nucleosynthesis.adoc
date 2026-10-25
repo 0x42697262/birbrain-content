@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Supernova Nucleosynthesis.md`.
 
----
+'''
 
 Creation of chemical elements in supernova explosions.
 

@@ -12,6 +12,6 @@ A method of Debugging without executing the program.
 * xref:xxd.adoc[xxd]
 * xref:objdump.adoc[objdump]
 
----
+'''
 
 See Dynamic Analysis for real-time execution Debugging.

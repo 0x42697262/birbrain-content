@@ -5,9 +5,9 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Project Management — Constraints.md`.
 
----
+'''
 
-**Basic:**
+*Basic:*
 1. Scope
 2. Time
 3. Cost

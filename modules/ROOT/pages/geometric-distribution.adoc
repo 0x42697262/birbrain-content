@@ -4,10 +4,11 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Geometric Distribution.md`.
 
----
+'''
 
 == Formula
 
-$$
+[latexmath]
+++++
 P(x|p) = (1-p)^{x-1}p
-$$
+++++

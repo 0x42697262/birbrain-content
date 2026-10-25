@@ -5,6 +5,6 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Project Cost Management — Definitive Estimate.md`.
 
----
+'''
 
 * for estimating project costs accurately

@@ -167,9 +167,9 @@ nixos-rebuild list-generations
 
 Summary:
 
-. connect to wifi using **wpa_cli**
-. partition the disk with **parted** (esp, root, home). make sure to use **BTRFS**
-. use **Full-Disk Encryption**
+. connect to wifi using *wpa_cli*
+. partition the disk with *parted* (esp, root, home). make sure to use *BTRFS*
+. use *Full-Disk Encryption*
 . create subvolumes (nix, persist, log)
 . mount them
 
@@ -335,9 +335,7 @@ Issues with:
 
 * xref:rtl88x2bu.adoc[rtl88x2bu] `rtw88/rtw8822b_fw.bin`
 
-NOTE: 
-
-In NixOS configuration, add `hardware.enableAllFirmware = true;`. This is equivalent to installing `linux-firmware` in other distros such as Arch Linux.
+NOTE: In NixOS configuration, add `hardware.enableAllFirmware = true;`. This is equivalent to installing `linux-firmware` in other distros such as Arch Linux.
 
 Source: https://nixos.org/manual/nixos/stable/#sec-profile-all-hardware
 // END GENERATED OBSIDIAN IMPORT

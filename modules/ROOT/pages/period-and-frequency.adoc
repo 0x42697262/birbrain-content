@@ -1,32 +1,33 @@
 = Period and Frequency
 :page-origin: Obsidian
 :page-date: 2023-10-04
-:page-tags: []
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Period and Frequency.md`.
 
----
+'''
 
-**Period** refers to the amount of time, in seconds; a signal needs to complete 1 cycle. **Frequency** refers to the number of periods in 1 second.
+*Period* refers to the amount of time, in seconds; a signal needs to complete 1 cycle. *Frequency* refers to the number of periods in 1 second.
 
 == Formula
 
 === Frequency
 
-$$f=\frac\{1\}\{T\}$$
+latexmath:[f=\frac{1}{T}]
 _Frequency is formally expressed in Hertz (Hz), which is cycles per second._
 
 === Period
 
-$$T=\frac\{1\}\{F\}$$
+latexmath:[T=\frac{1}{F}]
 
 _Period is formally expressed in seconds._
 
----
+'''
 
-NOTE: 
+[NOTE]
+====
 Frequency and Period are just one characteristics defined in two ways.
 Period is the inverse of frequency, and frequency is the inverse of period.
+====
 
 Two signals with the same phase and frequency, but different frequencies:
 image::period-and-frequency-two-signals-with-the-same-phase-and-frequency-but-different-frequencies.png[]

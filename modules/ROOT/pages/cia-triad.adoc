@@ -16,7 +16,7 @@ Three Principles:
 
 image::cia-triad.png[]
 
----
+'''
 
 These three principles should prevent xref:threat-actor.adoc[Threat Actor]s from unauthorized access or control to private data.
 
@@ -38,4 +38,4 @@ xref:encryption.adoc[Encryption] is created to safeguard data from being tampere
 A property that determines the origin of a given message. 
 Information should only be accessible and usable to the authorized entities.
 
----
+'''

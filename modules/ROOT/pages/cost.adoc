@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Cost.md`.
 
----
+'''
 
 * "something given up in exchange"
 * something that should be spent in order to gain something of anything of value

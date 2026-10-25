@@ -4,10 +4,11 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Uniform Discrete Distribution.md`.
 
----
+'''
 
 == Formula
 
-$$
-P(x|a,b) = \frac\{1\}\{b-a+1\} \prod_\{[a,b]\}(x)
-$$
+[latexmath]
+++++
+P(x|a,b) = \frac{1}{b-a+1} \prod_{[a,b]}(x)
+++++

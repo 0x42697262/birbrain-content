@@ -5,6 +5,6 @@
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/Network Security.md`.
 
-Protection of the underlying networking infrastructure by keeping it secure. ^0d11e8
+Protection of the underlying networking infrastructure by keeping it secure.
 
 One of the methods is xref:firewall.adoc[Firewall]s.

@@ -5,15 +5,17 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Mesh Network Topology — Partially Connected Network.md`.
 
----
+'''
 
-INFO: 
+[NOTE]
+====
 image::mesh-network-topology-partially-connected-network.png[]
+====
 
 Not every node are connected to every other node, but there are still redundant paths within the network.
 
 * At least two of the computers in the network have connections to multiple other computers in the network.
 
----
+'''
 
 See xref:mesh-network-topology-fully-connected-network.adoc[Mesh Network Topology — Fully Connected Network]

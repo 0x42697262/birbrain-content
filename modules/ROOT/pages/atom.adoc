@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Atom.md`.
 
----
+'''
 
 A particle that consists of nucleus of protons and neutrons surrounded by an electromagnetically-bound cloud of xref:electron.adoc[electrons].
 

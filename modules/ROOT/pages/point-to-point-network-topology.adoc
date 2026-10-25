@@ -5,11 +5,11 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Point-to-Point Network Topology.md`.
 
----
+'''
 
 * It should be similar to xref:line-topology.adoc[Line Topology] as point-to-point is simply xref:line-topology.adoc[Line Topology] with only two nodes
 
----
+'''
 
 ----
 Imagine you have two computers, let's call them Computer A and Computer B. In a point-to-point topology, you connect Computer A directly to Computer B with a single communication link, like a cable. It's like having a direct phone line between two people.

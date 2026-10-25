@@ -6,11 +6,11 @@
 // Imported from `Development/obsidian_files/» Notes/Atomic/Security Framework.md`.
 
 Policies, procedures, or guidelines for establishing and maintaining xref:security-control.adoc[Security Control].
-Helps mitigate risks and threats to data and privacy. ^50b289
+Helps mitigate risks and threats to data and privacy.
 
 This makes the organizations compliant and insulated from xref:cyber-threat.adoc[Cyber Threat]s at it provides structured approach to implementing xref:security-lifeycle.adoc[Security Lifeycle].
 
-**Purpose of Security Framework**:
+*Purpose of Security Framework*:
 
 * protecting Personally Identifiable Information
 * securing financial information

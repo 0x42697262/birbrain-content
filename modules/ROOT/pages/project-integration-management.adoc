@@ -5,20 +5,20 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Project Integration Management.md`.
 
----
+'''
 
 == Main Processes
-**Initiation** -> **Planning** -> **Execution** -> **Monitoring & Controlling** -> **Closing**
+*Initiation* -> *Planning* -> *Execution* -> *Monitoring & Controlling* -> *Closing*
 
-=== <u>Initiation</u>
-* Developing the **xref:project-charter.adoc[Project Charter]**
+=== [.underline]#Initiation#
+* Developing the *xref:project-charter.adoc[Project Charter]*
 
-=== <u>Planning</u>
-* Developing the **Project Management Plan**
+=== [.underline]#Planning#
+* Developing the *Project Management Plan*
 * briefly describes the overall scope, schedule, and cost baselines for the project
 * should be dynamic, flexible, and receptive to change when the environment or project changes
 
-=== <u>Execution</u>
+=== [.underline]#Execution#
 * Directing and managing Project Work
 * Managing Project Knowledge
 * Coordinating Planning and Execution
@@ -30,7 +30,7 @@
 *** Tacit Knowledge
 * Lesson-learned Register
 
-=== <u>Monitoring and Controlling</u>
+=== [.underline]#Monitoring and Controlling#
 * Monitoring and controlling Project Wokrk
 * Performing Integrated change control
 * Monitor project based on a baseline
@@ -42,7 +42,7 @@
 * Configuration Management
 *** Ensures that the descriptions of the project's products are correct and complete
 
-=== <u>Closing</u>
+=== [.underline]#Closing#
 * Closing the project or phase
 * Formal acceptance of deliverables
 * Output:

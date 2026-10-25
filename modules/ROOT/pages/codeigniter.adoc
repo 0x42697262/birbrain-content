@@ -17,7 +17,7 @@ CRITICAL - 2023-01-22 16:32:47 --> Undefined constant "CodeIgniter\Database\MySQ
 1. Edit `/etc/php/php.ini`
 2. Find `extension=mysqli` and `extension=pdo_mysql` then uncomment.
 
----
+'''
 
 == Error connecting to the database: No such file or directory
 

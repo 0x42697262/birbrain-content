@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Javascript — eval().md`.
 
----
+'''
 
 * can be used to inject and execute arbitrary code
 

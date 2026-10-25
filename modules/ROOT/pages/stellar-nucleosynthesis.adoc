@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Stellar Nucleosynthesis.md`.
 
----
+'''
 
 The xref:nucleosynthesis.adoc[creation] of chemical elements by nuclear fusion reactions within stars.
 
@@ -14,7 +14,7 @@ The xref:nucleosynthesis.adoc[creation] of chemical elements by nuclear fusion r
 
 == Process
 
-**Requirements**:
+*Requirements*:
 
 1. Stellar Population:  Population I Stars and Population II Stars (produces xref:element.adoc[elements] from Helium to Iron)
 2. Temperature

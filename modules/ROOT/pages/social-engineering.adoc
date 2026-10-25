@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/Social Engineering.md`.
 
-A manipulation technique that takes advantage of **human errors**.
+A manipulation technique that takes advantage of *human errors*.
 
 Social engineering works well because of xref:weakest-link.adoc[Weakest Link], which is a person.
 

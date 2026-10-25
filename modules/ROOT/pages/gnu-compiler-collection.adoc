@@ -46,6 +46,6 @@ This should create an assembly file with `.c` as extension. To confirm, run `fil
 <filename>.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 ----
 
----
+'''
 
 For Debugging, see xref:gdb.adoc[GNU Debugger].

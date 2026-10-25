@@ -4,10 +4,10 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Continuous Random Variable.md`.
 
----
+'''
 
 Quantified using a function called xref:probability-density-function.adoc[Probability Density Function].
 
----
+'''
 
 See xref:discrete-random-variable.adoc[Discrete Random Variable].

@@ -5,6 +5,6 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Shellcode.md`.
 
----
+'''
 
 Specific set of instructions.

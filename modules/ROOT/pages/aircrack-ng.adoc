@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/aircrack-ng.md`.
 
----
+'''
 
 
 == Monitor Mode

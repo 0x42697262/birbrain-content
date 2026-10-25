@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Theory of Constraint.md`.
 
----
+'''
 
 * methodology for identifying the most important limiting factor
 * *weakest link of a chain* emphasizing the importance of *identifying the primary constraint* that threatens the project's completion

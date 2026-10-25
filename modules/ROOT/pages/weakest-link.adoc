@@ -5,10 +5,10 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Weakest Link.md`.
 
----
+'''
 
-* **inexpensive** compared to physical attacks
+* *inexpensive* compared to physical attacks
 * not limited by distance and geography
-* difficult to **track** and **identify**
+* difficult to *track* and *identify*
 * reusable to attack other systems
 * xref:social-engineering.adoc[Social Engineering]

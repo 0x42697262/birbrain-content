@@ -5,14 +5,13 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/airmon-ng.md`.
 
----
+'''
 
 == Monitor Mode
 
 === Starting Monitor Mode
 
-NOTE: 
-Make sure to kill NetworkManager and wpa_supplicant before running monitor mode.
+NOTE: Make sure to kill NetworkManager and wpa_supplicant before running monitor mode.
 
 For more than one wifi adapters, one interface can be used for connecting to the internet while the others can be used for Monitor Mode.
 

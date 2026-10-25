@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Call Stack.md`.
 
----
+'''
 
 Refer to xref:stack.adoc[Stack] Data Structure.
 

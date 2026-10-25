@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Continuous Probability Distribution.md`.
 
----
+'''
 
 * description of the probability of occurrence of each value of a xref:continuous-random-variable.adoc[Continuous Random Variable]
 * infinite values or outcomes

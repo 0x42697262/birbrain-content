@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Nucleosynthesis.md`.
 
----
+'''
 
 Nucleosynthesis is the study of nuclear processes responsible for the formation of the xref:element.adoc[elements].
 

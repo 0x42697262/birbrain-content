@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/Threat Actor.md`.
 
-Malicious entities that poses security risks. ^d040bd
+Malicious entities that poses security risks.
 
 Can utilize xref:cyberattack.adoc[Cyberattack]s since they are considered as xref:cyber-threat.adoc[Cyber Threat]s in xref:computer-security.adoc[Computer Security].
 
@@ -18,7 +18,7 @@ Have significant expertise accessing an organization's network and remain undete
 === Internal Threats
 
 Entities that could be current or former employees, external vendors, or trusted partners.
-The threats are usually an **accident** or can sometimes be **intentional**.
+The threats are usually an *accident* or can sometimes be *intentional*.
 
 === External Threats
 
@@ -33,7 +33,7 @@ They commonly perform:
 * Propaganda
 * Social change campaigns
 
----
+'''
 
 Some questions to ask:
 

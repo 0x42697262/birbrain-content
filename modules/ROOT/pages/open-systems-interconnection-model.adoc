@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Open Systems Interconnection Model.md`.
 
----
+'''
 
 OSI Model is a conceptual framework used to describe the functions of a xref:computer-networking.adoc[networking system].
 
@@ -21,9 +21,9 @@ The purpose of OSI model is to show how to facilitate communication between diff
 6. Presentation Layer
 7. Application Layer
 
-**User Support Layers**: allow interoperability among unrelated software systems
-**Transport Support Layers**: links two subgroups and ensures that what the lower layers have transmitted is in a form that the upper layers can use
-**Network Support Layers**: deal with the physical aspects of moving data from one device to another (such as electrical specifications, physical connections, physical addressing, and transport timing and reliability)
+*User Support Layers*: allow interoperability among unrelated software systems
+*Transport Support Layers*: links two subgroups and ensures that what the lower layers have transmitted is in a form that the upper layers can use
+*Network Support Layers*: deal with the physical aspects of moving data from one device to another (such as electrical specifications, physical connections, physical addressing, and transport timing and reliability)
 
 An exchange using the OSI model:
 image::osi-model-exchange.png[]

@@ -18,7 +18,7 @@ Compile with gcc's `-g` flag to include debug symbols.
 
 == Commands
 
-until:: until <address> (short form: **u**)
+until:: until <address> (short form: *u*)
 
 == diassemble Options
 
@@ -57,7 +57,5 @@ gdb -p <process id>
 
 To find the process id, run `ps aux | grep <filename>`.
 
-NOTE: 
-
-This might need sudo.
+NOTE: This might need sudo.
 // END GENERATED OBSIDIAN IMPORT

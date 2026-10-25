@@ -5,16 +5,16 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Network Topology.md`.
 
----
+'''
 
 Network Topology is the geometric representation of the relationship of all links and linking devices (nodes) to one another.
 
-**Categories**:
+*Categories*:
 
 1. `Physical Topology`: refers to the actual physical connections of how the network is arranged
 2. `Logical Topology`: refers to the higher-level idea of how the network is arranged
 
-**Types**:
+*Types*:
 
 1. xref:mesh-network-topology.adoc[Mesh Topology] (Basic)
 2. xref:star-network-topology.adoc[Star Topology] (Basic)
@@ -25,5 +25,7 @@ Network Topology is the geometric representation of the relationship of all link
 7. xref:tree-network-topology.adoc[Tree Topology]
 8. xref:hybrid-network-topology.adoc[Hybrid Topology]
 
-INFO: 
+[NOTE]
+====
 image::network-topologies.png[]
+====

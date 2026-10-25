@@ -4,10 +4,11 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Uniform Continuous Distribution.md`.
 
----
+'''
 
 == Formula
 
-$$
-p(x|b,a) = \frac\{1\}\{b-a\}\prod_\{[a,b]\}(x)
-$$
+[latexmath]
+++++
+p(x|b,a) = \frac{1}{b-a}\prod_{[a,b]}(x)
+++++

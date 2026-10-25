@@ -5,10 +5,12 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Mesh Network Topology — Fully Connected Network.md`.
 
----
+'''
 
-INFO: 
+[NOTE]
+====
 image::mesh-network-topology-fully-connected-network.png[]
+====
 
 Every node (devices) has a *direct connection* to every other node.
 
@@ -16,20 +18,20 @@ Every node (devices) has a *direct connection* to every other node.
 * Physical links: `n(n-1)`
 * Duplex mode: `n(n-1)/2`
 
-**Advantages**:
+*Advantages*:
 
 1. Eliminates traffic problems
 2. Robust
 3. Privacy or Security
 4. Easy fault identification and fault isolation
 
-**Disadvantages**:
+*Disadvantages*:
 
 1. High amount of cabling and I/O ports
 2. Difficult installation and reconnection
 3. Bulk of wiring limit space
 4. Expensive hardware (I/O ports and cables)
 
----
+'''
 
 See xref:mesh-network-topology-partially-connected-network.adoc[Mesh Network Topology — Partially Connected Network]

@@ -4,10 +4,11 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Exponential Distribution.md`.
 
----
+'''
 
 == Formula
 
-$$
-p(x|\lambda) = \lambda e^\{-\lambda x\}
-$$
+[latexmath]
+++++
+p(x|\lambda) = \lambda e^{-\lambda x}
+++++

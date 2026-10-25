@@ -5,8 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/iwconfig.md`.
 
-NOTE: 
-Do not use xref:iwconfig.adoc[iwconfig], use iw instead.
+NOTE: Do not use xref:iwconfig.adoc[iwconfig], use iw instead.
 
 == Checking Monitor Mode
 

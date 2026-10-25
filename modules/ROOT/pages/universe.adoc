@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Universe.md`.
 
----
+'''
 
 == Components
 
@@ -15,10 +15,13 @@
 
 == Composition of the Universe
 
-|                        | Dark Matter | xref:atom.adoc[Atom] | Dark Energy | Photon | Neutrino |
-| ---------------------- | --------------- | -------- | --------------- | ---------- | ------------ |
-| 13.8 Billion Years Ago | 63%             | 12%      |                 | 15%        | 10%          |
-| Today                  | 26.8%           | 4.9%     | 68.3%           |            |              |
+[%header,cols="6*"]
+|===
+| | Dark Matter | xref:atom.adoc[Atom] | Dark Energy | Photon | Neutrino
+
+| 13.8 Billion Years Ago | 63% | 12% | | 15% | 10%
+| Today | 26.8% | 4.9% | 68.3% | |
+|===
 
 == Facts
 

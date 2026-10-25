@@ -4,7 +4,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Discrete Probability Distribution.md`.
 
----
+'''
 
 * a description of the probability occurrence of each value of a xref:discrete-random-variable.adoc[Discrete Random Variable]
 * have countable or finite outcomes

@@ -1,7 +1,6 @@
 = readelf
 :page-origin: Obsidian
 :page-date: 2024-02-11
-:page-tags: []
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/readelf.md`.
 

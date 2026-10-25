@@ -7,31 +7,31 @@
 
 == Data Communications
 
----
+'''
 
 == Data Communication
 * active process of transferring information
 * exchange of data from at least one devices through the use of medium
 
-**Basic Components**:
+*Basic Components*:
 1. Message
 2. Sender
 3. Receiver
 4. Transmission Medium
 5. Protocol
 
-**Effectiveness Characteristics**
+*Effectiveness Characteristics*
 1. Delivery 
 2. Accuracy
 3. Timeliness
 4. Jitter
 
-**Data Flow**
+*Data Flow*
 1. Simplex
 2. Half-Duplex
 3. Full-Duplex
 
----
+'''
 
 * xref:computer-networking.adoc[Computer Networking]
 * xref:signal-transmission.adoc[Signal Transmission]

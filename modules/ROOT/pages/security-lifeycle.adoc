@@ -5,6 +5,6 @@
 
 // Imported from `Development/obsidian_files/» Notes/Atomic/Security Lifeycle.md`.
 
-Constantly evolving set of **guidelines** and **standards** define how organizations *manage risks*, *follow established guidelines*, *meet regulatory compliance*, or *laws*.
+Constantly evolving set of *guidelines* and *standards* define how organizations *manage risks*, *follow established guidelines*, *meet regulatory compliance*, or *laws*.
 
 To implement this in structured approach, one can use xref:security-framework.adoc[Security Framework]s.

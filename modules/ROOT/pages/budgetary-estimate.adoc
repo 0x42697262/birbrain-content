@@ -5,7 +5,7 @@
 
 // Imported from `Development/obsidian_files/» Notes/WIP/Project Cost Management — Budgetary Estimate.md`.
 
----
+'''
 
 * for allocating resources and appropriating funds of the organization
 * budgets periodically
