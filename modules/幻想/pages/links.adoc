@@ -25,6 +25,7 @@ Accessed,Name,URL,Description
 2025-04-09,APIsecU,https://www.apisecuniversity.com/[],"The API Security University (APIsecU) was founded on the belief that web application programming interfaces (APIs) are a vital pipeline for data to flow across the Internet. We realized that APIs are a leading attack vector for criminals and are continuously being adopted by organizations without sufficient security controls in place. At scale, this situation creates a perfect storm for criminals to breach data, devastate businesses, and expose sensitive information worldwide."
 2025-04-30,CyberTalents,https://cybertalents.com/[],"Cyber Talents is a platform that ranks cyber security talents according to their real hands on skills in different cyber security categories by running capture the flag competitions in order to be hired by recruiters."
 2025-09-04,Internet Storm Center,https://isc.sans.edu/[],"The first public source for new attack trends and actively facilitates cooperation by soliciting more information to understand particular attacks better."
+2026-10-25,Exploit.Education,https://exploit.education/[],"exploit.education provides a variety of resources that can be used to learn about vulnerability analysis, exploit development, software debugging, binary analysis, and general cyber security issues."
 |===
 
 
