@@ -1,0 +1,7 @@
+= Plain Text
+:page-origin: Obsidian
+:page-date: 2024-03-08
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Plain Text.md`.
+
+Information in readable format.

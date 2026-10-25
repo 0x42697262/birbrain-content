@@ -1,0 +1,13 @@
+= Cipher
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cipher.md`.
+
+A secret or disguised way of writing Code.
+An algorithm for performing xref:encryption.adoc[Encryption] or decryption.
+== Types
+
+* xref:substitution-cipher.adoc[Substitution Cipher]
+* xref:transposition-cipher.adoc[Transposition Cipher]

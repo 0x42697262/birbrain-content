@@ -1,0 +1,12 @@
+= Single-Bit Error
+:page-origin: Obsidian
+:page-date: 2023-10-19
+:page-tags: []
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Single-Bit Error.md`.
+
+---
+
+Only one bit of a given data is altered.
+
+image::single-bit-error.png[]

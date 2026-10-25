@@ -1,0 +1,8 @@
+= Business Email Compromise
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: cybersecurity, social-engineering
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Business Email Compromise.md`.
+
+A variation of xref:phishing.adoc[Phishing] that targets a company.

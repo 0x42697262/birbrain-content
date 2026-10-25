@@ -1,0 +1,13 @@
+= Noble Gas
+:page-origin: Obsidian
+:page-date: 2023-11-09
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Noble Gas.md`.
+
+---
+
+* aka **Inert Gases**; aka **Aerogens**
+* stable
+*** does not react or bond with other xref:atom.adoc[atoms] or molecules
+*** the only xref:atom.adoc[atoms] with 8 xref:valence-electron.adoc[valence electrons]
+*** have full *s* and *p* orbitals in their outermost energy level

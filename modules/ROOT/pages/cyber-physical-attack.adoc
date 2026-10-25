@@ -1,0 +1,17 @@
+= Cyber Physical Attack
+:page-origin: Obsidian
+:page-date: 2024-03-11
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cyber Physical Attack.md`.
+
+A xref:cyberattack.adoc[Cyberattack] that involves the physical environment.
+
+Examples:
+
+* Malicious USB Cable
+* Malicious flash drives such as USB Rubber Ducky and USB Killer
+* Card Cloning
+* Skimming
+
+Relates to xref:asset-security.adoc[Asset Security] xref:security-domains-cissp.adoc[Security Domains (CISSP)].

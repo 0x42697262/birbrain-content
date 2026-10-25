@@ -1,0 +1,15 @@
+= Periodic Analog Signals
+:page-origin: Obsidian
+:page-date: 2023-10-03
+:page-tags: []
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Periodic Analog Signals.md`.
+
+---
+
+Periodic analog signals can be classified as _simple_ or _composite_.
+
+* A **simple** periodic analog signal, a sine wave, cannot be decomposed into simpler signals.
+* A **composite** periodic analog signal is composed of multiple sine waves
+
+The xref:sine-waves.adoc[sine wave] is the most fundamental form of a periodic analog signal.

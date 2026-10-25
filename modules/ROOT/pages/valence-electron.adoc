@@ -1,0 +1,13 @@
+= Valence Electron
+:page-origin: Obsidian
+:page-date: 2023-11-09
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Valence Electron.md`.
+
+---
+
+== What is a Valence Electron
+
+Valence Electrons are *s* and *p* xref:electron.adoc[electrons] located at the outermost shell of an xref:atom.adoc[atom].
+
+* max number of xref:electron.adoc[electrons] in an xref:atom.adoc[atom] is 8

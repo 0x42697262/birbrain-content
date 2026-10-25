@@ -1,0 +1,12 @@
+= Static Memory
+:page-origin: Obsidian
+:page-date: 2024-01-25
+:page-tags: memory-allocation, #memory-safety, #CMSC134
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Static Memory.md`.
+
+---
+
+* contains constants and static variables
+* allocated during program execution
+* never changes during program execution

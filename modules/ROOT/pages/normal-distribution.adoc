@@ -1,0 +1,13 @@
+= Normal Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Normal Distribution.md`.
+
+---
+
+== Formula
+
+$$
+p(x|\mu,\sigma^2) = \frac\{1\}\{\sqrt\{2\pi\sigma^2\}\}e^\{-\frac\{(x-\mu)^2\}\{2\sigma^2\}\}
+$$

@@ -1,0 +1,7 @@
+= Memory Layout
+:page-origin: Obsidian
+:page-date: 2024-01-25
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Memory Layout.md`.
+
+* xref:memory-layout-c.adoc[Memory Layout — C]

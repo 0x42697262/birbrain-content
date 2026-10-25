@@ -1,0 +1,15 @@
+= Computer Networking
+:page-origin: Obsidian
+:page-date: 2023-10-03
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Computer Networking.md`.
+
+Interconnected computing devices that *exchange* **data** and **resources** to each other.
+
+* Local Area Network
+* xref:network-topology.adoc[Network Topology]
+* xref:network-security.adoc[Network Security]
+
+== Models
+
+* xref:open-systems-interconnection-model.adoc[Open Systems Interconnection Model]

@@ -1,0 +1,13 @@
+= Substitution Cipher
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Substitution Cipher.md`.
+
+This xref:cipher.adoc[Cipher] substitutes one character into another.
+
+== Implementations
+
+* Caesar Cipher (like the ones in Gravity Falls)
+* ROT13

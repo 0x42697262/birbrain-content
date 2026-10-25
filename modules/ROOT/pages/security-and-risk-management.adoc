@@ -1,0 +1,14 @@
+= Security and Risk Management
+:page-origin: Obsidian
+:page-date: 2024-03-09
+:page-tags: information-security, information-risk-management
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Security and Risk Management.md`.
+
+Focuses on defining security goals and objectives, Risk Mitigations, compliance, Business Continuity, and laws.
+
+The first domain of xref:security-domains-cissp.adoc[Security Domains (CISSP)] by xref:certified-information-systems-security-professional.adoc[Certified Information Systems Security Professional].
+
+This domain should focus heavily on these xref:cyberattack.adoc[Cyberattack]s:
+
+* xref:supply-chain-attack.adoc[Supply Chain Attack]

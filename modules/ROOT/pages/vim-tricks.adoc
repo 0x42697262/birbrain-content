@@ -1,0 +1,11 @@
+= Vim — Tricks
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: vim
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/Vim — Tricks.md`.
+
+== Using as a hex editor with xref:xxd.adoc[xxd]
+
+Open a binary file and run `:%!xxd`, then edit the hex values as is.
+Do `:%!xxd -r` to revert into text mode.

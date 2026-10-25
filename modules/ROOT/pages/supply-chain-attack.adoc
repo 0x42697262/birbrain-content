@@ -1,0 +1,12 @@
+= Supply Chain Attack
+:page-origin: Obsidian
+:page-date: 2024-03-11
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Supply Chain Attack.md`.
+
+A xref:cyberattack.adoc[Cyberattack] that targets trusted third-party vendors who offers services or software.
+
+This attack is very costly because it affects multiple organizations at the same time.
+
+Relates to multiple xref:security-domains-cissp.adoc[Security Domains (CISSP)] such as, but not limited to, xref:security-and-risk-management.adoc[Security and Risk Management], xref:security-operations.adoc[Security Operations], and xref:security-architecture-and-engineering.adoc[Security Architecture and Engineering].

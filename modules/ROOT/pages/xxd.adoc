@@ -1,0 +1,29 @@
+= xxd
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: reverse-engineering, debugging
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/xxd.md`.
+
+Create a hex dump of a given file or standard input.
+Can also convert a hex dump back to its original binary form.
+
+== Options
+
+=== Group by bytes
+
+[source,sh]
+----
+-groupsize <bytes>
+----
+
+or
+
+[source,sh]
+----
+-g <bytes>
+----
+
+== Tricks
+
+* xref:vim-tricks.adoc[Vim — Tricks#Using as a hex editor with xxd]

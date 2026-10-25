@@ -1,0 +1,6 @@
+= Information Technology Security
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Information Technology Security.md`.
+
+Refer to xref:computer-security.adoc[Computer Security].

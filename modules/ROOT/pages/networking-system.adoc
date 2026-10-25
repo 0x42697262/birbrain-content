@@ -1,0 +1,6 @@
+= Networking System
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Networking System.md`.
+
+Refer to xref:computer-networking.adoc[Computer Networking].

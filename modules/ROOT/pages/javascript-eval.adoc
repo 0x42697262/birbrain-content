@@ -1,0 +1,26 @@
+= Javascript — eval()
+:page-origin: Obsidian
+:page-date: 2023-11-07
+:page-tags: pentesting/web-exploitation
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Javascript — eval().md`.
+
+---
+
+* can be used to inject and execute arbitrary code
+
+== Code Injection
+
+To list the files in the current directory: 
+
+[source,javascript]
+----
+require('child_process').execSync('ls').toString()
+----
+
+To get the current working directory:
+
+[source,javascript]
+----
+process.cwd()
+----

@@ -1,0 +1,15 @@
+= Peak Amplitude
+:page-origin: Obsidian
+:page-date: 2023-10-04
+:page-tags: []
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Amplitude — Peak Amplitude.md`.
+
+---
+
+The peak amplitude of a signal is the absolute value of its highest intensity, proportional to the energy it carries. For electric signals, peak amplitude is normally measured in volts.
+
+This figure shows two signals and their peak amplitudes. This discrepancy is due to the fact that these are root mean square (rms) values. The signal is squared and then the average amplitude is calculated. The peak value is equal to $2^\{112\}$xrms value.
+
+INFO: 
+image::peak-amplitude-2-signals-with-the-same-phase-and-frequency-but-different-amplitude.png[]

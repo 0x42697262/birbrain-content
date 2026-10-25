@@ -1,0 +1,41 @@
+= CIA Triad
+:page-origin: Obsidian
+:page-date: 2024-01-26
+:page-tags: information-security, computer-security, information-risk-management
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/CIA Triad.md`.
+
+A foundation principle for xref:information-security.adoc[Information Security] that guides the design and implementation of security measures to protect information, and as a comprehensive strategy that includes policies and xref:security-control.adoc[Security Control]s to minimize xref:cyber-threat.adoc[Cyber Threat]s.
+Provides a framework for understanding and implementing security measure such as xref:cryptography.adoc[Cryptography].
+
+Three Principles:
+
+1. Confidentiality
+2. Integrity
+3. Availability
+
+image::cia-triad.png[]
+
+---
+
+These three principles should prevent xref:threat-actor.adoc[Threat Actor]s from unauthorized access or control to private data.
+
+== Confidentiality
+
+A property where adversaries, or entities that are not authorized access or modify information, from reading our data.
+Information should not be disclosed without authorization.
+Meaning, only authorized users can access specific assets or data.
+
+== Integrity
+
+A property that prevents entities from tampering with our private data.
+Maintenance of, and assurance of, accuracy and consistency (completeness and trustworthiness) of data over its life-cycle.
+xref:encryption.adoc[Encryption] is created to safeguard data from being tampered
+
+
+== Availability
+
+A property that determines the origin of a given message. 
+Information should only be accessible and usable to the authorized entities.
+
+---

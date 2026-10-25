@@ -1,0 +1,11 @@
+= Punycode
+:page-origin: Obsidian
+:page-date: 2024-03-09
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Punycode.md`.
+
+An Encoding to force Unicode into ASCII character set.
+
+== xref:computer-security.adoc[Computer Security]
+
+* xref:firefox.adoc[Firefox#Punycode in URLs]

@@ -1,0 +1,17 @@
+= Static Analysis
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: reverse-engineering, debugging
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Static Analysis.md`.
+
+A method of Debugging without executing the program.
+
+== Tools
+
+* xref:xxd.adoc[xxd]
+* xref:objdump.adoc[objdump]
+
+---
+
+See Dynamic Analysis for real-time execution Debugging.

@@ -1,0 +1,8 @@
+= Security Control
+:page-origin: Obsidian
+:page-date: 2024-03-01
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Security Control.md`.
+
+Safeguards or countermeasures to avoid, detect, counteract, or minimize security risks. ^7f2ab9

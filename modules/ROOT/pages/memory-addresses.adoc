@@ -1,0 +1,25 @@
+= Memory Addresses
+:page-origin: Obsidian
+:page-date: 2024-01-25
+:page-tags: memory-allocation
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Memory Addresses.md`.
+
+---
+
+When a program is being run, the xref:address-space.adoc[Address Space] is divided into four sections. From lowest address to highest address, they are:
+
+1. Code
+2. Static
+3. Heap
+4. Stack
+
+== Sections
+
+=== Code
+
+=== Static
+
+=== Heap
+
+=== xref:stack.adoc[Stack]

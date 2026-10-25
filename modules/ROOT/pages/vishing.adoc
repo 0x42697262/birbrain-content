@@ -1,0 +1,8 @@
+= Vishing
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: social-engineering, cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Vishing.md`.
+
+A variation of xref:phishing.adoc[Phishing] that takes form in phone calls or voice messages.

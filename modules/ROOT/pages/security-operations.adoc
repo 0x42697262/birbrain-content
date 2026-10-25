@@ -1,0 +1,14 @@
+= Security Operations
+:page-origin: Obsidian
+:page-date: 2024-03-10
+:page-tags: information-security
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Security Operations.md`.
+
+Focuses in conducting investigations and implementing preventive measures.
+
+The seventh domain of xref:security-domains-cissp.adoc[Security Domains (CISSP)] by xref:certified-information-systems-security-professional.adoc[Certified Information Systems Security Professional].
+
+This domain should focus heavily on these xref:cyberattack.adoc[Cyberattack]s:
+
+* xref:supply-chain-attack.adoc[Supply Chain Attack]

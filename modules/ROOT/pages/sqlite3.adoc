@@ -15,3 +15,21 @@ SELECT * FROM table;
 == Source
 
 * https://www.sqlite.org/cli.html[sqlite.org — Command Line Shell]
+
+// BEGIN GENERATED OBSIDIAN IMPORT
+== Imported Obsidian Notes
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/sqlite3.md`.
+
+A terminal-based front-end to the SQLite library that can evaluate queries interactively and display  the results in multiple formats.
+
+=== Converting from other data type
+
+==== csv
+
+----
+$ sqlite3 <filename>.db
+sqlite3> .mode csv
+sqlite3> .import <csv> <db name>
+----
+// END GENERATED OBSIDIAN IMPORT

@@ -1,0 +1,17 @@
+= Linear Regression
+:page-origin: Obsidian
+:page-date: 2023-11-22
+:page-tags: machine-learning
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Linear Regression.md`.
+
+---
+
+* assume that $X_i$, $\beta_0$, $\beta_1$ are fixed values
+== Formula
+
+$$
+Y_i = \beta_0 + \beta_1X_i + \varepsilon_i
+$$
+
+* $\varepsilon_i$ is a random variable

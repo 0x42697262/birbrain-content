@@ -1,0 +1,20 @@
+= Nucleosynthesis
+:page-origin: Obsidian
+:page-date: 2023-11-08
+:page-tags: SCIENCE10
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Nucleosynthesis.md`.
+
+---
+
+Nucleosynthesis is the study of nuclear processes responsible for the formation of the xref:element.adoc[elements].
+
+* basically *creation* of new elements
+* heavier elements are created through fusion of lighter elements
+* process that creates new atomic nuclei from preexisting nucleons and nuclei
+
+== Types
+
+1. xref:big-bang-nucleosynthesis-bbn.adoc[Big Bang Nucleosynthesis (BBN)]
+2. xref:stellar-nucleosynthesis.adoc[Stellar Nucleosynthesis]
+3. xref:supernova-nucleosynthesis.adoc[Supernova Nucleosynthesis]

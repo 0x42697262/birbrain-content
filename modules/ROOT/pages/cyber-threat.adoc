@@ -1,0 +1,15 @@
+= Cyber Threat
+:page-origin: Obsidian
+:page-date: 2024-03-01
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cyber Threat.md`.
+
+Anything that has the **potential** to cause serious harm to any digital information systems.
+
+When manifested, it becomes a xref:cyberattack.adoc[Cyberattack].
+
+== Common Threats
+
+* Data Breaches
+* Insider Threats

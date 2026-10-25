@@ -1,0 +1,43 @@
+= Threat Actor
+:page-origin: Obsidian
+:page-date: 2024-03-01
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Threat Actor.md`.
+
+Malicious entities that poses security risks. ^d040bd
+
+Can utilize xref:cyberattack.adoc[Cyberattack]s since they are considered as xref:cyber-threat.adoc[Cyber Threat]s in xref:computer-security.adoc[Computer Security].
+
+== Types of Threats
+
+=== Advanced Persistent Threats
+
+Have significant expertise accessing an organization's network and remain undetected for extended period of time.
+
+=== Internal Threats
+
+Entities that could be current or former employees, external vendors, or trusted partners.
+The threats are usually an **accident** or can sometimes be **intentional**.
+
+=== External Threats
+
+Entities that originates outside from an organization.
+
+=== Hacktivists
+
+Driven by political agenda.
+They commonly perform:
+
+* Fame
+* Propaganda
+* Social change campaigns
+
+---
+
+Some questions to ask:
+
+* How are threats mitigated both for internal and external threats?
+* What to do after an attack occurred?
+* What to do during an attack?
+* What preparations are needed to prevent attacks?

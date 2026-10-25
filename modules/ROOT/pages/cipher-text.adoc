@@ -1,0 +1,9 @@
+= Cipher Text
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cipher Text.md`.
+
+Information in xref:encryption.adoc[encrypted], unreadable format.
+xref:cipher.adoc[Cipher] text must be **indistinguishable from randomness** to be considered as IND-CPA (indistinguishable under Chosen-Plaintext Attack) secure.

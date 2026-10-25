@@ -1,0 +1,18 @@
+= Hydrogen
+:page-origin: Obsidian
+:page-date: 2023-11-08
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Hydrogen.md`.
+
+---
+
+* a Terminal Atom
+* the simplest xref:element.adoc[element]
+
+== Exemption in Octet Rule
+
+Hydrogen only needs two xref:electron.adoc[electrons] to fill its valence shell, it follows a Duet Rule. Hence, an exemption of xref:octet-rule.adoc[Octet Rule].
+
+== Facts
+
+* the most abundant xref:element.adoc[element] in the xref:universe.adoc[Universe]

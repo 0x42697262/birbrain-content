@@ -1,0 +1,10 @@
+= Network Security
+:page-origin: Obsidian
+:page-date: 2024-03-01
+:page-tags: computer-networking/security, cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Network Security.md`.
+
+Protection of the underlying networking infrastructure by keeping it secure. ^0d11e8
+
+One of the methods is xref:firewall.adoc[Firewall]s.

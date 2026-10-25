@@ -1,0 +1,31 @@
+= Stack
+:page-origin: Obsidian
+:page-date: 2024-01-25
+:page-tags: data-structure, #CMSC134
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Stack.md`.
+
+---
+
+A Data Structure with contiguous block of memory containing data. Adding and removing data will always be performed at the last data placed[^1].
+
+== Example
+
+----
+╔═══════════════╗
+║       c       ║ ⟵ top of the stack (stack pointer)
+╠═══════════════╣
+║       b       ║
+╠═══════════════╣
+║       a       ║ ⟵ bottom of the stack
+╚═══════════════╝
+----
+
+== Applications
+
+* xref:call-stack.adoc[Call Stack]
+
+
+---
+
+[^1]: Last In First Out

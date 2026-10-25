@@ -1,0 +1,18 @@
+= Communication and Network Security
+:page-origin: Obsidian
+:page-date: 2024-03-09
+:page-tags: information-security, cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Communication and Network Security.md`.
+
+Focuses on managing and securing physical networks and wireless connections.
+
+The fourth domain of xref:security-domains-cissp.adoc[Security Domains (CISSP)] by xref:certified-information-systems-security-professional.adoc[Certified Information Systems Security Professional].
+
+xref:network-security.adoc[Network Security] should imply the use of xref:firewall.adoc[Firewall]s.
+
+It must defend against xref:cyberattack.adoc[Cyberattack]s such as:
+
+* xref:adversarial-machine-learning.adoc[Adversarial Machine Learning]
+* xref:cryptanalysis.adoc[Cryptanalysis]
+* xref:password-cracking.adoc[Password Cracking]

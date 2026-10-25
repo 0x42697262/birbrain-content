@@ -1,0 +1,10 @@
+= Definitive Estimate
+:page-origin: Obsidian
+:page-date: 2023-11-30
+:page-tags: project-management
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Project Cost Management — Definitive Estimate.md`.
+
+---
+
+* for estimating project costs accurately

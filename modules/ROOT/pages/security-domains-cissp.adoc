@@ -1,0 +1,21 @@
+= Security Domains (CISSP)
+:page-origin: Obsidian
+:page-date: 2024-03-09
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Security Domains (CISSP).md`.
+
+image::security-domains-cissp-eight-domains.png[]
+
+Failure to properly implement any of these would be a huge risk and can cause negative consequences to the entire organization:
+
+1. xref:security-and-risk-management.adoc[Security and Risk Management]
+2. xref:asset-security.adoc[Asset Security]
+3. xref:security-architecture-and-engineering.adoc[Security Architecture and Engineering]
+4. xref:communication-and-network-security.adoc[Communication and Network Security]
+5. xref:identity-and-access-management.adoc[Identity and Access Management]
+6. xref:security-assessment-and-testing.adoc[Security Assessment and Testing]
+7. xref:security-operations.adoc[Security Operations]
+8. xref:software-development-security.adoc[Software Development Security]
+
+The domains all have guidelines, policies, frameworks, processes, and etc.

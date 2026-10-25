@@ -1,0 +1,8 @@
+= Downgrade Attack
+:page-origin: Obsidian
+:page-date: 2024-03-11
+:page-tags: cryptanalysis, cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Downgrade Attack.md`.
+
+A form of xref:cyberattack.adoc[Cyberattack] that forces the xref:networking-system.adoc[Networking System] level to an insecure or weaker protocol.

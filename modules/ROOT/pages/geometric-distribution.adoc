@@ -1,0 +1,13 @@
+= Geometric Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Geometric Distribution.md`.
+
+---
+
+== Formula
+
+$$
+P(x|p) = (1-p)^{x-1}p
+$$

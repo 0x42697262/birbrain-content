@@ -1,0 +1,14 @@
+= Probability Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Probability Distribution.md`.
+
+---
+
+* a list of all possible outcomes of a random variable
+
+== Types
+
+1. xref:discrete-probability-distribution.adoc[Discrete Probability Distribution]
+2. xref:continuous-probability-distribution.adoc[Continuous Probability Distribution]

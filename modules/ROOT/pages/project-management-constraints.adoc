@@ -1,0 +1,23 @@
+= Project Management — Constraints
+:page-origin: Obsidian
+:page-date: 2023-11-29
+:page-tags: CMSC165
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Project Management — Constraints.md`.
+
+---
+
+**Basic:**
+1. Scope
+2. Time
+3. Cost
+
+== Scope
+
+
+== Time
+
+
+== xref:cost.adoc[Cost]
+
+* see xref:project-cost-management.adoc[Project Cost Management]

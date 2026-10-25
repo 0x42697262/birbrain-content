@@ -1,0 +1,25 @@
+= Octet Rule
+:page-origin: Obsidian
+:page-date: 2023-11-09
+:page-tags: SCIENCE10
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Octet Rule.md`.
+
+---
+
+== What is an Octet Rule?
+
+Octet Rule is when an xref:atom.adoc[atom] will be most stable when surrounded with 8 xref:electron.adoc[electrons] in the valence shell[^1]. xref:hydrogen.adoc[Hydrogen] is an xref:hydrogen.adoc[exemption].
+
+NOTE: 
+Octet Rule is not an absolute rule, there are exceptions. Some elements can have more than 8 electrons.
+
+== How does Octet Rule works?
+
+Can be achieved through Covalent Bond and Ionic Bond.
+
+* a configuration that has 8 xref:valence-electron.adoc[valence electrons]  is called a noble gas configuration
+
+== References
+
+[^1]: https://chemistrytalk.org/octet-rule/

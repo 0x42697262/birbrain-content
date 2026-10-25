@@ -1,0 +1,16 @@
+= Cryptanalysis
+:page-origin: Obsidian
+:page-date: 2024-03-11
+:page-tags: cryptography, cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cryptanalysis.md`.
+
+Breaks the security or mechanism of xref:cryptographic-systems.adoc[Cryptographic Systems].
+
+Relates to xref:communication-and-network-security.adoc[Communication and Network Security] of xref:security-domains-cissp.adoc[Security Domains (CISSP)].
+
+== Type of attacks
+
+* xref:birthday-attack.adoc[Birthday Attack]
+* xref:collision-attack.adoc[Collision Attack]
+* xref:downgrade-attack.adoc[Downgrade Attack]

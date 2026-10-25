@@ -1,0 +1,12 @@
+= Encryption
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Encryption.md`.
+
+Process of converting xref:plain-text.adoc[Plain Text] into xref:cipher-text.adoc[Cipher Text].
+To convert information into cipher text, plain text information must be run under an Encryption Algorithm.
+Which is similar method for decryption.
+
+Most common types of xref:cipher.adoc[Cipher] are xref:substitution-cipher.adoc[Substitution Cipher] and xref:transposition-cipher.adoc[Transposition Cipher].

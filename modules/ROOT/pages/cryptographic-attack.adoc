@@ -1,0 +1,6 @@
+= Cryptographic Attack
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cryptographic Attack.md`.
+
+Refer to xref:cryptanalysis.adoc[Cryptanalysis].

@@ -1,0 +1,8 @@
+= Certified Information Systems Security Professional
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: certificate/cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/002 Certificates/Certified Information Systems Security Professional.md`.
+
+* xref:security-domains-cissp.adoc[Security Domains (CISSP)]

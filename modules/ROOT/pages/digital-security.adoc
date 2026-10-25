@@ -1,0 +1,6 @@
+= Digital Security
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Digital Security.md`.
+
+Refer to xref:computer-security.adoc[Computer Security].

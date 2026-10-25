@@ -1,0 +1,16 @@
+= Critical Chain Scheduling
+:page-origin: Obsidian
+:page-date: 2023-11-09
+:page-tags: CMSC165, project-management
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Critical Chain Scheduling.md`.
+
+---
+
+* considers the limited availability of scare resources when developing the Project Schedule
+* methodology focused on Resource-Leveling
+* focuses on creating a Project Schedule
+
+---
+
+This is a specific application of xref:critical-chain-method.adoc[Critical Chain Method] under xref:theory-of-constraint.adoc[Theory of Constraint].

@@ -1,0 +1,19 @@
+= Information Security
+:page-origin: Obsidian
+:page-date: 2024-01-26
+:page-tags: computer-security, information-risk-management
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Information Security.md`.
+
+Establish security measures to keep information safe.
+Unlike xref:computer-security.adoc[Computer Security] that focuses on protecting information from xref:cyberattack.adoc[Cyberattack]s.
+
+Basic tenets:
+
+* Confidentiality
+* Integrity
+* Availability
+
+or also known as xref:cia-triad.adoc[CIA Triad] which is its primary focus while maintaining efficiency without hampering productivity.
+
+It is important to satisfy the 8 domains of xref:security-domains-cissp.adoc[Security Domains (CISSP)].

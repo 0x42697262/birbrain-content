@@ -1,0 +1,14 @@
+= Supernova Nucleosynthesis
+:page-origin: Obsidian
+:page-date: 2023-11-08
+:page-tags: SCIENCE10
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Supernova Nucleosynthesis.md`.
+
+---
+
+Creation of chemical elements in supernova explosions.
+
+* provides energy in nuclear fusion reactions for creation of heavier xref:element.adoc[elements]
+* post-iron elements are created here
+* we are all made of star stuff (we are made of star excretions)

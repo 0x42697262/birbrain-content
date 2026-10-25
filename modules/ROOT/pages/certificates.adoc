@@ -1,0 +1,11 @@
+= Certificates
+:page-origin: Obsidian
+:page-date: 2024-03-08
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/002 Certificates/» Certificates.md`.
+
+== xref:computer-security.adoc[Computer Security]
+
+* xref:certified-information-systems-security-professional.adoc[Certified Information Systems Security Professional]
+* Microsoft Azure Security Technologies
+* xref:comptia-security.adoc[CompTIA Security+]

@@ -104,3 +104,34 @@ sys.stdout.buffer.write(exploit)
 == Source
 
 * https://en.wikipedia.org/wiki/Stack_buffer_overflow[Wikipedia — Stack buffer overflow]
+
+// BEGIN GENERATED OBSIDIAN IMPORT
+== Imported Obsidian Notes
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Stack Smashing.md`.
+
+---
+
+A xref:cyberattack.adoc[Cyberattack] that causes a Stack Overflow. This is done by intentionally **overwriting** the Buffer on the xref:call-stack.adoc[Call Stack]. This is a type of xref:stack.adoc[Stack]-based Buffer Overflow vulnerability.
+
+* It is an old technique.
+* Mitigated by Buffer Overflow Protections.
+
+=== Concept
+
+When written in memory unsafe languages like C and C++, memory allocations does not have bounding checks[^1]. This means that when a buffer is allocated, there is no built-in mechanism to prevent writing data beyond the intended size of the buffer. This vulnerability can be exploited by overflowing the buffer, causing it to overwrite adjacent memory regions. 
+
+
+We can then write specific xref:shellcode.adoc[Shellcode]s which gets executed by the Extended Instruction Pointer.
+----
+By carefully crafting the input data, the attacker can overwrite critical data structures, such as the return address on the stack, with a malicious payload known as "shellcode". When the vulnerable program attempts to return from the function, it will unwittingly transfer control to the injected shellcode, allowing the attacker to execute arbitrary commands or gain unauthorized access to the system
+----
+
+A debugger like xref:gdb.adoc[GNU Debugger] can be used to inspect the memory address of the vulnerable program.
+
+=== Methodology
+
+---
+
+[^1]: Bounds Checking
+// END GENERATED OBSIDIAN IMPORT

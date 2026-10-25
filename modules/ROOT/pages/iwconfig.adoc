@@ -1,0 +1,13 @@
+= iwconfig
+:page-origin: Obsidian
+:page-date: 2023-12-25
+:page-tags: linux, wifi
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/iwconfig.md`.
+
+NOTE: 
+Do not use xref:iwconfig.adoc[iwconfig], use iw instead.
+
+== Checking Monitor Mode
+
+Run `iwconfig <interface>` and you should see `Mode:Monitor` in the output.

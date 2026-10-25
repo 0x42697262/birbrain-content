@@ -1,0 +1,10 @@
+= Spear Phishing
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: cybersecurity, social-engineering
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Spear Phishing.md`.
+
+---
+
+A variation of xref:phishing.adoc[Phishing] that is a targeted attack on a specific entity.

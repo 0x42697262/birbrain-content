@@ -1,0 +1,14 @@
+= USB Baiting
+:page-origin: Obsidian
+:page-date: 2024-03-11
+:page-tags: social-engineering
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/USB Baiting.md`.
+
+Intentionally planting malicious USB flash drives at designated place as a form of xref:social-engineering.adoc[Social Engineering] attack by the xref:threat-actor.adoc[Threat Actor]s to an individual or group.
+Inside the USB flash drive might contain Malware such as Keyloggers, Remote Access Trojans, or Ransomwares.
+
+Examples:
+
+* USB Killer
+* USB Rubber Ducky

@@ -1,0 +1,14 @@
+= Firewall
+:page-origin: Obsidian
+:page-date: 2023-11-07
+:page-tags: networking/security, cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Firewall.md`.
+
+* barrier between the internet and private network
+* monitors traffic
+* filters packets in the traffic
+
+== Software
+
+* ufw

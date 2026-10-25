@@ -1,0 +1,16 @@
+= Phishing
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: cybersecurity, social-engineering
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Phishing.md`.
+
+A form of xref:social-engineering.adoc[Social Engineering] and scam where xref:threat-actor.adoc[Threat Actor]s pretends as legitimate entity and deceives people into revealing sensitive information or installing Malware.
+
+== Variations
+
+* xref:spear-phishing.adoc[Spear Phishing]
+* xref:business-email-compromise.adoc[Business Email Compromise]
+* xref:whaling.adoc[Whaling]
+* xref:vishing.adoc[Vishing]
+* xref:smishing.adoc[Smishing]

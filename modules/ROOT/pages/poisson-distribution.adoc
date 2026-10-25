@@ -1,0 +1,13 @@
+= Poisson Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Poisson Distribution.md`.
+
+---
+
+== Formula
+
+$$
+P(x|\lambda) = \frac\{\lambda^xe^\{-\lambda\}\}\{x!\}
+$$

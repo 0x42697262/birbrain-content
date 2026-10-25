@@ -1,0 +1,10 @@
+= Transposition Cipher
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Transposition Cipher.md`.
+
+This xref:cipher.adoc[Cipher] shifts the characters in the message in certain number of places.
+
+For example, the xref:plain-text.adoc[Plain Text] message `Hello` would have this xref:cipher-text.adoc[Cipher Text] `loHel`.

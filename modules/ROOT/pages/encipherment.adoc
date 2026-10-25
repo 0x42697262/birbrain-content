@@ -1,0 +1,6 @@
+= Encipherment
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Encipherment.md`.
+
+Refer to xref:cipher.adoc[Cipher].

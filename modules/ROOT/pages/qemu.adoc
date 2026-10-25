@@ -33,3 +33,34 @@ Explanations for the parameters.
 -O:: output image format
 
 See ``man qemu-img`` for more info.
+
+// BEGIN GENERATED OBSIDIAN IMPORT
+== Imported Obsidian Notes
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/QEMU.md`.
+
+=== Converting from different images
+
+==== .ova
+
+Unpack the .ova image format.
+
+[source,sh]
+----
+$ tar -xvf <image.ova>
+----
+
+That should give extract two files: `.vmdk` and `.ovf.` `.vmdk` needs to be converted into `.qcow2` image format for QEMU to be able to read.
+
+[source,sh]
+----
+$ qemu-img convert -f vmdk -O qcow2 <image.vmdk> <converted_image.qcow2>
+----
+
+There are more necessary steps involved to make it work inside the QEMU Virtual Machine.
+
+Explanations for the parameters.
+
+`-f`: first image format
+`-O`: output image format
+// END GENERATED OBSIDIAN IMPORT

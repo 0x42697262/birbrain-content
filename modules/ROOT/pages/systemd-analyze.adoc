@@ -1,0 +1,14 @@
+= systemd-analyze
+:page-origin: Obsidian
+:page-date: 2023-12-25
+:page-tags: linux, systemd
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/systemd-analyze.md`.
+
+Can be used for showing the boot up time. But generally it's used for managing and analyzing the system manager.
+
+command: `systemd-analyze`
+
+== Commands
+
+* xref:systemd-analyze-blame.adoc[blame]

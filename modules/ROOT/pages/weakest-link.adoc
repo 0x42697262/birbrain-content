@@ -1,0 +1,14 @@
+= Weakest Link
+:page-origin: Obsidian
+:page-date: 2024-01-26
+:page-tags: cybersecurity, human-factor, social-engineering, osint
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Weakest Link.md`.
+
+---
+
+* **inexpensive** compared to physical attacks
+* not limited by distance and geography
+* difficult to **track** and **identify**
+* reusable to attack other systems
+* xref:social-engineering.adoc[Social Engineering]

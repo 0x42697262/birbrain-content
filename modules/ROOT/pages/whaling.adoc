@@ -1,0 +1,9 @@
+= Whaling
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: cybersecurity, social-engineering
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Whaling.md`.
+
+A variation of xref:phishing.adoc[Phishing] that highly targeted attack aimed at company executives.
+Also known as xref:ceo-fraud.adoc[CEO Fraud].

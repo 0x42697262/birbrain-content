@@ -1,0 +1,8 @@
+= systemctl
+:page-origin: Obsidian
+:page-date: 2023-12-25
+:page-tags: linux, systemd
+
+// Imported from `Development/obsidian_files/» Notes/WIP/systemctl.md`.
+
+

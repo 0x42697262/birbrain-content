@@ -1,0 +1,16 @@
+= Gamma Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Gamma Distribution.md`.
+
+---
+
+== Formula
+
+$$
+\Gamma(n) = \int^\infty_0t^\{n-1\}e^\{-t\}dt
+$$
+$$
+p(\lambda|\alpha,\beta) = \frac\{\lambda^\{a-1\}e^\{-\frac\{\lambda\}\{\beta\}\}\}\{\Gamma(\alpha)\beta^\alpha\}
+$$

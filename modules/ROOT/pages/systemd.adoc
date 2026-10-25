@@ -1,0 +1,9 @@
+= systemd
+:page-origin: Obsidian
+:page-date: 2023-12-25
+:page-tags: linux, systemd
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/systemd.md`.
+
+* xref:systemctl.adoc[systemctl]
+* xref:systemd-analyze.adoc[systemd-analyze]

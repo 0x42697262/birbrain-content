@@ -1,0 +1,21 @@
+= GNU Debugger — hook-stop
+:page-origin: Obsidian
+:page-date: 2024-02-11
+:page-tags: binary-analysis, reverse-engineering, debugger
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/GNU Debugger — hook-stop.md`.
+
+Executes commands every time a breakpoint event occurs.
+
+== Usage
+
+Running `define hook-stop` allows to enter commands. To finish, enter `end`.
+
+Example
+
+----
+(gdb) define hook-stop
+x/1i $eip
+x/16wx $esp
+end
+----

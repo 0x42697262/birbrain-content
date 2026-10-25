@@ -1,0 +1,18 @@
+= Social Engineering
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Social Engineering.md`.
+
+A manipulation technique that takes advantage of **human errors**.
+
+Social engineering works well because of xref:weakest-link.adoc[Weakest Link], which is a person.
+
+Relates to xref:security-and-risk-management.adoc[Security and Risk Management] xref:security-domains-cissp.adoc[Security Domains (CISSP)].
+
+== Attacks
+
+* xref:phishing.adoc[Phishing]
+* xref:usb-baiting.adoc[USB Baiting]
+* xref:watering-hole-attack.adoc[Watering Hole Attack]

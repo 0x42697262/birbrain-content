@@ -1,0 +1,6 @@
+= Cryptosystem
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cryptosystem.md`.
+
+Refer to xref:cryptographic-systems.adoc[Cryptographic Systems].

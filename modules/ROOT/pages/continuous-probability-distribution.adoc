@@ -1,0 +1,18 @@
+= Continuous Probability Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Continuous Probability Distribution.md`.
+
+---
+
+* description of the probability of occurrence of each value of a xref:continuous-random-variable.adoc[Continuous Random Variable]
+* infinite values or outcomes
+
+== Sample continuous probability distributions with their xref:probability-density-function.adoc[Probability Density Function]
+
+* xref:uniform-continuous-distribution.adoc[Uniform Continuous Distribution]
+* xref:normal-distribution.adoc[Normal Distribution]
+* xref:exponential-distribution.adoc[Exponential Distribution]
+* xref:gamma-distribution.adoc[Gamma Distribution]
+* ...

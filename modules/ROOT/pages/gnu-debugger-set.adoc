@@ -1,0 +1,18 @@
+= GNU Debugger — set
+:page-origin: Obsidian
+:page-date: 2024-02-11
+:page-tags: binary-analysis, reverse-engineering, debugger
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/GNU Debugger — set.md`.
+
+== Disable Address Space Layout Randomization Inside xref:gdb.adoc[GNU Debugger]
+
+----
+(gdb) set disable-randomization <on/off>
+----
+
+== Set Assembly Syntax To Intel
+
+----
+(gdb) set disassembly-flavor intel
+----

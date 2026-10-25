@@ -1,0 +1,10 @@
+= Shellcode
+:page-origin: Obsidian
+:page-date: 2024-02-12
+:page-tags: buffer-overflow
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Shellcode.md`.
+
+---
+
+Specific set of instructions.

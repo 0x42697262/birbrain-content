@@ -1,0 +1,51 @@
+= GNU Compiler Collection
+:page-origin: Obsidian
+:page-date: 2024-02-10
+:page-tags: compiler, gcc, c, cpp
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/GNU Compiler Collection.md`.
+
+*aka GCC*
+
+
+== Compilation
+
+=== Disable xref:stack-smashing.adoc[Stack Smashing]
+
+[source,sh]
+----
+gcc -fno-stack-protector
+----
+
+=== Output Preprocessor
+
+[source,sh]
+----
+gcc -E -P <source code>
+----
+
+=== Assembly Code Generated from Compilation Phase
+
+[source,sh]
+----
+gcc -S -masm=intel <source code>
+----
+
+This should create an assembly file with `.s` as extension.
+
+=== Generate Object File
+
+[source,sh]
+----
+gcc -c <source code>
+----
+
+This should create an assembly file with `.c` as extension. To confirm, run `file <object file>` and this should output:
+
+----
+<filename>.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
+----
+
+---
+
+For Debugging, see xref:gdb.adoc[GNU Debugger].

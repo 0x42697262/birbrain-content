@@ -1,0 +1,22 @@
+= Cyberattack
+:page-origin: Obsidian
+:page-date: 2024-03-01
+:page-tags: cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Cyberattack.md`.
+
+A deliberate and malicious attempt to **breach the security** of any digital information systems with an intent to cause harm.
+
+This is an specific instance or event where malicious actions are successfully executed.
+All of the attacks are considered as xref:cyber-threat.adoc[Cyber Threat]s.
+
+== Common Attacks
+
+* xref:adversarial-machine-learning.adoc[Adversarial Machine Learning]
+* xref:cryptanalysis.adoc[Cryptanalysis]
+* Distributed Denial of Service
+* Malware
+* xref:password-cracking.adoc[Password Cracking]
+* xref:cyber-physical-attack.adoc[Cyber Physical Attack]
+* xref:social-engineering.adoc[Social Engineering]
+* xref:supply-chain-attack.adoc[Supply Chain Attack]

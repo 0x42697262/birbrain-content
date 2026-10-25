@@ -1,0 +1,18 @@
+= Identity and Access Management
+:page-origin: Obsidian
+:page-date: 2024-03-10
+:page-tags: information-security
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Identity and Access Management.md`.
+
+Manages digital identities and control user access.
+Have to follow certain guidelines, policies, or processes.
+
+The fifth domain of xref:security-domains-cissp.adoc[Security Domains (CISSP)] by xref:certified-information-systems-security-professional.adoc[Certified Information Systems Security Professional].
+
+It must defend against xref:cyberattack.adoc[Cyberattack]s such as:
+
+* xref:adversarial-machine-learning.adoc[Adversarial Machine Learning]
+== Tools
+
+* Azure Active Directory

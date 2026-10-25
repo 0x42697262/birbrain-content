@@ -1,0 +1,13 @@
+= Bernoulli Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Bernoulli Distribution.md`.
+
+---
+
+== Formula
+
+$$
+P(x|p) = p^x(1-p)^\{1-x\}\prod_\{[0,1]\}(x)
+$$

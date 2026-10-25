@@ -1,0 +1,10 @@
+= Software Development Security
+:page-origin: Obsidian
+:page-date: 2024-03-10
+:page-tags: information-security
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Software Development Security.md`.
+
+Focuses on Secure Coding practices that the Software Development team has to follow guidelines to ensure security practices.
+
+The eighth domain of xref:security-domains-cissp.adoc[Security Domains (CISSP)] by xref:certified-information-systems-security-professional.adoc[Certified Information Systems Security Professional].

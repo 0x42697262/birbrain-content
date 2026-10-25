@@ -1,0 +1,15 @@
+= Coding Theory
+:page-origin: Obsidian
+:page-date: 2023-10-19
+:page-tags: []
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Coding Theory.md`.
+
+The study of the properties of Codes.
+
+== Four Types of Coding:
+
+1. Data Compression
+2. xref:error-detection-and-correction.adoc[Error Control]
+3. Cryptographic Coding
+4. Line Coding

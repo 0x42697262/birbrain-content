@@ -1,0 +1,13 @@
+= aircrack-ng
+:page-origin: Obsidian
+:page-date: 2023-12-25
+:page-tags: wifi
+
+// Imported from `Development/obsidian_files/» Notes/WIP/aircrack-ng.md`.
+
+---
+
+
+== Monitor Mode
+
+See xref:airmon-ng.adoc[airmon-ng] for starting and stopping Monitor Mode.

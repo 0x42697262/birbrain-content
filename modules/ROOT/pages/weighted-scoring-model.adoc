@@ -1,0 +1,10 @@
+= Weighted Scoring Model
+:page-origin: Obsidian
+:page-date: 2023-09-18
+:page-tags: project-management, project-management/project-charter
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Weighted Scoring Model.md`.
+
+---
+
+image::pasted-image-20230918050716.png[]

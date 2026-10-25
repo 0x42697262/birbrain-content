@@ -1,0 +1,12 @@
+= VSEPR Theory
+:page-origin: Obsidian
+:page-date: 2023-11-09
+:page-tags: SCIENCE10
+
+// Imported from `Development/obsidian_files/» Notes/WIP/VSEPR Theory.md`.
+
+---
+
+== What is VSEPR Theory
+
+Valence Shell Electron Pair Repulsion Theory is a model used in chemistry to predict the geometry of individual molecules from the number of electron pairs surrounding their central atom.

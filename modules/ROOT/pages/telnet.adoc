@@ -1,0 +1,13 @@
+= TELNET
+:page-origin: Obsidian
+:page-date: 2023-11-20
+:page-tags: networking
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/TELNET.md`.
+
+| PORT |
+| ---- |
+| 23   |
+
+* packets are sent as one character at a time.
+* TELNET packets always starts with `Data: `

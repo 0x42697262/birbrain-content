@@ -1,0 +1,6 @@
+= CEO Fraud
+:page-origin: Obsidian
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/CEO Fraud.md`.
+
+Refer to xref:whaling.adoc[Whaling].

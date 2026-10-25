@@ -1,0 +1,44 @@
+= Project Cost Management
+:page-origin: Obsidian
+:page-date: 2023-11-29
+:page-tags: CMSC165
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Project Cost Management.md`.
+
+---
+
+* one of the xref:project-management-constraints.adoc[constraints] in Project Management
+* usually measured in monetary value
+* goal is to complete the project within the approved budget
+
+== Significance
+
+* scheduling a project longer than it should be presents a higher risk of cost overrun
+* "weak area" of IT projects
+
+== Overview Process
+
+1. Plan Cost Management
+2. Estimate Costs
+3. Determine Budget
+4. Control Costs
+
+== Types
+
+1. Rough Order of Magnitude
+2. Budgetary Estimate
+3. Definitive Estimate
+
+| Estimate Type | When                                   | Range         |
+| ------------- | -------------------------------------- | ------------- |
+| ROM           | 3 to 5 years before project completion | -50% to +100% |
+| Budgetary     | 1 to 2 years out                       | -10% to +25%  | 
+| Definitive    | less than a year out                   | -5% to +10%   |
+
+
+---
+
+Please see:
+* Net Present Value
+* xref:return-on-investment.adoc[Return on Investment]
+* xref:payback-analysis.adoc[Payback Analysis]

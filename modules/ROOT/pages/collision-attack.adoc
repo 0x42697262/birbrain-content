@@ -1,0 +1,17 @@
+= Collision Attack
+:page-origin: Obsidian
+:page-date: 2024-03-11
+:page-tags: cryptography, cryptanalysis
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Collision Attack.md`.
+
+Aims to find two distinct messages to produce the same Hash values, known as Hash Collisions.
+Focuses on the security of the Hash function.
+
+This is different from Preimage Attack.
+
+== Forms
+
+=== Bruteforce
+
+* xref:birthday-attack.adoc[Birthday Attack]

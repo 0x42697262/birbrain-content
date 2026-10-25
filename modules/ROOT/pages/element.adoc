@@ -1,0 +1,14 @@
+= Element
+:page-origin: Obsidian
+:page-date: 2023-11-08
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Element.md`.
+
+---
+
+* classified by their atomic number
+
+== Elements
+
+* xref:hydrogen.adoc[Hydrogen]
+* Helium

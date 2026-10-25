@@ -1,0 +1,9 @@
+= Symmetric Key Cryptography
+:page-origin: Obsidian
+:page-date: 2024-03-08
+:page-tags: cybersecurity, cryptography
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Symmetric Key Cryptography.md`.
+
+A broader concept that encompasses the entire processes of xref:cryptographic-systems.adoc[Cryptographic Systems].
+This is similar to xref:symmetric-key-encryption.adoc[Symmetric Key Encryption] where it is a specific process of xref:cryptography.adoc[Cryptography].

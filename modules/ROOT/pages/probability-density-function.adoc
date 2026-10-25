@@ -1,0 +1,20 @@
+= Probability Density Function
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Probability Density Function.md`.
+
+---
+
+* a function with its integral across an interval gives the probability that the variable's value lies within the same interval
+* this maps xref:continuous-random-variable.adoc[Continuous Random Variable]
+
+Let $P(x)$ be a PDF, then
+
+$$
+F(x) = \int^b_a p(x)\ dx = p
+$$
+
+---
+
+See xref:probability-mass-function.adoc[Probability Mass Function].

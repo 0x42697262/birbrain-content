@@ -1,0 +1,23 @@
+= Discrete Probability Distribution
+:page-origin: Obsidian
+:page-date: 2023-11-22
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Discrete Probability Distribution.md`.
+
+---
+
+* a description of the probability occurrence of each value of a xref:discrete-random-variable.adoc[Discrete Random Variable]
+* have countable or finite outcomes
+* can be a histogram, list, tables, etc.
+
+== Sample discrete probability distributions with their xref:probability-mass-function.adoc[Probability Mass Function]
+
+* xref:uniform-discrete-distribution.adoc[Uniform Discrete Distribution]
+* xref:bernoulli-distribution.adoc[Bernoulli Distribution]
+* xref:binomial-distribution.adoc[Binomial Distribution]
+* xref:multinomial-distribution.adoc[Multinomial Distribution]
+* xref:hypergeometric-distribution.adoc[Hypergeometric Distribution]
+* xref:poisson-distribution.adoc[Poisson Distribution]
+* xref:geometric-distribution.adoc[Geometric Distribution]
+* xref:negative-binomial-distribution.adoc[Negative Binomial Distribution]
+* ...

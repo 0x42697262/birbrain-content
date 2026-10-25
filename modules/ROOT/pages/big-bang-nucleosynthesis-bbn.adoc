@@ -1,0 +1,13 @@
+= Big Bang Nucleosynthesis (BBN)
+:page-origin: Obsidian
+:page-date: 2023-11-08
+:page-tags: SCIENCE10
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Big Bang Nucleosynthesis (BBN).md`.
+
+---
+
+Production of nuclei other than those of lightest isotope of xref:hydrogen.adoc[Hydrogen] during the early phases of the xref:universe.adoc[Universe].
+
+* aka **Primordial Nucleosynthesis**
+* elements formed: xref:hydrogen.adoc[Hydrogen] and Helium

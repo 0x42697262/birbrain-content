@@ -36,3 +36,11 @@ ParrotOS
 Tumbleweed
 Gentoo        
 ----
+
+// BEGIN GENERATED OBSIDIAN IMPORT
+== Imported Obsidian Notes
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/Vim.md`.
+
+* xref:vim-tricks.adoc[Vim — Tricks]
+// END GENERATED OBSIDIAN IMPORT

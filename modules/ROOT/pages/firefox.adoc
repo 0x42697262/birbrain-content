@@ -1,0 +1,11 @@
+= Firefox
+:page-origin: Obsidian
+:page-date: 2024-03-09
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Firefox.md`.
+
+== xref:computer-security.adoc[Computer Security]
+
+=== xref:punycode.adoc[Punycode] in URLs
+
+Set `network.IDN_show_punycode` to `true` in `about:config`.

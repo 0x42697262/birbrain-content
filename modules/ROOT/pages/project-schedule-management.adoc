@@ -1,0 +1,17 @@
+= Project Schedule Management
+:page-origin: Obsidian
+:page-date: 2023-11-09
+:page-tags: CMSC165, project-management
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Project Schedule Management.md`.
+
+---
+
+== Process
+
+1. Plan Schedule Management
+2. Define Activities
+3. Sequence Activities
+4. Estimate Schedule Duration
+5. Define Schedule
+6. Control Schedule

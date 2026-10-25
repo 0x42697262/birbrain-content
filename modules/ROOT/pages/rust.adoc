@@ -20,3 +20,20 @@ cargo build --release
 == Source
 
 * https://www.rust-lang.org[rust-lang.org]
+
+// BEGIN GENERATED OBSIDIAN IMPORT
+== Imported Obsidian Notes
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Rust.md`.
+
+=== Standard Input
+
+[source,rust]
+----
+use std::io;
+let mut input: String = String::new();
+io::stdin()
+	.read_line(&mut input)
+	.expect("<expected string error here>");
+----
+// END GENERATED OBSIDIAN IMPORT

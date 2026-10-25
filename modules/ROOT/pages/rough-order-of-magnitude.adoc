@@ -1,0 +1,13 @@
+= Rough Order of Magnitude
+:page-origin: Obsidian
+:page-date: 2023-11-30
+:page-tags: project-management
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Project Cost Management — Rough Order of Magnitude.md`.
+
+---
+
+* aka *ballpark estimate*, *guesstimate*, and *broad gauge*
+* aims to estimate the **total project cost** and **completed years**
+* happens before the project completion
+* the purpose of project selection decisions

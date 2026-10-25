@@ -1,0 +1,13 @@
+= Electron
+:page-origin: Obsidian
+:page-date: 2023-11-09
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Electron.md`.
+
+---
+
+== What is an Electron?
+
+A negatively charged subatomic particle that can either be bound or free to an xref:atom.adoc[atom].
+
+* most stable when far apart

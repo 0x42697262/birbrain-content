@@ -28,3 +28,36 @@ until:: until <address> (short form: **u**)
 == Source
 
 * https://www.sourceware.org/gdb/[sourceware.org/gdb]
+
+// BEGIN GENERATED OBSIDIAN IMPORT
+== Imported Obsidian Notes
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/001 Linux/GNU Debugger.md`.
+
+* xref:gnu-debugger-set.adoc[set]
+* xref:gnu-debugger-hook-stop.adoc[hook-stop]
+
+=== Usage
+
+==== Debugging A Program
+
+===== From a File
+
+[source,sh]
+----
+gdb <elf executable>
+----
+
+===== From a Process
+
+[source,sh]
+----
+gdb -p <process id>
+----
+
+To find the process id, run `ps aux | grep <filename>`.
+
+NOTE: 
+
+This might need sudo.
+// END GENERATED OBSIDIAN IMPORT

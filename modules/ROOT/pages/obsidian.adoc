@@ -1,0 +1,12 @@
+= Obsidian
+:page-origin: Obsidian
+:page-date: 2024-02-04
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Obsidian.md`.
+
+== Running in xref:wayland.adoc[Wayland]
+
+[source,sh]
+----
+OBSIDIAN_USE_WAYLAND=1 obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland 
+----

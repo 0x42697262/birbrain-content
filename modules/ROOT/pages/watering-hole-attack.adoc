@@ -1,0 +1,9 @@
+= Watering Hole Attack
+:page-origin: Obsidian
+:page-date: 2024-03-07
+:page-tags: social-engineering, cybersecurity
+
+// Imported from `Development/obsidian_files/» Notes/Atomic/Watering Hole Attack.md`.
+
+A targeted attack designed by a xref:threat-actor.adoc[Threat Actor] to compromise users within specific organization or industry through frequently used services by the users.
+Usually uses websites.

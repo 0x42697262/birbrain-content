@@ -1,0 +1,11 @@
+= Atom
+:page-origin: Obsidian
+:page-date: 2023-11-09
+
+// Imported from `Development/obsidian_files/» Notes/WIP/Atom.md`.
+
+---
+
+A particle that consists of nucleus of protons and neutrons surrounded by an electromagnetically-bound cloud of xref:electron.adoc[electrons].
+
+* an atom that does not have 8 xref:electron.adoc[electrons] will bond with other atoms to have 8 xref:electron.adoc[electrons]
