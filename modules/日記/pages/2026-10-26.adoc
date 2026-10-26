@@ -1,0 +1,220 @@
+= 2026年10月26日
+
+== hyprland emergency mode
+
+Hyprland enters emergency mode when a Lua config error leaves no binds registered.
+
+----
+Emergency mode tripped: A lua config error resulted in no binds being registered.
+Emergency binds active: SUPER + Q -> any known terminal, SUPER + R -> hyprland-run, SUPER + M -> Exit
+----
+
+Since 0.55, `hyprland.lua` is loaded in place of `hyprland.conf` when present.
+An uncaught error aborts the module that raised it and every statement after it is skipped, so an error raised before the bind registration loop yields zero binds.
+
+The trigger condition is the bind count, not the error.
+The three fallback binds are hardcoded and are the only remaining input path.
+Implemented in `src/config/lua/ConfigManager.cpp`.
+
+=== diagnosis
+
+`hyprctl configerrors` returns empty.
+It reports hyprlang parse errors only; Lua exceptions are not recorded there and are not written to `hyprland.log`.
+
+Count the registered binds instead:
+
+----
+$ hyprctl binds | grep -c '^bind'
+3
+----
+
+A count of 3 is the emergency set.
+
+=== nil plugin namespaces
+
+`hl.plugin.<name>` is nil unless that plugin is loaded.
+Indexing it raises `attempt to index a nil value`.
+
+[, lua]
+----
+local hc = hl.plugin.hyprchords
+
+hc.chord("SUPER + SLASH", hl.plugin.hyprshortcuts.toggle, "System: Keybind cheatsheet")
+----
+
+Placed above the registration loop, this aborts `keybinds.lua` before any bind is registered.
+
+Guard each access, and wrap the call so a plugin API mismatch degrades to a log line instead of aborting the module:
+
+[, lua]
+----
+if hc and hs then
+	local ok, err = pcall(hc.chord, "SUPER + SLASH", hs.toggle, "System: Keybind cheatsheet")
+	if not ok then
+		print(("keybinds: cheatsheet chord failed (%s)"):format(tostring(err)))
+	end
+end
+----
+
+`hl.config({ plugin = { ... } })` is subject to the same rule: configuring an unloaded plugin is an error.
+
+Plugins are loaded after the first config pass.
+`hl.plugin.*` is therefore nil on initial parse and populated only on the reload that follows.
+
+=== offline config validation
+
+The config loads under a standalone Lua interpreter with a stub `hl` global, which reports the error without restarting the compositor.
+
+[, lua]
+----
+local any
+any = setmetatable({}, {
+  __index = function() return any end,
+  __call  = function() return { tag = "dispatch" } end,
+})
+hl = setmetatable({ plugin = {}, dsp = any },
+  {__index = function() return function() return any end end})
+
+package.path = os.getenv("HOME") .. "/.config/hypr/?.lua;" .. package.path
+
+for _, m in ipairs({"animations","autostart","decorations","environment","input",
+                    "keybinds","monitor","plugins","variables","windowrules"}) do
+  local ok, err = pcall(require, "config/" .. m)
+  print(string.format("%-14s %s", m, ok and "OK" or ("FAILED: " .. tostring(err))))
+end
+----
+
+Run once with `plugin = {}` and once with the plugin names populated.
+Both must pass, since the first config pass always precedes plugin load.
+
+NOTE: the stub dispatch object must return a table with no index 1.
+`keybinds.lua` classifies an entry as a group via `rawget(e.action, 1) ~= nil`, so a stub returning `{"d"}` makes every action appear to be a single-element group and reports errors that are not present in the config.
+
+== hyprpm
+
+=== packaging
+
+`hyprpm` is packaged separately from `hyprland` on arch and cachyos.
+
+----
+$ pacman -Ql hyprland | grep /usr/bin/
+hyprland /usr/bin/Hyprland
+hyprland /usr/bin/hyprctl
+hyprland /usr/bin/hyprland
+hyprland /usr/bin/start-hyprland
+----
+
+`plugins.lua` invokes `hyprpm reload -n` through `hl.exec_cmd`, which does not propagate exit status.
+A missing `hyprpm` produces no diagnostic.
+
+=== state directory
+
+State is kept under `/var/cache`, not `~/.local/share/hyprpm`.
+
+----
+/var/cache/hyprpm/$USER/
+├── headersRoot/
+├── state.toml
+└── <plugin>/
+    ├── <plugin>.so
+    └── state.toml
+----
+
+The tree is root owned; `hyprpm` elevates on its own and should not be invoked under sudo.
+
+The top-level `state.toml` records the compositor build the plugins were compiled against:
+
+[, toml]
+----
+[state]
+dont_warn_install = true
+hash = 'a0136d8c04687bb36eb8a28eb9d1ff92aea99704_aq_0.12_hu_0.13_hg_0.5_hc_0.1_hlg_0.6'
+----
+
+The hash is the Hyprland commit followed by the aquamarine, hyprutils, hyprgraphics, hyprcursor and hyprlang versions.
+Compare it against `hyprctl version`.
+
+Plugin loading is gated on an exact match.
+A plugin compiled against one Hyprland build is not loaded into another, and the only symptom is `hyprctl plugin list` reporting `no plugins loaded`.
+`a0136d8c` is 0.55.4; the running compositor was 0.56.2.
+
+The per-plugin `state.toml` records the enabled flag and the pinned repository commit:
+
+[, toml]
+----
+[hyprchords]
+enabled = true
+failed = false
+filename = 'hyprchords.so'
+----
+
+=== update semantics
+
+----
+✖ Hyprland's ABI changed and some repositories failed to update: no plugins will be loaded until every repository updates successfully.
+----
+
+A single repository that fails to build blocks every plugin, including repositories that built successfully and repositories with `enabled = false`.
+
+Remove the failing repository and re-run the update:
+
+----
+$ hyprpm remove <repo>
+$ hyprpm update
+----
+
+=== source of truth
+
+----
+→ Cloning https://github.com/0x42697262/hyprshortcuts
+----
+
+`hyprpm` builds from the repository URL recorded in `state.toml`.
+The local working tree is not consulted, so changes must be pushed before `hyprpm update` will build them.
+
+=== building against the installed headers
+
+`hyprpm` reports only `failed to build`.
+To obtain compiler diagnostics, build the plugin directly against the headers it installed:
+
+----
+$ export PKG_CONFIG_PATH=/var/cache/hyprpm/$USER/headersRoot/share/pkgconfig:$PKG_CONFIG_PATH
+$ make all
+----
+
+`hyprland.pc` in that directory carries a `Version:` field, which identifies the header set in use.
+
+== hyprland 0.56 plugin api
+
+0.56 relocates monitor and workspace ownership out of `CCompositor` into dedicated `State::` trackers.
+Two headers move, and the direct accessors are removed rather than renamed.
+
+Headers:
+
+`src/helpers/Monitor.hpp`:: now `src/output/Monitor.hpp`
+`src/managers/PointerManager.hpp`:: now `src/pointer/PointerManager.hpp`
+
+Accessors:
+
+`g_pCompositor->m_monitors`:: `State::monitorState()->monitors()`
+`g_pCompositor->getMonitorFromCursor()`:: `State::monitorState()->query().vec(Pointer::mgr()->position()).run()`
+`g_pCompositor->getMonitorFromName(n)`:: `State::monitorState()->query().name(n).run()`
+`g_pCompositor->getWorkspacesCopy()`:: `State::workspaceState()->workspaceRefs()`
+`g_pPointerManager`:: `Pointer::mgr()`
+
+The monitor getters are replaced by a builder, `CMonitorQuery`, declared in `src/state/MonitorQuery.hpp`.
+It chains
+
+----
+.id() .name() .description() .selector() .configString() .vec() .output() .inDirection() .relativeTo() .includeDisabled()
+----
+
+and `.run()` resolves to a `PHLMONITOR`.
+Every method is `&&` qualified, so the query is usable only as a temporary, i.e. chained in a single expression.
+Workspaces take the equivalent `CWorkspaceQuery`.
+
+`UP<>` requires `#include <src/helpers/memory/Memory.hpp>`.
+
+CAUTION: `getWorkspacesCopy()` -> `workspaceRefs()` is not a rename.
+The former returns a copy, the latter returns live `PHLWORKSPACEREF` handles.
+Capturing those in a lambda does not have the same semantics.
