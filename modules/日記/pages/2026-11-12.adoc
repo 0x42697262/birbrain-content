@@ -1,0 +1,101 @@
+= 2026年11月12日
+
+== finding out what an oom kill took down
+
+A compositor or session that dies while the kernel stays up is often an out-of-memory kill, not a crash.
+On systemd systems the killer is usually `systemd-oomd`, which acts on whole cgroups rather than single processes.
+
+=== rule out a real crash
+
+A crashing process leaves a core dump.
+An oom-killed one does not.
+
+----
+$ coredumpctl list --since "-2 days"
+----
+
+Hyprland also writes its own crash reports.
+If the newest one is older than the incident, Hyprland did not crash.
+
+----
+$ ls -lt ~/.cache/hyprland/
+----
+
+=== find the time
+
+Errors from dependent services cluster right after the death, e.g. portals failing with `Couldn't connect to a wayland compositor`.
+The first one gives the timestamp.
+
+----
+$ journalctl -b -p warning --since "-6h" --no-pager | grep -iE "hypr|segfault|killed|oom|core"
+----
+
+=== read the full log around it
+
+Drop the priority filter and narrow the window.
+The cause is logged before the fallout.
+
+----
+$ journalctl -b --since "HH:MM:SS" --until "HH:MM:SS" --no-pager
+----
+
+An oomd kill looks like this:
+
+----
+systemd-oomd: Marked /user.slice/user-1000.slice/<unit> for killing due to memory used (...) / total (...)
+and swap used (...) / total (...) being more than 90.00%
+----
+
+A kernel oom kill shows up as `Out of memory: Killed process` in `journalctl -k` instead.
+
+oomd decisions alone:
+
+----
+$ journalctl -b -u systemd-oomd --no-pager
+----
+
+=== see what was using memory
+
+systemd logs a resource summary for every unit as it stops, including peak memory and peak swap.
+
+----
+$ journalctl -b --since "HH:MM:SS" --until "HH:MM:SS" -o cat | grep "memory peak"
+----
+
+This gives per-unit numbers only.
+The journal keeps no per-process breakdown from before the kill, so anything running inside the same scope is counted together.
+
+Current totals:
+
+----
+$ free -h
+$ swapon --show
+----
+
+=== check memory outside the user slice
+
+oomd only picks targets inside the slices it manages (here `user.slice`).
+Containers and VMs live in other cgroups, so they add pressure but are never picked.
+
+Largest processes, and which cgroup each one belongs to:
+
+----
+$ ps -eo pid,rss,etime,cmd --sort=-rss | head
+$ cat /proc/<pid>/cgroup
+----
+
+Usage and limit of a cgroup:
+
+----
+$ cat /sys/fs/cgroup/<cgroup>/memory.current
+$ cat /sys/fs/cgroup/<cgroup>/memory.swap.current
+$ cat /sys/fs/cgroup/<cgroup>/memory.max
+----
+
+`memory.max` reading `max` means no limit.
+
+Session layout:
+
+----
+$ systemd-cgls --no-pager -u user-1000.slice
+----
