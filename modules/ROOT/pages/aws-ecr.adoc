@@ -1,0 +1,65 @@
+= AWS ECR
+
+Elastic Container Registry: private Docker image registry.
+Regional.
+
+Registry URL:
+
+----
+<account-id>.dkr.ecr.<region>.amazonaws.com/<repo>:<tag>
+----
+
+* https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html[ECR user guide]
+
+== create
+
+----
+$ aws ecr create-repository --repository-name app --image-scanning-configuration scanOnPush=true
+----
+
+`scanOnPush` checks images for known CVEs.
+
+== push
+
+----
+$ aws ecr get-login-password | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region>.amazonaws.com
+$ docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/app:v1 .
+$ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/app:v1
+----
+
+In GitHub Actions: `aws-actions/amazon-ecr-login`, then `docker/build-push-action`.
+
+Pushing needs `ecr:GetAuthorizationToken` (resource `*`) plus layer and `PutImage` actions on the repo ARN.
+Pulling from ECS needs the execution role (see xref:aws-ecs.adoc[]).
+
+* https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html[Push an image]
+
+== list
+
+----
+$ aws ecr list-images --repository-name app
+----
+
+Untagged entries next to a tagged one are normal for multi-arch or buildx pushes (manifests, attestations).
+
+== lifecycle policy
+
+Every push adds an image.
+A lifecycle policy expires old ones:
+
+----
+$ aws ecr put-lifecycle-policy --repository-name app --lifecycle-policy-text \
+  '{"rules":[{"rulePriority":1,"selection":{"tagStatus":"any","countType":"imageCountMoreThan","countNumber":10},"action":{"type":"expire"}}]}'
+----
+
+Keeps the 10 newest.
+
+* https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html[Lifecycle policies]
+
+== delete
+
+----
+$ aws ecr delete-repository --repository-name app --force
+----
+
+`--force` deletes the images too.

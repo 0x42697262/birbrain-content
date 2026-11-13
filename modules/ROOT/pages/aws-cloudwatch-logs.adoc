@@ -1,0 +1,64 @@
+= AWS CloudWatch Logs
+
+Stores logs in *log groups*, split into *log streams*.
+Regional.
+
+* https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html[CloudWatch Logs user guide]
+
+== create with retention
+
+Default retention is forever.
+Logs with client IPs are personal data, so set an expiry:
+
+----
+$ aws logs create-log-group --log-group-name /ecs/app
+$ aws logs put-retention-policy --log-group-name /ecs/app --retention-in-days 14
+----
+
+Create the group yourself instead of letting ECS do it (`awslogs-create-group`).
+Auto-created groups never expire, and the execution role then also needs `logs:CreateLogGroup`.
+
+Deletion after expiry can take up to 72 hours.
+
+* https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html[Log groups, streams and retention]
+
+== ecs
+
+Task definition, per container:
+
+[source,json]
+----
+"logConfiguration": {
+  "logDriver": "awslogs",
+  "options": {
+    "awslogs-group": "/ecs/app",
+    "awslogs-region": "<region>",
+    "awslogs-stream-prefix": "app"
+  }
+}
+----
+
+Streams are named `<prefix>/<container>/<task-id>`.
+Different prefixes per container keep them apart.
+
+* https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html[ECS: send logs to CloudWatch]
+
+== read
+
+----
+$ aws logs tail /ecs/app --follow
+$ aws logs tail /ecs/app --since 15m
+$ aws logs tail /ecs/app --since 1h --filter-pattern '"error"'
+----
+
+Raw events:
+
+----
+$ aws logs filter-log-events --log-group-name /ecs/app --start-time $(date -d '-15 min' +%s000)
+----
+
+== delete
+
+----
+$ aws logs delete-log-group --log-group-name /ecs/app
+----

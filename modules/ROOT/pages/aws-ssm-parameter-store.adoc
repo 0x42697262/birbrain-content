@@ -1,0 +1,85 @@
+= AWS SSM Parameter Store
+
+Key-value store in Systems Manager for config and secrets.
+Regional.
+Standard parameters are free.
+
+Types:
+
+* `String`: plain text
+* `SecureString`: encrypted with KMS (default key `aws/ssm`, no setup)
+
+Names are paths: `/app/tunnel-token`.
+IAM can grant a whole prefix: `arn:aws:ssm:<region>:<account-id>:parameter/app/*`.
+
+* https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html[Parameter Store]
+
+== write
+
+----
+$ aws ssm put-parameter --name /app/token --type SecureString --value 'secret'
+$ aws ssm put-parameter --name /app/token --type SecureString --value 'new' --overwrite
+$ aws ssm put-parameter --name /app/token --type SecureString --value "$(openssl rand -hex 24)"
+----
+
+Each write bumps `Version`.
+
+CAUTION: `--value` lands in shell history.
+Prefix the command with a space (with `HISTCONTROL=ignorespace`) or read it from a file: `--value file://token.txt`.
+
+== read
+
+----
+$ aws ssm get-parameter --name /app/token --with-decryption --query Parameter.Value --output text
+$ aws ssm get-parameters-by-path --path /app/
+$ aws ssm describe-parameters --parameter-filters Key=Name,Option=BeginsWith,Values=/app/
+----
+
+Check a value without printing it:
+
+----
+$ aws ssm get-parameter --name /app/token --with-decryption --query 'length(Parameter.Value)'
+----
+
+Catches pasted placeholders, quotes and trailing newlines.
+
+== use in ecs
+
+Task definition, per container:
+
+[source,json]
+----
+"secrets": [
+  {"name": "TOKEN", "valueFrom": "arn:aws:ssm:<region>:<account-id>:parameter/app/token"}
+]
+----
+
+ECS reads it at task start with the *execution role* (`ssm:GetParameters`) and sets it as an environment variable.
+The value never appears in the task definition.
+
+A running task keeps the old value.
+After changing a parameter, restart:
+
+----
+$ aws ecs update-service --cluster c --service s --force-new-deployment
+----
+
+* https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html[ECS: pass sensitive data to a container]
+
+== delete
+
+----
+$ aws ssm delete-parameters --names /app/a /app/b
+----
+
+== find every copy
+
+Parameters are per region.
+Written in the wrong region = the task never sees it.
+
+----
+for r in $(aws ec2 describe-regions --query 'Regions[].RegionName' --output text); do
+  echo "$r: $(aws ssm describe-parameters --region $r \
+    --parameter-filters Key=Name,Option=BeginsWith,Values=/app/ --query 'Parameters[].Name' --output text)"
+done
+----

@@ -1,0 +1,104 @@
+= AWS
+
+Amazon Web Services.
+Notes from setting up a container on ECS Fargate deployed by GitHub Actions (xref:日記:2026-11-13.adoc[2026-11-13]).
+
+* xref:aws-iam.adoc[IAM]: who can do what
+* xref:aws-ecs.adoc[ECS]: run containers
+* xref:aws-ecr.adoc[ECR]: store container images
+* xref:aws-ssm-parameter-store.adoc[SSM Parameter Store]: store secrets and config
+* xref:aws-cloudwatch-logs.adoc[CloudWatch Logs]: store logs
+
+== regions
+
+Most resources live in exactly one region (`ap-southeast-1`, `us-east-1`, ...).
+A resource in one region cannot see one in another: an ECS task in `ap-southeast-1` cannot read a parameter or pull an image from `ap-southeast-2`.
+
+IAM is global: roles and policies apply to every region.
+
+Pick one region per project and put everything there.
+
+== cli
+
+Every console action has a CLI equivalent.
+Region comes from, in order: `--region`, `AWS_REGION`, `AWS_DEFAULT_REGION`, `~/.aws/config`.
+
+----
+$ export AWS_REGION=ap-southeast-1
+$ aws configure list
+----
+
+Who am I, which account:
+
+----
+$ aws sts get-caller-identity
+----
+
+Query and format output with `--query` (JMESPath) and `--output text|json|table`:
+
+----
+$ aws ecs describe-services --cluster c --services s --query 'services[0].runningCount' --output text
+----
+
+* https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html[CLI environment variables]
+* https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html[CLI output filtering]
+
+== cloudshell
+
+Browser shell in the console, already signed in, CLI preinstalled.
+Opens in the region selected in the console and sets `AWS_REGION` to it.
+
+CAUTION: Switch the console region and new commands go to the new region.
+Pin it with `export AWS_REGION=...` at the start of every session.
+
+No `envsubst`.
+Use `sed` for templating.
+
+* https://docs.aws.amazon.com/cloudshell/latest/userguide/working-with-aws-cloudshell.html[CloudShell: working in regions]
+
+== arns
+
+Amazon Resource Name, the full ID of a resource:
+
+----
+arn:aws:<service>:<region>:<account-id>:<resource>
+arn:aws:iam::<account-id>:role/<name>                  # IAM: no region
+arn:aws:ssm:<region>:<account-id>:parameter/<path>
+arn:aws:ecr:<region>:<account-id>:repository/<name>
+----
+
+ARNs contain the account ID.
+Keep them out of public repos and logs.
+
+The account ID is not a credential, but it makes targeted attacks and phishing easier.
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html[ARN format]
+
+== default vpc
+
+Every region comes with a default VPC that has one public subnet per availability zone and an internet gateway.
+Enough for small public workloads.
+
+Security groups are per-resource firewalls.
+No inbound rules = nothing can connect in; outbound is open by default.
+
+----
+$ aws ec2 describe-vpcs --filters Name=is-default,Values=true
+$ aws ec2 create-security-group --group-name g --description d --vpc-id vpc-...
+----
+
+* https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html[Default VPC]
+* https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html[Security groups]
+
+== costs
+
+Things that bill while idle:
+
+* running Fargate tasks (per vCPU-hour and GB-hour)
+* public IPv4 addresses (~$3.60/month each)
+* NAT gateways, load balancers (avoid for small projects)
+
+Free or near-free: IAM, standard SSM parameters, empty ECS clusters, small ECR repos, small log groups.
+
+* https://aws.amazon.com/fargate/pricing/[Fargate pricing]
+* https://aws.amazon.com/vpc/pricing/[VPC pricing (public IPv4)]

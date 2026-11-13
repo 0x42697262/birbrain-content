@@ -1,0 +1,124 @@
+= AWS IAM
+
+Identity and Access Management: who can call which AWS API on which resource.
+Global, not per region.
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html[IAM user guide]
+
+== users vs roles
+
+A *user* has long-lived credentials (password, access keys).
+Use for people.
+
+A *role* has no credentials.
+Something *assumes* it and gets temporary credentials.
+Use for services (ECS, Lambda) and CI (GitHub Actions).
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles]
+
+== two policies per role
+
+*Trust policy*: who may assume the role.
+
+[source,json]
+----
+{"Version": "2012-10-17", "Statement": [{
+  "Effect": "Allow",
+  "Principal": {"Service": "ecs-tasks.amazonaws.com"},
+  "Action": "sts:AssumeRole"
+}]}
+----
+
+*Permissions policy*: what the role may do once assumed.
+
+[source,json]
+----
+{"Version": "2012-10-17", "Statement": [{
+  "Effect": "Allow",
+  "Action": "ssm:GetParameters",
+  "Resource": "arn:aws:ssm:<region>:<account-id>:parameter/<app>/*"
+}]}
+----
+
+Permissions come from attached managed policies (`attach-role-policy`) and inline policies (`put-role-policy`).
+
+----
+$ aws iam create-role --role-name r --assume-role-policy-document file://trust.json
+$ aws iam update-assume-role-policy --role-name r --policy-document file://trust.json
+$ aws iam put-role-policy --role-name r --policy-name p --policy-document file://perms.json
+$ aws iam attach-role-policy --role-name r --policy-arn arn:aws:iam::aws:policy/...
+----
+
+Inspect:
+
+----
+$ aws iam get-role --role-name r --query Role.AssumeRolePolicyDocument
+$ aws iam list-attached-role-policies --role-name r
+$ aws iam list-role-policies --role-name r
+$ aws iam get-role-policy --role-name r --policy-name p
+----
+
+Scope `Resource` to exact ARNs.
+`*` only where the action has no resource (e.g. `ecr:GetAuthorizationToken`).
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html[Policies and permissions]
+
+== iam:PassRole
+
+Handing a role to a service (e.g. registering a task definition with an `executionRoleArn`) needs `iam:PassRole` on that role.
+Without it the deploy fails even if every ECS permission is there.
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html[PassRole]
+
+== github actions with oidc
+
+GitHub issues a signed token per workflow run.
+AWS trusts GitHub as an identity provider and swaps that token for temporary credentials.
+No access keys stored in GitHub.
+
+Create the provider once per account:
+
+----
+$ aws iam create-open-id-connect-provider --url https://token.actions.githubusercontent.com \
+  --client-id-list sts.amazonaws.com
+----
+
+Trust policy for the deploy role:
+
+[source,json]
+----
+{"Version": "2012-10-17", "Statement": [{
+  "Effect": "Allow",
+  "Principal": {"Federated": "arn:aws:iam::<account-id>:oidc-provider/token.actions.githubusercontent.com"},
+  "Action": "sts:AssumeRoleWithWebIdentity",
+  "Condition": {"StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+    "token.actions.githubusercontent.com:sub": "<sub-prefix>:ref:refs/heads/main"
+  }}
+}]}
+----
+
+`sub` decides which runs get in.
+`:ref:refs/heads/main` = only runs on `main`.
+Other forms: `:pull_request`, `:environment:<name>`.
+
+Workflow side needs `permissions: id-token: write`.
+
+=== subject format
+
+Get the exact prefix GitHub sends:
+
+----
+$ gh api repos/<owner>/<repo>/actions/oidc/customization/sub --jq .sub_claim_prefix
+----
+
+* plain: `repo:<owner>/<repo>`
+* immutable: `repo:<owner>@<owner-id>/<repo>@<repo-id>`
+
+Immutable includes numeric IDs, so a deleted-and-recreated repo with the same name does not match.
+A trust policy with the wrong form fails with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html[Create an OIDC identity provider]
+* https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/[AWS blog: IAM roles for GitHub Actions]
+* https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect[GitHub: OpenID Connect]
+* https://github.com/aws-actions/configure-aws-credentials[aws-actions/configure-aws-credentials]

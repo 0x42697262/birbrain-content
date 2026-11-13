@@ -200,6 +200,14 @@
 [AsciiDoc]
 * xref:asciidoc.adoc[]
 
+[AWS]
+* xref:aws.adoc[]
+** xref:aws-iam.adoc[]
+** xref:aws-ecs.adoc[]
+** xref:aws-ecr.adoc[]
+** xref:aws-ssm-parameter-store.adoc[]
+** xref:aws-cloudwatch-logs.adoc[]
+
 [Cryptography]
 * Cryptography
 ** xref:advanced-encryption-standard.adoc[]
