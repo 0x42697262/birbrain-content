@@ -1,0 +1,556 @@
+= 2026年11月13日
+
+== deploying a container to ecs fargate through github actions
+
+One Fargate task runs two containers: the app and `cloudflared`.
+Cloudflare serves HTTPS and WebSockets through the tunnel, so there is no load balancer.
+GitHub Actions builds the image, pushes it to ECR and redeploys the service on every push to `main`.
+
+----
+push to main
+  -> GitHub Actions (arm64 runner)
+       -> OIDC sign-in to AWS (no stored keys)
+       -> build image, push to ECR
+       -> new task definition revision, update service
+  -> ECS service (1 Fargate task)
+       app          127.0.0.1:8080
+       cloudflared  -> Cloudflare edge -> https://app.example.com
+----
+
+AWS notes: xref:ROOT:aws.adoc[AWS].
+
+Placeholders used below:
+
+[cols="1,2"]
+|===
+| Placeholder | Meaning
+
+| `<account-id>` | 12-digit AWS account ID
+| `<region>` | one region for everything, e.g. `ap-southeast-1`
+| `<app>` | name used for every resource (repo, cluster, service, family, log group)
+| `<owner>/<repo>` | GitHub repository
+| `app.example.com` | public hostname on Cloudflare
+|===
+
+=== tutorial
+
+Run everything in one shell with the region pinned.
+CloudShell otherwise uses whatever region the console has selected.
+
+----
+export AWS_REGION=<region>
+export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+export APP=<app>
+export REPO=<owner>/<repo>
+----
+
+==== 1. create the tunnel
+
+Cloudflare dashboard: menu:Networking[Tunnels > Create tunnel], type `cloudflared`, name `<app>`.
+
+Copy the token.
+The Docker install tab shows it as `... tunnel run --token eyJ...`.
+Only the `eyJ...` part is the token.
+
+Ignore the "install connector" instructions.
+The `cloudflared` container in the task is the connector.
+
+==== 2. add the route
+
+Tunnel page: btn:[Add route] > *Published application*.
+
+[cols="1,2"]
+|===
+| Field | Value
+
+| Subdomain / Domain | `app` / `example.com`
+| Service type | `HTTP`
+| URL | `localhost:8080`
+|===
+
+Delete any existing DNS record for that hostname first.
+The route creates its own `CNAME` to `<tunnel-id>.cfargotunnel.com`.
+
+==== 3. store the secrets
+
+----
+aws ssm put-parameter --name /$APP/tunnel-token --type SecureString --value 'eyJ...'
+aws ssm put-parameter --name /$APP/monitor-token --type SecureString --value "$(openssl rand -hex 24)"
+----
+
+Check the stored value without printing it:
+
+----
+aws ssm get-parameter --name /$APP/tunnel-token --with-decryption --query 'length(Parameter.Value)'
+----
+
+A real tunnel token is ~180 characters.
+
+==== 4. create the repository
+
+----
+aws ecr create-repository --repository-name $APP --image-scanning-configuration scanOnPush=true
+aws ecr put-lifecycle-policy --repository-name $APP --lifecycle-policy-text '{"rules":[{"rulePriority":1,"selection":{"tagStatus":"any","countType":"imageCountMoreThan","countNumber":10},"action":{"type":"expire"}}]}'
+----
+
+==== 5. create the cluster
+
+----
+aws ecs create-cluster --cluster-name $APP --capacity-providers FARGATE --settings name=containerInsights,value=disabled
+----
+
+==== 6. create the log group
+
+----
+aws logs create-log-group --log-group-name /ecs/$APP
+aws logs put-retention-policy --log-group-name /ecs/$APP --retention-in-days 14
+----
+
+==== 7. create the execution role
+
+----
+aws iam create-role --role-name $APP-ecs-execution --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"ecs-tasks.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+aws iam attach-role-policy --role-name $APP-ecs-execution --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+aws iam put-role-policy --role-name $APP-ecs-execution --policy-name secrets --policy-document "{ \"Version\": \"2012-10-17\", "Statement\": [{\"Effect\": \"Allow\", \"Action\": \"ssm:GetParameters\", \"Resource\": \"arn:aws:ssm:${AWS_REGION}:${ACCOUNT_ID}:parameter/${APP}/*\"}] }"
+----
+
+==== 8. create the oidc provider
+
+Once per account.
+Skip if `aws iam list-open-id-connect-providers` already lists `token.actions.githubusercontent.com`.
+
+----
+aws iam create-open-id-connect-provider --url https://token.actions.githubusercontent.com \
+  --client-id-list sts.amazonaws.com
+----
+
+==== 9. create the deploy role
+
+Get the subject prefix GitHub actually sends:
+
+----
+SUB_PREFIX=$(gh api repos/$REPO/actions/oidc/customization/sub --jq .sub_claim_prefix)
+echo $SUB_PREFIX
+# repo:<owner>@<owner-id>/<repo>@<repo-id>   (immutable subject)
+# repo:<owner>/<repo>                        (plain subject)
+----
+
+----
+aws iam create-role --role-name $APP-github-deploy --assume-role-policy-document "{
+  \"Version\": \"2012-10-17\",
+  \"Statement\": [{
+    \"Effect\": \"Allow\",
+    \"Principal\": {\"Federated\": \"arn:aws:iam::${ACCOUNT_ID}:oidc-provider/token.actions.githubusercontent.com\"},
+    \"Action\": \"sts:AssumeRoleWithWebIdentity\",
+    \"Condition\": {\"StringEquals\": {
+      \"token.actions.githubusercontent.com:aud\": \"sts.amazonaws.com\",
+      \"token.actions.githubusercontent.com:sub\": \"${SUB_PREFIX}:ref:refs/heads/main\"
+    }}
+  }]
+}"
+aws iam put-role-policy --role-name $APP-github-deploy --policy-name deploy --policy-document "{
+  \"Version\": \"2012-10-17\",
+  \"Statement\": [
+    {\"Effect\": \"Allow\", \"Action\": \"ecr:GetAuthorizationToken\", \"Resource\": \"*\"},
+    {\"Effect\": \"Allow\", \"Action\": [\"ecr:BatchCheckLayerAvailability\", \"ecr:BatchGetImage\",
+       \"ecr:CompleteLayerUpload\", \"ecr:InitiateLayerUpload\", \"ecr:PutImage\", \"ecr:UploadLayerPart\"],
+     \"Resource\": \"arn:aws:ecr:${AWS_REGION}:${ACCOUNT_ID}:repository/${APP}\"},
+    {\"Effect\": \"Allow\", \"Action\": [\"ecs:DescribeTaskDefinition\", \"ecs:RegisterTaskDefinition\",
+       \"ecs:DescribeServices\", \"ecs:UpdateService\"], \"Resource\": \"*\"},
+    {\"Effect\": \"Allow\", \"Action\": \"iam:PassRole\",
+     \"Resource\": \"arn:aws:iam::${ACCOUNT_ID}:role/${APP}-ecs-execution\"}
+  ]
+}"
+----
+
+==== 10. register the task definition
+
+Template in the repo, `deploy/ecs/task-definition.json`:
+
+[source,json]
+----
+{
+  "family": "<app>",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "runtimePlatform": { "cpuArchitecture": "ARM64", "operatingSystemFamily": "LINUX" },
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::${ACCOUNT_ID}:role/<app>-ecs-execution",
+  "containerDefinitions": [
+    {
+      "name": "<app>",
+      "image": "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/<app>:bootstrap",
+      "essential": true,
+      "portMappings": [{ "containerPort": 8080, "protocol": "tcp" }],
+      "environment": [
+        { "name": "HOST", "value": "127.0.0.1" },
+        { "name": "PORT", "value": "8080" }
+      ],
+      "secrets": [
+        { "name": "MONITOR_TOKEN",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${ACCOUNT_ID}:parameter/<app>/monitor-token" }
+      ],
+      "healthCheck": {
+        "command": ["CMD", "node", "-e",
+          "fetch('http://127.0.0.1:8080/').then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))"],
+        "interval": 15, "timeout": 5, "retries": 3, "startPeriod": 10
+      },
+      "logConfiguration": { "logDriver": "awslogs", "options": {
+        "awslogs-group": "/ecs/<app>", "awslogs-region": "${AWS_REGION}", "awslogs-stream-prefix": "app" } }
+    },
+    {
+      "name": "cloudflared",
+      "image": "cloudflare/cloudflared:latest",
+      "essential": true,
+      "command": ["tunnel", "--no-autoupdate", "run"],
+      "secrets": [
+        { "name": "TUNNEL_TOKEN",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${ACCOUNT_ID}:parameter/<app>/tunnel-token" }
+      ],
+      "dependsOn": [{ "containerName": "<app>", "condition": "HEALTHY" }],
+      "logConfiguration": { "logDriver": "awslogs", "options": {
+        "awslogs-group": "/ecs/<app>", "awslogs-region": "${AWS_REGION}", "awslogs-stream-prefix": "tunnel" } }
+    }
+  ]
+}
+----
+
+Fill it in with `sed`.
+CloudShell has no `envsubst`.
+
+----
+sed -e "s/\${ACCOUNT_ID}/$ACCOUNT_ID/g" -e "s/\${AWS_REGION}/$AWS_REGION/g" \
+  deploy/ecs/task-definition.json > /tmp/td.json
+grep -E 'executionRoleArn|awslogs-region' /tmp/td.json
+aws ecs register-task-definition --cli-input-json file:///tmp/td.json
+rm /tmp/td.json
+----
+
+The `:bootstrap` tag does not exist.
+Fine, nothing runs it: the service starts at count 0 and the first deploy swaps the image.
+
+==== 11. create the security group
+
+No inbound rules.
+The tunnel connects outward.
+
+----
+VPC=$(aws ec2 describe-vpcs --filters Name=is-default,Values=true --query 'Vpcs[0].VpcId' --output text)
+SUBNETS=$(aws ec2 describe-subnets --filters Name=vpc-id,Values=$VPC --query 'Subnets[].SubnetId' --output text | tr '\t' ',')
+SG=$(aws ec2 create-security-group --group-name $APP-task --description "$APP task, outbound only" \
+  --vpc-id $VPC --query GroupId --output text)
+----
+
+==== 12. create the service
+
+----
+aws ecs create-service --cluster $APP --service-name $APP \
+  --task-definition $APP --desired-count 0 --launch-type FARGATE \
+  --deployment-configuration 'minimumHealthyPercent=0,maximumPercent=100,deploymentCircuitBreaker={enable=true,rollback=true}' \
+  --network-configuration "awsvpcConfiguration={subnets=[$SUBNETS],securityGroups=[$SG],assignPublicIp=ENABLED}"
+----
+
+==== 13. add the workflow
+
+`.github/workflows/ecs.yml`:
+
+[source,yaml]
+----
+name: ecs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: ecs-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.AWS_ROLE_ARN != ''
+    runs-on: ubuntu-24.04-arm
+    env:
+      CONTAINER_NAME: <app>
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+          mask-aws-account-id: true
+
+      - id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - uses: docker/setup-buildx-action@v3
+
+      - id: image
+        run: echo "ref=${{ steps.ecr.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ github.sha }}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/arm64
+          push: true
+          tags: ${{ steps.image.outputs.ref }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - run: >
+          aws ecs describe-task-definition
+          --task-definition "${{ vars.ECS_TASK_FAMILY }}"
+          --query taskDefinition
+          > task-definition.json
+
+      - id: render
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ steps.image.outputs.ref }}
+
+      - uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.render.outputs.task-definition }}
+          cluster: ${{ vars.ECS_CLUSTER }}
+          service: ${{ vars.ECS_SERVICE }}
+          wait-for-service-stability: true
+----
+
+Push it any time.
+The job is skipped until `AWS_ROLE_ARN` exists.
+
+==== 14. set the variables
+
+Last, after AWS is ready.
+Setting `AWS_ROLE_ARN` arms the workflow.
+
+GitHub: menu:Settings[Secrets and variables > Actions > Variables].
+*Variables*, not Secrets: the workflow reads `vars.*`.
+
+----
+gh variable set AWS_ROLE_ARN    -R $REPO -b arn:aws:iam::$ACCOUNT_ID:role/$APP-github-deploy
+gh variable set AWS_REGION      -R $REPO -b $AWS_REGION
+for v in ECR_REPOSITORY ECS_CLUSTER ECS_SERVICE ECS_TASK_FAMILY; do gh variable set $v -R $REPO -b $APP; done
+----
+
+==== 15. run the workflow
+
+----
+gh workflow run ecs -R $REPO --ref main
+gh run watch -R $REPO
+----
+
+==== 16. start the task
+
+----
+aws ecs update-service --cluster $APP --service $APP --desired-count 1
+----
+
+Billing starts here.
+
+==== 17. verify the deployment
+
+----
+aws ecs describe-services --cluster $APP --services $APP \
+  --query 'services[0].[runningCount,deployments[0].rolloutState]'
+aws logs tail /ecs/$APP --follow
+----
+
+----
+curl -sS -o /dev/null -w '%{http_code}\n' https://app.example.com/
+curl -sS -o /dev/null -w '%{http_code}\n' --http1.1 --max-time 5 \
+  -H 'Connection: Upgrade' -H 'Upgrade: websocket' -H 'Sec-WebSocket-Version: 13' \
+  -H 'Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==' https://app.example.com/ws
+----
+
+`200` for the page.
+`101` for the WebSocket, then a curl timeout because the connection stays open.
+Cloudflare tunnel page shows 1 replica, Healthy.
+
+Stop without deleting anything: `--desired-count 0`.
+
+=== how we got here
+
+. The app ran on a small EC2 box (~2 GiB RAM) and was built there by `nixos-rebuild`.
+  The npm build peaked at ~1.4 GiB and needed swap and `--max-jobs 1` to survive.
+. Considered a binary cache (Cachix or S3) so the box downloads instead of builds.
+  Dropped: another service to set up for one package.
+. Considered GitHub Releases with a prebuilt tarball.
+  Dropped: hash bump on every release.
+. Moved `tsc --noEmit` out of the package build.
+  It emits nothing, CI already runs it, and it was the memory peak.
+. Wanted the app off the box entirely, so: a container on ECS.
+  The repo already had a working `Dockerfile`.
+. Fargate gives no stable IP and no TLS.
+  An ALB would fix both but costs more than the task.
+. The domain was already on Cloudflare, so a `cloudflared` sidecar replaced the ALB.
+
+=== why like that
+
+[cols="1,3"]
+|===
+| Choice | Why
+
+| Fargate, not ECS on EC2
+| No instance to patch or size. One small task is cheap.
+
+| ARM64, 0.25 vCPU / 0.5 GB
+| Graviton is cheaper per vCPU. The app is a small Node server.
+The image is built on a native arm64 runner, so no QEMU.
+
+| `cloudflared` sidecar, not an ALB
+| Tunnel connects outward: no inbound ports, no stable IP needed, TLS and WebSockets handled by Cloudflare. Free.
+ALB is ~$20+/month on its own.
+
+| app on `127.0.0.1`
+| Containers in an `awsvpc` task share one network namespace.
+`cloudflared` reaches `localhost:8080`; nothing else can.
+
+| `dependsOn: HEALTHY`
+| Tunnel only comes up once the app answers, so Cloudflare never routes to a dead backend.
+
+| exactly 1 task, `minimumHealthyPercent=0`, `maximumPercent=100`
+| Lobbies live in memory. Two tasks = two separate lobby sets, and Cloudflare balances between connectors at random.
+The old task stops before the new one starts. Cost: ~1 minute of downtime per deploy.
+
+| circuit breaker with rollback
+| A broken image rolls back on its own instead of retrying forever.
+
+| public subnet + `assignPublicIp=ENABLED`
+| Task must reach ECR, SSM, CloudWatch and Cloudflare.
+A NAT gateway would cost more than everything else combined.
+
+| secrets in SSM Parameter Store (`SecureString`)
+| Not in the image, not in the repo, not in the task definition.
+The execution role reads them at task start. Standard parameters are free.
+
+| OIDC, not access keys
+| GitHub gets short-lived credentials per run. Nothing to leak or rotate.
+
+| trust policy pinned to `main` and the immutable subject
+| A fork, a PR, another branch, or a re-created repo with the same name cannot assume the role.
+
+| `mask-aws-account-id: true`
+| Public repo = public Actions logs. The account ID shows up in the role ARN, registry and image ref.
+
+| log group created up front with 14-day retention
+| The app logs client IPs (personal data). Auto-created groups never expire.
+
+| ECR lifecycle: keep 10
+| Every push adds an image. Bounded storage, still enough to roll back.
+
+| one region for everything
+| A task reads its image, secrets and logs only from its own region.
+
+| task definition fetched from AWS in the workflow
+| Account-specific ARNs stay out of the repo. The workflow only swaps the image.
+CPU, memory, env and secrets are changed by registering a revision by hand; the next deploy carries it forward.
+
+| GitHub variables set last
+| `AWS_ROLE_ARN` arms the workflow. Set too early, the next push deploys into nothing and fails.
+|===
+
+=== where things live
+
+[cols="1,3"]
+|===
+| Place | What
+
+| GitHub repo
+| `Dockerfile`, `.github/workflows/ecs.yml`, `deploy/ecs/task-definition.json`
+
+| GitHub repo settings
+| the 6 Actions variables
+
+| Cloudflare
+| tunnel, token, published route, the `CNAME`
+
+| AWS IAM (global)
+| OIDC provider, execution role, deploy role
+
+| AWS `<region>`
+| SSM parameters, ECR repo, ECS cluster/service/task definitions, log group, security group
+|===
+
+=== what went wrong
+
+==== `envsubst: command not found`
+
+CloudShell does not ship `envsubst`.
+Use `sed` (step 10).
+
+==== `Provided Tunnel token is not valid.`
+
+`cloudflared` log, site returned Cloudflare `530`.
+The parameter held the literal placeholder text from the docs.
+Store only the `eyJ...` part, then force a new deployment:
+
+----
+aws ecs update-service --cluster $APP --service $APP --force-new-deployment
+----
+
+`cloudflared` is essential, so a bad token restarts the whole task in a loop.
+
+==== parameter written to the wrong region
+
+CloudShell was open in another region and the command had no `--region`.
+The task kept reading the old value.
+
+Find every copy:
+
+----
+for r in $(aws ec2 describe-regions --query 'Regions[].RegionName' --output text); do
+  echo "$r: $(aws ssm describe-parameters --region $r \
+    --parameter-filters Key=Name,Option=BeginsWith,Values=/$APP/ --query 'Parameters[].Name' --output text)"
+done
+----
+
+Fix: `export AWS_REGION=<region>` at the top of every session.
+
+==== `Not authorized to perform sts:AssumeRoleWithWebIdentity`
+
+`configure-aws-credentials` failed on the first run.
+The repo uses GitHub's *immutable* OIDC subject:
+
+----
+expected  repo:<owner>/<repo>:ref:refs/heads/main
+sent      repo:<owner>@<owner-id>/<repo>@<repo-id>:ref:refs/heads/main
+----
+
+Read the real prefix with `gh api repos/$REPO/actions/oidc/customization/sub` and put that in the trust policy (step 9).
+
+==== workflow skipped on push
+
+The ECS commit was pushed before the variables existed, so `if: vars.AWS_ROLE_ARN != ''` skipped it.
+Run it by hand once: `gh workflow run ecs`.
+
+==== deploy step still waiting after ECS finished
+
+`amazon-ecs-deploy-task-definition` lagged behind the service by a few minutes.
+ECS itself is the source of truth:
+
+----
+aws ecs describe-services --cluster $APP --services $APP \
+  --query 'services[0].deployments[0].rolloutState'
+----
+
+=== docs
+
+* https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html[ECS task definition parameters for Fargate]
+* https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html[ECS task execution IAM role]
+* https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html[ECS: pass sensitive data to a container]
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html[IAM: create an OIDC identity provider]
+* https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/[AWS blog: IAM roles for GitHub Actions]
+* https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect[GitHub: OpenID Connect]
+* https://docs.aws.amazon.com/cloudshell/latest/userguide/working-with-aws-cloudshell.html[CloudShell: default region]
+* https://repost.aws/knowledge-center/ecs-unable-to-pull-secrets[re:Post: ECS `ResourceInitializationError` pulling secrets]
+* https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/[Cloudflare Tunnel]
